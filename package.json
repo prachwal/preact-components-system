@@ -1,0 +1,28 @@
+{
+  "name": "preact-components-system",
+  "version": "1.0.0",
+  "description": "A system of reusable Preact components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prachwal/preact-components-system.git"
+  },
+  "author": "prachwal",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "preact": "^10.27.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.12"
+  }
+}
