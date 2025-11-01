@@ -29,3 +29,7 @@ storybook-static
 docs/
 merged-ts-files.txt
 merged-files.txt
+
+# Test and coverage outputs
+junit.xml
+coverage/
