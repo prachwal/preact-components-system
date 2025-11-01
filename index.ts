@@ -20,6 +20,7 @@ export { Card, CardHeader, CardMedia, CardContent, CardActions } from './src/com
 export { Alert, AlertTitle } from './src/components/ui/Alert';
 export { Icon } from './src/components/ui/Icon';
 export type { IconName } from './src/components/ui/Icon';
+export { TextField } from './src/components/ui/TextField';
 
 // Hooks
 export * from './src/hooks';

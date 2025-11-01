@@ -1,0 +1,363 @@
+// Colors for different states
+$primary-color: #1976d2;
+$primary-light: rgba(25, 118, 210, 0.2);
+$secondary-color: #9c27b0;
+$secondary-light: rgba(156, 39, 176, 0.2);
+$error-color: #d32f2f;
+$error-light: rgba(211, 47, 47, 0.2);
+$warning-color: #ed6c02;
+$warning-light: rgba(237, 108, 2, 0.2);
+$info-color: #0288d1;
+$info-light: rgba(2, 136, 209, 0.2);
+$success-color: #2e7d32;
+$success-light: rgba(46, 125, 50, 0.2);
+$text-primary: rgba(0, 0, 0, 0.87);
+$text-secondary: rgba(0, 0, 0, 0.6);
+$text-disabled: rgba(0, 0, 0, 0.38);
+$border-color: rgba(0, 0, 0, 0.23);
+$background-paper: #fff;
+$background-default: rgba(0, 0, 0, 0.04);
+
+.textfield {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+  
+  &-full-width {
+    width: 100%;
+  }
+}
+
+.textfield-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-primary;
+  transition: color 0.2s ease;
+  
+  .textfield-required {
+    color: $error-color;
+    margin-left: 0.25rem;
+  }
+  
+  .textfield-disabled & {
+    color: $text-disabled;
+  }
+  
+  .textfield-error & {
+    color: $error-color;
+  }
+  
+  .textfield-success & {
+    color: $success-color;
+  }
+  
+  .textfield-warning & {
+    color: $warning-color;
+  }
+}
+
+.textfield-input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.textfield-input {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+  
+  &::placeholder {
+    color: $text-disabled;
+    opacity: 1;
+  }
+  
+  &:disabled {
+    color: $text-disabled;
+    cursor: not-allowed;
+  }
+  
+  .textfield-readonly & {
+    cursor: default;
+  }
+}
+
+// Variant: Outlined
+.textfield-variant-outlined {
+  .textfield-input-wrapper {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background-color: $background-paper;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .textfield-input {
+    padding: 0.625rem 0.875rem;
+    
+    &-with-start {
+      padding-left: 0;
+    }
+    
+    &-with-end {
+      padding-right: 0;
+    }
+  }
+  
+  &.textfield-size-small .textfield-input {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  &.textfield-size-large .textfield-input {
+    padding: 0.75rem 1rem;
+  }
+  
+  &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
+    .textfield-input-wrapper:hover {
+      border-color: $text-primary;
+    }
+    
+    .textfield-input-wrapper:focus-within {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px $primary-light;
+    }
+  }
+  
+  &.textfield-color-secondary .textfield-input-wrapper:focus-within {
+    border-color: $secondary-color;
+    box-shadow: 0 0 0 2px $secondary-light;
+  }
+  
+  &.textfield-error .textfield-input-wrapper {
+    border-color: $error-color;
+    
+    &:focus-within {
+      box-shadow: 0 0 0 2px $error-light;
+    }
+  }
+  
+  &.textfield-success .textfield-input-wrapper {
+    border-color: $success-color;
+    
+    &:focus-within {
+      box-shadow: 0 0 0 2px $success-light;
+    }
+  }
+  
+  &.textfield-warning .textfield-input-wrapper {
+    border-color: $warning-color;
+    
+    &:focus-within {
+      box-shadow: 0 0 0 2px $warning-light;
+    }
+  }
+  
+  &.textfield-disabled .textfield-input-wrapper {
+    background-color: $background-default;
+    border-color: $border-color;
+    opacity: 0.6;
+  }
+}
+
+// Variant: Filled
+.textfield-variant-filled {
+  .textfield-input-wrapper {
+    border: none;
+    border-bottom: 1px solid $border-color;
+    border-radius: 4px 4px 0 0;
+    background-color: rgba(0, 0, 0, 0.04);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .textfield-input {
+    padding: 1.5rem 0.875rem 0.5rem;
+    
+    &-with-start {
+      padding-left: 0;
+    }
+    
+    &-with-end {
+      padding-right: 0;
+    }
+  }
+  
+  &.textfield-size-small .textfield-input {
+    padding: 1.25rem 0.75rem 0.375rem;
+  }
+  
+  &.textfield-size-large .textfield-input {
+    padding: 1.75rem 1rem 0.625rem;
+  }
+  
+  &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
+    .textfield-input-wrapper:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+      border-bottom-color: $text-primary;
+    }
+    
+    .textfield-input-wrapper:focus-within {
+      background-color: rgba(0, 0, 0, 0.08);
+      border-bottom-color: $primary-color;
+      border-bottom-width: 2px;
+    }
+  }
+  
+  &.textfield-error .textfield-input-wrapper {
+    border-bottom-color: $error-color;
+  }
+  
+  &.textfield-success .textfield-input-wrapper {
+    border-bottom-color: $success-color;
+  }
+  
+  &.textfield-warning .textfield-input-wrapper {
+    border-bottom-color: $warning-color;
+  }
+  
+  &.textfield-disabled .textfield-input-wrapper {
+    background-color: rgba(0, 0, 0, 0.02);
+    opacity: 0.6;
+  }
+}
+
+// Variant: Standard
+.textfield-variant-standard {
+  .textfield-input-wrapper {
+    border: none;
+    border-bottom: 1px solid $border-color;
+    background-color: transparent;
+    transition: border-color 0.2s ease;
+  }
+  
+  .textfield-input {
+    padding: 0.25rem 0;
+    
+    &-with-start {
+      padding-left: 0;
+    }
+    
+    &-with-end {
+      padding-right: 0;
+    }
+  }
+  
+  &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
+    .textfield-input-wrapper:hover {
+      border-bottom-color: $text-primary;
+    }
+    
+    .textfield-input-wrapper:focus-within {
+      border-bottom-color: $primary-color;
+      border-bottom-width: 2px;
+    }
+  }
+  
+  &.textfield-error .textfield-input-wrapper {
+    border-bottom-color: $error-color;
+  }
+  
+  &.textfield-success .textfield-input-wrapper {
+    border-bottom-color: $success-color;
+  }
+  
+  &.textfield-warning .textfield-input-wrapper {
+    border-bottom-color: $warning-color;
+  }
+  
+  &.textfield-disabled .textfield-input-wrapper {
+    border-bottom-style: dotted;
+    opacity: 0.6;
+  }
+}
+
+// Adornments
+.textfield-start-adornment,
+.textfield-end-adornment {
+  display: flex;
+  align-items: center;
+  color: $text-secondary;
+  flex-shrink: 0;
+  
+  .textfield-disabled & {
+    color: $text-disabled;
+  }
+}
+
+.textfield-start-adornment {
+  margin-right: 0.5rem;
+  padding-left: 0.875rem;
+  
+  .textfield-size-small & {
+    padding-left: 0.75rem;
+  }
+  
+  .textfield-size-large & {
+    padding-left: 1rem;
+  }
+  
+  .textfield-variant-standard & {
+    padding-left: 0;
+  }
+  
+  .textfield-variant-filled & {
+    padding-left: 0.875rem;
+  }
+}
+
+.textfield-end-adornment {
+  margin-left: 0.5rem;
+  padding-right: 0.875rem;
+  
+  .textfield-size-small & {
+    padding-right: 0.75rem;
+  }
+  
+  .textfield-size-large & {
+    padding-right: 1rem;
+  }
+  
+  .textfield-variant-standard & {
+    padding-right: 0;
+  }
+  
+  .textfield-variant-filled & {
+    padding-right: 0.875rem;
+  }
+}
+
+// Helper text
+.textfield-helper-text {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: $text-secondary;
+  line-height: 1.4;
+  
+  &-error {
+    color: $error-color;
+  }
+  
+  &-success {
+    color: $success-color;
+  }
+  
+  &-warning {
+    color: $warning-color;
+  }
+}
+
+// Textarea specific styles
+textarea.textfield-input {
+  resize: vertical;
+  min-height: 3rem;
+}
