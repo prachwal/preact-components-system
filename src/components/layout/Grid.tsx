@@ -1,7 +1,6 @@
-import { h } from 'preact';
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
-import type { ResponsiveValue, Breakpoint } from '../../theme/types';
+import type { ResponsiveValue } from '../../theme/types';
 import { useResponsive } from '../../hooks/useResponsive';
 import './Grid.scss';
 
@@ -71,7 +70,7 @@ export interface GridProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -79,7 +78,7 @@ export interface GridProps {
   /**
    * Component to render as
    */
-  component?: keyof h.JSX.IntrinsicElements;
+  component?: keyof JSX.IntrinsicElements;
 }
 
 export const Grid = ({

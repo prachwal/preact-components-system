@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
 import type { ResponsiveValue } from '../../theme/types';
 import { useResponsive } from '../../hooks/useResponsive';
@@ -37,7 +36,7 @@ export interface StackProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -45,7 +44,7 @@ export interface StackProps {
   /**
    * Component to render as
    */
-  component?: keyof h.JSX.IntrinsicElements;
+  component?: keyof JSX.IntrinsicElements;
 }
 
 export const Stack = ({

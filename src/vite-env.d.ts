@@ -1,8 +1,6 @@
 /// <reference types="vite/client" />
 
-/** Injected application version from package.json via vite.config.ts */
-declare global {
-  const __APP_VERSION__: string;
+declare module '*.scss' {
+  const content: Record<string, string>;
+  export default content;
 }
-
-export {};

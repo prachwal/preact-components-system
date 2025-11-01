@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
 import './Container.scss';
 
@@ -25,7 +24,7 @@ export interface ContainerProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -33,7 +32,7 @@ export interface ContainerProps {
   /**
    * Component to render as
    */
-  component?: keyof h.JSX.IntrinsicElements;
+  component?: keyof JSX.IntrinsicElements;
 }
 
 export const Container = ({
