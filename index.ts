@@ -24,6 +24,11 @@ export { TextField } from './src/components/ui/TextField';
 export { Checkbox } from './src/components/ui/Checkbox';
 export { Radio, RadioGroup } from './src/components/ui/Radio';
 export { Switch } from './src/components/ui/Switch';
+export { Tabs, Tab, TabPanel } from './src/components/ui/Tabs';
+export { Menu, MenuItem, MenuDivider } from './src/components/ui/Menu';
+export { Breadcrumb, BreadcrumbItem } from './src/components/ui/Breadcrumb';
+export { Pagination } from './src/components/ui/Pagination';
+export { Stepper, Step, StepLabel, StepContent, StepConnector } from './src/components/ui/Stepper';
 
 // Hooks
 export * from './src/hooks';
