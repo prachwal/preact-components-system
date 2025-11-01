@@ -1,7 +1,7 @@
 import { Fragment } from 'preact';
 import { createContext } from 'preact';
 import { useState, useEffect, useRef, useContext, useLayoutEffect } from 'preact/hooks';
-import './app.css';
+import './app.scss';
 
 type Theme = 'light' | 'dark' | 'system';
 

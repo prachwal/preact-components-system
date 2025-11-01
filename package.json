@@ -4,7 +4,9 @@
   "description": "A system of reusable Preact components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",
+    "sass": "^1.93.3",
     "typescript": "~5.9.3",
     "vite": "^7.1.12"
   }
