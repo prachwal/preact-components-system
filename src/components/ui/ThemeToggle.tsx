@@ -1,10 +1,10 @@
-import { useTheme } from '../../contexts/ThemeContext';
-import type { Theme } from '../../types/theme';
+import { useThemeMode } from '../../contexts/ThemeContext';
+import type { ThemeMode } from '../../types/theme';
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useThemeMode();
 
-  const getNextTheme = (currentTheme: Theme): Theme => {
+  const getNextTheme = (currentTheme: ThemeMode): ThemeMode => {
     switch (currentTheme) {
       case 'light': return 'dark';
       case 'dark': return 'system';
@@ -13,7 +13,7 @@ const ThemeToggle = () => {
     }
   };
 
-  const getThemeIcon = (currentTheme: Theme) => {
+  const getThemeIcon = (currentTheme: ThemeMode) => {
     switch (currentTheme) {
       case 'light': return '☀️';
       case 'dark': return '🌙';
