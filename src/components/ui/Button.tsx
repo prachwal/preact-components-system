@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
 import './Button.scss';
