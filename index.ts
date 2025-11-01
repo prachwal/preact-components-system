@@ -37,6 +37,13 @@ export { CircularProgress, LinearProgress } from './src/components/ui/Progress';
 export { Skeleton } from './src/components/ui/Skeleton';
 export { Snackbar } from './src/components/ui/Snackbar';
 
+// Data Display Components
+export { Divider } from './src/components/ui/Divider';
+export { Avatar } from './src/components/ui/Avatar';
+export { Badge } from './src/components/ui/Badge';
+export { Chip } from './src/components/ui/Chip';
+export { Tooltip } from './src/components/ui/Tooltip';
+
 // Hooks
 export * from './src/hooks';
 

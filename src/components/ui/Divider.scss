@@ -1,0 +1,101 @@
+.divider {
+  border: none;
+  margin: 0;
+  flex-shrink: 0;
+  
+  &-horizontal {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.12);
+    margin: 8px 0;
+    
+    &.divider-fullWidth {
+      width: 100%;
+    }
+    
+    &.divider-inset {
+      margin-left: 72px;
+    }
+    
+    &.divider-middle {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+  }
+  
+  &-vertical {
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.12);
+    margin: 0 8px;
+  }
+  
+  &-bold {
+    height: 2px;
+    
+    &.divider-vertical {
+      width: 2px;
+      height: 100%;
+    }
+  }
+  
+  &-with-text {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    height: auto;
+    
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+  
+  &-text {
+    padding: 0 16px;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+  }
+  
+  &-text-left {
+    &::before {
+      max-width: 40px;
+    }
+  }
+  
+  &-text-right {
+    &::after {
+      max-width: 40px;
+    }
+  }
+  
+  &-text-center {
+    &::before,
+    &::after {
+      flex: 1;
+    }
+  }
+}
+
+// Dark theme
+[data-theme="dark"] {
+  .divider-horizontal,
+  .divider-vertical {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  
+  .divider-with-text {
+    &::before,
+    &::after {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+  
+  .divider-text {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

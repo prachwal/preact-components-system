@@ -1,0 +1,108 @@
+.tooltip-trigger {
+  display: inline-flex;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 1500;
+  pointer-events: none;
+  animation: tooltip-enter 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &-content {
+    background-color: rgba(97, 97, 97, 0.92);
+    color: #fff;
+    font-size: 0.625rem;
+    max-width: 300px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    word-wrap: break-word;
+    font-weight: 500;
+    line-height: 1.4em;
+  }
+  
+  &-arrow-element {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(97, 97, 97, 0.92);
+    transform: rotate(45deg);
+  }
+  
+  // Arrow positions for top placements
+  &-placement-top .tooltip-arrow-element,
+  &-placement-top-start .tooltip-arrow-element,
+  &-placement-top-end .tooltip-arrow-element {
+    bottom: -5px;
+    left: calc(50% - 5px);
+  }
+  
+  // Arrow positions for bottom placements
+  &-placement-bottom .tooltip-arrow-element,
+  &-placement-bottom-start .tooltip-arrow-element,
+  &-placement-bottom-end .tooltip-arrow-element {
+    top: -5px;
+    left: calc(50% - 5px);
+  }
+  
+  // Arrow positions for left placements
+  &-placement-left .tooltip-arrow-element,
+  &-placement-left-start .tooltip-arrow-element,
+  &-placement-left-end .tooltip-arrow-element {
+    right: -5px;
+    top: calc(50% - 5px);
+  }
+  
+  // Arrow positions for right placements
+  &-placement-right .tooltip-arrow-element,
+  &-placement-right-start .tooltip-arrow-element,
+  &-placement-right-end .tooltip-arrow-element {
+    left: -5px;
+    top: calc(50% - 5px);
+  }
+  
+  // Adjust arrow for start/end positions
+  &-placement-top-start .tooltip-arrow-element,
+  &-placement-bottom-start .tooltip-arrow-element {
+    left: 12px;
+  }
+  
+  &-placement-top-end .tooltip-arrow-element,
+  &-placement-bottom-end .tooltip-arrow-element {
+    left: auto;
+    right: 12px;
+  }
+  
+  &-placement-left-start .tooltip-arrow-element,
+  &-placement-right-start .tooltip-arrow-element {
+    top: 12px;
+  }
+  
+  &-placement-left-end .tooltip-arrow-element,
+  &-placement-right-end .tooltip-arrow-element {
+    top: auto;
+    bottom: 12px;
+  }
+}
+
+@keyframes tooltip-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Dark theme
+[data-theme="dark"] {
+  .tooltip-content {
+    background-color: rgba(230, 230, 230, 0.95);
+    color: #000;
+  }
+  
+  .tooltip-arrow-element {
+    background-color: rgba(230, 230, 230, 0.95);
+  }
+}
