@@ -27,3 +27,4 @@ src/app-compiled.css
 *storybook.log
 storybook-static
 docs/
+merged-ts-files.txt

@@ -1,7 +1,9 @@
-import { Fragment } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useAppVersion } from '../../hooks/useAppVersion';
 import Logo from '../common/Logo';
+
+const MOBILE_BREAKPOINT = 768;
+const TABLET_BREAKPOINT = 1024;
 
 const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -11,7 +13,7 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
 
   useEffect(() => {
     const checkWidth = () => {
-      setIsCollapsed(window.innerWidth >= 768 && window.innerWidth < 1024);
+      setIsCollapsed(window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < TABLET_BREAKPOINT);
     };
 
     checkWidth();
@@ -67,7 +69,7 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
   }, [isOpen, onClose]);
 
   return (
-    <Fragment>
+    <>
       <div
         className={`sidebar-backdrop ${isOpen ? 'is-open' : ''}`}
         onClick={onClose}
@@ -84,26 +86,26 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
         <nav>
           <ul>
             <li className={activeSection === 'home' ? 'is-active' : ''}>
-              <a href="#home" title={isCollapsed ? "Home" : undefined}>
-                <span style="margin-right: 8px;">🏠</span>
+              <a href="#home" title={isCollapsed ? "Home" : undefined} aria-label="Home">
+                <span aria-hidden="true" style={{ marginRight: '8px' }}>🏠</span>
                 {!isCollapsed && "Home"}
               </a>
             </li>
             <li className={activeSection === 'features' ? 'is-active' : ''}>
-              <a href="#features" title={isCollapsed ? "Features" : undefined}>
-                <span style="margin-right: 8px;">⭐</span>
+              <a href="#features" title={isCollapsed ? "Features" : undefined} aria-label="Features">
+                <span aria-hidden="true" style={{ marginRight: '8px' }}>⭐</span>
                 {!isCollapsed && "Features"}
               </a>
             </li>
             <li className={activeSection === 'about' ? 'is-active' : ''}>
-              <a href="#about" title={isCollapsed ? "About" : undefined}>
-                <span style="margin-right: 8px;">ℹ️</span>
+              <a href="#about" title={isCollapsed ? "About" : undefined} aria-label="About">
+                <span aria-hidden="true" style={{ marginRight: '8px' }}>ℹ️</span>
                 {!isCollapsed && "About"}
               </a>
             </li>
             <li className={activeSection === 'contact' ? 'is-active' : ''}>
-              <a href="#contact" title={isCollapsed ? "Contact" : undefined}>
-                <span style="margin-right: 8px;">📧</span>
+              <a href="#contact" title={isCollapsed ? "Contact" : undefined} aria-label="Contact">
+                <span aria-hidden="true" style={{ marginRight: '8px' }}>📧</span>
                 {!isCollapsed && "Contact"}
               </a>
             </li>
@@ -114,7 +116,7 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
           <p>Version {appVersion}</p>
         </footer>
       </aside>
-    </Fragment>
+    </>
   );
 };
 

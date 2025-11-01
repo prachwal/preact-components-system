@@ -20,7 +20,7 @@ interface ContentSectionProps {
   /** Number of columns in the grid layout (1-6). Defaults to 4. */
   columns?: 1 | 2 | 3 | 4 | 5 | 6;
   /** Custom class name for the grid container. If not provided, uses grid-cols-{columns}. */
-  stylename?: string;
+  gridClassName?: string;
   /** has div container for children */
   hasChildrenContainer?: boolean;
 }
@@ -52,7 +52,7 @@ interface ContentSectionProps {
  * @example
  * ```tsx
  * // Custom grid class
- * <ContentSection stylename="my-custom-grid">
+ * <ContentSection gridClassName="my-custom-grid">
  *   <div>Item 1</div>
  *   <div>Item 2</div>
  * </ContentSection>
@@ -66,11 +66,11 @@ const ContentSection = ({
   className,
   as: Wrapper = "article",
   columns = 4,
-  stylename,
+  gridClassName,
   hasChildrenContainer = false,
 }: ContentSectionProps) => {
   const wrapperClass = `content-section ${className || ""}`.trim();
-  const gridClass = stylename || `grid-cols-${columns}`;
+  const gridClass = gridClassName || `grid-cols-${columns}`;
 
   return (
     <Wrapper className={wrapperClass}>

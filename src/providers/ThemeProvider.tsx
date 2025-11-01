@@ -1,63 +1,67 @@
-import { useState, useEffect, useLayoutEffect } from 'preact/hooks';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'preact/hooks';
 import { ThemeContext } from '../contexts/ThemeContext';
 import type { Theme } from '../types/theme';
 
+const THEME_STORAGE_KEY = 'app:theme';
+
+const isValidTheme = (value: string): value is Theme =>
+  ['light', 'dark', 'system'].includes(value);
+
+const getStoredTheme = (): Theme => {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  return (savedTheme && isValidTheme(savedTheme)) ? savedTheme : 'system';
+};
+
 export const ThemeProvider = ({ children }: { children: preact.ComponentChildren }) => {
-  const [theme, setTheme] = useState<Theme>('system');
+  const [theme, setTheme] = useState<Theme>(getStoredTheme);
+  const htmlRef = useRef(document.documentElement);
 
-  useLayoutEffect(() => {
-    const savedTheme = localStorage.getItem('app:theme') as Theme | null;
-    const initialTheme = savedTheme || 'system';
-    setTheme(initialTheme);
+  const applyTheme = useCallback((currentTheme: Theme) => {
+    const html = htmlRef.current;
+    html.setAttribute('data-theme', currentTheme);
 
-    const htmlElement = document.documentElement;
-    htmlElement.setAttribute('data-theme', initialTheme);
-
-    if (initialTheme === 'dark' || (initialTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      htmlElement.classList.add('is-dark');
-    } else {
-      htmlElement.classList.remove('is-dark');
+    let shouldBeDark = currentTheme === 'dark';
+    
+    if (currentTheme === 'system' && window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      shouldBeDark = mediaQuery.matches;
     }
-
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      if (theme === 'system') {
-        if (e.matches) {
-          htmlElement.classList.add('is-dark');
-        } else {
-          htmlElement.classList.remove('is-dark');
-        }
-      }
-    };
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleSystemThemeChange);
-    };
+    
+    html.classList.toggle('is-dark', shouldBeDark);
   }, []);
 
-  useEffect(() => {
-    const htmlElement = document.documentElement;
-    htmlElement.setAttribute('data-theme', theme);
+  const handleSystemThemeChange = useCallback((e: MediaQueryListEvent) => {
+    setTheme(current => {
+      if (current === 'system') {
+        htmlRef.current.classList.toggle('is-dark', e.matches);
+      }
+      return current;
+    });
+  }, []);
 
-    if (theme === 'system') {
-      localStorage.removeItem('app:theme');
+  // Initialize theme
+  useLayoutEffect(() => {
+    applyTheme(theme);
+
+    if (window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      if (mediaQuery.matches) {
-        htmlElement.classList.add('is-dark');
-      } else {
-        htmlElement.classList.remove('is-dark');
-      }
-    } else {
-      localStorage.setItem('app:theme', theme);
-      if (theme === 'dark') {
-        htmlElement.classList.add('is-dark');
-      } else {
-        htmlElement.classList.remove('is-dark');
-      }
+      mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+      return () => {
+        mediaQuery.removeEventListener('change', handleSystemThemeChange);
+      };
     }
-  }, [theme]);
+  }, [theme, applyTheme, handleSystemThemeChange]);
+
+  // Update storage when theme changes
+  useEffect(() => {
+    if (theme === 'system') {
+      localStorage.removeItem(THEME_STORAGE_KEY);
+    } else {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
+    applyTheme(theme);
+  }, [theme, applyTheme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

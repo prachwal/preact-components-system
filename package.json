@@ -24,8 +24,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build:storybook": "storybook build"
-  },
+    "build:storybook": "storybook build",
+    "merge-ts": "node scripts/merge-files.js"
+    },
   "dependencies": {
     "preact": "^10.27.2"
   },
