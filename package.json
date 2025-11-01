@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
+    "build:analyze": "ANALYZE=true npm run build",
     "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
     "type-check": "tsc --noEmit",
     "test": "vitest",
@@ -32,9 +33,9 @@
     "merge-ts": "node scripts/merge-files.js"
   },
   "dependencies": {
-    "preact": "^10.27.2",
     "clsx": "^2.1.1",
-    "lucide-preact": "^0.552.0"
+    "lucide-preact": "^0.552.0",
+    "preact": "^10.27.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.2",
@@ -48,6 +49,7 @@
     "@vitest/ui": "^4.0.6",
     "jest-axe": "^10.0.0",
     "jsdom": "^27.1.0",
+    "rollup-plugin-visualizer": "^6.0.5",
     "sass": "^1.93.3",
     "storybook": "^10.0.2",
     "typedoc": "^0.28.14",
