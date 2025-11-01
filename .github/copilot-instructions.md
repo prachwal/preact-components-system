@@ -7,6 +7,7 @@ This is a Preact component library built with Vite and TypeScript. The codebase 
 - **State Management**: Theme context with provider pattern in `src/contexts/` and `src/providers/`
 - **Types**: Centralized type definitions in `src/types/`
 - **Hooks**: Custom hooks in `src/hooks/`
+- **Theme System**: Custom implementation supporting 'light', 'dark', 'system' modes with CSS variables
 
 ## Build & Development
 - **Build**: `npm run build` (runs TypeScript declarations, CSS compilation, then Vite library build)
@@ -80,3 +81,41 @@ App version injected via Vite's `define` from `package.json` as `__APP_VERSION__
 - Runtime constants with fallback values for build compatibility
 - Responsive breakpoints defined as named constants
 - Hash-based navigation with automatic active section detection
+
+## Testing Patterns
+- **Framework**: Vitest with jsdom environment
+- **Utilities**: @testing-library/preact with jest-dom matchers
+- **Setup**: Global test setup in `src/test/setup.ts` with cleanup after each test
+- **Coverage**: V8 provider with HTML, JSON, and cobertura reporters
+- **Test Files**: Component tests check class application, props handling, and DOM structure
+- **Accessibility**: jest-axe integration for a11y testing
+
+## Integration Points
+- **External Dependencies**: `preact`, `preact/hooks`, `lucide-preact`, `clsx` (externals in build)
+- **Build Tools**: Vite with @preact/preset-vite, rollup-plugin-visualizer for bundle analysis
+- **Documentation**: Storybook with @storybook/preact-vite, TypeDoc for API docs
+- **Deployment**: GitHub Pages integration with configurable base URLs via environment variables
+
+## Critical Workflows & Conventions
+- **Build Sequence**: `npm run build` runs TypeScript lib compilation first, then CSS compilation, then Vite library build
+- **TypeScript Project References**: Separate configs for app (noEmit), lib (emitDeclarationOnly), and node tooling
+- **React Compatibility**: Path mapping `"react": ["./node_modules/preact/compat/"]` for React ecosystem compatibility
+- **Build-time Injection**: Runtime constants injected via Vite's `define` from package.json and environment variables
+- **Theme Persistence**: localStorage key `'app:theme'` with validation and system preference detection
+- **Bundle Optimization**: 96% size reduction achieved through tree-shaking, externals, and minification
+- **Component Architecture**: Library-first design with dual ES+UMD outputs and tree-shakeable exports
+
+## ABSOLUTE DIRECTIVE: Build Requirements
+**MANDATORY BEFORE ANY PULL REQUEST**
+
+When working as an AI agent, you MUST execute these build commands in sequence before creating or updating any pull request:
+
+1. **Application Build**: `npm run build` - Validates TypeScript compilation and library generation
+2. **Documentation Build**: `npm run docs` - Generates TypeDoc API documentation  
+3. **Storybook Build**: `npm run build:storybook` - Builds static Storybook site for component documentation
+
+**Failure to complete all three builds successfully will prevent pull request creation.** This ensures:
+- Code compiles without TypeScript errors
+- Documentation is up-to-date with latest changes
+- Component stories are properly built and accessible
+- All integration points remain functional
