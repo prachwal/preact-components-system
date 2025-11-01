@@ -22,8 +22,6 @@ export function useBreakpoint(
 ): Breakpoint | boolean {
   const theme = useTheme();
 
-  const keys: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
-
   // Get current breakpoint
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
   const isSm = useMediaQuery(theme.breakpoints.only('sm'));
