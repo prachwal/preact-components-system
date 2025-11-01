@@ -5,6 +5,8 @@ const Main = () => (
     <ContentSection
       title="Welcome to our application"
       desc="This is the main content area of the application."
+      columns={4}
+      hasChildrenContainer={true}
     >
       <ContentSection
         title="Feature One"

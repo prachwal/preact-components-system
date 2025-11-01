@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
-    "build:css": "sass src/index.scss dist/index.css --style=compressed",
+    "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
     "type-check": "tsc --noEmit",
     "docs": "typedoc",
     "preview": "vite preview",

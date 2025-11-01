@@ -69,17 +69,20 @@ const ContentSection = ({
   gridClassName,
   hasChildrenContainer = false,
 }: ContentSectionProps) => {
+  // Validate columns prop
+  const validColumns = Math.max(1, Math.min(6, columns));
+
   const wrapperClass = `content-section ${className || ""}`.trim();
-  const gridClass = gridClassName || `grid-cols-${columns}`;
+  const gridClass = gridClassName || `grid-cols-${validColumns}`;
 
   return (
     <Wrapper className={wrapperClass}>
       {title && <Heading level={level}>{title}</Heading>}
       {desc && <p>{desc}</p>}
       {hasChildrenContainer ? (
-        children
-      ) : (
         <div className={gridClass}>{children}</div>
+      ) : (
+        children
       )}
     </Wrapper>
   );

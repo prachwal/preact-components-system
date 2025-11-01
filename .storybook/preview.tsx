@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/preact-vite';
 import { ThemeProvider } from '../src/providers/ThemeProvider';
-import '../src/index.scss';
+import '../src/styles/index.scss';
 
 const preview: Preview = {
   parameters: {

@@ -21,7 +21,7 @@ const meta: Meta<typeof ContentSection> = {
       control: { type: 'select', options: [1, 2, 3, 4, 5, 6] },
       description: 'Number of grid columns',
     },
-    stylename: {
+    gridClassName: {
       control: 'text',
       description: 'Custom CSS class for grid',
     },
@@ -52,6 +52,7 @@ export const Default: Story = {
     title: 'Our Features',
     desc: 'Explore what we offer',
     columns: 4,
+    hasChildrenContainer: true,
     children: (
       <>
         <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
@@ -74,6 +75,7 @@ export const Default: Story = {
 export const WithoutTitle: Story = {
   args: {
     columns: 3,
+    hasChildrenContainer: true,
     children: (
       <>
         <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
@@ -95,6 +97,7 @@ export const SingleColumn: Story = {
     title: 'Single Column Layout',
     desc: 'Perfect for testimonials or single items',
     columns: 1,
+    hasChildrenContainer: true,
     children: (
       <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px', textAlign: 'center' }}>
         Single centered item
@@ -107,7 +110,7 @@ export const CustomGridClass: Story = {
   args: {
     title: 'Custom Grid',
     desc: 'Using custom CSS class',
-    stylename: 'grid-cols-2',
+    gridClassName: 'grid-cols-2',
     children: (
       <>
         <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
