@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
+    "build:app": "vite build --config vite.config.app.ts",
     "build:analyze": "ANALYZE=true npm run build",
     "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
     "type-check": "tsc --noEmit",
