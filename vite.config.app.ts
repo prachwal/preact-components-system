@@ -14,7 +14,11 @@ export default defineConfig({
     __STORYBOOK_URL__: JSON.stringify(`${DEPLOYMENT_BASE_URL}/storybook/`),
     __DOCS_URL__: JSON.stringify(`${DEPLOYMENT_BASE_URL}/docs/`),
     __COVERAGE_URL__: JSON.stringify(`${DEPLOYMENT_BASE_URL}/coverage/`),
-    __REPOSITORY_URL__: JSON.stringify(packageJson.repository?.url?.replace('.git', '') || 'https://github.com/prachwal/preact-components-system'),
+    __REPOSITORY_URL__: JSON.stringify(
+      packageJson.repository?.url?.endsWith('.git')
+        ? packageJson.repository.url.replace(/\.git$/, '')
+        : packageJson.repository?.url || 'https://github.com/prachwal/preact-components-system'
+    ),
   },
   build: {
     outDir: 'dist-app',

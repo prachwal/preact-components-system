@@ -286,7 +286,9 @@ jobs:
       - name: Prepare deployment
         run: |
           mkdir -p public
-          cp -r dist-app/* public/
+          # Copy web app contents (using . to include hidden files if any)
+          cp -r dist-app/. public/
+          # Copy other artifacts to subdirectories
           cp -r storybook-static public/storybook
           cp -r docs public/docs
           cp -r coverage public/coverage
