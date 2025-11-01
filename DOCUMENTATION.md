@@ -89,6 +89,7 @@ A responsive 12-column grid system based on flexbox.
 ```
 
 **Props**:
+
 - `container`: boolean - Creates grid container
 - `item`: boolean - Creates grid item
 - `spacing`: number (0-8) - Gap between items
@@ -110,6 +111,7 @@ One-dimensional layout with consistent spacing.
 ```
 
 **Props**:
+
 - `direction`: 'horizontal' | 'vertical' - Stack direction
 - `spacing`: number (0-8) - Gap between items
 - `align`: 'start' | 'center' | 'end' - Alignment
@@ -126,6 +128,7 @@ Content wrapper with max-width constraints.
 ```
 
 **Props**:
+
 - `maxWidth`: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false - Max width
 - `fixed`: boolean - Use fixed width
 - `disableGutters`: boolean - Remove horizontal padding
@@ -141,6 +144,7 @@ Universal wrapper component with styling props.
 ```
 
 **Props**:
+
 - `padding`, `margin`: number | string
 - `backgroundColor`, `color`: string
 - All standard HTML attributes
@@ -164,6 +168,7 @@ Interactive button with multiple variants and states.
 ```
 
 **Props**:
+
 - `variant`: 'contained' | 'outlined' | 'text'
 - `color`: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success'
 - `size`: 'small' | 'medium' | 'large'
@@ -184,6 +189,7 @@ Text component with semantic variants.
 ```
 
 **Props**:
+
 - `variant`: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'caption' | 'overline'
 - `component`: HTML element tag
 - `color`: string
@@ -213,6 +219,7 @@ Container for content with optional header, media, and actions.
 ```
 
 **Props**:
+
 - `elevation`: number (0-24) - Shadow depth
 - `variant`: 'elevation' | 'outlined'
 
@@ -227,6 +234,7 @@ Surface component with elevation system.
 ```
 
 **Props**:
+
 - `elevation`: number (0-24)
 - `variant`: 'elevation' | 'outlined'
 - `square`: boolean - Remove border radius
@@ -243,6 +251,7 @@ Feedback messages with severity levels.
 ```
 
 **Props**:
+
 - `severity`: 'success' | 'info' | 'warning' | 'error'
 - `variant`: 'standard' | 'filled' | 'outlined'
 - `onClose`: () => void - Close handler
@@ -258,6 +267,7 @@ Scalable vector icons from lucide-preact.
 ```
 
 **Props**:
+
 - `name`: IconName - Icon name (e.g., 'Home', 'Star', 'Mail')
 - `size`: 'small' | 'medium' | 'large' | number
 - `color`: string
@@ -281,6 +291,7 @@ Render children outside the DOM hierarchy.
 ```
 
 **Props**:
+
 - `container`: HTMLElement - Target container
 - `disablePortal`: boolean - Render inline instead
 
@@ -298,6 +309,7 @@ Trap keyboard focus within a component for accessibility.
 ```
 
 **Props**:
+
 - `active`: boolean - Enable trap
 - `autoFocus`: boolean - Focus first element on mount
 - `restoreFocus`: boolean - Restore focus on unmount
@@ -313,6 +325,7 @@ Detect clicks outside an element.
 ```
 
 **Props**:
+
 - `onClickAway`: (event: Event) => void
 - `mouseEvent`: 'onClick' | 'onMouseDown' | 'onMouseUp' | false
 - `touchEvent`: 'onTouchStart' | 'onTouchEnd' | false
@@ -420,6 +433,7 @@ const { theme, setTheme, currentTheme } = useTheme();
 ```
 
 **Returns**:
+
 - `theme`: 'light' | 'dark' | 'system'
 - `setTheme`: (theme: 'light' | 'dark' | 'system') => void
 - `currentTheme`: Theme object
@@ -528,6 +542,7 @@ npm run build
 ```
 
 Produces optimized builds:
+
 - ES module: 40.19 kB (gzipped: 10.87 kB)
 - UMD: 28.80 kB (gzipped: 9.58 kB)
 - CSS: 23.52 kB (gzipped: 3.39 kB)
@@ -624,11 +639,13 @@ npm run docs             # Generate TypeDoc
 ### Dependencies
 
 **Runtime**:
+
 - `preact`: Core library
 - `lucide-preact`: Icon system
 - `clsx`: Conditional classes
 
 **Development**:
+
 - `vite`: Build tool
 - `typescript`: Type system
 - `vitest`: Testing framework

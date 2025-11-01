@@ -5,21 +5,27 @@ This directory contains planning, analysis, and documentation for the Preact Com
 ## 📚 Document Guide
 
 ### 📊 Current Status
+
 - **[STATUS.md](STATUS.md)** - **START HERE!** Consolidated project overview with current state, achievements, and metrics
 - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Phase 3 implementation summary and accomplishments
 - **[DEMO.md](DEMO.md)** - Component showcase and demo guide
 
 ### 🔍 Analysis & Reference
+
 - **[analysis.md](analysis.md)** - Detailed comparison with MUI and Ant Design component libraries
 - **[recommendations.md](recommendations.md)** - Key improvement recommendations and high-level roadmap
 - **[priority-matrix.md](priority-matrix.md)** - Priority scoring and effort estimates for components
 - **[notes.md](notes.md)** - Critical success factors and common pitfalls
 
 ### 🎯 Active Planning
+
 - **[phase2-core.md](phase2-core.md)** - Core components phase (partially complete)
+- **[future-implementation-checklist.md](future-implementation-checklist.md)** - Unimplemented components checklist for future expansion
 
 ### 📁 Archive
+
 Completed planning documents are stored in the `archive/` folder:
+
 - `phase1-foundation.md` - ✅ Complete
 - `phase3-advanced.md` - ✅ Complete
 - `completion-checklist.md` - ✅ Complete (tracked in STATUS.md now)
@@ -29,9 +35,11 @@ Completed planning documents are stored in the `archive/` folder:
 ## 🎯 Quick Reference
 
 ### What's Implemented? ✅
+
 See **[STATUS.md](STATUS.md)** for the complete status.
 
 **Highlights:**
+
 - ✅ Layout System (Grid, Stack, Container, Box)
 - ✅ Theme System 2.0 with light/dark/system modes
 - ✅ Core Components (Button, Card, Alert, Typography, Icon, Paper)
@@ -43,9 +51,11 @@ See **[STATUS.md](STATUS.md)** for the complete status.
 - ✅ Documentation deployment (Storybook + TypeDoc)
 
 ### What's Not Implemented? ❌
+
 See **[STATUS.md](STATUS.md)** for details.
 
 **Main gaps (intentionally out of scope):**
+
 - ❌ Form components (TextField, Select, Checkbox, Radio, Switch)
 - ❌ Navigation (Menu, Tabs, Breadcrumb, Pagination)
 - ❌ Dialog/Modal system
@@ -71,12 +81,14 @@ Phase 3: Advanced & Polish ✅ COMPLETE (100%)
 ## 📈 Project Evolution
 
 ### Initial State (v0.1)
+
 - Basic layout components
 - Simple theme toggle
 - **Bundle**: 1,023 kB
 - **Score**: 3.4/10
 
 ### Current State (v1.0.1)
+
 - Comprehensive layout system
 - Advanced theme with customization
 - Icon system optimized
@@ -89,17 +101,20 @@ Phase 3: Advanced & Polish ✅ COMPLETE (100%)
 ## 🎓 Using These Documents
 
 ### For New Contributors
+
 1. Read **[STATUS.md](STATUS.md)** first
 2. Review **[DEMO.md](DEMO.md)** for component showcase
 3. Check **[notes.md](notes.md)** for best practices
 4. Review **[phase2-core.md](phase2-core.md)** if implementing additional components
 
 ### For Project Managers
+
 1. **[STATUS.md](STATUS.md)** - Current state and metrics
 2. **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - What's been implemented
 3. **[priority-matrix.md](priority-matrix.md)** - Effort estimates
 
 ### For Developers
+
 1. **[analysis.md](analysis.md)** - Understand design decisions vs. MUI/Ant Design
 2. **[phase2-core.md](phase2-core.md)** - Implementation checklist for next phase
 3. **[recommendations.md](recommendations.md)** - Future enhancement ideas

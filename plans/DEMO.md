@@ -15,12 +15,14 @@ Then navigate to **Demo → Complete Showcase** in the sidebar.
 ## Features Demonstrated
 
 ### 🎨 Icon System
+
 - Integration with lucide-preact
 - Multiple sizes (small, medium, large)
 - Accessibility support (decorative mode, aria-labels)
 - Beautiful, scalable SVG icons
 
 ### 📦 Core Components
+
 - **Card**: Content containers with header, media, and actions
 - **Button**: Multiple variants (contained, outlined, text) and colors
 - **Alert**: Success, error, warning, info states with dismissible option
@@ -28,16 +30,19 @@ Then navigate to **Demo → Complete Showcase** in the sidebar.
 - **Paper**: Elevation system for depth
 
 ### ��️ Advanced Utilities
+
 - **Portal**: Render content outside the DOM hierarchy (perfect for modals)
 - **FocusTrap**: Keep keyboard focus within a component (accessibility)
 - **ClickAwayListener**: Detect clicks outside an element (dropdowns, menus)
 
 ### 📐 Layout System
+
 - **Grid**: 12-column responsive grid system
 - **Stack**: Flexbox-based layout with spacing
 - **Container**: Content width management
 
 ### ♿ Accessibility Features
+
 - Full keyboard navigation support
 - Focus management with FocusTrap
 - ARIA labels and roles
@@ -45,6 +50,7 @@ Then navigate to **Demo → Complete Showcase** in the sidebar.
 - Proper semantic HTML
 
 ### 🎯 Interactive Examples
+
 1. **Modal Dialog**: Click "Open Modal" to see Portal + FocusTrap in action
    - Try pressing Tab to see focus cycling
    - Press Escape or click outside to close
@@ -60,6 +66,7 @@ Then navigate to **Demo → Complete Showcase** in the sidebar.
 ## Component Features
 
 ### Icon Component
+
 ```tsx
 import { Icon } from 'preact-components-system';
 
@@ -77,6 +84,7 @@ import { Icon } from 'preact-components-system';
 ```
 
 ### Portal Component
+
 ```tsx
 import { Portal } from 'preact-components-system';
 
@@ -92,6 +100,7 @@ import { Portal } from 'preact-components-system';
 ```
 
 ### FocusTrap Component
+
 ```tsx
 import { FocusTrap } from 'preact-components-system';
 
@@ -104,6 +113,7 @@ import { FocusTrap } from 'preact-components-system';
 ```
 
 ### ClickAwayListener Component
+
 ```tsx
 import { ClickAwayListener } from 'preact-components-system';
 
@@ -123,6 +133,7 @@ import { ClickAwayListener } from 'preact-components-system';
 ## Testing
 
 All components are fully tested:
+
 - 77 tests passing
 - Coverage includes accessibility features
 - Portal, Icon, and core components tested
@@ -137,6 +148,7 @@ All components are fully tested:
 ## Next Steps
 
 Future enhancements planned:
+
 - Form components with validation
 - Additional transition components
 - More icon variants
