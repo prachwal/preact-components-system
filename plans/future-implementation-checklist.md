@@ -12,25 +12,25 @@ This checklist contains components that were identified as unimplemented during 
 
 ### Basic Inputs
 
-- [ ] **TextField Component**
+- [x] **TextField Component**
   - Single-line text input
   - Multiline textarea variant
   - Validation states (error, success, warning)
   - Helper text and labels
   - Full width and size variants
 
-- [ ] **Checkbox Component**
+- [x] **Checkbox Component**
   - Basic checkbox input
   - Indeterminate state
   - Label positioning
   - Form integration
 
-- [ ] **Radio Component**
+- [x] **Radio Component**
   - Radio button groups
   - Form integration
   - Accessibility support
 
-- [ ] **Switch Component**
+- [x] **Switch Component**
   - Toggle switch
   - On/off states
   - Custom labels
