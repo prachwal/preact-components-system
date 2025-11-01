@@ -1,32 +1,86 @@
-import type { ComponentChildren } from 'preact';
-import Heading from './Heading';
+import type { ComponentChildren } from "preact";
+import Heading from "./Heading";
 
+/**
+ * Props for the ContentSection component.
+ */
 interface ContentSectionProps {
-  title: string;
+  /** The title of the section, displayed as a heading. */
+  title?: string;
+  /** The heading level for the title (1-6). Defaults to 2. */
   level?: 1 | 2 | 3 | 4 | 5 | 6;
-  desc: string;
+  /** The description text displayed below the title. */
+  desc?: string;
+  /** The child elements to be rendered in the grid layout. */
   children: ComponentChildren;
+  /** Additional CSS class names for the wrapper element. */
   className?: string;
-  as?: 'article' | 'section' | 'div';
+  /** The HTML element to use as the wrapper. Defaults to 'article'. */
+  as?: "article" | "section" | "div";
+  /** Number of columns in the grid layout (1-6). Defaults to 4. */
+  columns?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Custom class name for the grid container. If not provided, uses grid-cols-{columns}. */
+  stylename?: string;
+  /** has div container for children */
+  hasChildrenContainer?: boolean;
 }
 
+/**
+ * A flexible content section component that displays a title, description, and children in a responsive grid layout.
+ *
+ * @example
+ * ```tsx
+ * <ContentSection
+ *   title="Our Features"
+ *   desc="Explore what we offer"
+ *   columns={3}
+ * >
+ *   <FeatureCard title="Feature 1" />
+ *   <FeatureCard title="Feature 2" />
+ * </ContentSection>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Just the grid without title/desc
+ * <ContentSection columns={2}>
+ *   <FeatureCard title="Item 1" />
+ *   <FeatureCard title="Item 2" />
+ * </ContentSection>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Custom grid class
+ * <ContentSection stylename="my-custom-grid">
+ *   <div>Item 1</div>
+ *   <div>Item 2</div>
+ * </ContentSection>
+ * ```
+ */
 const ContentSection = ({
   title,
   level = 2,
   desc,
   children,
   className,
-  as: Wrapper = 'article'
+  as: Wrapper = "article",
+  columns = 4,
+  stylename,
+  hasChildrenContainer = false,
 }: ContentSectionProps) => {
-  const wrapperClass = `content-section ${className || ''}`.trim();
+  const wrapperClass = `content-section ${className || ""}`.trim();
+  const gridClass = stylename || `grid-cols-${columns}`;
 
   return (
     <Wrapper className={wrapperClass}>
-      <Heading level={level}>{title}</Heading>
-      <p>{desc}</p>
-      <div className="features-grid">
-        {children}
-      </div>
+      {title && <Heading level={level}>{title}</Heading>}
+      {desc && <p>{desc}</p>}
+      {hasChildrenContainer ? (
+        children
+      ) : (
+        <div className={gridClass}>{children}</div>
+      )}
     </Wrapper>
   );
 };

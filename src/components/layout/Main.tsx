@@ -1,4 +1,3 @@
-import FeatureCard from '../common/FeatureCard';
 import ContentSection from '../common/ContentSection';
 
 const Main = () => (
@@ -7,18 +6,42 @@ const Main = () => (
       title="Welcome to our application"
       desc="This is the main content area of the application."
     >
-      <FeatureCard title="Feature One">
+      <ContentSection
+        title="Feature One"
+        hasChildrenContainer={true}
+        className="feature-card"
+        as="article"
+        level={3}
+      >
         <p>Description of feature one.</p>
-      </FeatureCard>
-      <FeatureCard title="Feature Two" level={3}>
+      </ContentSection>
+      <ContentSection
+        title="Feature Two"
+        hasChildrenContainer={true}
+        className="feature-card"
+        as="article"
+        level={3}
+      >
         <p>Description of feature two.</p>
-      </FeatureCard>
-      <FeatureCard title="Feature Three">
+      </ContentSection>
+      <ContentSection
+        title="Feature Three"
+        hasChildrenContainer={true}
+        className="feature-card"
+        as="article"
+        level={3}
+      >
         <p>Description of feature three.</p>
-      </FeatureCard>
-      <FeatureCard title="Feature Four">
+      </ContentSection>
+      <ContentSection
+        title="Feature Four"
+        hasChildrenContainer={true}
+        className="feature-card"
+        as="article"
+        level={3}
+      >
         <p>Description of feature four.</p>
-      </FeatureCard>
+      </ContentSection>
     </ContentSection>
     <footer role="contentinfo" className="app-footer">
       <p>&copy; 2024 App Name. All rights reserved.</p>
