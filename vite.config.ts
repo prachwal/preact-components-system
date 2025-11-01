@@ -5,7 +5,16 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [preact()],
+  plugins: [
+    preact(),
+    // Bundle analyzer (only in analyze mode)
+    process.env.ANALYZE === 'true' && visualizer({
+      filename: 'dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    })
+  ].filter(Boolean),
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version),
   },
@@ -29,15 +38,6 @@ export default defineConfig({
         // Optimize chunk splitting
         manualChunks: undefined,
       },
-      plugins: [
-        // Bundle analyzer (only in analyze mode)
-        process.env.ANALYZE === 'true' && visualizer({
-          filename: 'dist/stats.html',
-          open: true,
-          gzipSize: true,
-          brotliSize: true,
-        })
-      ].filter(Boolean)
     },
     // Use default minification (esbuild)
     minify: true,
