@@ -148,7 +148,38 @@ jobs:
       
       - name: Build library
         run: npm run build
-      
+
+      - name: Create dist index.html
+        run: |
+          cd dist
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Preact Components System - Build Artifacts</title>
+            <style>
+              body { font-family: monospace; padding: 20px; }
+              h1 { color: #667eea; }
+              ul { list-style: none; }
+              li { margin: 5px 0; }
+              a { color: #667eea; text-decoration: none; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>📦 Build Artifacts</h1>
+            <p>Production library build files:</p>
+            <ul>
+          EOF
+          for file in *; do
+            echo "  <li><a href=\"$file\">$file</a></li>" >> index.html
+          done
+          echo "    </ul>" >> index.html
+          echo "  </body>" >> index.html
+          echo "</html>" >> index.html
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
