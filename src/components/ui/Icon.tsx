@@ -1,12 +1,33 @@
 import type { FunctionComponent } from 'preact';
-import * as LucideIcons from 'lucide-preact';
-import type { LucideProps } from 'lucide-preact';
+// Import only the icons we need
+import {
+  Home,
+  Star,
+  Info,
+  Mail,
+  Heart,
+  Settings,
+  User,
+  Search,
+  Menu,
+  X,
+  Check,
+  ChevronRight,
+  ChevronLeft,
+  AlertCircle,
+  AlertTriangle,
+  HelpCircle,
+  Calendar,
+  Clock,
+  Download,
+  Upload,
+  Edit,
+  Trash2,
+  type LucideProps,
+} from 'lucide-preact';
 import clsx from 'clsx';
 
 type IconSize = 'small' | 'medium' | 'large';
-
-// Create a type for icon names
-type LucideIconName = keyof typeof LucideIcons;
 
 export type IconName = 
   | 'Home' 
@@ -31,6 +52,32 @@ export type IconName =
   | 'Upload'
   | 'Edit'
   | 'Trash2';
+
+// Icon registry - maps icon names to their components
+const iconRegistry: Record<IconName, FunctionComponent<LucideProps>> = {
+  Home,
+  Star,
+  Info,
+  Mail,
+  Heart,
+  Settings,
+  User,
+  Search,
+  Menu,
+  X,
+  Check,
+  ChevronRight,
+  ChevronLeft,
+  AlertCircle,
+  AlertTriangle,
+  HelpCircle,
+  Calendar,
+  Clock,
+  Download,
+  Upload,
+  Edit,
+  Trash2,
+};
 
 export interface IconProps extends Omit<LucideProps, 'size'> {
   /**
@@ -84,9 +131,9 @@ export const Icon = ({
   decorative = false,
   ...rest
 }: IconProps) => {
-  const IconComponent = LucideIcons[name as LucideIconName] as FunctionComponent<LucideProps>;
+  const IconComponent = iconRegistry[name];
 
-  if (!IconComponent || typeof IconComponent !== 'function') {
+  if (!IconComponent) {
     console.warn(`Icon "${name}" not found in lucide-preact`);
     return null;
   }
