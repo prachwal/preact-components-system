@@ -161,7 +161,7 @@ export const Tab = ({
     throw new Error('Tab must be used within Tabs component');
   }
 
-  const { value: selectedValue, onChange, orientation } = context;
+  const { value: selectedValue, onChange } = context;
   const isActive = selectedValue === value;
 
   const handleClick = () => {

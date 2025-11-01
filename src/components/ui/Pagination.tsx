@@ -181,7 +181,7 @@ export const Pagination = ({
           ‹
         </PaginationItem>
 
-        {pageNumbers.map((item, index) => {
+        {pageNumbers.map((item) => {
           if (typeof item === 'string') {
             return (
               <PaginationItem
@@ -242,12 +242,17 @@ export const Pagination = ({
   );
 };
 
-interface PaginationItemProps extends JSX.HTMLAttributes<HTMLLIElement> {
+interface PaginationItemProps {
   variant: PaginationVariant;
   size: PaginationSize;
   shape: PaginationShape;
   selected?: boolean;
   disabled?: boolean;
+  className?: string;
+  children?: any;
+  onClick?: (event: MouseEvent) => void;
+  'aria-label'?: string;
+  'aria-current'?: 'page' | undefined;
 }
 
 const PaginationItem = ({
@@ -259,7 +264,8 @@ const PaginationItem = ({
   className,
   children,
   onClick,
-  ...rest
+  'aria-label': ariaLabel,
+  'aria-current': ariaCurrent,
 }: PaginationItemProps) => {
   const classes = clsx(
     'pagination-item',
@@ -286,7 +292,8 @@ const PaginationItem = ({
         className={classes}
         disabled={disabled}
         onClick={handleClick}
-        {...rest}
+        aria-label={ariaLabel}
+        aria-current={ariaCurrent}
       >
         {children}
       </button>

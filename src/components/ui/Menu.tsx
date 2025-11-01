@@ -118,7 +118,7 @@ export const Menu = ({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [open, onClose]);
 
-  const handleItemClick = (event: MouseEvent) => {
+  const handleItemClick = (_event: MouseEvent) => {
     onClose();
   };
 

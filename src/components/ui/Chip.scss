@@ -1,0 +1,205 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  border-radius: 16px;
+  white-space: nowrap;
+  cursor: default;
+  outline: 0;
+  text-decoration: none;
+  border: 0;
+  padding: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  
+  &-small {
+    height: 24px;
+    font-size: 0.6875rem;
+    
+    .chip-label {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    
+    .chip-icon {
+      margin-left: 4px;
+      margin-right: -4px;
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
+    
+    .chip-delete-icon {
+      margin-right: 4px;
+      margin-left: -4px;
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
+  }
+  
+  &-medium {
+    .chip-label {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    
+    .chip-icon {
+      margin-left: 5px;
+      margin-right: -6px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+    }
+    
+    .chip-delete-icon {
+      margin-right: 5px;
+      margin-left: -6px;
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+    }
+  }
+  
+  &-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  &-icon,
+  &-delete-icon {
+    display: inline-flex;
+    color: inherit;
+  }
+  
+  &-delete-icon {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  &-clickable {
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+    
+    &:active {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  // Variants
+  &-filled {
+    &.chip-color-default {
+      background-color: #e0e0e0;
+      color: rgba(0, 0, 0, 0.87);
+    }
+    
+    &.chip-color-primary {
+      background-color: var(--color-primary, #1976d2);
+      color: #fff;
+    }
+    
+    &.chip-color-secondary {
+      background-color: var(--color-secondary, #dc004e);
+      color: #fff;
+    }
+    
+    &.chip-color-error {
+      background-color: var(--color-error, #d32f2f);
+      color: #fff;
+    }
+    
+    &.chip-color-warning {
+      background-color: var(--color-warning, #ed6c02);
+      color: #fff;
+    }
+    
+    &.chip-color-success {
+      background-color: var(--color-success, #2e7d32);
+      color: #fff;
+    }
+    
+    &.chip-color-info {
+      background-color: var(--color-info, #0288d1);
+      color: #fff;
+    }
+  }
+  
+  &-outlined {
+    background-color: transparent;
+    border: 1px solid;
+    
+    &.chip-color-default {
+      border-color: rgba(0, 0, 0, 0.23);
+      color: rgba(0, 0, 0, 0.87);
+    }
+    
+    &.chip-color-primary {
+      border-color: var(--color-primary, #1976d2);
+      color: var(--color-primary, #1976d2);
+    }
+    
+    &.chip-color-secondary {
+      border-color: var(--color-secondary, #dc004e);
+      color: var(--color-secondary, #dc004e);
+    }
+    
+    &.chip-color-error {
+      border-color: var(--color-error, #d32f2f);
+      color: var(--color-error, #d32f2f);
+    }
+    
+    &.chip-color-warning {
+      border-color: var(--color-warning, #ed6c02);
+      color: var(--color-warning, #ed6c02);
+    }
+    
+    &.chip-color-success {
+      border-color: var(--color-success, #2e7d32);
+      color: var(--color-success, #2e7d32);
+    }
+    
+    &.chip-color-info {
+      border-color: var(--color-info, #0288d1);
+      color: var(--color-info, #0288d1);
+    }
+    
+    &.chip-clickable:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+// Dark theme
+[data-theme="dark"] {
+  .chip-filled.chip-color-default {
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #fff;
+  }
+  
+  .chip-outlined.chip-color-default {
+    border-color: rgba(255, 255, 255, 0.23);
+    color: #fff;
+  }
+  
+  .chip-clickable:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .chip-outlined.chip-clickable:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}
