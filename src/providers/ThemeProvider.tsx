@@ -1,8 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'preact/hooks';
 import { ThemeContext } from '../contexts/ThemeContext';
 import type { Theme } from '../types/theme';
-
-const THEME_STORAGE_KEY = 'app:theme';
+import { THEME_STORAGE_KEY } from '../config/constants';
 
 const isValidTheme = (value: string): value is Theme =>
   ['light', 'dark', 'system'].includes(value);

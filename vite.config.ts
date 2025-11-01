@@ -8,4 +8,21 @@ export default defineConfig({
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version),
   },
+  build: {
+    lib: {
+      entry: 'index.ts',
+      name: 'PreactComponentsSystem',
+      fileName: 'index',
+      formats: ['es', 'umd']
+    },
+    rollupOptions: {
+      external: ['preact', 'preact/hooks'],
+      output: {
+        globals: {
+          preact: 'Preact',
+          'preact/hooks': 'PreactHooks'
+        }
+      }
+    }
+  }
 })

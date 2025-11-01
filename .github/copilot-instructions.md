@@ -9,16 +9,22 @@ This is a Preact component library built with Vite and TypeScript. The codebase 
 - **Hooks**: Custom hooks in `src/hooks/`
 
 ## Build & Development
-- **Build**: `npm run build` (runs TypeScript compilation first, then Vite build)
+- **Build**: `npm run build` (runs TypeScript declarations, CSS compilation, then Vite library build)
 - **Dev**: `npm run dev` (Vite dev server)
-- **TypeScript**: Uses project references with separate configs for app and node environments
-- **Styling**: SCSS with class-based CSS architecture
+- **TypeScript**: Uses project references with separate configs:
+  - `tsconfig.app.json`: App compilation (noEmit: true)
+  - `tsconfig.lib.json`: Library declarations (emitDeclarationOnly: true)
+  - `tsconfig.node.json`: Node tooling (Vite config)
+- **Styling**: SCSS compiled to `dist/index.css` with source maps
+- **Library Output**: ES module + UMD builds in `dist/`
 
 ## Component Patterns
 - Functional components with explicit TypeScript interfaces
 - Props destructuring with default values: `const Component = ({ prop = default }: Props) =>`
 - Class name concatenation: `const className = \`base-class ${additionalClasses}\`.trim()`
 - Wrapper component pattern: `as?: 'article' | 'section' | 'div'` prop for semantic flexibility
+- SVG icons using `currentColor` for theme compatibility
+- Theme cycling logic: light → dark → system → light
 
 ## Theme System
 Custom theme implementation supporting 'light', 'dark', 'system':
@@ -26,17 +32,51 @@ Custom theme implementation supporting 'light', 'dark', 'system':
 - Applies `data-theme` attribute to `<html>` and `is-dark` class for system preference handling
 - Use `useTheme()` hook from `src/contexts/ThemeContext`
 
+## Responsive Design
+- Mobile-first approach with breakpoint constants: `MOBILE_BREAKPOINT = 768`, `TABLET_BREAKPOINT = 1024`
+- Responsive sidebar with collapse states based on viewport width
+- Touch-friendly hamburger menu with accessibility controls
+
+## Accessibility Patterns
+- ARIA labels and controls: `aria-label`, `aria-controls`, `aria-expanded`
+- Focus management: programmatic focus on menu open/close
+- Keyboard navigation: Escape key handling, Tab trapping
+- Semantic HTML with configurable wrapper elements
+- Skip links for screen reader navigation
+
+## Navigation & State
+- Hash-based routing for section navigation
+- Active section tracking via `window.location.hash`
+- Responsive sidebar state management with body scroll locking
+
+## Development Workflows
+- **Storybook**: `npm run storybook` for component development and testing
+- **Documentation**: `npm run docs` generates TypeDoc documentation
+- **Type Checking**: `npm run type-check` for strict TypeScript validation
+- **File Merging**: `npm run merge-ts` creates `merged-ts-files.txt` for AI analysis
+
 ## Versioning
-App version injected via Vite's `define` from `package.json` as `__APP_VERSION__` global constant. Access via `useAppVersion()` hook.
+App version injected via Vite's `define` from `package.json` as `__APP_VERSION__` global constant. Access via `useAppVersion()` hook or `APP_VERSION` from `src/config/constants.ts`.
 
 ## Key Files
 - `src/App.tsx`: Root component wrapped in ThemeProvider
 - `src/components/layout/AppShell.tsx`: Main layout with sidebar state management
 - `src/providers/ThemeProvider.tsx`: Theme logic and system preference detection
+- `src/components/layout/Sidebar.tsx`: Responsive navigation with accessibility features
 - `tsconfig.app.json`: React path mapping for Preact compatibility (`"react": ["./node_modules/preact/compat/"]`)
+- `index.ts`: Library entry point exporting components
+
+## Build Configuration
+- **Vite**: Configured for library mode with external dependencies (`preact`, `preact/hooks`)
+- **CSS**: Compiled from `src/index.scss` using Sass
+- **Declarations**: Generated from `index.ts` entry point, excluding runtime constants
+- **Package**: Published as dual ES+UMD with TypeScript declarations
 
 ## Common Patterns
 - Component composition over inheritance
 - Context + hooks for shared state
 - Semantic HTML with configurable wrapper elements
 - Strict TypeScript with no unused variables/parameters
+- Runtime constants with fallback values for build compatibility
+- Responsive breakpoints defined as named constants
+- Hash-based navigation with automatic active section detection
