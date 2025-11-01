@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use './variables';
+@use './colors';
+@use './mixins';
+
+// CSS Custom Properties (kept as CSS variables for runtime usage)
+:root {
+  // Breakpoints
+  --bp-sm: #{variables.$bp-sm};
+  --bp-md: #{variables.$bp-md};
+  --bp-lg: #{variables.$bp-lg};
+
+  // Layout
+  --header-height: #{variables.$header-height};
+  --sidebar-width: #{variables.$sidebar-width};
+  --gap: #{variables.$gap};
+  --gap-sm: #{variables.$gap-sm};
+  --gap-lg: #{variables.$gap-lg};
+
+  // Borders & Radius
+  --radius: #{variables.$radius};
+  --radius-sm: #{variables.$radius-sm};
+  --radius-lg: #{variables.$radius-lg};
+
+  // Shadows
+  --shadow-sm: #{variables.$shadow-sm};
+  --shadow-md: #{variables.$shadow-md};
+  --shadow-lg: #{variables.$shadow-lg};
+
+  // Typography
+  --font-family: #{variables.$font-family};
+  --font-size-base: #{variables.$font-size-base};
+  --font-size-sm: #{variables.$font-size-sm};
+  --font-size-lg: #{variables.$font-size-lg};
+  --font-size-xl: #{variables.$font-size-xl};
+  --font-size-2xl: #{variables.$font-size-2xl};
+  --font-size-3xl: #{variables.$font-size-3xl};
+  --font-weight-normal: #{variables.$font-weight-normal};
+  --font-weight-medium: #{variables.$font-weight-medium};
+  --font-weight-bold: #{variables.$font-weight-bold};
+
+  // Transitions
+  --transition-fast: #{variables.$transition-fast};
+  --transition-normal: #{variables.$transition-normal};
+  --transition-slow: #{variables.$transition-slow};
+
+  // Logo
+  --logo-bg-opacity: 0.1;
+}
+
+// Light Theme
+:root,
+[data-theme="light"] {
+  --bg: #{map.get(colors.$light-palette, bg)};
+  --bg-secondary: #{map.get(colors.$light-palette, bg-secondary)};
+  --bg-tertiary: #{map.get(colors.$light-palette, bg-tertiary)};
+  --text: #{map.get(colors.$light-palette, text)};
+  --text-secondary: #{map.get(colors.$light-palette, text-secondary)};
+  --text-tertiary: #{map.get(colors.$light-palette, text-tertiary)};
+  --accent: #{map.get(colors.$light-palette, accent)};
+  --accent-hover: #{map.get(colors.$light-palette, accent-hover)};
+  --border: #{map.get(colors.$light-palette, border)};
+  --overlay: #{map.get(colors.$light-palette, overlay)};
+  --focus-ring: #{map.get(colors.$light-palette, focus-ring)};
+  --nav-active-bg: #{map.get(colors.$light-palette, nav-active-bg)};
+  --nav-active-text: #{map.get(colors.$light-palette, nav-active-text)};
+}
+
+// Dark Theme
+[data-theme="dark"],
+.is-dark {
+  --bg: #{map.get(colors.$dark-palette, bg)};
+  --bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
+  --bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
+  --text: #{map.get(colors.$dark-palette, text)};
+  --text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
+  --text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
+  --accent: #{map.get(colors.$dark-palette, accent)};
+  --accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
+  --border: #{map.get(colors.$dark-palette, border)};
+  --overlay: #{map.get(colors.$dark-palette, overlay)};
+  --focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
+  --nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
+  --nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
+
+  // Logo
+  --logo-bg-opacity: 0.2;
+}
+
+// System Theme
+@include mixins.prefers-color-scheme(dark) {
+  [data-theme="system"] {
+    --bg: #{map.get(colors.$dark-palette, bg)};
+    --bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
+    --bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
+    --text: #{map.get(colors.$dark-palette, text)};
+    --text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
+    --text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
+    --accent: #{map.get(colors.$dark-palette, accent)};
+    --accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
+    --border: #{map.get(colors.$dark-palette, border)};
+    --overlay: #{map.get(colors.$dark-palette, overlay)};
+    --focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
+    --nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
+    --nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
+  }
+}

@@ -1,10 +1,13 @@
 {
   "name": "preact-components-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A system of reusable Preact components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "style": "dist/index.css",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "repository": {
     "type": "git",
@@ -14,15 +17,42 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
+    "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "docs": "typedoc",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build:storybook": "storybook build",
+    "merge-ts": "node scripts/merge-files.js"
   },
   "dependencies": {
-    "preact": "^10.27.2"
+    "preact": "^10.27.2",
+    "clsx": "^2.1.1",
+    "lucide-preact": "^0.552.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.2",
+    "@microsoft/tsdoc-config": "^0.17.1",
     "@preact/preset-vite": "^2.10.2",
+    "@storybook/addon-docs": "^10.0.2",
+    "@storybook/preact-vite": "^10.0.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/preact": "^3.2.4",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitest/ui": "^4.0.6",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^27.1.0",
+    "sass": "^1.93.3",
+    "storybook": "^10.0.2",
+    "typedoc": "^0.28.14",
     "typescript": "~5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "vitest": "^4.0.6"
   }
 }

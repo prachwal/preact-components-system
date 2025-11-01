@@ -1,0 +1,425 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+              color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+.button-label {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.button-label-hidden {
+  opacity: 0;
+}
+
+.button-start-icon {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.button-end-icon {
+  display: inherit;
+  margin-left: 8px;
+  margin-right: -4px;
+}
+
+.button-loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-spinner {
+  width: 20px;
+  height: 20px;
+  animation: button-spin 1.4s linear infinite;
+}
+
+.button-spinner-circle {
+  stroke: currentColor;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0;
+  animation: button-spinner-dash 1.4s ease-in-out infinite;
+}
+
+@keyframes button-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes button-spinner-dash {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}
+
+// Sizes
+.button-size-small {
+  padding: 4px 10px;
+  font-size: 0.8125rem;
+  
+  .button-start-icon {
+    margin-left: -2px;
+  }
+  
+  .button-end-icon {
+    margin-right: -2px;
+  }
+}
+
+.button-size-large {
+  padding: 8px 22px;
+  font-size: 0.9375rem;
+  
+  .button-start-icon {
+    margin-left: -6px;
+  }
+  
+  .button-end-icon {
+    margin-right: -6px;
+  }
+}
+
+// Full width
+.button-full-width {
+  width: 100%;
+}
+
+// Disabled
+.button-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+// Variants and Colors
+// Contained variant
+.button-variant-contained {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),
+              0px 2px 2px 0px rgba(0,0,0,0.14),
+              0px 1px 5px 0px rgba(0,0,0,0.12);
+  
+  &:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),
+                0px 4px 5px 0px rgba(0,0,0,0.14),
+                0px 1px 10px 0px rgba(0,0,0,0.12);
+  }
+  
+  &:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),
+                0px 8px 10px 1px rgba(0,0,0,0.14),
+                0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+}
+
+.button-variant-contained.button-color-primary {
+  color: #fff;
+  background-color: #1976d2;
+  
+  &:hover {
+    background-color: #1565c0;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-contained.button-color-secondary {
+  color: #fff;
+  background-color: #9c27b0;
+  
+  &:hover {
+    background-color: #7b1fa2;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-contained.button-color-error {
+  color: #fff;
+  background-color: #d32f2f;
+  
+  &:hover {
+    background-color: #c62828;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-contained.button-color-warning {
+  color: #fff;
+  background-color: #ed6c02;
+  
+  &:hover {
+    background-color: #e65100;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-contained.button-color-info {
+  color: #fff;
+  background-color: #0288d1;
+  
+  &:hover {
+    background-color: #01579b;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-contained.button-color-success {
+  color: #fff;
+  background-color: #2e7d32;
+  
+  &:hover {
+    background-color: #1b5e20;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Outlined variant
+.button-variant-outlined {
+  padding: 5px 15px;
+  border: 1px solid;
+  background-color: transparent;
+}
+
+.button-variant-outlined.button-color-primary {
+  color: #1976d2;
+  border-color: rgba(25, 118, 210, 0.5);
+  
+  &:hover {
+    background-color: rgba(25, 118, 210, 0.04);
+    border-color: #1976d2;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-outlined.button-color-secondary {
+  color: #9c27b0;
+  border-color: rgba(156, 39, 176, 0.5);
+  
+  &:hover {
+    background-color: rgba(156, 39, 176, 0.04);
+    border-color: #9c27b0;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-outlined.button-color-error {
+  color: #d32f2f;
+  border-color: rgba(211, 47, 47, 0.5);
+  
+  &:hover {
+    background-color: rgba(211, 47, 47, 0.04);
+    border-color: #d32f2f;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-outlined.button-color-warning {
+  color: #ed6c02;
+  border-color: rgba(237, 108, 2, 0.5);
+  
+  &:hover {
+    background-color: rgba(237, 108, 2, 0.04);
+    border-color: #ed6c02;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-outlined.button-color-info {
+  color: #0288d1;
+  border-color: rgba(2, 136, 209, 0.5);
+  
+  &:hover {
+    background-color: rgba(2, 136, 209, 0.04);
+    border-color: #0288d1;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+.button-variant-outlined.button-color-success {
+  color: #2e7d32;
+  border-color: rgba(46, 125, 50, 0.5);
+  
+  &:hover {
+    background-color: rgba(46, 125, 50, 0.04);
+    border-color: #2e7d32;
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Text variant
+.button-variant-text {
+  padding: 6px 8px;
+  background-color: transparent;
+}
+
+.button-variant-text.button-color-primary {
+  color: #1976d2;
+  
+  &:hover {
+    background-color: rgba(25, 118, 210, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.button-variant-text.button-color-secondary {
+  color: #9c27b0;
+  
+  &:hover {
+    background-color: rgba(156, 39, 176, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.button-variant-text.button-color-error {
+  color: #d32f2f;
+  
+  &:hover {
+    background-color: rgba(211, 47, 47, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.button-variant-text.button-color-warning {
+  color: #ed6c02;
+  
+  &:hover {
+    background-color: rgba(237, 108, 2, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.button-variant-text.button-color-info {
+  color: #0288d1;
+  
+  &:hover {
+    background-color: rgba(2, 136, 209, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
+
+.button-variant-text.button-color-success {
+  color: #2e7d32;
+  
+  &:hover {
+    background-color: rgba(46, 125, 50, 0.04);
+  }
+  
+  &.button-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+}
