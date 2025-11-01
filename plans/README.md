@@ -8,28 +8,28 @@ This directory contains planning, analysis, and documentation for the Preact Com
 
 - **[STATUS.md](STATUS.md)** - **START HERE!** Consolidated project overview with current state, achievements, and metrics
 - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Phase 3 implementation summary and accomplishments
-- **[DEMO.md](DEMO.md)** - Component showcase and demo guide
 
 ### 🔍 Analysis & Reference
 
-- **[analysis.md](analysis.md)** - Detailed comparison with MUI and Ant Design component libraries
-- **[recommendations.md](recommendations.md)** - Key improvement recommendations and high-level roadmap
-- **[priority-matrix.md](priority-matrix.md)** - Priority scoring and effort estimates for components
 - **[notes.md](notes.md)** - Critical success factors and common pitfalls
 
 ### 🎯 Active Planning
 
-- **[phase2-core.md](phase2-core.md)** - Core components phase (partially complete)
 - **[future-implementation-checklist.md](future-implementation-checklist.md)** - Unimplemented components checklist for future expansion
 
 ### 📁 Archive
 
-Completed planning documents are stored in the `archive/` folder:
+Completed and outdated planning documents are stored in the `archive/` folder:
 
-- `phase1-foundation.md` - ✅ Complete
-- `phase3-advanced.md` - ✅ Complete
+- `analysis.md` - ✅ Complete (early analysis vs MUI/Ant Design)
 - `completion-checklist.md` - ✅ Complete (tracked in STATUS.md now)
+- `DEMO.md` - ✅ Complete (outdated bundle size info)
 - `implementation.md` - ✅ Complete
+- `phase1-foundation.md` - ✅ Complete
+- `phase2-core.md` - ✅ Complete (unimplemented components plan)
+- `phase3-advanced.md` - ✅ Complete
+- `priority-matrix.md` - ✅ Complete (old priority scoring)
+- `recommendations.md` - ✅ Complete (old recommendations)
 - `tools-dependencies.md` - ✅ Complete (documented in main README)
 
 ## 🎯 Quick Reference
@@ -56,11 +56,11 @@ See **[STATUS.md](STATUS.md)** for details.
 
 **Main gaps (intentionally out of scope):**
 
-- ❌ Form components (TextField, Select, Checkbox, Radio, Switch)
+- ❌ Form components (Select, Autocomplete)
 - ❌ Navigation (Menu, Tabs, Breadcrumb, Pagination)
 - ❌ Dialog/Modal system
 - ❌ Data Table with sorting/pagination
-- ❌ Advanced inputs (Date/Time pickers, Autocomplete)
+- ❌ Advanced inputs (Date/Time pickers)
 - ❌ Charts/Graphs
 - ❌ Rich text editor
 - ❌ File upload
@@ -103,21 +103,18 @@ Phase 3: Advanced & Polish ✅ COMPLETE (100%)
 ### For New Contributors
 
 1. Read **[STATUS.md](STATUS.md)** first
-2. Review **[DEMO.md](DEMO.md)** for component showcase
-3. Check **[notes.md](notes.md)** for best practices
-4. Review **[phase2-core.md](phase2-core.md)** if implementing additional components
+2. Check **[notes.md](notes.md)** for best practices
+3. Review **[future-implementation-checklist.md](future-implementation-checklist.md)** for potential additions
 
 ### For Project Managers
 
 1. **[STATUS.md](STATUS.md)** - Current state and metrics
 2. **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - What's been implemented
-3. **[priority-matrix.md](priority-matrix.md)** - Effort estimates
 
 ### For Developers
 
-1. **[analysis.md](analysis.md)** - Understand design decisions vs. MUI/Ant Design
-2. **[phase2-core.md](phase2-core.md)** - Implementation checklist for next phase
-3. **[recommendations.md](recommendations.md)** - Future enhancement ideas
+1. **[future-implementation-checklist.md](future-implementation-checklist.md)** - Components that could be added
+2. Check `archive/` folder for historical planning documents
 
 ## 🔗 Related Documents
 

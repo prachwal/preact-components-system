@@ -3,6 +3,7 @@
 **Last Updated**: November 2025
 **Source**: Extracted from `plans/archive/completion-checklist.md` and `plans/README.md` gap section
 **Purpose**: Components not implemented in current scope that could be added for expanded functionality
+**Note**: Basic form components (TextField, Checkbox, Radio, Switch) have been implemented in the current version (1.0.1)
 
 ## 📋 Overview
 
