@@ -4,6 +4,7 @@
   "description": "A system of reusable Preact components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "files": [
     "dist"
   ],
@@ -16,21 +17,27 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npm run build:css && vite build",
+    "build:css": "sass src/index.scss dist/index.css --style=compressed",
+    "type-check": "tsc --noEmit",
+    "docs": "typedoc",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build:storybook": "storybook build"
   },
   "dependencies": {
     "preact": "^10.27.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.2",
+    "@microsoft/tsdoc-config": "^0.17.1",
     "@preact/preset-vite": "^2.10.2",
     "@storybook/addon-docs": "^10.0.2",
     "@storybook/preact-vite": "^10.0.2",
     "sass": "^1.93.3",
     "storybook": "^10.0.2",
+    "typedoc": "^0.28.14",
     "typescript": "~5.9.3",
     "vite": "^7.1.12"
   }
