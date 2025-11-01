@@ -20,6 +20,10 @@ export { Card, CardHeader, CardMedia, CardContent, CardActions } from './src/com
 export { Alert, AlertTitle } from './src/components/ui/Alert';
 export { Icon } from './src/components/ui/Icon';
 export type { IconName } from './src/components/ui/Icon';
+export { TextField } from './src/components/ui/TextField';
+export { Checkbox } from './src/components/ui/Checkbox';
+export { Radio, RadioGroup } from './src/components/ui/Radio';
+export { Switch } from './src/components/ui/Switch';
 
 // Hooks
 export * from './src/hooks';
