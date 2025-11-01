@@ -123,9 +123,9 @@ export const Switch = ({
       />
       <span className="switch-track" aria-hidden="true">
         <span className="switch-thumb">
-          {onLabel && offLabel && (
+          {(onLabel || offLabel) && (
             <span className="switch-thumb-label">
-              {checked ? onLabel : offLabel}
+              {checked ? (onLabel || '') : (offLabel || '')}
             </span>
           )}
         </span>
