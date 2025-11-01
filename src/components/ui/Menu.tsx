@@ -37,10 +37,6 @@ export interface MenuProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onC
    */
   selectedValue?: string | number;
   /**
-   * Callback when item is selected
-   */
-  onSelect?: (value: string | number) => void;
-  /**
    * If true, auto focus first item when opened
    */
   autoFocus?: boolean;
@@ -60,7 +56,6 @@ export const Menu = ({
   anchorEl,
   variant = 'menu',
   selectedValue,
-  onSelect,
   autoFocus = true,
   className,
   children,

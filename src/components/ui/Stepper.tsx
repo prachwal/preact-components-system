@@ -1,6 +1,6 @@
 import type { ComponentChildren, JSX } from 'preact';
 import { createContext } from 'preact';
-import { useContext } from 'preact/hooks';
+import { useContext, useRef, useEffect } from 'preact/hooks';
 import clsx from 'clsx';
 import './Stepper.scss';
 
@@ -12,6 +12,7 @@ interface StepperContextValue {
   nonLinear: boolean;
   alternativeLabel?: boolean;
   onStepClick?: (step: number) => void;
+  registerStep: () => number;
 }
 
 const StepperContext = createContext<StepperContextValue | undefined>(undefined);
@@ -57,6 +58,18 @@ export const Stepper = ({
   children,
   ...rest
 }: StepperProps) => {
+  const stepCountRef = useRef(0);
+
+  useEffect(() => {
+    stepCountRef.current = 0;
+  });
+
+  const registerStep = () => {
+    const index = stepCountRef.current;
+    stepCountRef.current += 1;
+    return index;
+  };
+
   const classes = clsx(
     'stepper',
     `stepper-orientation-${orientation}`,
@@ -68,7 +81,7 @@ export const Stepper = ({
 
   return (
     <StepperContext.Provider
-      value={{ activeStep, orientation, nonLinear, alternativeLabel, onStepClick }}
+      value={{ activeStep, orientation, nonLinear, alternativeLabel, onStepClick, registerStep }}
     >
       <div className={classes} {...rest}>
         {children}
@@ -96,8 +109,6 @@ export interface StepProps extends JSX.HTMLAttributes<HTMLDivElement> {
   children?: ComponentChildren;
 }
 
-let stepIndex = -1;
-
 export const Step = ({ completed = false, disabled = false, className, children, ...rest }: StepProps) => {
   const context = useContext(StepperContext);
 
@@ -105,15 +116,8 @@ export const Step = ({ completed = false, disabled = false, className, children,
     throw new Error('Step must be used within Stepper component');
   }
 
-  stepIndex++;
-  const currentIndex = stepIndex;
-
-  // Reset index when component unmounts or re-renders from start
-  if (currentIndex === 0) {
-    stepIndex = 0;
-  }
-
-  const { activeStep, orientation, nonLinear, onStepClick } = context;
+  const { activeStep, orientation, nonLinear, onStepClick, registerStep } = context;
+  const currentIndex = registerStep();
   const isActive = activeStep === currentIndex;
   const isCompleted = completed || activeStep > currentIndex;
   const isDisabled = disabled || (!nonLinear && activeStep < currentIndex && !isCompleted);
@@ -249,10 +253,3 @@ export const StepConnector = ({ className, ...rest }: StepConnectorProps) => {
     </div>
   );
 };
-
-// Reset step index on component unmount
-if (typeof window !== 'undefined') {
-  (window as any).__resetStepIndex = () => {
-    stepIndex = -1;
-  };
-}

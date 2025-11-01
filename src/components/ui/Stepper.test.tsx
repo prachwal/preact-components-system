@@ -1,13 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/preact';
 import { Stepper, Step, StepLabel, StepContent } from './Stepper';
-
-// Reset step index before each test
-beforeEach(() => {
-  if (typeof window !== 'undefined' && (window as any).__resetStepIndex) {
-    (window as any).__resetStepIndex();
-  }
-});
 
 describe('Stepper', () => {
   it('renders stepper', () => {
@@ -136,12 +129,6 @@ describe('Stepper', () => {
 });
 
 describe('Step', () => {
-  beforeEach(() => {
-    if (typeof window !== 'undefined' && (window as any).__resetStepIndex) {
-      (window as any).__resetStepIndex();
-    }
-  });
-
   it('renders step', () => {
     const { container } = render(
       <Stepper activeStep={0}>
@@ -208,12 +195,6 @@ describe('Step', () => {
 });
 
 describe('StepLabel', () => {
-  beforeEach(() => {
-    if (typeof window !== 'undefined' && (window as any).__resetStepIndex) {
-      (window as any).__resetStepIndex();
-    }
-  });
-
   it('renders step label', () => {
     render(
       <Stepper activeStep={0}>
@@ -277,12 +258,6 @@ describe('StepLabel', () => {
 });
 
 describe('StepContent', () => {
-  beforeEach(() => {
-    if (typeof window !== 'undefined' && (window as any).__resetStepIndex) {
-      (window as any).__resetStepIndex();
-    }
-  });
-
   it('renders step content', () => {
     render(
       <Stepper activeStep={0} orientation="vertical">

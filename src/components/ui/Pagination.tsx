@@ -83,8 +83,11 @@ export const Pagination = ({
     const items: (number | 'ellipsis-start' | 'ellipsis-end')[] = [];
 
     // Calculate ranges
-    const startPages = Array.from({ length: boundaryCount }, (_, i) => i + 1);
-    const endPages = Array.from({ length: boundaryCount }, (_, i) => count - boundaryCount + i + 1);
+    const startPages = Array.from({ length: Math.min(boundaryCount, count) }, (_, i) => i + 1);
+    const endPages = Array.from(
+      { length: Math.min(boundaryCount, count) },
+      (_, i) => count - boundaryCount + i + 1
+    ).filter(p => p > 0 && p <= count && p > boundaryCount);
 
     const siblingsStart = Math.max(
       Math.min(
@@ -102,36 +105,49 @@ export const Pagination = ({
       endPages.length > 0 ? endPages[0] - 2 : count - 1
     );
 
-    // Build the items array
-    items.push(...startPages);
+    // Build the items array in order
+    // Add start pages
+    for (const p of startPages) {
+      if (!items.includes(p)) {
+        items.push(p);
+      }
+    }
 
+    // Add ellipsis or gap filler
     if (siblingsStart > boundaryCount + 2) {
       items.push('ellipsis-start');
     } else if (boundaryCount + 1 < count - boundaryCount) {
-      items.push(boundaryCount + 1);
+      const gapPage = boundaryCount + 1;
+      if (!items.includes(gapPage) && gapPage < siblingsStart) {
+        items.push(gapPage);
+      }
     }
 
+    // Add sibling pages
     for (let i = siblingsStart; i <= siblingsEnd; i++) {
-      if (i > boundaryCount && i < (endPages[0] || count + 1)) {
+      if (i > boundaryCount && i < (endPages[0] || count + 1) && !items.includes(i)) {
         items.push(i);
       }
     }
 
+    // Add ellipsis or gap filler
     if (siblingsEnd < count - boundaryCount - 1) {
       items.push('ellipsis-end');
     } else if (count - boundaryCount > boundaryCount) {
-      items.push(count - boundaryCount);
+      const gapPage = count - boundaryCount;
+      if (!items.includes(gapPage) && gapPage > siblingsEnd) {
+        items.push(gapPage);
+      }
     }
 
-    items.push(...endPages.filter(p => p > boundaryCount && p <= count));
+    // Add end pages
+    for (const p of endPages) {
+      if (!items.includes(p)) {
+        items.push(p);
+      }
+    }
 
-    // Remove duplicates and sort
-    const uniqueItems = Array.from(new Set(items));
-    return uniqueItems.sort((a, b) => {
-      if (typeof a === 'string') return 1;
-      if (typeof b === 'string') return -1;
-      return a - b;
-    });
+    return items;
   };
 
   const pageNumbers = getPageNumbers();
