@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.container-disable-gutters {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Breakpoint max-widths
+@media (min-width: 600px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+// Max-width variants
+.container-max-width-xs {
+  max-width: 444px;
+}
+
+@media (min-width: 600px) {
+  .container-max-width-sm {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 900px) {
+  .container-max-width-md {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-max-width-lg {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-max-width-xl {
+    max-width: 1536px;
+  }
+}
+
+// Fixed variant uses specific widths at each breakpoint
+.container-fixed {
+  @media (min-width: 600px) {
+    max-width: 600px;
+  }
+
+  @media (min-width: 900px) {
+    max-width: 900px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1200px;
+  }
+
+  @media (min-width: 1536px) {
+    max-width: 1536px;
+  }
+}
