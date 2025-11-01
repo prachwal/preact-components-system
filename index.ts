@@ -17,6 +17,8 @@ export { Typography } from './src/components/ui/Typography';
 export { Paper } from './src/components/ui/Paper';
 export { Card, CardHeader, CardMedia, CardContent, CardActions } from './src/components/ui/Card';
 export { Alert, AlertTitle } from './src/components/ui/Alert';
+export { Icon } from './src/components/ui/Icon';
+export type { IconName } from './src/components/ui/Icon';
 
 // Hooks
 export * from './src/hooks';

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useAppVersion } from '../../hooks/useAppVersion';
 import Logo from '../common/Logo';
+import { Icon } from '../ui/Icon';
 
 const MOBILE_BREAKPOINT = 768;
 const TABLET_BREAKPOINT = 1024;
@@ -87,25 +88,25 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
           <ul>
             <li className={activeSection === 'home' ? 'is-active' : ''}>
               <a href="#home" title={isCollapsed ? "Home" : undefined} aria-label="Home">
-                <span aria-hidden="true" style={{ marginRight: '8px' }}>🏠</span>
+                <Icon name="Home" size="small" decorative style={{ marginRight: '8px' }} />
                 {!isCollapsed && "Home"}
               </a>
             </li>
             <li className={activeSection === 'features' ? 'is-active' : ''}>
               <a href="#features" title={isCollapsed ? "Features" : undefined} aria-label="Features">
-                <span aria-hidden="true" style={{ marginRight: '8px' }}>⭐</span>
+                <Icon name="Star" size="small" decorative style={{ marginRight: '8px' }} />
                 {!isCollapsed && "Features"}
               </a>
             </li>
             <li className={activeSection === 'about' ? 'is-active' : ''}>
               <a href="#about" title={isCollapsed ? "About" : undefined} aria-label="About">
-                <span aria-hidden="true" style={{ marginRight: '8px' }}>ℹ️</span>
+                <Icon name="Info" size="small" decorative style={{ marginRight: '8px' }} />
                 {!isCollapsed && "About"}
               </a>
             </li>
             <li className={activeSection === 'contact' ? 'is-active' : ''}>
               <a href="#contact" title={isCollapsed ? "Contact" : undefined} aria-label="Contact">
-                <span aria-hidden="true" style={{ marginRight: '8px' }}>📧</span>
+                <Icon name="Mail" size="small" decorative style={{ marginRight: '8px' }} />
                 {!isCollapsed && "Contact"}
               </a>
             </li>
