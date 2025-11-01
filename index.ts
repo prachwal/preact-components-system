@@ -22,6 +22,7 @@ export { Icon } from './src/components/ui/Icon';
 export type { IconName } from './src/components/ui/Icon';
 export { TextField } from './src/components/ui/TextField';
 export { Checkbox } from './src/components/ui/Checkbox';
+export { Radio, RadioGroup } from './src/components/ui/Radio';
 
 // Hooks
 export * from './src/hooks';
