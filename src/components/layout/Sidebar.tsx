@@ -1,11 +1,34 @@
 import { Fragment } from 'preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { useAppVersion } from '../../hooks/useAppVersion';
 import Logo from '../common/Logo';
 
 const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const appVersion = useAppVersion();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsCollapsed(window.innerWidth >= 768 && window.innerWidth < 1024);
+    };
+
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const hash = window.location.hash.slice(1) || 'home';
+      setActiveSection(hash);
+    };
+
+    updateActiveSection();
+    window.addEventListener('hashchange', updateActiveSection);
+    return () => window.removeEventListener('hashchange', updateActiveSection);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -55,15 +78,35 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
         role="navigation"
         aria-label="Main navigation"
         aria-hidden={!isOpen}
-        className={`app-sidebar ${isOpen ? 'is-open' : ''}`}
+        className={`app-sidebar ${isOpen ? 'is-open' : ''} ${isCollapsed ? 'is-collapsed' : ''}`}
         ref={sidebarRef}
       >
         <nav>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li className={activeSection === 'home' ? 'is-active' : ''}>
+              <a href="#home" title={isCollapsed ? "Home" : undefined}>
+                <span style="margin-right: 8px;">🏠</span>
+                {!isCollapsed && "Home"}
+              </a>
+            </li>
+            <li className={activeSection === 'features' ? 'is-active' : ''}>
+              <a href="#features" title={isCollapsed ? "Features" : undefined}>
+                <span style="margin-right: 8px;">⭐</span>
+                {!isCollapsed && "Features"}
+              </a>
+            </li>
+            <li className={activeSection === 'about' ? 'is-active' : ''}>
+              <a href="#about" title={isCollapsed ? "About" : undefined}>
+                <span style="margin-right: 8px;">ℹ️</span>
+                {!isCollapsed && "About"}
+              </a>
+            </li>
+            <li className={activeSection === 'contact' ? 'is-active' : ''}>
+              <a href="#contact" title={isCollapsed ? "Contact" : undefined}>
+                <span style="margin-right: 8px;">📧</span>
+                {!isCollapsed && "Contact"}
+              </a>
+            </li>
           </ul>
         </nav>
         <footer className="sidebar-footer">

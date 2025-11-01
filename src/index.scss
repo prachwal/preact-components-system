@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // SCSS Variables
 $bp-sm: 480px;
 $bp-md: 768px;
@@ -44,6 +46,39 @@ $bp-lg: 1024px;
   }
 }
 
+// Color Palettes
+$light-palette: (
+  bg: #ffffff,
+  bg-secondary: #f8f9fa,
+  bg-tertiary: #e9ecef,
+  text: #212529,
+  text-secondary: #6c757d,
+  text-tertiary: #adb5bd,
+  accent: #3b82f6,
+  accent-hover: #2563eb,
+  border: #dee2e6,
+  overlay: rgba(0, 0, 0, 0.5),
+  focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.5),
+  nav-active-bg: #059669,
+  nav-active-text: white
+);
+
+$dark-palette: (
+  bg: #1a1a1a,
+  bg-secondary: #2d2d2d,
+  bg-tertiary: #454545,
+  text: #ffffff,
+  text-secondary: #cccccc,
+  text-tertiary: #aaaaaa,
+  accent: #60a5fa,
+  accent-hover: #93c5fd,
+  border: #404040,
+  overlay: rgba(0, 0, 0, 0.7),
+  focus-ring: 0 0 0 3px rgba(96, 165, 250, 0.5),
+  nav-active-bg: #047857,
+  nav-active-text: white
+);
+
 // CSS Custom Properties (kept as CSS variables for runtime usage)
 :root {
   // Breakpoints
@@ -89,47 +124,55 @@ $bp-lg: 1024px;
 // Light Theme
 :root,
 [data-theme="light"] {
-  --bg: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #e9ecef;
-  --text: #212529;
-  --text-secondary: #6c757d;
-  --text-tertiary: #adb5bd;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --border: #dee2e6;
-  --overlay: rgba(0, 0, 0, 0.5);
-  --focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  --bg: #{map.get($light-palette, bg)};
+  --bg-secondary: #{map.get($light-palette, bg-secondary)};
+  --bg-tertiary: #{map.get($light-palette, bg-tertiary)};
+  --text: #{map.get($light-palette, text)};
+  --text-secondary: #{map.get($light-palette, text-secondary)};
+  --text-tertiary: #{map.get($light-palette, text-tertiary)};
+  --accent: #{map.get($light-palette, accent)};
+  --accent-hover: #{map.get($light-palette, accent-hover)};
+  --border: #{map.get($light-palette, border)};
+  --overlay: #{map.get($light-palette, overlay)};
+  --focus-ring: #{map.get($light-palette, focus-ring)};
+  --nav-active-bg: #{map.get($light-palette, nav-active-bg)};
+  --nav-active-text: #{map.get($light-palette, nav-active-text)};
 }
 
 // Dark Theme
 [data-theme="dark"],
 .is-dark {
-  --bg: #1a1a1a;
-  --bg-secondary: #2d2d2d;
-  --text: #ffffff;
-  --text-secondary: #cccccc;
-  --text-tertiary: #aaaaaa;
-  --accent: #60a5fa;
-  --accent-hover: #93c5fd;
-  --border: #404040;
-  --overlay: rgba(0, 0, 0, 0.7);
-  --focus-ring: 0 0 0 3px rgba(96, 165, 250, 0.5);
+  --bg: #{map.get($dark-palette, bg)};
+  --bg-secondary: #{map.get($dark-palette, bg-secondary)};
+  --bg-tertiary: #{map.get($dark-palette, bg-tertiary)};
+  --text: #{map.get($dark-palette, text)};
+  --text-secondary: #{map.get($dark-palette, text-secondary)};
+  --text-tertiary: #{map.get($dark-palette, text-tertiary)};
+  --accent: #{map.get($dark-palette, accent)};
+  --accent-hover: #{map.get($dark-palette, accent-hover)};
+  --border: #{map.get($dark-palette, border)};
+  --overlay: #{map.get($dark-palette, overlay)};
+  --focus-ring: #{map.get($dark-palette, focus-ring)};
+  --nav-active-bg: #{map.get($dark-palette, nav-active-bg)};
+  --nav-active-text: #{map.get($dark-palette, nav-active-text)};
 }
 
 // System Theme
 @include prefers-color-scheme(dark) {
   [data-theme="system"] {
-    --bg: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --text: #ffffff;
-    --text-secondary: #cccccc;
-    --text-tertiary: #aaaaaa;
-    --accent: #60a5fa;
-    --accent-hover: #93c5fd;
-    --border: #404040;
-    --overlay: rgba(0, 0, 0, 0.7);
-    --focus-ring: 0 0 0 3px rgba(96, 165, 250, 0.5);
+    --bg: #{map.get($dark-palette, bg)};
+    --bg-secondary: #{map.get($dark-palette, bg-secondary)};
+    --bg-tertiary: #{map.get($dark-palette, bg-tertiary)};
+    --text: #{map.get($dark-palette, text)};
+    --text-secondary: #{map.get($dark-palette, text-secondary)};
+    --text-tertiary: #{map.get($dark-palette, text-tertiary)};
+    --accent: #{map.get($dark-palette, accent)};
+    --accent-hover: #{map.get($dark-palette, accent-hover)};
+    --border: #{map.get($dark-palette, border)};
+    --overlay: #{map.get($dark-palette, overlay)};
+    --focus-ring: #{map.get($dark-palette, focus-ring)};
+    --nav-active-bg: #{map.get($dark-palette, nav-active-bg)};
+    --nav-active-text: #{map.get($dark-palette, nav-active-text)};
   }
 }
 
@@ -318,6 +361,10 @@ button {
     transform: translateX(0);
   }
 
+  &.is-collapsed {
+    width: 60px;
+  }
+
   nav {
     ul {
       list-style: none;
@@ -326,6 +373,19 @@ button {
 
     li {
       padding: var(--gap-sm) var(--gap);
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+      }
+
+      &.is-active {
+        background-color: var(--nav-active-bg);
+        color: var(--nav-active-text);
+
+        a {
+          color: var(--nav-active-text);
+        }
+      }
     }
 
     a {
