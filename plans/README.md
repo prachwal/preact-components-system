@@ -1,27 +1,30 @@
 # 📋 Plans Directory
 
-This directory contains planning and analysis documents for the Preact Components System project.
+This directory contains planning, analysis, and documentation for the Preact Components System project.
 
 ## 📚 Document Guide
 
 ### 📊 Current Status
 - **[STATUS.md](STATUS.md)** - **START HERE!** Consolidated project overview with current state, achievements, and metrics
-- **[completion-checklist.md](completion-checklist.md)** - Detailed phase-by-phase completion tracking
+- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Phase 3 implementation summary and accomplishments
+- **[DEMO.md](DEMO.md)** - Component showcase and demo guide
 
-### 🔍 Analysis & Planning
+### 🔍 Analysis & Reference
 - **[analysis.md](analysis.md)** - Detailed comparison with MUI and Ant Design component libraries
 - **[recommendations.md](recommendations.md)** - Key improvement recommendations and high-level roadmap
 - **[priority-matrix.md](priority-matrix.md)** - Priority scoring and effort estimates for components
 - **[notes.md](notes.md)** - Critical success factors and common pitfalls
 
-### 🎯 Implementation Phases
-- **[phase1-foundation.md](phase1-foundation.md)** - Foundation phase: Grid, Theme, Basic Inputs (Weeks 1-3)
-- **[phase2-core.md](phase2-core.md)** - Core components: Navigation, Cards, Tables (Weeks 4-7)
-- **[phase3-advanced.md](phase3-advanced.md)** - Advanced features, accessibility, testing (Weeks 8-12)
+### 🎯 Active Planning
+- **[phase2-core.md](phase2-core.md)** - Core components phase (partially complete)
 
-### 🛠️ Setup & Tools
-- **[tools-dependencies.md](tools-dependencies.md)** - Recommended tools and dependencies
-- **[implementation.md](implementation.md)** - High-level implementation plan overview
+### 📁 Archive
+Completed planning documents are stored in the `archive/` folder:
+- `phase1-foundation.md` - ✅ Complete
+- `phase3-advanced.md` - ✅ Complete
+- `completion-checklist.md` - ✅ Complete (tracked in STATUS.md now)
+- `implementation.md` - ✅ Complete
+- `tools-dependencies.md` - ✅ Complete (documented in main README)
 
 ## 🎯 Quick Reference
 
@@ -30,33 +33,39 @@ See **[STATUS.md](STATUS.md)** for the complete status.
 
 **Highlights:**
 - ✅ Layout System (Grid, Stack, Container, Box)
-- ✅ Theme System 2.0
-- ✅ Core Components (Button, Card, Alert, Typography, Icon)
+- ✅ Theme System 2.0 with light/dark/system modes
+- ✅ Core Components (Button, Card, Alert, Typography, Icon, Paper)
 - ✅ Utilities (Portal, FocusTrap, ClickAwayListener)
-- ✅ **96% bundle size reduction** (1,023 kB → 40 kB)
+- ✅ Footer component with deployment links
+- ✅ **96% bundle size reduction** (1,023 kB → 43 kB)
 - ✅ 77/77 tests passing
+- ✅ CI/CD pipelines (GitHub Actions + GitLab CI)
+- ✅ Documentation deployment (Storybook + TypeDoc)
 
 ### What's Not Implemented? ❌
-See **[completion-checklist.md](completion-checklist.md)** for details.
+See **[STATUS.md](STATUS.md)** for details.
 
-**Main gaps:**
-- ❌ Form components (TextField, Select, etc.)
-- ❌ Navigation (Menu, Tabs, Breadcrumb)
+**Main gaps (intentionally out of scope):**
+- ❌ Form components (TextField, Select, Checkbox, Radio, Switch)
+- ❌ Navigation (Menu, Tabs, Breadcrumb, Pagination)
 - ❌ Dialog/Modal system
-- ❌ Data Table
-- ❌ Advanced inputs
+- ❌ Data Table with sorting/pagination
+- ❌ Advanced inputs (Date/Time pickers, Autocomplete)
+- ❌ Charts/Graphs
+- ❌ Rich text editor
+- ❌ File upload
 
-### Project Phases
+### Project Status
 
 ```
-Phase 1: Foundation (Weeks 1-3) ✅ COMPLETE (67%)
+Phase 1: Foundation ✅ COMPLETE (100%)
 └─ Grid, Theme, Hooks, Basic UI
 
-Phase 2: Core Components (Weeks 4-7) ⚠️ PARTIAL (20%)
-└─ Display components complete, Navigation/Forms not implemented
+Phase 2: Core Components ⚠️ PARTIAL (30%)
+└─ Display components complete, Navigation/Forms not in scope
 
-Phase 3: Advanced & Polish (Weeks 8-12) ✅ COMPLETE
-└─ Utilities, Performance, Testing, Documentation
+Phase 3: Advanced & Polish ✅ COMPLETE (100%)
+└─ Utilities, Performance, Testing, Documentation, CI/CD
 ```
 
 ## 📈 Project Evolution
@@ -64,14 +73,16 @@ Phase 3: Advanced & Polish (Weeks 8-12) ✅ COMPLETE
 ### Initial State (v0.1)
 - Basic layout components
 - Simple theme toggle
-- **Bundle**: Not optimized
+- **Bundle**: 1,023 kB
 - **Score**: 3.4/10
 
 ### Current State (v1.0.1)
 - Comprehensive layout system
 - Advanced theme with customization
 - Icon system optimized
-- **Bundle**: 40 kB (96% reduction!)
+- Footer with deployment links
+- Complete CI/CD pipelines
+- **Bundle**: 43 kB (96% reduction!)
 - **Score**: 8.5/10 ⭐
 - **Status**: **Target achieved!**
 
@@ -79,29 +90,28 @@ Phase 3: Advanced & Polish (Weeks 8-12) ✅ COMPLETE
 
 ### For New Contributors
 1. Read **[STATUS.md](STATUS.md)** first
-2. Check **[completion-checklist.md](completion-checklist.md)** for what's done
-3. Review **[notes.md](notes.md)** for best practices
-4. Pick a component from phase plans if continuing development
+2. Review **[DEMO.md](DEMO.md)** for component showcase
+3. Check **[notes.md](notes.md)** for best practices
+4. Review **[phase2-core.md](phase2-core.md)** if implementing additional components
 
 ### For Project Managers
 1. **[STATUS.md](STATUS.md)** - Current state and metrics
-2. **[completion-checklist.md](completion-checklist.md)** - What's complete vs. pending
+2. **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - What's been implemented
 3. **[priority-matrix.md](priority-matrix.md)** - Effort estimates
 
 ### For Developers
 1. **[analysis.md](analysis.md)** - Understand design decisions vs. MUI/Ant Design
-2. **[phase*.md](phase1-foundation.md)** - Implementation checklists with code examples
-3. **[tools-dependencies.md](tools-dependencies.md)** - Setup and tooling
+2. **[phase2-core.md](phase2-core.md)** - Implementation checklist for next phase
+3. **[recommendations.md](recommendations.md)** - Future enhancement ideas
 
 ## 🔗 Related Documents
 
-- **[../IMPLEMENTATION_SUMMARY.md](../IMPLEMENTATION_SUMMARY.md)** - Phase 3 implementation summary
-- **[../DEMO.md](../DEMO.md)** - Demo showcase documentation
-- **[../README.md](../README.md)** - Project README
+- **[../README.md](../README.md)** - Project README with installation and usage
+- **[../DOCUMENTATION.md](../DOCUMENTATION.md)** - Complete unified documentation
 
 ## 📝 Document Maintenance
 
-These planning documents are kept for reference and future development. The most up-to-date status is always in **[STATUS.md](STATUS.md)**.
+These planning documents are maintained for reference and future development. The most up-to-date status is always in **[STATUS.md](STATUS.md)**.
 
 **Last Updated**: November 2025  
 **Version**: 1.0.1

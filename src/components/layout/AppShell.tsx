@@ -3,6 +3,7 @@ import SkipLink from '../common/SkipLink';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Main from './Main';
+import { Footer } from './Footer';
 
 const AppShell = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,6 +31,7 @@ const AppShell = () => {
         <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
         <Main />
       </div>
+      <Footer />
     </div>
   );
 };

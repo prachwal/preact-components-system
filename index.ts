@@ -10,6 +10,7 @@ export { Box } from './src/components/layout/Box';
 export { Container } from './src/components/layout/Container';
 export { Grid } from './src/components/layout/Grid';
 export { Stack } from './src/components/layout/Stack';
+export { Footer } from './src/components/layout/Footer';
 
 // UI Components
 export { Button } from './src/components/ui/Button';
@@ -27,3 +28,6 @@ export * from './src/hooks';
 export { Portal } from './src/components/utils/Portal';
 export { ClickAwayListener } from './src/components/utils/ClickAwayListener';
 export { FocusTrap } from './src/components/utils/FocusTrap';
+
+// Constants
+export * from './src/config/constants';

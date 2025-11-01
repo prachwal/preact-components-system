@@ -23,6 +23,11 @@ import {
   Upload,
   Edit,
   Trash2,
+  Book,
+  FileText,
+  Activity,
+  Github,
+  Package,
   type LucideProps,
 } from 'lucide-preact';
 import clsx from 'clsx';
@@ -51,7 +56,12 @@ export type IconName =
   | 'Download'
   | 'Upload'
   | 'Edit'
-  | 'Trash2';
+  | 'Trash2'
+  | 'Book'
+  | 'FileText'
+  | 'Activity'
+  | 'Github'
+  | 'Package';
 
 // Icon registry - maps icon names to their components
 // This explicit mapping is necessary for proper tree-shaking.
@@ -80,6 +90,11 @@ const iconRegistry: Record<IconName, FunctionComponent<LucideProps>> = {
   Upload,
   Edit,
   Trash2,
+  Book,
+  FileText,
+  Activity,
+  Github,
+  Package,
 };
 
 export interface IconProps extends Omit<LucideProps, 'size'> {
