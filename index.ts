@@ -21,6 +21,7 @@ export { Alert, AlertTitle } from './src/components/ui/Alert';
 export { Icon } from './src/components/ui/Icon';
 export type { IconName } from './src/components/ui/Icon';
 export { TextField } from './src/components/ui/TextField';
+export { Checkbox } from './src/components/ui/Checkbox';
 
 // Hooks
 export * from './src/hooks';
