@@ -1,26 +1,61 @@
-import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'preact/hooks';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'preact/hooks';
 import { ThemeContext } from '../contexts/ThemeContext';
-import type { Theme } from '../types/theme';
+import type { ThemeMode } from '../types/theme';
+import type { Theme, ThemeOptions } from '../theme/types';
+import { createTheme } from '../theme/createTheme';
 import { THEME_STORAGE_KEY } from '../config/constants';
-const isValidTheme = (value: string): value is Theme =>
+
+const isValidTheme = (value: string): value is ThemeMode =>
   ['light', 'dark', 'system'].includes(value);
 
-const getStoredTheme = (): Theme => {
+const getStoredTheme = (): ThemeMode => {
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
   return (savedTheme && isValidTheme(savedTheme)) ? savedTheme : 'system';
 };
 
-export const ThemeProvider = ({ children }: { children: preact.ComponentChildren }) => {
-  const [theme, setTheme] = useState<Theme>(getStoredTheme);
+interface ThemeProviderProps {
+  children: preact.ComponentChildren;
+  theme?: Theme | ThemeOptions;
+}
+
+export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderProps) => {
+  const [mode, setMode] = useState<ThemeMode>(getStoredTheme);
   const htmlRef = useRef(document.documentElement);
 
-  const applyTheme = useCallback((currentTheme: Theme) => {
-    const html = htmlRef.current;
-    html.setAttribute('data-theme', currentTheme);
-
-    let shouldBeDark = currentTheme === 'dark';
+  // Create theme object based on mode and custom theme
+  const themeObject = useMemo(() => {
+    // If custom theme is provided and is a full Theme object, use it
+    if (customTheme && 'palette' in customTheme && 'typography' in customTheme) {
+      return customTheme as Theme;
+    }
     
-    if (currentTheme === 'system' && window.matchMedia) {
+    // Determine effective mode for theme creation
+    let effectiveMode: 'light' | 'dark' = 'light';
+    if (mode === 'dark') {
+      effectiveMode = 'dark';
+    } else if (mode === 'system' && window.matchMedia) {
+      effectiveMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    
+    // Create theme with effective mode
+    const themeOptions: ThemeOptions = {
+      ...(customTheme || {}),
+      palette: {
+        ...(customTheme && 'palette' in customTheme ? customTheme.palette : {}),
+        mode: effectiveMode,
+      },
+    };
+    
+    return createTheme(themeOptions);
+  }, [mode, customTheme]);
+
+  const applyTheme = useCallback((currentMode: ThemeMode) => {
+    const html = htmlRef.current;
+    html.setAttribute('data-theme', currentMode);
+
+    let shouldBeDark = currentMode === 'dark';
+    
+    if (currentMode === 'system' && window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       shouldBeDark = mediaQuery.matches;
     }
@@ -29,7 +64,7 @@ export const ThemeProvider = ({ children }: { children: preact.ComponentChildren
   }, []);
 
   const handleSystemThemeChange = useCallback((e: MediaQueryListEvent) => {
-    setTheme(current => {
+    setMode(current => {
       if (current === 'system') {
         htmlRef.current.classList.toggle('is-dark', e.matches);
       }
@@ -39,7 +74,7 @@ export const ThemeProvider = ({ children }: { children: preact.ComponentChildren
 
   // Initialize theme
   useLayoutEffect(() => {
-    applyTheme(theme);
+    applyTheme(mode);
 
     if (window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -49,20 +84,27 @@ export const ThemeProvider = ({ children }: { children: preact.ComponentChildren
         mediaQuery.removeEventListener('change', handleSystemThemeChange);
       };
     }
-  }, [theme, applyTheme, handleSystemThemeChange]);
+  }, [mode, applyTheme, handleSystemThemeChange]);
 
   // Update storage when theme changes
   useEffect(() => {
-    if (theme === 'system') {
+    if (mode === 'system') {
       localStorage.removeItem(THEME_STORAGE_KEY);
     } else {
-      localStorage.setItem(THEME_STORAGE_KEY, theme);
+      localStorage.setItem(THEME_STORAGE_KEY, mode);
     }
-    applyTheme(theme);
-  }, [theme, applyTheme]);
+    applyTheme(mode);
+  }, [mode, applyTheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ 
+      mode, 
+      setMode,
+      themeObject,
+      // Legacy compatibility
+      theme: mode,
+      setTheme: setMode,
+    }}>
       {children}
     </ThemeContext.Provider>
   );
