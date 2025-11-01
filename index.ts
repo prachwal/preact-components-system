@@ -30,6 +30,13 @@ export { Breadcrumb, BreadcrumbItem } from './src/components/ui/Breadcrumb';
 export { Pagination } from './src/components/ui/Pagination';
 export { Stepper, Step, StepLabel, StepContent, StepConnector } from './src/components/ui/Stepper';
 
+// Feedback Components
+export { Backdrop } from './src/components/ui/Backdrop';
+export { Dialog, DialogTitle, DialogContent, DialogActions } from './src/components/ui/Dialog';
+export { CircularProgress, LinearProgress } from './src/components/ui/Progress';
+export { Skeleton } from './src/components/ui/Skeleton';
+export { Snackbar } from './src/components/ui/Snackbar';
+
 // Hooks
 export * from './src/hooks';
 
