@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Icon } from '../components/ui/Icon';
+import { Icon, type IconName } from '../components/ui/Icon';
 
 const meta = {
   title: 'UI/Icon',
@@ -86,7 +86,7 @@ export const Decorative: Story = {
 
 export const IconShowcase: Story = {
   render: () => {
-    const popularIcons = [
+    const popularIcons: IconName[] = [
       'Home', 'Star', 'Heart', 'User', 'Mail', 'Settings',
       'Search', 'Menu', 'X', 'Check', 'ChevronRight', 'ChevronLeft',
       'Info', 'AlertCircle', 'AlertTriangle', 'HelpCircle',
@@ -105,7 +105,7 @@ export const IconShowcase: Story = {
               gap: '8px',
             }}
           >
-            <Icon name={iconName as any} size="medium" />
+            <Icon name={iconName} size="medium" />
             <span style={{ fontSize: '12px', textAlign: 'center' }}>{iconName}</span>
           </div>
         ))}

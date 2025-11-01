@@ -35,33 +35,30 @@ export interface PortalProps {
  */
 export const Portal = ({ children, container, disabled = false }: PortalProps) => {
   const defaultContainer = useRef<HTMLDivElement | null>(null);
+  const mountedRef = useRef(false);
 
-  useEffect(() => {
-    if (!container && !disabled && !defaultContainer.current) {
-      const div = document.createElement('div');
-      div.className = 'portal-container';
-      document.body.appendChild(div);
-      defaultContainer.current = div;
-    }
-
-    return () => {
-      if (defaultContainer.current && !container) {
-        document.body.removeChild(defaultContainer.current);
-        defaultContainer.current = null;
-      }
-    };
-  }, [container, disabled]);
-
-  if (disabled) {
-    return <>{children}</>;
-  }
-
-  // Create container immediately if not provided
-  if (!container && !defaultContainer.current) {
+  // Create portal container on mount if needed
+  if (!container && !disabled && !defaultContainer.current && !mountedRef.current) {
     const div = document.createElement('div');
     div.className = 'portal-container';
     document.body.appendChild(div);
     defaultContainer.current = div;
+    mountedRef.current = true;
+  }
+
+  useEffect(() => {
+    return () => {
+      // Cleanup on unmount
+      if (defaultContainer.current && !container) {
+        document.body.removeChild(defaultContainer.current);
+        defaultContainer.current = null;
+        mountedRef.current = false;
+      }
+    };
+  }, [container]);
+
+  if (disabled) {
+    return <>{children}</>;
   }
 
   const targetContainer = container || defaultContainer.current;
