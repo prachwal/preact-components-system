@@ -7,6 +7,6 @@
     "emitDeclarationOnly": true,
     "outDir": "dist"
   },
-  "include": ["index.ts"],
-  "exclude": ["src/config/constants.ts"]
+  "include": ["./index.ts"],
+  "exclude": ["./src/config/constants.ts"]
 }

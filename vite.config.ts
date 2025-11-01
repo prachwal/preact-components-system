@@ -10,7 +10,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: 'index.ts',
+      entry: './index.ts',
       name: 'PreactComponentsSystem',
       fileName: 'index',
       formats: ['es', 'umd']
