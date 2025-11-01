@@ -26,6 +26,7 @@ export { Radio, RadioGroup } from './src/components/ui/Radio';
 export { Switch } from './src/components/ui/Switch';
 export { Tabs, Tab, TabPanel } from './src/components/ui/Tabs';
 export { Menu, MenuItem, MenuDivider } from './src/components/ui/Menu';
+export { Breadcrumb, BreadcrumbItem } from './src/components/ui/Breadcrumb';
 
 // Hooks
 export * from './src/hooks';
