@@ -192,7 +192,7 @@ export const StepLabel = ({
     throw new Error('StepLabel must be used within Step component');
   }
 
-  const { alternativeLabel, orientation } = context;
+  const { alternativeLabel } = context;
 
   const classes = clsx(
     'step-label',
