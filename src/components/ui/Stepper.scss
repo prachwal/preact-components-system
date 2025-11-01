@@ -1,0 +1,291 @@
+// Stepper container
+.stepper {
+  display: flex;
+  padding: 24px;
+}
+
+.stepper-orientation-horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.stepper-orientation-vertical {
+  flex-direction: column;
+}
+
+.stepper-alternative-label {
+  align-items: flex-start;
+}
+
+// Step
+.step {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.step-orientation-horizontal {
+  flex-direction: column;
+  align-items: center;
+
+  &:last-child {
+    flex: 0;
+  }
+}
+
+.step-orientation-vertical {
+  flex-direction: column;
+  padding-bottom: 24px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.step-button {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: default;
+}
+
+.step-button-clickable {
+  cursor: pointer;
+
+  &:hover {
+    .step-label-label {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+// Step label
+.step-label {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.step-label-icon-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-right: 8px;
+}
+
+.step-label-icon-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.step-active .step-label-icon-default {
+  background-color: #1976d2;
+}
+
+.step-completed .step-label-icon-default {
+  background-color: #1976d2;
+
+  &::after {
+    content: '✓';
+    font-size: 0.875rem;
+  }
+}
+
+.step-disabled .step-label-icon-default {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.step-label-label-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.step-label-label {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: rgba(0, 0, 0, 0.6);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.step-active .step-label-label {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+}
+
+.step-completed .step-label-label {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.step-disabled .step-label-label {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.step-label-error .step-label-label {
+  color: #d32f2f;
+}
+
+.step-label-error .step-label-icon-default {
+  background-color: #d32f2f;
+}
+
+.step-label-optional {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 4px;
+}
+
+// Alternative label (horizontal)
+.stepper-alternative-label {
+  .step-label {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-label-icon-container {
+    padding-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .step-label-label-container {
+    text-align: center;
+  }
+}
+
+// Step content
+.step-content {
+  margin-left: 12px;
+  padding-left: 20px;
+  padding-right: 8px;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 8px;
+  padding-bottom: 8px;
+}
+
+.step-content-inner {
+  padding: 8px 0;
+}
+
+.step:last-child .step-content {
+  border-left: none;
+}
+
+// Step connector
+.step-connector {
+  flex: 1 1 auto;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.step-orientation-horizontal .step-connector {
+  align-self: center;
+}
+
+.step-orientation-vertical .step-connector {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  bottom: -12px;
+  margin: 0;
+}
+
+.step-connector-line {
+  display: block;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.step-orientation-horizontal .step-connector-line {
+  border-top: 1px solid;
+  min-height: 1px;
+}
+
+.step-orientation-vertical .step-connector-line {
+  border-left: 1px solid;
+  min-width: 1px;
+  min-height: 24px;
+}
+
+.step-completed ~ .step .step-connector-line {
+  border-color: #1976d2;
+}
+
+// Dark theme support
+[data-theme="dark"] {
+  .step-label-icon-default {
+    background-color: rgba(255, 255, 255, 0.38);
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .step-active .step-label-icon-default,
+  .step-completed .step-label-icon-default {
+    background-color: #90caf9;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .step-disabled .step-label-icon-default {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  .step-label-label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .step-active .step-label-label,
+  .step-completed .step-label-label {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .step-disabled .step-label-label {
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  .step-label-error .step-label-label {
+    color: #f44336;
+  }
+
+  .step-label-error .step-label-icon-default {
+    background-color: #f44336;
+    color: #fff;
+  }
+
+  .step-label-optional {
+    color: rgba(255, 255, 255, 0.54);
+  }
+
+  .step-content {
+    border-left-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .step-connector-line {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .step-completed ~ .step .step-connector-line {
+    border-color: #90caf9;
+  }
+
+  .step-button-clickable:focus-visible {
+    outline-color: #90caf9;
+  }
+}

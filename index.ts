@@ -28,6 +28,7 @@ export { Tabs, Tab, TabPanel } from './src/components/ui/Tabs';
 export { Menu, MenuItem, MenuDivider } from './src/components/ui/Menu';
 export { Breadcrumb, BreadcrumbItem } from './src/components/ui/Breadcrumb';
 export { Pagination } from './src/components/ui/Pagination';
+export { Stepper, Step, StepLabel, StepContent, StepConnector } from './src/components/ui/Stepper';
 
 // Hooks
 export * from './src/hooks';
