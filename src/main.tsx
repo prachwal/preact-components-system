@@ -1,5 +1,5 @@
 import { render } from 'preact'
-import './index.css'
-import App from './app.tsx'
+import './index.scss'
+import App from './App'
 
 render(<App />, document.getElementById('app')!)
