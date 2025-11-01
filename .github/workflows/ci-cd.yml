@@ -231,6 +231,11 @@ jobs:
         with:
           name: dist
           path: dist
+
+      - name: Verify dist artifact
+        run: |
+          echo "Checking dist artifact..."
+          ls -la dist/ || echo "dist directory not found or empty"
       
       - name: Download Storybook
         uses: actions/download-artifact@v4
@@ -257,6 +262,10 @@ jobs:
           cp -r docs public/docs
           cp -r coverage public/coverage
           cp -r dist public/dist
+          echo "Contents of public directory:"
+          ls -la public/
+          echo "Contents of public/dist:"
+          ls -la public/dist/ || echo "public/dist not found"
           
           # Create index.html
           cat > public/index.html << 'EOF'
