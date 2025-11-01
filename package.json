@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
+    "build:demo": "BUILD_DEMO=true vite build",
     "build:analyze": "ANALYZE=true npm run build",
     "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
     "type-check": "tsc --noEmit",
@@ -46,6 +47,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/preact": "^3.2.4",
     "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.9.2",
     "@vitest/coverage-v8": "^4.0.6",
     "@vitest/ui": "^4.0.6",
     "jest-axe": "^10.0.0",

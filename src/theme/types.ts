@@ -164,14 +164,15 @@ export interface Theme {
 }
 
 export interface ThemeOptions {
-  palette?: Partial<PaletteOptions> & {
-    primary?: Partial<PaletteColor> | SimplePaletteColor;
-    secondary?: Partial<PaletteColor> | SimplePaletteColor;
-    error?: Partial<PaletteColor> | SimplePaletteColor;
-    warning?: Partial<PaletteColor> | SimplePaletteColor;
-    info?: Partial<PaletteColor> | SimplePaletteColor;
-    success?: Partial<PaletteColor> | SimplePaletteColor;
-  };
+  palette?: {
+    mode?: 'light' | 'dark';
+    primary?: SimplePaletteColor;
+    secondary?: SimplePaletteColor;
+    error?: SimplePaletteColor;
+    warning?: SimplePaletteColor;
+    info?: SimplePaletteColor;
+    success?: SimplePaletteColor;
+  } & Partial<Omit<PaletteOptions, 'mode' | 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success'>>;
   typography?: Partial<TypographyOptions>;
   spacing?: number | ((factor: number) => string);
   breakpoints?: Partial<BreakpointsOptions>;

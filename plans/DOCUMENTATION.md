@@ -553,7 +553,7 @@ Produces optimized builds:
 
 ### Project Structure
 
-```
+```text
 preact-components-system/
 ├── src/
 │   ├── components/       # Component implementations
@@ -671,6 +671,7 @@ The library includes a comprehensive set of form components built with accessibi
 A versatile text input component supporting single-line and multiline input.
 
 **Features**:
+
 - Three variants: outlined, filled, standard
 - Validation states (error, success, warning)
 - Helper text
@@ -679,6 +680,7 @@ A versatile text input component supporting single-line and multiline input.
 - Full width option
 
 **Example**:
+
 ```tsx
 import { TextField } from 'preact-components-system';
 
@@ -698,12 +700,14 @@ import { TextField } from 'preact-components-system';
 A checkbox input with support for indeterminate state.
 
 **Features**:
+
 - Indeterminate state support
 - Label positioning
 - Form integration
 - Interactive Storybook examples (select all pattern)
 
 **Example**:
+
 ```tsx
 import { Checkbox } from 'preact-components-system';
 
@@ -720,12 +724,14 @@ import { Checkbox } from 'preact-components-system';
 Radio buttons for mutually exclusive selections.
 
 **Features**:
+
 - RadioGroup for managing radio groups
 - Horizontal and vertical layouts
 - Form integration
 - Accessibility with role="radiogroup"
 
 **Example**:
+
 ```tsx
 import { Radio, RadioGroup } from 'preact-components-system';
 
@@ -741,12 +747,14 @@ import { Radio, RadioGroup } from 'preact-components-system';
 A toggle switch for boolean states.
 
 **Features**:
+
 - Custom on/off labels
 - Label positioning
 - Settings panel examples
 - Role="switch" for accessibility
 
 **Example**:
+
 ```tsx
 import { Switch } from 'preact-components-system';
 

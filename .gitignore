@@ -26,6 +26,7 @@ src/app-compiled.css
 
 *storybook.log
 storybook-static
+public/storybook/
 docs/
 merged-ts-files.txt
 merged-files.txt
@@ -33,3 +34,4 @@ merged-files.txt
 # Test and coverage outputs
 junit.xml
 coverage/
+demo/

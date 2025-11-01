@@ -258,6 +258,121 @@ jobs:
           cp -r coverage public/coverage
           cp -r dist public/dist
           
+          # Create dist/index.html for directory listing
+          cat > public/dist/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Preact Components System - Build Artifacts</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background: #f8f9fa;
+                padding: 20px;
+              }
+              .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 8px;
+                padding: 30px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              }
+              h1 {
+                color: #667eea;
+                margin-bottom: 10px;
+                font-size: 2rem;
+              }
+              .description {
+                color: #666;
+                margin-bottom: 30px;
+              }
+              .files {
+                list-style: none;
+                padding: 0;
+              }
+              .file-item {
+                padding: 15px;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              .file-link {
+                color: #667eea;
+                text-decoration: none;
+                font-weight: 500;
+                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+              }
+              .file-link:hover {
+                text-decoration: underline;
+              }
+              .file-size {
+                color: #666;
+                font-size: 0.9rem;
+                background: #f8f9fa;
+                padding: 4px 8px;
+                border-radius: 4px;
+              }
+              .back-link {
+                display: inline-block;
+                margin-bottom: 20px;
+                color: #667eea;
+                text-decoration: none;
+                font-weight: 500;
+              }
+              .back-link:hover {
+                text-decoration: underline;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <a href="../" class="back-link">← Back to Home</a>
+              <h1>📦 Build Artifacts</h1>
+              <p class="description">Production library build files for the Preact Components System.</p>
+              
+              <ul class="files">
+                <li class="file-item">
+                  <a href="./index.js" class="file-link">index.js</a>
+                  <span class="file-size">ES Module</span>
+                </li>
+                <li class="file-item">
+                  <a href="./index.umd.cjs" class="file-link">index.umd.cjs</a>
+                  <span class="file-size">UMD Bundle</span>
+                </li>
+                <li class="file-item">
+                  <a href="./index.css" class="file-link">index.css</a>
+                  <span class="file-size">Styles</span>
+                </li>
+                <li class="file-item">
+                  <a href="./index.js.map" class="file-link">index.js.map</a>
+                  <span class="file-size">Source Map</span>
+                </li>
+                <li class="file-item">
+                  <a href="./index.umd.cjs.map" class="file-link">index.umd.cjs.map</a>
+                  <span class="file-size">UMD Source Map</span>
+                </li>
+              </ul>
+
+              <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; color: #666;">
+                <p>
+                  <strong>Installation:</strong><br>
+                  <code>npm install preact-components-system</code>
+                </p>
+              </div>
+            </div>
+          </body>
+          </html>
+          EOF
+          
           # Create index.html
           cat > public/index.html << 'EOF'
           <!DOCTYPE html>
@@ -385,9 +500,9 @@ jobs:
                   <p>Test coverage reports and metrics</p>
                 </a>
                 
-                <a href="./dist/" class="link-card">
-                  <h3>📦 Build Artifacts</h3>
-                  <p>Production library build files</p>
+                <a href="./demo/" class="link-card">
+                  <h3>🚀 Demo App</h3>
+                  <p>Interactive demo application showcasing all components</p>
                 </a>
               </div>
 

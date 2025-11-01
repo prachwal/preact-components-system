@@ -43,6 +43,7 @@ export { Avatar } from './src/components/ui/Avatar';
 export { Badge } from './src/components/ui/Badge';
 export { Chip } from './src/components/ui/Chip';
 export { Tooltip } from './src/components/ui/Tooltip';
+export { Accordion, AccordionSummary, AccordionDetails } from './src/components/ui/Accordion';
 
 // Hooks
 export * from './src/hooks';

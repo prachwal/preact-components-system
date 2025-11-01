@@ -67,7 +67,7 @@ See **[STATUS.md](STATUS.md)** for details.
 
 ### Project Status
 
-```
+```text
 Phase 1: Foundation ✅ COMPLETE (100%)
 └─ Grid, Theme, Hooks, Basic UI
 
