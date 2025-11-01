@@ -22,3 +22,8 @@ export type { IconName } from './src/components/ui/Icon';
 
 // Hooks
 export * from './src/hooks';
+
+// Utilities
+export { Portal } from './src/components/utils/Portal';
+export { ClickAwayListener } from './src/components/utils/ClickAwayListener';
+export { FocusTrap } from './src/components/utils/FocusTrap';
