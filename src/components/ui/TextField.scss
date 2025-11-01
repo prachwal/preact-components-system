@@ -11,12 +11,26 @@ $info-color: #0288d1;
 $info-light: rgba(2, 136, 209, 0.2);
 $success-color: #2e7d32;
 $success-light: rgba(46, 125, 50, 0.2);
-$text-primary: rgba(0, 0, 0, 0.87);
-$text-secondary: rgba(0, 0, 0, 0.6);
-$text-disabled: rgba(0, 0, 0, 0.38);
-$border-color: rgba(0, 0, 0, 0.23);
-$background-paper: #fff;
-$background-default: rgba(0, 0, 0, 0.04);
+
+// Light theme colors (defaults)
+$text-primary-light: rgba(0, 0, 0, 0.87);
+$text-secondary-light: rgba(0, 0, 0, 0.6);
+$text-disabled-light: rgba(0, 0, 0, 0.38);
+$border-color-light: rgba(0, 0, 0, 0.23);
+$background-paper-light: #fff;
+$background-default-light: rgba(0, 0, 0, 0.04);
+$background-hover-light: rgba(0, 0, 0, 0.08);
+$background-subtle-light: rgba(0, 0, 0, 0.02);
+
+// Dark theme colors
+$text-primary-dark: rgba(255, 255, 255, 0.87);
+$text-secondary-dark: rgba(255, 255, 255, 0.6);
+$text-disabled-dark: rgba(255, 255, 255, 0.38);
+$border-color-dark: rgba(255, 255, 255, 0.23);
+$background-paper-dark: #1a1a1a;
+$background-default-dark: rgba(255, 255, 255, 0.08);
+$background-hover-dark: rgba(255, 255, 255, 0.12);
+$background-subtle-dark: rgba(255, 255, 255, 0.05);
 
 .textfield {
   display: inline-flex;
@@ -34,7 +48,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: $text-primary;
+  color: $text-primary-light;
   transition: color 0.2s ease;
   
   .textfield-required {
@@ -43,7 +57,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   }
   
   .textfield-disabled & {
-    color: $text-disabled;
+    color: $text-disabled-light;
   }
   
   .textfield-error & {
@@ -69,7 +83,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   font-family: inherit;
   font-size: 1rem;
   line-height: 1.5;
-  color: $text-primary;
+  color: $text-primary-light;
   background-color: transparent;
   border: none;
   outline: none;
@@ -80,12 +94,12 @@ $background-default: rgba(0, 0, 0, 0.04);
   flex: 1;
   
   &::placeholder {
-    color: $text-disabled;
+    color: $text-disabled-light;
     opacity: 1;
   }
   
   &:disabled {
-    color: $text-disabled;
+    color: $text-disabled-light;
     cursor: not-allowed;
   }
   
@@ -97,9 +111,9 @@ $background-default: rgba(0, 0, 0, 0.04);
 // Variant: Outlined
 .textfield-variant-outlined {
   .textfield-input-wrapper {
-    border: 1px solid $border-color;
+    border: 1px solid $border-color-light;
     border-radius: 4px;
-    background-color: $background-paper;
+    background-color: $background-paper-light;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
   
@@ -125,7 +139,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   
   &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
     .textfield-input-wrapper:hover {
-      border-color: $text-primary;
+      border-color: $text-primary-light;
     }
     
     .textfield-input-wrapper:focus-within {
@@ -164,8 +178,8 @@ $background-default: rgba(0, 0, 0, 0.04);
   }
   
   &.textfield-disabled .textfield-input-wrapper {
-    background-color: $background-default;
-    border-color: $border-color;
+    background-color: $background-default-light;
+    border-color: $border-color-light;
     opacity: 0.6;
   }
 }
@@ -174,9 +188,9 @@ $background-default: rgba(0, 0, 0, 0.04);
 .textfield-variant-filled {
   .textfield-input-wrapper {
     border: none;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border-color-light;
     border-radius: 4px 4px 0 0;
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: $background-default-light;
     transition: background-color 0.2s ease, border-color 0.2s ease;
   }
   
@@ -202,12 +216,12 @@ $background-default: rgba(0, 0, 0, 0.04);
   
   &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
     .textfield-input-wrapper:hover {
-      background-color: rgba(0, 0, 0, 0.08);
-      border-bottom-color: $text-primary;
+      background-color: $background-hover-light;
+      border-bottom-color: $text-primary-light;
     }
     
     .textfield-input-wrapper:focus-within {
-      background-color: rgba(0, 0, 0, 0.08);
+      background-color: $background-hover-light;
       border-bottom-color: $primary-color;
       border-bottom-width: 2px;
     }
@@ -226,7 +240,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   }
   
   &.textfield-disabled .textfield-input-wrapper {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: $background-subtle-light;
     opacity: 0.6;
   }
 }
@@ -235,7 +249,7 @@ $background-default: rgba(0, 0, 0, 0.04);
 .textfield-variant-standard {
   .textfield-input-wrapper {
     border: none;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border-color-light;
     background-color: transparent;
     transition: border-color 0.2s ease;
   }
@@ -254,7 +268,7 @@ $background-default: rgba(0, 0, 0, 0.04);
   
   &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
     .textfield-input-wrapper:hover {
-      border-bottom-color: $text-primary;
+      border-bottom-color: $text-primary-light;
     }
     
     .textfield-input-wrapper:focus-within {
@@ -286,11 +300,11 @@ $background-default: rgba(0, 0, 0, 0.04);
 .textfield-end-adornment {
   display: flex;
   align-items: center;
-  color: $text-secondary;
+  color: $text-secondary-light;
   flex-shrink: 0;
   
   .textfield-disabled & {
-    color: $text-disabled;
+    color: $text-disabled-light;
   }
 }
 
@@ -340,7 +354,7 @@ $background-default: rgba(0, 0, 0, 0.04);
 .textfield-helper-text {
   margin-top: 0.25rem;
   font-size: 0.75rem;
-  color: $text-secondary;
+  color: $text-secondary-light;
   line-height: 1.4;
   
   &-error {
@@ -360,4 +374,97 @@ $background-default: rgba(0, 0, 0, 0.04);
 textarea.textfield-input {
   resize: vertical;
   min-height: 3rem;
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .textfield-label {
+    color: $text-primary-dark;
+  }
+  
+  .textfield-disabled .textfield-label {
+    color: $text-disabled-dark;
+  }
+  
+  .textfield-input {
+    color: $text-primary-dark;
+    
+    &::placeholder {
+      color: $text-disabled-dark;
+    }
+    
+    &:disabled {
+      color: $text-disabled-dark;
+    }
+  }
+  
+  // Variant: Outlined
+  .textfield-variant-outlined {
+    .textfield-input-wrapper {
+      border-color: $border-color-dark;
+      background-color: $background-paper-dark;
+      
+      &:hover:not(.textfield-disabled) {
+        border-color: $text-primary-dark;
+      }
+      
+      &:focus-within:not(.textfield-disabled) {
+        border-color: $primary-color;
+      }
+    }
+    
+    &.textfield-disabled .textfield-input-wrapper {
+      background-color: $background-default-dark;
+      border-color: $border-color-dark;
+    }
+  }
+  
+  // Variant: Filled
+  .textfield-variant-filled {
+    .textfield-input-wrapper {
+      background-color: $background-default-dark;
+      
+      &:hover:not(.textfield-disabled) {
+        background-color: $background-hover-dark;
+      }
+      
+      &:focus-within:not(.textfield-disabled) {
+        background-color: $background-hover-dark;
+      }
+    }
+    
+    &.textfield-disabled .textfield-input-wrapper {
+      background-color: $background-subtle-dark;
+    }
+  }
+  
+  // Variant: Standard
+  .textfield-variant-standard {
+    .textfield-input-wrapper {
+      border-bottom-color: $border-color-dark;
+      
+      &:hover:not(.textfield-disabled) {
+        border-bottom-color: $text-primary-dark;
+      }
+    }
+  }
+  
+  .textfield-helper-text {
+    color: $text-secondary-dark;
+  }
+  
+  .textfield-disabled .textfield-helper-text {
+    color: $text-disabled-dark;
+  }
+  
+  .textfield-start-icon,
+  .textfield-end-icon {
+    color: $text-secondary-dark;
+  }
+  
+  .textfield-disabled .textfield-start-icon,
+  .textfield-disabled .textfield-end-icon {
+    color: $text-disabled-dark;
+  }
 }

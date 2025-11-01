@@ -5,10 +5,23 @@ $error-color: #d32f2f;
 $warning-color: #ed6c02;
 $info-color: #0288d1;
 $success-color: #2e7d32;
-$text-primary: rgba(0, 0, 0, 0.87);
-$text-secondary: rgba(0, 0, 0, 0.6);
-$text-disabled: rgba(0, 0, 0, 0.38);
-$track-unchecked: rgba(0, 0, 0, 0.38);
+
+// Light theme colors (defaults)
+$text-primary-light: rgba(0, 0, 0, 0.87);
+$text-secondary-light: rgba(0, 0, 0, 0.6);
+$text-disabled-light: rgba(0, 0, 0, 0.38);
+$track-unchecked-light: rgba(0, 0, 0, 0.38);
+$thumb-bg-light: #fff;
+$thumb-disabled-light: #bdbdbd;
+
+// Dark theme colors
+$text-primary-dark: rgba(255, 255, 255, 0.87);
+$text-secondary-dark: rgba(255, 255, 255, 0.6);
+$text-disabled-dark: rgba(255, 255, 255, 0.38);
+$track-unchecked-dark: rgba(255, 255, 255, 0.38);
+$thumb-bg-dark: #bdbdbd;
+$thumb-disabled-dark: #424242;
+
 $track-checked-opacity: 0.5;
 
 .switch {
@@ -71,7 +84,7 @@ $track-checked-opacity: 0.5;
   width: 34px;
   height: 14px;
   border-radius: 7px;
-  background-color: $track-unchecked;
+  background-color: $track-unchecked-light;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   display: flex;
@@ -82,11 +95,19 @@ $track-checked-opacity: 0.5;
   }
 }
 
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .switch-track {
+    background-color: $track-unchecked-dark;
+  }
+}
+
 .switch-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: $thumb-bg-light;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
               0px 1px 1px 0px rgba(0,0,0,0.14),
               0px 1px 3px 0px rgba(0,0,0,0.12);
@@ -105,7 +126,19 @@ $track-checked-opacity: 0.5;
   }
   
   .switch-disabled & {
-    background-color: #bdbdbd;
+    background-color: $thumb-disabled-light;
+  }
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .switch-thumb {
+    background-color: $thumb-bg-dark;
+  }
+  
+  .switch-disabled .switch-thumb {
+    background-color: $thumb-disabled-dark;
   }
 }
 
@@ -223,11 +256,11 @@ $track-checked-opacity: 0.5;
 // Label
 .switch-label {
   font-size: 1rem;
-  color: $text-primary;
+  color: $text-primary-light;
   line-height: 1.5;
   
   .switch-disabled & {
-    color: $text-disabled;
+    color: $text-disabled-light;
   }
   
   .switch-label-end & {
@@ -244,6 +277,18 @@ $track-checked-opacity: 0.5;
   
   .switch-label-bottom & {
     margin-top: 0.25rem;
+  }
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .switch-label {
+    color: $text-primary-dark;
+  }
+  
+  .switch-disabled .switch-label {
+    color: $text-disabled-dark;
   }
 }
 

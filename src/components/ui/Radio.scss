@@ -5,10 +5,18 @@ $error-color: #d32f2f;
 $warning-color: #ed6c02;
 $info-color: #0288d1;
 $success-color: #2e7d32;
-$text-primary: rgba(0, 0, 0, 0.87);
-$text-secondary: rgba(0, 0, 0, 0.6);
-$text-disabled: rgba(0, 0, 0, 0.38);
-$border-color: rgba(0, 0, 0, 0.23);
+
+// Light theme colors (defaults)
+$text-primary-light: rgba(0, 0, 0, 0.87);
+$text-secondary-light: rgba(0, 0, 0, 0.6);
+$text-disabled-light: rgba(0, 0, 0, 0.38);
+$hover-bg-light: rgba(0, 0, 0, 0.04);
+
+// Dark theme colors
+$text-primary-dark: rgba(255, 255, 255, 0.87);
+$text-secondary-dark: rgba(255, 255, 255, 0.6);
+$text-disabled-dark: rgba(255, 255, 255, 0.38);
+$hover-bg-dark: rgba(255, 255, 255, 0.08);
 
 .radio {
   display: inline-flex;
@@ -52,13 +60,21 @@ $border-color: rgba(0, 0, 0, 0.23);
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
   
   &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: $hover-bg-light;
   }
   
   .radio-disabled & {
     &:hover {
       background-color: transparent;
     }
+  }
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .radio-wrapper:hover {
+    background-color: $hover-bg-dark;
   }
 }
 
@@ -93,13 +109,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   &-outer {
     width: 100%;
     height: 100%;
-    border: 2px solid $text-secondary;
+    border: 2px solid $text-secondary-light;
     border-radius: 50%;
     box-sizing: border-box;
     transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
     
     .radio-disabled & {
-      border-color: $text-disabled;
+      border-color: $text-disabled-light;
     }
   }
   
@@ -112,6 +128,18 @@ $border-color: rgba(0, 0, 0, 0.23);
     transform: scale(0);
     transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
                 background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .radio-icon-outer {
+    border-color: $text-secondary-dark;
+  }
+  
+  .radio-disabled .radio-icon-outer {
+    border-color: $text-disabled-dark;
   }
 }
 
@@ -144,6 +172,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   }
 }
 
+[data-theme="dark"],
+.is-dark {
+  .radio-color-primary .radio-wrapper:hover {
+    background-color: rgba(25, 118, 210, 0.08);
+  }
+}
+
 .radio-color-secondary {
   .radio-input:checked ~ .radio-icon {
     .radio-icon-outer {
@@ -157,6 +192,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   
   .radio-wrapper:hover {
     background-color: rgba(156, 39, 176, 0.04);
+  }
+}
+
+[data-theme="dark"],
+.is-dark {
+  .radio-color-secondary .radio-wrapper:hover {
+    background-color: rgba(156, 39, 176, 0.08);
   }
 }
 
@@ -176,6 +218,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   }
 }
 
+[data-theme="dark"],
+.is-dark {
+  .radio-color-error .radio-wrapper:hover {
+    background-color: rgba(211, 47, 47, 0.08);
+  }
+}
+
 .radio-color-warning {
   .radio-input:checked ~ .radio-icon {
     .radio-icon-outer {
@@ -189,6 +238,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   
   .radio-wrapper:hover {
     background-color: rgba(237, 108, 2, 0.04);
+  }
+}
+
+[data-theme="dark"],
+.is-dark {
+  .radio-color-warning .radio-wrapper:hover {
+    background-color: rgba(237, 108, 2, 0.08);
   }
 }
 
@@ -208,6 +264,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   }
 }
 
+[data-theme="dark"],
+.is-dark {
+  .radio-color-info .radio-wrapper:hover {
+    background-color: rgba(2, 136, 209, 0.08);
+  }
+}
+
 .radio-color-success {
   .radio-input:checked ~ .radio-icon {
     .radio-icon-outer {
@@ -221,6 +284,13 @@ $border-color: rgba(0, 0, 0, 0.23);
   
   .radio-wrapper:hover {
     background-color: rgba(46, 125, 50, 0.04);
+  }
+}
+
+[data-theme="dark"],
+.is-dark {
+  .radio-color-success .radio-wrapper:hover {
+    background-color: rgba(46, 125, 50, 0.08);
   }
 }
 
@@ -272,11 +342,11 @@ $border-color: rgba(0, 0, 0, 0.23);
 // Label
 .radio-label {
   font-size: 1rem;
-  color: $text-primary;
+  color: $text-primary-light;
   line-height: 1.5;
   
   .radio-disabled & {
-    color: $text-disabled;
+    color: $text-disabled-light;
   }
   
   .radio-label-end & {
@@ -293,6 +363,18 @@ $border-color: rgba(0, 0, 0, 0.23);
   
   .radio-label-bottom & {
     margin-top: 0.25rem;
+  }
+}
+
+// Dark theme overrides
+[data-theme="dark"],
+.is-dark {
+  .radio-label {
+    color: $text-primary-dark;
+  }
+  
+  .radio-disabled .radio-label {
+    color: $text-disabled-dark;
   }
 }
 
