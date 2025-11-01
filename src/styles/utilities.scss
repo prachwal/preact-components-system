@@ -1,0 +1,114 @@
+// Import dependencies
+@use './mixins';
+@use './variables';
+
+// Responsive Styles
+@include mixins.media-min(variables.$bp-md) {
+  .hamburger {
+    display: none;
+  }
+
+  .app-content {
+    flex-direction: row;
+  }
+
+  .app-sidebar {
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transform: translateX(0);
+  }
+
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-5,
+  .grid-cols-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include mixins.media-min(variables.$bp-lg) {
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+// Focus Styles
+:where(:focus-visible) {
+  @include mixins.focus-ring;
+}
+
+// Reduced Motion
+@include mixins.prefers-reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// High Contrast Mode
+@include mixins.prefers-contrast(high) {
+  :root {
+    --border: #000000;
+    --text: #000000;
+    --bg: #ffffff;
+    --accent: #0000ff;
+  }
+
+  [data-theme="dark"] {
+    --border: #ffffff;
+    --text: #ffffff;
+    --bg: #000000;
+    --accent: #ffff00;
+  }
+}
+
+// Print Styles
+@media print {
+  .skip-link,
+  .hamburger,
+  .theme-toggle,
+  .sidebar-backdrop,
+  .app-sidebar {
+    display: none !important;
+  }
+
+  .app-header {
+    position: static;
+  }
+
+  .app-content {
+    display: block;
+  }
+}

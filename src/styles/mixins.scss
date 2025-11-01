@@ -1,0 +1,40 @@
+// Mixins
+@mixin transition($property: all, $duration: 250ms, $ease: ease-in-out) {
+  transition: $property $duration $ease;
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
+}
+
+@mixin media-min($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-max($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin prefers-color-scheme($scheme) {
+  @media (prefers-color-scheme: $scheme) {
+    @content;
+  }
+}
+
+@mixin prefers-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin prefers-contrast($contrast) {
+  @media (prefers-contrast: $contrast) {
+    @content;
+  }
+}

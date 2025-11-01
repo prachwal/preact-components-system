@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src/app-compiled.css
+
+*storybook.log
+storybook-static
+docs/
+merged-ts-files.txt
+merged-files.txt
