@@ -21,20 +21,22 @@ Preact Components System is a modern, lightweight component library designed for
 
 ### Key Features
 
-- **Lightweight**: 40 kB bundle (96% smaller than initial version)
+- **Lightweight**: 51 kB bundle (optimized for tree-shaking)
 - **Type-Safe**: Full TypeScript support with strict mode
 - **Accessible**: WCAG AA compliant with focus management
 - **Themeable**: Light/Dark/System modes with custom themes
-- **Tested**: 77/77 tests passing, comprehensive coverage
+- **Tested**: 143/143 tests passing, comprehensive coverage
 - **Optimized**: Tree-shaking, minification, external dependencies
+- **Form Components**: TextField, Checkbox, Radio, Switch with full validation support
 
 ### Project Status
 
-- ✅ **Bundle Size**: 40 kB (ES), 28.80 kB (UMD)
-- ✅ **Tests**: 77/77 passing
+- ✅ **Bundle Size**: 51 kB (ES), 36 kB (UMD)
+- ✅ **Tests**: 143/143 passing (96 original + 47 new form components)
 - ✅ **TypeScript**: Strict mode enabled
-- ✅ **Storybook**: All components documented
+- ✅ **Storybook**: All components documented with interactive examples
 - ✅ **Performance**: Optimized with tree-shaking
+- ✅ **Phase 1 Complete**: All form components implemented (TextField, Checkbox, Radio, Switch)
 
 ## Getting Started
 
@@ -652,6 +654,110 @@ npm run docs             # Generate TypeDoc
 - `storybook`: Documentation
 - `typedoc`: API docs
 - `sass`: CSS preprocessing
+
+## Form Components
+
+The library includes a comprehensive set of form components built with accessibility, validation, and user experience in mind. All form components support:
+
+- Multiple sizes (small, medium, large)
+- Multiple colors (primary, secondary, error, warning, info, success)
+- Full accessibility (ARIA attributes, keyboard navigation, screen reader support)
+- Label positioning (start, end, top, bottom)
+- Disabled and required states
+- Form integration with native HTML forms
+
+### TextField
+
+A versatile text input component supporting single-line and multiline input.
+
+**Features**:
+- Three variants: outlined, filled, standard
+- Validation states (error, success, warning)
+- Helper text
+- Start and end adornments
+- Multiline support (textarea)
+- Full width option
+
+**Example**:
+```tsx
+import { TextField } from 'preact-components-system';
+
+<TextField
+  label="Email"
+  type="email"
+  variant="outlined"
+  error={!!errors.email}
+  helperText={errors.email || "We'll never share your email"}
+  startAdornment={<EmailIcon />}
+  fullWidth
+/>
+```
+
+### Checkbox
+
+A checkbox input with support for indeterminate state.
+
+**Features**:
+- Indeterminate state support
+- Label positioning
+- Form integration
+- Interactive Storybook examples (select all pattern)
+
+**Example**:
+```tsx
+import { Checkbox } from 'preact-components-system';
+
+<Checkbox
+  checked={accepted}
+  onChange={(e) => setAccepted(e.target.checked)}
+  label="I accept the terms and conditions"
+  required
+/>
+```
+
+### Radio & RadioGroup
+
+Radio buttons for mutually exclusive selections.
+
+**Features**:
+- RadioGroup for managing radio groups
+- Horizontal and vertical layouts
+- Form integration
+- Accessibility with role="radiogroup"
+
+**Example**:
+```tsx
+import { Radio, RadioGroup } from 'preact-components-system';
+
+<RadioGroup name="size" value={size} onChange={setSize}>
+  <Radio value="small" label="Small" />
+  <Radio value="medium" label="Medium" />
+  <Radio value="large" label="Large" />
+</RadioGroup>
+```
+
+### Switch
+
+A toggle switch for boolean states.
+
+**Features**:
+- Custom on/off labels
+- Label positioning
+- Settings panel examples
+- Role="switch" for accessibility
+
+**Example**:
+```tsx
+import { Switch } from 'preact-components-system';
+
+<Switch
+  checked={enabled}
+  onChange={(e) => setEnabled(e.target.checked)}
+  label="Enable notifications"
+  onLabel="ON"
+  offLabel="OFF"
+/>
+```
 
 ## Support
 

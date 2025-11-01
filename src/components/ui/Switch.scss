@@ -1,0 +1,253 @@
+// Colors for different states
+$primary-color: #1976d2;
+$secondary-color: #9c27b0;
+$error-color: #d32f2f;
+$warning-color: #ed6c02;
+$info-color: #0288d1;
+$success-color: #2e7d32;
+$text-primary: rgba(0, 0, 0, 0.87);
+$text-secondary: rgba(0, 0, 0, 0.6);
+$text-disabled: rgba(0, 0, 0, 0.38);
+$track-unchecked: rgba(0, 0, 0, 0.38);
+$track-checked-opacity: 0.5;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  
+  &-disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+  
+  // Label placements
+  &-label-end {
+    flex-direction: row;
+  }
+  
+  &-label-start {
+    flex-direction: row-reverse;
+  }
+  
+  &-label-top {
+    flex-direction: column-reverse;
+  }
+  
+  &-label-bottom {
+    flex-direction: column;
+  }
+}
+
+.switch-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 12px;
+}
+
+.switch-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  z-index: 1;
+  
+  &:focus-visible ~ .switch-track {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+.switch-track {
+  width: 34px;
+  height: 14px;
+  border-radius: 7px;
+  background-color: $track-unchecked;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  .switch-input:checked ~ & {
+    background-color: rgba($primary-color, $track-checked-opacity);
+  }
+}
+
+.switch-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
+              0px 1px 1px 0px rgba(0,0,0,0.14),
+              0px 1px 3px 0px rgba(0,0,0,0.12);
+  position: absolute;
+  left: 0;
+  transform: translateX(0);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .switch-input:checked ~ .switch-track & {
+    transform: translateX(20px);
+    background-color: $primary-color;
+  }
+  
+  .switch-disabled & {
+    background-color: #bdbdbd;
+  }
+}
+
+.switch-thumb-label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: #fff;
+  user-select: none;
+}
+
+// Color variants
+.switch-color-primary {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($primary-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.switch-color-secondary {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($secondary-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.switch-color-error {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($error-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $error-color;
+    }
+  }
+}
+
+.switch-color-warning {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($warning-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $warning-color;
+    }
+  }
+}
+
+.switch-color-info {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($info-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $info-color;
+    }
+  }
+}
+
+.switch-color-success {
+  .switch-input:checked ~ .switch-track {
+    background-color: rgba($success-color, $track-checked-opacity);
+    
+    .switch-thumb {
+      background-color: $success-color;
+    }
+  }
+}
+
+// Sizes
+.switch-size-small {
+  .switch-track {
+    width: 28px;
+    height: 12px;
+    border-radius: 6px;
+  }
+  
+  .switch-thumb {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .switch-input:checked ~ .switch-track .switch-thumb {
+    transform: translateX(16px);
+  }
+  
+  .switch-label {
+    font-size: 0.875rem;
+  }
+}
+
+.switch-size-large {
+  .switch-track {
+    width: 44px;
+    height: 18px;
+    border-radius: 9px;
+  }
+  
+  .switch-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .switch-input:checked ~ .switch-track .switch-thumb {
+    transform: translateX(26px);
+  }
+  
+  .switch-label {
+    font-size: 1.125rem;
+  }
+}
+
+// Label
+.switch-label {
+  font-size: 1rem;
+  color: $text-primary;
+  line-height: 1.5;
+  
+  .switch-disabled & {
+    color: $text-disabled;
+  }
+  
+  .switch-label-end & {
+    margin-left: 0.5rem;
+  }
+  
+  .switch-label-start & {
+    margin-right: 0.5rem;
+  }
+  
+  .switch-label-top & {
+    margin-bottom: 0.25rem;
+  }
+  
+  .switch-label-bottom & {
+    margin-top: 0.25rem;
+  }
+}
+
+.switch-required {
+  color: $error-color;
+  margin-left: 0.25rem;
+}
