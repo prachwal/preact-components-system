@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 
 import { useResponsiveBatch } from '../../hooks/useResponsiveBatch';
+import { GRID_CONSTANTS } from '../../theme/constants';
 import type { ResponsiveValue } from '../../theme/types';
 
 export type GridSize = number | 'auto' | boolean;
@@ -110,11 +111,60 @@ export interface GridProps {
  * </Grid>
  * ```
  */
+/**
+ * Helper function to generate grid size classes for a specific breakpoint
+ */
+const getGridSizeClasses = (breakpoint: string, size?: GridSize) => {
+  if (size === undefined || size === null) return {};
+  
+  return {
+    [`grid-${breakpoint}-auto`]: size === 'auto',
+    [`grid-${breakpoint}-true`]: size === true,
+    [`grid-${breakpoint}-${size}`]: typeof size === 'number',
+  };
+};
+
+/**
+ * Helper function to generate container-specific classes
+ */
+const getContainerClasses = (
+  container: boolean,
+  resolvedSpacing: number,
+  resolvedDirection: Direction,
+  wrap: Wrap,
+  alignItems?: AlignItems,
+  justifyContent?: JustifyContent
+) => {
+  if (!container) return {};
+  
+  return {
+    'grid-container': true,
+    [`grid-spacing-${resolvedSpacing}`]: resolvedSpacing > 0,
+    [`grid-direction-${resolvedDirection}`]: resolvedDirection !== 'row',
+    [`grid-wrap-${wrap}`]: wrap !== 'wrap',
+    [`grid-align-${alignItems ?? ''}`]: Boolean(alignItems),
+    [`grid-justify-${justifyContent ?? ''}`]: Boolean(justifyContent),
+  };
+};
+
+/**
+ * Helper function to generate all grid item size classes
+ */
+const getGridItemClasses = (xs?: GridSize, sm?: GridSize, md?: GridSize, lg?: GridSize, xl?: GridSize) => {
+  return {
+    ...getGridSizeClasses('xs', xs),
+    ...getGridSizeClasses('sm', sm),
+    ...getGridSizeClasses('md', md),
+    ...getGridSizeClasses('lg', lg),
+    ...getGridSizeClasses('xl', xl),
+  };
+};
+
 export const Grid = ({
   container = false,
   item = false,
-  spacing = 0,
-  columns = 12,
+  spacing = GRID_CONSTANTS.DEFAULT_SPACING,
+  columns = GRID_CONSTANTS.DEFAULT_COLUMNS,
   xs,
   sm,
   md,
@@ -138,29 +188,9 @@ export const Grid = ({
   const classes = clsx(
     'grid',
     {
-      'grid-container': container,
       'grid-item': item,
-      [`grid-spacing-${resolvedSpacing}`]: container && resolvedSpacing > 0,
-      [`grid-direction-${resolvedDirection}`]: container && resolvedDirection !== 'row',
-      [`grid-wrap-${wrap}`]: container && wrap !== 'wrap',
-      [`grid-align-${alignItems}`]: container && alignItems,
-      [`grid-justify-${justifyContent}`]: container && justifyContent,
-      // Grid item sizes
-      'grid-xs-auto': xs === 'auto',
-      'grid-xs-true': xs === true,
-      [`grid-xs-${xs}`]: xs !== undefined && xs !== null && typeof xs === 'number',
-      'grid-sm-auto': sm === 'auto',
-      'grid-sm-true': sm === true,
-      [`grid-sm-${sm}`]: sm !== undefined && sm !== null && typeof sm === 'number',
-      'grid-md-auto': md === 'auto',
-      'grid-md-true': md === true,
-      [`grid-md-${md}`]: md !== undefined && md !== null && typeof md === 'number',
-      'grid-lg-auto': lg === 'auto',
-      'grid-lg-true': lg === true,
-      [`grid-lg-${lg}`]: lg !== undefined && lg !== null && typeof lg === 'number',
-      'grid-xl-auto': xl === 'auto',
-      'grid-xl-true': xl === true,
-      [`grid-xl-${xl}`]: xl !== undefined && xl !== null && typeof xl === 'number',
+      ...getContainerClasses(container, resolvedSpacing, resolvedDirection, wrap, alignItems, justifyContent),
+      ...getGridItemClasses(xs, sm, md, lg, xl),
     },
     className
   );

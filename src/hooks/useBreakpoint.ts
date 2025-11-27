@@ -8,6 +8,69 @@ import { useMediaQuery } from './useMediaQuery';
 export type BreakpointDirection = 'up' | 'down' | 'only' | 'between';
 
 /**
+ * Helper function to determine current breakpoint from media query results
+ */
+const getCurrentBreakpoint = (
+  isSm: boolean,
+  isMd: boolean,
+  isLg: boolean,
+  isXl: boolean
+): Breakpoint => {
+  if (isXl) return 'xl';
+  if (isLg) return 'lg';
+  if (isMd) return 'md';
+  if (isSm) return 'sm';
+  return 'xs';
+};
+
+/**
+ * Helper function to generate media query string based on direction
+ */
+const getMediaQuery = (
+  theme: ReturnType<typeof useTheme>,
+  direction?: BreakpointDirection,
+  breakpointOrStart?: Breakpoint,
+  end?: Breakpoint
+): string => {
+  if (!direction || !breakpointOrStart) return '';
+
+  switch (direction) {
+    case 'up':
+      return theme.breakpoints.up(breakpointOrStart);
+    case 'down':
+      return theme.breakpoints.down(breakpointOrStart);
+    case 'between':
+      return end ? theme.breakpoints.between(breakpointOrStart, end) : '';
+    case 'only':
+      return theme.breakpoints.only(breakpointOrStart);
+    default:
+      return '';
+  }
+};
+
+/**
+ * Helper function to evaluate directional query result
+ */
+const evaluateDirectionalQuery = (
+  direction?: BreakpointDirection,
+  breakpointOrStart?: Breakpoint,
+  end?: Breakpoint,
+  upQuery?: boolean,
+  downQuery?: boolean,
+  betweenQuery?: boolean,
+  onlyQuery?: boolean
+): boolean | null => {
+  if (!direction) return null;
+
+  if (direction === 'up' && breakpointOrStart) return upQuery ?? false;
+  if (direction === 'down' && breakpointOrStart) return downQuery ?? false;
+  if (direction === 'between' && breakpointOrStart && end) return betweenQuery ?? false;
+  if (direction === 'only' && breakpointOrStart) return onlyQuery ?? false;
+
+  return null;
+};
+
+/**
  * useBreakpoint hook - responsive breakpoint detection and queries
  *
  * Provides access to the current breakpoint and allows directional breakpoint queries
@@ -67,41 +130,32 @@ export function useBreakpoint(
   const isLg = useMediaQuery(theme.breakpoints.only('lg'));
   const isXl = useMediaQuery(theme.breakpoints.only('xl'));
 
-  const currentBreakpoint = useMemo((): Breakpoint => {
-    if (isXl) return 'xl';
-    if (isLg) return 'lg';
-    if (isMd) return 'md';
-    if (isSm) return 'sm';
-    return 'xs';
-  }, [isSm, isMd, isLg, isXl]);
+  const currentBreakpoint = useMemo(
+    (): Breakpoint => getCurrentBreakpoint(isSm, isMd, isLg, isXl),
+    [isSm, isMd, isLg, isXl]
+  );
 
   // Handle directional queries - call hooks unconditionally
-  const upQuery = useMediaQuery(direction === 'up' && breakpointOrStart ? theme.breakpoints.up(breakpointOrStart) : '');
-  const downQuery = useMediaQuery(direction === 'down' && breakpointOrStart ? theme.breakpoints.down(breakpointOrStart) : '');
-  const betweenQuery = useMediaQuery(direction === 'between' && breakpointOrStart && end ? theme.breakpoints.between(breakpointOrStart, end) : '');
-  const onlyQuery = useMediaQuery(direction === 'only' && breakpointOrStart ? theme.breakpoints.only(breakpointOrStart) : '');
+  const upQuery = useMediaQuery(getMediaQuery(theme, 'up', direction === 'up' ? breakpointOrStart : undefined));
+  const downQuery = useMediaQuery(getMediaQuery(theme, 'down', direction === 'down' ? breakpointOrStart : undefined));
+  const betweenQuery = useMediaQuery(getMediaQuery(theme, 'between', direction === 'between' ? breakpointOrStart : undefined, end));
+  const onlyQuery = useMediaQuery(getMediaQuery(theme, 'only', direction === 'only' ? breakpointOrStart : undefined));
 
   // If no direction specified, return current breakpoint
   if (!direction) {
     return currentBreakpoint;
   }
 
-  // Handle directional queries
-  if (direction === 'up' && breakpointOrStart) {
-    return upQuery;
-  }
+  // Evaluate directional query
+  const result = evaluateDirectionalQuery(
+    direction,
+    breakpointOrStart,
+    end,
+    upQuery,
+    downQuery,
+    betweenQuery,
+    onlyQuery
+  );
 
-  if (direction === 'down' && breakpointOrStart) {
-    return downQuery;
-  }
-
-  if (direction === 'between' && breakpointOrStart && end) {
-    return betweenQuery;
-  }
-
-  if (direction === 'only' && breakpointOrStart) {
-    return onlyQuery;
-  }
-
-  return currentBreakpoint;
+  return result ?? currentBreakpoint;
 }

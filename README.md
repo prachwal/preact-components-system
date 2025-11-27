@@ -3,19 +3,19 @@
 A modern, lightweight, and highly optimized component library for Preact with TypeScript support, theming, and accessibility features.
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/prachwal/preact-components-system)
-[![Bundle Size](https://img.shields.io/badge/bundle-54kB-success.svg)](https://github.com/prachwal/preact-components-system)
-[![Tests](https://img.shields.io/badge/tests-298%2F298-success.svg)](https://github.com/prachwal/preact-components-system)
+[![Bundle Size](https://img.shields.io/badge/bundle-53.92kB-success.svg)](https://github.com/prachwal/preact-components-system)
+[![Tests](https://img.shields.io/badge/tests-319%2F319-success.svg)](https://github.com/prachwal/preact-components-system)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://github.com/prachwal/preact-components-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
 
-- 🎯 **Lightweight**: Only 54 kB bundle size (optimized with tree-shaking)
+- 🎯 **Lightweight**: Only 53.92 kB bundle size (14.36 kB gzipped, optimized with tree-shaking)
 - 🎨 **Theming**: Complete theme system with light/dark/system modes
 - ♿ **Accessible**: WCAG AA compliant with focus management and ARIA support
 - 📱 **Responsive**: Mobile-first design with responsive breakpoints
 - 🔧 **TypeScript**: Full type safety with strict mode
-- 🧪 **Well Tested**: 77/77 tests passing with comprehensive coverage
+- 🧪 **Well Tested**: 319/319 tests passing with comprehensive coverage
 - 📚 **Documented**: Storybook stories and TypeDoc documentation
 - ⚡ **Optimized**: Tree-shaking, external dependencies, and minification
 
@@ -181,11 +181,11 @@ npm run docs             # Generate TypeDoc documentation
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| Bundle Size (ES) | 40.19 kB | Gzipped: 10.87 kB |
-| Bundle Size (UMD) | 28.80 kB | Gzipped: 9.58 kB |
+| Bundle Size (ES) | 53.92 kB | Gzipped: 14.36 kB |
+| Bundle Size (UMD) | 37.96 kB | Gzipped: 12.40 kB |
 | CSS Size | 23.52 kB | Gzipped: 3.39 kB |
-| Test Coverage | 77/77 | 100% passing |
-| Improvement | 96% | From 1,023 kB initial |
+| Test Coverage | 319/319 | 100% passing (83.38% statements) |
+| Improvement | 95% | From 1,023 kB initial |
 
 ## 🏗️ Architecture
 

@@ -1,5 +1,6 @@
-import { useResponsiveBatch } from './useResponsiveBatch';
 import type { ResponsiveValue } from '../theme/types';
+
+import { useResponsiveBatch } from './useResponsiveBatch';
 
 type LayoutValues = {
   display?: ResponsiveValue<string>;

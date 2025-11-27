@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 
+import { TEXTFIELD_CONSTANTS } from '../../theme/constants';
+
 export type TextFieldVariant = 'outlined' | 'filled' | 'standard';
 export type TextFieldSize = 'small' | 'medium' | 'large';
 export type TextFieldColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
@@ -105,6 +107,75 @@ export interface TextFieldProps extends Omit<JSX.HTMLAttributes<HTMLInputElement
   id?: string;
 }
 
+/**
+ * Helper function to determine the state color based on error/success/warning states
+ */
+const getStateColor = (
+  error: boolean,
+  success: boolean,
+  warning: boolean,
+  defaultColor: TextFieldColor
+): TextFieldColor => {
+  if (error) return 'error';
+  if (success) return 'success';
+  if (warning) return 'warning';
+  return defaultColor;
+};
+
+/**
+ * Helper function to generate root classes
+ */
+const getRootClasses = (
+  variant: TextFieldVariant,
+  size: TextFieldSize,
+  stateColor: TextFieldColor,
+  disabled: boolean,
+  fullWidth: boolean,
+  error: boolean,
+  success: boolean,
+  warning: boolean,
+  readOnly: boolean,
+  className?: string
+) => {
+  return clsx(
+    'textfield',
+    `textfield-variant-${variant}`,
+    `textfield-size-${size}`,
+    `textfield-color-${stateColor}`,
+    {
+      'textfield-disabled': disabled,
+      'textfield-full-width': fullWidth,
+      'textfield-error': error,
+      'textfield-success': success,
+      'textfield-warning': warning,
+      'textfield-readonly': readOnly,
+      'textfield-focused': false, // Will be handled by CSS :focus-within
+    },
+    className
+  );
+};
+
+/**
+ * Helper function to generate input classes
+ */
+const getInputClasses = (startAdornment?: ComponentChildren, endAdornment?: ComponentChildren) => {
+  return clsx('textfield-input', {
+    'textfield-input-with-start': Boolean(startAdornment),
+    'textfield-input-with-end': Boolean(endAdornment),
+  });
+};
+
+/**
+ * Helper function to generate helper text classes
+ */
+const getHelperTextClasses = (error: boolean, success: boolean, warning: boolean) => {
+  return clsx('textfield-helper-text', {
+    'textfield-helper-text-error': error,
+    'textfield-helper-text-success': success,
+    'textfield-helper-text-warning': warning,
+  });
+};
+
 export const TextField = ({
   variant = 'outlined',
   size = 'medium',
@@ -114,7 +185,7 @@ export const TextField = ({
   readOnly = false,
   fullWidth = false,
   multiline = false,
-  rows = 4,
+  rows = TEXTFIELD_CONSTANTS.DEFAULT_ROWS,
   label,
   helperText,
   error = false,
@@ -137,35 +208,11 @@ export const TextField = ({
   const helperTextId = helperText ? `${inputId}-helper` : undefined;
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
-  // Determine state color
-  const stateColor = error ? 'error' : success ? 'success' : warning ? 'warning' : color;
+  const stateColor = getStateColor(error, success, warning, color);
+  const rootClasses = getRootClasses(variant, size, stateColor, disabled, fullWidth, error, success, warning, readOnly, className);
+  const inputClasses = getInputClasses(startAdornment, endAdornment);
 
-  const rootClasses = clsx(
-    'textfield',
-    `textfield-variant-${variant}`,
-    `textfield-size-${size}`,
-    `textfield-color-${stateColor}`,
-    {
-      'textfield-disabled': disabled,
-      'textfield-full-width': fullWidth,
-      'textfield-error': error,
-      'textfield-success': success,
-      'textfield-warning': warning,
-      'textfield-readonly': readOnly,
-      'textfield-focused': false, // Will be handled by CSS :focus-within
-    },
-    className
-  );
-
-  const inputClasses = clsx(
-    'textfield-input',
-    {
-      'textfield-input-with-start': startAdornment,
-      'textfield-input-with-end': endAdornment,
-    }
-  );
-
-  const inputProps = {
+  const baseInputProps = {
     id: inputId,
     className: inputClasses,
     disabled,
@@ -177,10 +224,11 @@ export const TextField = ({
     name,
     placeholder,
     'aria-describedby': helperTextId,
-    'aria-invalid': error ? 'true' : undefined,
-    'aria-required': required ? 'true' : undefined,
-    ...rest,
+    'aria-invalid': error ? ('true' as const) : undefined,
+    'aria-required': required ? ('true' as const) : undefined,
   };
+
+  const inputProps = { ...baseInputProps, ...rest };
 
   return (
     <div className={rootClasses}>
@@ -196,15 +244,15 @@ export const TextField = ({
         )}
         {multiline ? (
           <textarea
-            ref={inputRef as any}
+            ref={inputRef as React.RefObject<HTMLTextAreaElement>}
             rows={rows}
-            {...(inputProps as any)}
+            {...(inputProps as JSX.HTMLAttributes<HTMLTextAreaElement>)}
           />
         ) : (
           <input
-            ref={inputRef as any}
+            ref={inputRef as React.RefObject<HTMLInputElement>}
             type={type}
-            {...(inputProps as any)}
+            {...(inputProps as JSX.HTMLAttributes<HTMLInputElement>)}
           />
         )}
         {endAdornment && (
@@ -212,14 +260,7 @@ export const TextField = ({
         )}
       </div>
       {helperText && (
-        <div
-          id={helperTextId}
-          className={clsx('textfield-helper-text', {
-            'textfield-helper-text-error': error,
-            'textfield-helper-text-success': success,
-            'textfield-helper-text-warning': warning,
-          })}
-        >
+        <div id={helperTextId} className={getHelperTextClasses(error, success, warning)}>
           {helperText}
         </div>
       )}

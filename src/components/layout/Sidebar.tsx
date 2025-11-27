@@ -1,16 +1,68 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import { useAppVersion } from '../../hooks/useAppVersion';
+import { RESPONSIVE_BREAKPOINTS, SPACING_MULTIPLIERS } from '../../theme/constants';
 import { Logo } from '../common/Logo';
 import { Icon } from '../ui/Icon';
 
-const MOBILE_BREAKPOINT = 768;
-const TABLET_BREAKPOINT = 1024;
+const MOBILE_BREAKPOINT = RESPONSIVE_BREAKPOINTS.MOBILE;
+const TABLET_BREAKPOINT = RESPONSIVE_BREAKPOINTS.TABLET;
+const ICON_MARGIN_RIGHT = `${SPACING_MULTIPLIERS.XXXL}px`;
 
 export interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+/**
+ * Helper function to handle Escape key press
+ */
+const handleEscapeKey = (onClose: () => void) => {
+  onClose();
+  const hamburger = document.querySelector('.hamburger') as HTMLElement | null;
+  hamburger?.focus();
+};
+
+/**
+ * Helper function to handle Tab key navigation with focus trapping
+ */
+const handleTabKey = (e: KeyboardEvent, sidebarRef: React.RefObject<HTMLDivElement>) => {
+  const focusableElements = sidebarRef.current?.querySelectorAll(
+    'a[href], button:not([disabled])'
+  ) as NodeListOf<HTMLElement> | undefined;
+
+  if (!focusableElements || focusableElements.length === 0) return;
+
+  const first = focusableElements[0];
+  const last = focusableElements[focusableElements.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+};
+
+/**
+ * Helper function to create keyboard event handler
+ */
+const createKeyboardHandler = (
+  onClose: () => void,
+  sidebarRef: React.RefObject<HTMLDivElement>
+) => {
+  return (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleEscapeKey(onClose);
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      handleTabKey(e, sidebarRef);
+    }
+  };
+};
 
 /**
  * Sidebar component - responsive navigation sidebar
@@ -65,34 +117,10 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   useEffect(() => {
     if (!isOpen) return;
 
-    const firstLink = sidebarRef.current?.querySelector('a') as HTMLElement;
+    const firstLink = sidebarRef.current?.querySelector('a') as HTMLElement | null;
     firstLink?.focus();
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-        const hamburger = document.querySelector('.hamburger') as HTMLElement;
-        hamburger?.focus();
-        return;
-      }
-
-      if (e.key === 'Tab') {
-        const focusableElements = sidebarRef.current?.querySelectorAll(
-          'a[href], button:not([disabled])'
-        ) as NodeListOf<HTMLElement>;
-
-        const first = focusableElements[0];
-        const last = focusableElements[focusableElements.length - 1];
-
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
+    const handleKeyDown = createKeyboardHandler(onClose, sidebarRef);
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
@@ -125,25 +153,25 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           <ul>
             <li className={activeSection === 'home' ? 'is-active' : ''}>
               <a href="#home" title={isCollapsed ? "Home" : undefined} aria-label="Home">
-                <Icon name="Home" size="small" decorative style={{ marginRight: '8px' }} />
+                <Icon name="Home" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
                 {!isCollapsed && "Home"}
               </a>
             </li>
             <li className={activeSection === 'features' ? 'is-active' : ''}>
               <a href="#features" title={isCollapsed ? "Features" : undefined} aria-label="Features">
-                <Icon name="Star" size="small" decorative style={{ marginRight: '8px' }} />
+                <Icon name="Star" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
                 {!isCollapsed && "Features"}
               </a>
             </li>
             <li className={activeSection === 'about' ? 'is-active' : ''}>
               <a href="#about" title={isCollapsed ? "About" : undefined} aria-label="About">
-                <Icon name="Info" size="small" decorative style={{ marginRight: '8px' }} />
+                <Icon name="Info" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
                 {!isCollapsed && "About"}
               </a>
             </li>
             <li className={activeSection === 'contact' ? 'is-active' : ''}>
               <a href="#contact" title={isCollapsed ? "Contact" : undefined} aria-label="Contact">
-                <Icon name="Mail" size="small" decorative style={{ marginRight: '8px' }} />
+                <Icon name="Mail" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
                 {!isCollapsed && "Contact"}
               </a>
             </li>

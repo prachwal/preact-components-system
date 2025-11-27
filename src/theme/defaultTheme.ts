@@ -1,3 +1,9 @@
+import { 
+  BREAKPOINT_VALUES, 
+  TRANSITION_DURATIONS, 
+  Z_INDEX_LAYERS, 
+  SPACING_MULTIPLIERS 
+} from './constants';
 import type { PaletteOptions, TypographyOptions, Shadows, Transitions, ZIndex } from './types';
 
 /**
@@ -270,13 +276,13 @@ export const defaultTransitions: Transitions = {
     sharp: 'cubic-bezier(0.4, 0, 0.6, 1)',
   },
   duration: {
-    shortest: 150,
-    shorter: 200,
-    short: 250,
-    standard: 300,
-    complex: 375,
-    enteringScreen: 225,
-    leavingScreen: 195,
+    shortest: TRANSITION_DURATIONS.SHORTEST,
+    shorter: TRANSITION_DURATIONS.SHORTER,
+    short: TRANSITION_DURATIONS.SHORT,
+    standard: TRANSITION_DURATIONS.STANDARD,
+    complex: TRANSITION_DURATIONS.COMPLEX,
+    enteringScreen: TRANSITION_DURATIONS.ENTERING,
+    leavingScreen: TRANSITION_DURATIONS.LEAVING,
   },
 };
 
@@ -284,34 +290,28 @@ export const defaultTransitions: Transitions = {
  * Default z-index values
  */
 export const defaultZIndex: ZIndex = {
-  mobileStepper: 1000,
-  fab: 1050,
-  speedDial: 1050,
-  appBar: 1100,
-  drawer: 1200,
-  modal: 1300,
-  snackbar: 1400,
-  tooltip: 1500,
+  mobileStepper: Z_INDEX_LAYERS.MOBILE_STEPPER,
+  fab: Z_INDEX_LAYERS.FAB,
+  speedDial: Z_INDEX_LAYERS.SPEED_DIAL,
+  appBar: Z_INDEX_LAYERS.APP_BAR,
+  drawer: Z_INDEX_LAYERS.DRAWER,
+  modal: Z_INDEX_LAYERS.MODAL,
+  snackbar: Z_INDEX_LAYERS.SNACKBAR,
+  tooltip: Z_INDEX_LAYERS.TOOLTIP,
 };
 
 /**
  * Default breakpoints
  */
 export const defaultBreakpoints = {
-  values: {
-    xs: 0,
-    sm: 600,
-    md: 900,
-    lg: 1200,
-    xl: 1536,
-  },
+  values: BREAKPOINT_VALUES,
   unit: 'px',
 };
 
 /**
  * Default spacing multiplier
  */
-export const defaultSpacing = 8;
+export const defaultSpacing = SPACING_MULTIPLIERS.XXXL;
 
 /**
  * Default accessibility settings

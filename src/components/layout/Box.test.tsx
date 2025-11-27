@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 
+import { ThemeProvider } from '../../providers/ThemeProvider';
 import { render } from '../../test/test-utils';
 
-import { ThemeProvider } from '../../providers/ThemeProvider';
 
 import { Box } from './Box';
 

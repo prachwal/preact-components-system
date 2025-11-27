@@ -1,8 +1,10 @@
 // @vite-ignore
 
-import { RenderOptions, render as rtlRender, screen, fireEvent, waitFor, act, cleanup } from '@testing-library/preact';
-import { ThemeProvider } from '../providers/ThemeProvider';
+import type { RenderOptions} from '@testing-library/preact';
+import { render as rtlRender, screen, fireEvent, waitFor, act, cleanup } from '@testing-library/preact';
 import type { ComponentChildren } from 'preact';
+
+import { ThemeProvider } from '../providers/ThemeProvider';
 
 // Explicitly export testing library functions
 export { screen, fireEvent, waitFor, act, cleanup };
