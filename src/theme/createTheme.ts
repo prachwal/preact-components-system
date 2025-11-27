@@ -12,36 +12,49 @@ import {
 import type { Theme, ThemeOptions, Breakpoint, SpacingArgument, PaletteColor, SimplePaletteColor } from './types';
 
 /**
- * Deep merge utility
+ * Deep merge utility with proper TypeScript types
  */
-// Overload for Record types (objects with string keys)
-function deepMerge<T extends Record<string, any>>(target: T, source: Partial<T>): T;
+type DeepMerge<T, U> = U extends object
+  ? T extends object
+    ? {
+        [K in keyof T | keyof U]: K extends keyof U
+          ? K extends keyof T
+            ? DeepMerge<T[K], U[K]>
+            : U[K]
+          : K extends keyof T
+          ? T[K]
+          : never;
+      }
+    : U
+  : U;
 
-// Overload for non-Record types (specific theme interfaces)
-function deepMerge<T extends object>(target: T, source: Partial<T>): T;
-
-// Implementation
-function deepMerge(target: object, source: Partial<object>): object {
-  const output = { ...target };
+function deepMerge<T extends Record<string, unknown>, U extends Record<string, unknown>>(
+  target: T,
+  source: U
+): DeepMerge<T, U> {
+  const output = { ...target } as Record<string, unknown>;
   
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key) => {
-      if (isObject(source[key])) {
+      const sourceValue = source[key as keyof U];
+      if (isObject(sourceValue)) {
         if (!(key in target)) {
-          (output as Record<string, unknown>)[key] = source[key] as unknown;
+          output[key] = sourceValue;
         } else {
-          (output as Record<string, unknown>)[key] = deepMerge(
-            (target as Record<string, unknown>)[key] as object,
-            source[key] as object
-          );
+          const targetValue = target[key as keyof T];
+          if (isObject(targetValue)) {
+            output[key] = deepMerge(targetValue, sourceValue);
+          } else {
+            output[key] = sourceValue;
+          }
         }
       } else {
-        (output as Record<string, unknown>)[key] = source[key] as unknown;
+        output[key] = sourceValue;
       }
     });
   }
   
-  return output;
+  return output as DeepMerge<T, U>;
 }
 
 function isObject(item: unknown): item is Record<string, unknown> {
@@ -176,7 +189,7 @@ export function createTheme(options: ThemeOptions = {}): Theme {
   };
   
   // Merge typography
-  const typography = deepMerge<typeof defaultTypography>(defaultTypography, typographyInput);
+  const typography = deepMerge(defaultTypography, typographyInput);
   
   // Create spacing
   const spacing = createSpacing(spacingInput);
@@ -190,7 +203,7 @@ export function createTheme(options: ThemeOptions = {}): Theme {
   const shadows = { ...defaultShadows, ...shadowsInput };
   
   // Merge transitions
-  const transitions = deepMerge<typeof defaultTransitions>(defaultTransitions, transitionsInput);
+  const transitions = deepMerge(defaultTransitions, transitionsInput);
   
   // Merge zIndex
   const zIndex = { ...defaultZIndex, ...zIndexInput };

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { JSX } from 'preact';
+import type { JSX, ComponentChildren } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 import './Radio.scss';
 
@@ -159,7 +159,7 @@ export interface RadioGroupProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>
   /**
    * Children elements (Radio components)
    */
-  children?: any;
+  children?: ComponentChildren;
 }
 
 export const RadioGroup = ({
