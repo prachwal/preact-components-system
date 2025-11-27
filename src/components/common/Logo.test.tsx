@@ -1,7 +1,7 @@
 import { render } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import Logo from './Logo';
+import { Logo } from './Logo';
 
 describe('Logo', () => {
   it('renders SVG element', () => {

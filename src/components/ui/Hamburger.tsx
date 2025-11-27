@@ -1,4 +1,9 @@
-const Hamburger = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }) => (
+export interface HamburgerProps {
+  onClick: () => void;
+  isOpen: boolean;
+}
+
+export const Hamburger = ({ onClick, isOpen }: HamburgerProps) => (
   <button
     className="hamburger"
     onClick={onClick}
@@ -11,5 +16,3 @@ const Hamburger = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }
     <span className="hamburger__line" />
   </button>
 );
-
-export default Hamburger;

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 
 import { ThemeProvider } from '../../providers/ThemeProvider';
 
-import Main from './Main';
+import { Main } from './Main';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { ThemeProvider } from '../../providers/ThemeProvider';
 
-import ThemeToggle from './ThemeToggle';
+import { ThemeToggle } from './ThemeToggle';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

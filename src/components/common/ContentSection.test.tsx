@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import ContentSection from './ContentSection';
+import { ContentSection } from './ContentSection';
 
 describe('ContentSection', () => {
   it('renders children correctly', () => {

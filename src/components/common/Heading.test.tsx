@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import Heading from './Heading';
+import { Heading } from './Heading';
 
 describe('Heading', () => {
   it('renders children correctly', () => {

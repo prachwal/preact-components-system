@@ -1,10 +1,10 @@
-interface LogoProps {
+export interface LogoProps {
   className?: string;
   width?: number;
   height?: number;
 }
 
-const Logo = ({ className, width = 32, height = 32 }: LogoProps) => (
+export const Logo = ({ className, width = 32, height = 32 }: LogoProps) => (
   <svg
     width={width}
     height={height}
@@ -17,5 +17,3 @@ const Logo = ({ className, width = 32, height = 32 }: LogoProps) => (
     <circle cx="16" cy="16" r="4" fill="currentColor" />
   </svg>
 );
-
-export default Logo;

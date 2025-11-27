@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import SkipLink from './SkipLink';
+import { SkipLink } from './SkipLink';
 
 describe('SkipLink', () => {
   it('renders skip link with correct text', () => {

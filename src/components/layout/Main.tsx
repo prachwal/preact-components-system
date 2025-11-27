@@ -1,6 +1,8 @@
-import ContentSection from '../common/ContentSection';
+import { ContentSection } from '../common/ContentSection';
 
-const Main = () => (
+export interface MainProps {}
+
+export const Main = () => (
   <main id="main-content" role="main" className="app-main">
     <ContentSection
       title="Welcome to our application"
@@ -50,5 +52,3 @@ const Main = () => (
     </footer>
   </main>
 );
-
-export default Main;

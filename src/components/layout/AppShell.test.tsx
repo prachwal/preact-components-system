@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/preact';
 
 import { ThemeProvider } from '../../providers/ThemeProvider';
 
-import AppShell from './AppShell';
+import { AppShell } from './AppShell';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

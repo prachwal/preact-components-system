@@ -1,7 +1,9 @@
 import { useThemeMode } from '../../contexts/ThemeContext';
 import type { ThemeMode } from '../../types/theme';
 
-const ThemeToggle = () => {
+export interface ThemeToggleProps {}
+
+export const ThemeToggle = () => {
   const { theme, setTheme } = useThemeMode();
 
   const getNextTheme = (currentTheme: ThemeMode): ThemeMode => {
@@ -32,5 +34,3 @@ const ThemeToggle = () => {
     </button>
   );
 };
-
-export default ThemeToggle;

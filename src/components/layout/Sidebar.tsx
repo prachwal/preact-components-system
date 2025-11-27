@@ -1,13 +1,18 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import { useAppVersion } from '../../hooks/useAppVersion';
-import Logo from '../common/Logo';
+import { Logo } from '../common/Logo';
 import { Icon } from '../ui/Icon';
 
 const MOBILE_BREAKPOINT = 768;
 const TABLET_BREAKPOINT = 1024;
 
-const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+export interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const appVersion = useAppVersion();
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -129,5 +134,3 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     </>
   );
 };
-
-export default Sidebar;

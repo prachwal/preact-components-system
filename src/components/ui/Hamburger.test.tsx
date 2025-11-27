@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/preact';
 import { describe, expect, it } from 'vitest';
 
-import Hamburger from './Hamburger';
+import { Hamburger } from './Hamburger';
 
 describe('Hamburger', () => {
   it('renders button element', () => {

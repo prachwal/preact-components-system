@@ -1,11 +1,11 @@
 import type { ComponentChildren } from "preact";
 
-import Heading from "./Heading";
+import { Heading } from "./Heading";
 
 /**
  * Props for the ContentSection component.
  */
-interface ContentSectionProps {
+export interface ContentSectionProps {
   /** The title of the section, displayed as a heading. */
   title?: string;
   /** The heading level for the title (1-6). Defaults to 2. */
@@ -59,7 +59,7 @@ interface ContentSectionProps {
  * </ContentSection>
  * ```
  */
-const ContentSection = ({
+export const ContentSection = ({
   title,
   level = 2,
   desc,
@@ -88,5 +88,3 @@ const ContentSection = ({
     </Wrapper>
   );
 };
-
-export default ContentSection;

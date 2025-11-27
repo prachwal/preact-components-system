@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'preact/hooks';
 
-import SkipLink from '../common/SkipLink';
+import { SkipLink } from '../common/SkipLink';
 
 import { Footer } from './Footer';
-import Header from './Header';
-import Main from './Main';
-import Sidebar from './Sidebar';
+import { Header } from './Header';
+import { Main } from './Main';
+import { Sidebar } from './Sidebar';
 
-const AppShell = () => {
+export interface AppShellProps {}
+
+export const AppShell = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen((prev) => !prev);
@@ -37,5 +39,3 @@ const AppShell = () => {
     </div>
   );
 };
-
-export default AppShell;

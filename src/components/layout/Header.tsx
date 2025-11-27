@@ -1,8 +1,13 @@
-import Logo from '../common/Logo';
-import Hamburger from '../ui/Hamburger';
-import ThemeToggle from '../ui/ThemeToggle';
+import { Logo } from '../common/Logo';
+import { Hamburger } from '../ui/Hamburger';
+import { ThemeToggle } from '../ui/ThemeToggle';
 
-const Header = ({ onToggleSidebar, sidebarOpen }: { onToggleSidebar: () => void; sidebarOpen: boolean }) => (
+export interface HeaderProps {
+  onToggleSidebar: () => void;
+  sidebarOpen: boolean;
+}
+
+export const Header = ({ onToggleSidebar, sidebarOpen }: HeaderProps) => (
   <header role="banner" className="app-header">
     <Hamburger onClick={onToggleSidebar} isOpen={sidebarOpen} />
     <Logo />
@@ -13,5 +18,3 @@ const Header = ({ onToggleSidebar, sidebarOpen }: { onToggleSidebar: () => void;
     <ThemeToggle />
   </header>
 );
-
-export default Header;
