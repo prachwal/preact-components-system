@@ -87,12 +87,14 @@ function App() {
 ## 📚 Available Components
 
 ### Layout Components
+
 - **Grid** - 12-column responsive grid system
 - **Stack** - 1D flex layout with spacing
 - **Container** - Max-width content wrapper
 - **Box** - Universal wrapper component
 
 ### UI Components
+
 - **Button** - Multiple variants (contained, outlined, text) and colors
 - **Typography** - Complete typography scale (h1-h6, body, caption)
 - **Card** - Content cards with header, media, content, and actions
@@ -101,11 +103,13 @@ function App() {
 - **Icon** - Optimized icon system with lucide-preact
 
 ### Utility Components
+
 - **Portal** - Render content outside DOM hierarchy
 - **FocusTrap** - Accessibility focus management
 - **ClickAwayListener** - Detect clicks outside elements
 
 ### Hooks
+
 - **useTheme()** - Access theme context
 - **useMediaQuery()** - Responsive media queries
 - **useBreakpoint()** - Current breakpoint detection
@@ -133,7 +137,7 @@ function ThemeToggle() {
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, or pnpm
 
 ### Install Dependencies
