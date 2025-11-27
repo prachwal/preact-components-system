@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 
-import { useResponsive } from '../../hooks/useResponsive';
+import { useResponsiveBatch } from '../../hooks/useResponsiveBatch';
 import type { ResponsiveValue } from '../../theme/types';
 import './Grid.scss';
 
@@ -130,9 +130,11 @@ export const Grid = ({
   children,
   component: Component = 'div',
 }: GridProps) => {
-  const resolvedSpacing = useResponsive(spacing);
-  const resolvedColumns = useResponsive(columns);
-  const resolvedDirection = useResponsive(direction);
+  const { spacing: resolvedSpacing, columns: resolvedColumns, direction: resolvedDirection } = useResponsiveBatch({
+    spacing,
+    columns,
+    direction,
+  });
 
   const classes = clsx(
     'grid',

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 
-import { useResponsive } from '../../hooks/useResponsive';
+import { useResponsiveBatch } from '../../hooks/useResponsiveBatch';
 import type { ResponsiveValue } from '../../theme/types';
 import './Stack.scss';
 
@@ -105,8 +105,10 @@ export const Stack = ({
   'aria-label': ariaLabel,
   landmark = false,
 }: StackProps) => {
-  const resolvedSpacing = useResponsive(spacing);
-  const resolvedDirection = useResponsive(direction);
+  const { spacing: resolvedSpacing, direction: resolvedDirection } = useResponsiveBatch({
+    spacing,
+    direction,
+  });
 
   const classes = clsx(
     'stack',

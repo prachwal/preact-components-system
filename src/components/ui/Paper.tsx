@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 // import { useTheme } from '../../contexts/ThemeContext';
 import './Paper.scss';
@@ -28,7 +27,7 @@ export interface PaperProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -55,7 +54,7 @@ export const Paper = ({
     className
   );
 
-  const paperStyle: h.JSX.CSSProperties = {
+  const paperStyle: JSX.CSSProperties = {
     ...style,
   };
 

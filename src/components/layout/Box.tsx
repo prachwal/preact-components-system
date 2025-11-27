@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { h } from 'preact';
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, JSX } from 'preact';
 
 import { useResponsiveStyles } from '../../hooks/useResponsiveStyles';
 import type { ResponsiveValue } from '../../theme/types';
@@ -29,7 +28,7 @@ export interface BoxProps {
   /**
    * Component to render as
    */
-  component?: keyof h.JSX.IntrinsicElements;
+  component?: keyof JSX.IntrinsicElements;
   /**
    * CSS class name
    */
@@ -37,7 +36,7 @@ export interface BoxProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Padding (multiplier of spacing unit, default 8px)
    */
@@ -137,7 +136,7 @@ export const Box = ({
     display
   });
 
-  const boxStyle: h.JSX.CSSProperties = {
+  const boxStyle: JSX.CSSProperties = {
     ...style,
     ...responsiveStyles, // Apply all resolved styles at once
   };

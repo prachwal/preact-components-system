@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 
 import { Paper } from './Paper';
@@ -25,7 +24,7 @@ export interface CardProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -86,7 +85,7 @@ export interface CardHeaderProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
 }
 
 export const CardHeader = ({
@@ -135,7 +134,7 @@ export interface CardMediaProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements (for div variant)
    */
@@ -154,7 +153,7 @@ export const CardMedia = ({
 }: CardMediaProps) => {
   const classes = clsx('card-media', className);
 
-  const mediaStyle: h.JSX.CSSProperties = {
+  const mediaStyle: JSX.CSSProperties = {
     ...style,
     height: typeof height === 'number' ? `${height}px` : height,
   };
@@ -203,7 +202,7 @@ export interface CardContentProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -236,7 +235,7 @@ export interface CardActionsProps {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */

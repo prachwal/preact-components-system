@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 
 import { useTheme } from '../../contexts/ThemeContext';
@@ -49,7 +48,7 @@ export interface TypographyProps extends Omit<JSX.HTMLAttributes<HTMLElement>, '
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
@@ -106,7 +105,7 @@ export const Typography = ({
     }
   };
 
-  const typographyStyle: h.JSX.CSSProperties = {
+  const typographyStyle: JSX.CSSProperties = {
     ...theme.typography[variant],
     textAlign: align !== 'inherit' ? align : undefined,
     color: getColor(),

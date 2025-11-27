@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 import './Alert.scss';
 
@@ -34,7 +33,7 @@ export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**
    * Inline styles
    */
-  style?: h.JSX.CSSProperties;
+  style?: JSX.CSSProperties;
   /**
    * Children elements
    */
