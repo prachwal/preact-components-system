@@ -32,7 +32,7 @@ export default defineConfig({
       entry: './index.ts',
       name: 'PreactComponentsSystem',
       fileName: (format) => {
-        // Output different filenames for different formats
+        // Fixed filenames without hashes for main entry points
         if (format === 'es') return 'index.mjs';
         if (format === 'cjs') return 'index.js';
         return 'index.js';
@@ -55,11 +55,54 @@ export default defineConfig({
           'lucide-preact': 'LucidePreact',
           'clsx': 'clsx'
         },
-        // Preserve module structure for better tree shaking
-        preserveModules: true,
-        preserveModulesRoot: 'src/lib',
-        // Note: manualChunks is not compatible with preserveModules
-        // Chunking will be handled automatically by Rollup
+        // Named exports for better compatibility
+        exports: 'named',
+        // Fixed filenames without hashes for main entry files
+        entryFileNames: '[name].js',
+        // Only hash chunk files, not main files
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'styles/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+        // Manual chunks for better optimization
+        manualChunks: (id) => {
+          // Create separate chunks for external dependencies
+          if (id.includes('node_modules')) {
+            if (id.includes('preact')) {
+              return 'preact-vendor';
+            }
+            if (id.includes('lucide-preact') || id.includes('clsx')) {
+              return 'ui-vendor';
+            }
+            return 'vendor';
+          }
+          
+          // Separate chunks by module type for better tree-shaking
+          if (id.includes('/theme/') || id.includes('/config/') || id.includes('/types/')) {
+            return 'theme-chunk';
+          }
+          if (id.includes('/components/ui/')) {
+            return 'ui-components';
+          }
+          if (id.includes('/components/layout/')) {
+            return 'layout-components';
+          }
+          if (id.includes('/components/common/')) {
+            return 'common-components';
+          }
+          if (id.includes('/components/utils/')) {
+            return 'utils-components';
+          }
+          if (id.includes('/hooks/')) {
+            return 'hooks-chunk';
+          }
+          if (id.includes('/providers/') || id.includes('/contexts/')) {
+            return 'providers-chunk';
+          }
+        },
       },
     },
     // Minification settings
