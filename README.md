@@ -135,6 +135,27 @@ function ThemeToggle() {
 
 - Node.js 18+
 - npm, yarn, or pnpm
+- [VS Code](https://code.visualstudio.com/) with recommended extensions
+
+### VS Code Setup
+
+Install recommended extensions and use the provided workspace settings:
+
+```bash
+# The .vscode/settings.json configures:
+# - Prettier as default formatter for JS/TS/JSON/MD/HTML/SCSS/YAML
+# - Format on save enabled
+# - ESLint integration
+# - File associations for module types (.mjs, .mts, .cjs, .cts)
+```
+
+Recommended extensions (auto-installed):
+
+- **Prettier** - Code formatting
+- **ESLint** - Code linting
+- **TypeScript Importer** - TypeScript support
+- **Tailwind CSS** - CSS IntelliSense
+- **Test Explorer** - Test running and debugging
 
 ### Install Dependencies
 

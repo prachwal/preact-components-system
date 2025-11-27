@@ -31,6 +31,9 @@ jobs:
         run: npm run lint
         continue-on-error: true # Continue despite warnings
 
+      - name: Check Code Formatting
+        run: npm run format:check
+
       - name: Run Tests
         run: npm run test:run
 
