@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
-import './Button.scss';
 
 export type ButtonVariant = 'contained' | 'outlined' | 'text';
 export type ButtonColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
@@ -82,7 +81,8 @@ export const Button = ({
   'aria-describedby': ariaDescribedBy,
   ...rest
 }: ButtonProps) => {
-  const classes = clsx(
+  // Extract class computation to reduce complexity
+  const getButtonClasses = () => clsx(
     'button',
     `button-variant-${variant}`,
     `button-color-${color}`,
@@ -95,18 +95,9 @@ export const Button = ({
     className
   );
 
-  return (
-    <button
-      className={classes}
-      disabled={disabled || loading}
-      type={type}
-      role="button"
-      aria-label={ariaLabel}
-      aria-labelledby={ariaLabelledBy}
-      aria-describedby={ariaDescribedBy}
-      aria-disabled={loading}
-      {...rest}
-    >
+  // Extract content rendering to reduce complexity
+  const renderButtonContent = () => (
+    <>
       {loading && (
         <span className="button-loader" aria-hidden="true">
           <svg className="button-spinner" viewBox="0 0 24 24">
@@ -121,11 +112,26 @@ export const Button = ({
           </svg>
         </span>
       )}
-      {!loading && startIcon && <span className="button-start-icon">{startIcon}</span>}
+      {!loading && startIcon != null && <span className="button-start-icon">{startIcon}</span>}
       <span className={clsx('button-label', { 'button-label-hidden': loading })}>
         {children}
       </span>
-      {!loading && endIcon && <span className="button-end-icon">{endIcon}</span>}
+      {!loading && endIcon != null && <span className="button-end-icon">{endIcon}</span>}
+    </>
+  );
+
+  return (
+    <button
+      className={getButtonClasses()}
+      disabled={disabled || loading}
+      type={type}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
+      aria-disabled={loading}
+      {...rest}
+    >
+      {renderButtonContent()}
     </button>
   );
 };

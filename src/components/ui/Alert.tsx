@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
-import './Alert.scss';
 
 export type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
 export type AlertVariant = 'standard' | 'filled' | 'outlined';

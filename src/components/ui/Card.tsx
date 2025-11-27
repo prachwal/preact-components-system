@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 
 import { Paper } from './Paper';
-import './Card.scss';
 
 export interface CardProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**

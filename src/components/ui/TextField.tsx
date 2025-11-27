@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
-import './TextField.scss';
 
 export type TextFieldVariant = 'outlined' | 'filled' | 'standard';
 export type TextFieldSize = 'small' | 'medium' | 'large';

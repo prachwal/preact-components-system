@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 // import { useTheme } from '../../contexts/ThemeContext';
-import './Paper.scss';
 
 export interface PaperProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**

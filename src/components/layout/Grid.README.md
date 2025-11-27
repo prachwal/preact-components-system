@@ -193,5 +193,4 @@ The Grid component uses CSS Grid internally for layout, providing:
 
 - CSS Grid for efficient rendering
 - Responsive hooks for breakpoint detection
-- Minimal re-renders with memoized calculations</content>
-<parameter name="filePath">/home/prachwal/src/preact/preact-components-system/src/components/layout/Grid.README.md
+- Minimal re-renders with memoized calculations

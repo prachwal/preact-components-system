@@ -127,5 +127,4 @@ margin={{ xs: 0, lg: 4 }}      // 0 on mobile/tablet, 4 on large and up
 
 - Uses responsive hooks for efficient breakpoint detection
 - Minimal re-renders through optimized responsive value resolution
-- CSS-in-JS approach with theme integration</content>
-<parameter name="filePath">/home/prachwal/src/preact/preact-components-system/src/components/layout/Box.README.md
+- CSS-in-JS approach with theme integration

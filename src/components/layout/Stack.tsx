@@ -3,7 +3,6 @@ import type { ComponentChildren, JSX } from 'preact';
 
 import { useResponsiveBatch } from '../../hooks/useResponsiveBatch';
 import type { ResponsiveValue } from '../../theme/types';
-import './Stack.scss';
 
 export type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';

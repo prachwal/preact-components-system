@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
-import './Switch.scss';
 
 export type SwitchSize = 'small' | 'medium' | 'large';
 export type SwitchColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';

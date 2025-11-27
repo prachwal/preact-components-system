@@ -3,7 +3,6 @@ import type { ComponentChildren, JSX } from 'preact';
 
 import { useResponsiveBatch } from '../../hooks/useResponsiveBatch';
 import type { ResponsiveValue } from '../../theme/types';
-import './Grid.scss';
 
 export type GridSize = number | 'auto' | boolean;
 export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
