@@ -4,10 +4,18 @@ export { Container } from './Container';
 export type { ContainerProps, MaxWidth } from './Container';
 export { Grid } from './Grid';
 export type { GridProps, GridSize, Wrap } from './Grid';
-export type { AlignItems as GridAlignItems, JustifyContent as GridJustifyContent, Direction as GridDirection } from './Grid';
+export type {
+  AlignItems as GridAlignItems,
+  JustifyContent as GridJustifyContent,
+  Direction as GridDirection,
+} from './Grid';
 export { Stack } from './Stack';
 export type { StackProps } from './Stack';
-export type { Direction as StackDirection, AlignItems as StackAlignItems, JustifyContent as StackJustifyContent } from './Stack';
+export type {
+  Direction as StackDirection,
+  AlignItems as StackAlignItems,
+  JustifyContent as StackJustifyContent,
+} from './Stack';
 export { AppShell } from './AppShell';
 export type { AppShellProps } from './AppShell';
 export { Footer } from './Footer';

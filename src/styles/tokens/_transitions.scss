@@ -18,18 +18,18 @@ $duration-slowest: 700ms;
 // ============================================================================
 
 // Standard easing - Natural motion for most transitions
-$ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+$ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
 // Deceleration - Elements entering screen
-$ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
-$ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+$ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
 
 // Acceleration - Elements leaving screen
-$ease-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
-$ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+$ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
 
 // Sharp - Snappy motion for small distances
-$ease-sharp: cubic-bezier(0.4, 0.0, 0.6, 1);
+$ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
 
 // Bounce - Playful motion
 $ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -42,9 +42,10 @@ $ease-linear: linear;
 // ============================================================================
 
 // Color transitions (text, background, border)
-$transition-colors: color $duration-normal $ease-standard,
-                    background-color $duration-normal $ease-standard,
-                    border-color $duration-normal $ease-standard;
+$transition-colors:
+  color $duration-normal $ease-standard,
+  background-color $duration-normal $ease-standard,
+  border-color $duration-normal $ease-standard;
 
 // Opacity (fade in/out)
 $transition-opacity: opacity $duration-normal $ease-standard;
@@ -63,44 +64,52 @@ $transition-all: all $duration-normal $ease-standard;
 // ============================================================================
 
 // Buttons
-$button-transition: background-color $duration-fast $ease-standard,
-                    border-color $duration-fast $ease-standard,
-                    box-shadow $duration-fast $ease-standard,
-                    transform $duration-fast $ease-standard;
+$button-transition:
+  background-color $duration-fast $ease-standard,
+  border-color $duration-fast $ease-standard,
+  box-shadow $duration-fast $ease-standard,
+  transform $duration-fast $ease-standard;
 
 // Links
-$link-transition: color $duration-fast $ease-standard,
-                  text-decoration-color $duration-fast $ease-standard;
+$link-transition:
+  color $duration-fast $ease-standard,
+  text-decoration-color $duration-fast $ease-standard;
 
 // Input fields
-$input-transition: border-color $duration-normal $ease-standard,
-                   box-shadow $duration-normal $ease-standard,
-                   background-color $duration-normal $ease-standard;
+$input-transition:
+  border-color $duration-normal $ease-standard,
+  box-shadow $duration-normal $ease-standard,
+  background-color $duration-normal $ease-standard;
 
 // Cards
-$card-transition: box-shadow $duration-normal $ease-standard,
-                  transform $duration-normal $ease-standard;
+$card-transition:
+  box-shadow $duration-normal $ease-standard,
+  transform $duration-normal $ease-standard;
 
 // Modals & Overlays
 $modal-backdrop-transition: opacity $duration-slow $ease-decelerate;
-$modal-content-transition: transform $duration-slow $ease-decelerate,
-                           opacity $duration-slow $ease-decelerate;
+$modal-content-transition:
+  transform $duration-slow $ease-decelerate,
+  opacity $duration-slow $ease-decelerate;
 
 // Dropdowns & Tooltips
-$dropdown-transition: opacity $duration-normal $ease-decelerate,
-                      transform $duration-normal $ease-decelerate;
+$dropdown-transition:
+  opacity $duration-normal $ease-decelerate,
+  transform $duration-normal $ease-decelerate;
 
 // Tabs
-$tab-transition: color $duration-normal $ease-standard,
-                 border-color $duration-normal $ease-standard;
+$tab-transition:
+  color $duration-normal $ease-standard,
+  border-color $duration-normal $ease-standard;
 
 // Sidebar & Navigation
 $sidebar-transition: transform $duration-slow $ease-standard;
 $nav-transition: background-color $duration-fast $ease-standard;
 
 // Focus states
-$focus-transition: box-shadow $duration-fast $ease-standard,
-                   outline $duration-fast $ease-standard;
+$focus-transition:
+  box-shadow $duration-fast $ease-standard,
+  outline $duration-fast $ease-standard;
 
 // ============================================================================
 // MICRO-INTERACTIONS

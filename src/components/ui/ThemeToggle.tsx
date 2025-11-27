@@ -8,25 +8,33 @@ export const ThemeToggle = () => {
 
   const getNextTheme = (currentTheme: ThemeMode): ThemeMode => {
     switch (currentTheme) {
-      case 'light': return 'dark';
-      case 'dark': return 'system';
-      case 'system': return 'light';
-      default: return 'light';
+      case 'light':
+        return 'dark';
+      case 'dark':
+        return 'system';
+      case 'system':
+        return 'light';
+      default:
+        return 'light';
     }
   };
 
   const getThemeIcon = (currentTheme: ThemeMode) => {
     switch (currentTheme) {
-      case 'light': return '☀️';
-      case 'dark': return '🌙';
-      case 'system': return '🖥️';
-      default: return '☀️';
+      case 'light':
+        return '☀️';
+      case 'dark':
+        return '🌙';
+      case 'system':
+        return '🖥️';
+      default:
+        return '☀️';
     }
   };
 
   return (
     <button
-      className="theme-toggle"
+      className='theme-toggle'
       onClick={() => setTheme(getNextTheme(theme))}
       aria-label={`Change theme to ${getNextTheme(theme)}`}
     >

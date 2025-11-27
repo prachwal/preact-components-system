@@ -22,7 +22,12 @@ interface GridProps {
   direction?: 'row' | 'column';
   wrap?: 'wrap' | 'nowrap';
   alignItems?: 'flex-start' | 'center' | 'flex-end' | 'stretch';
-  justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around';
+  justifyContent?:
+    | 'flex-start'
+    | 'center'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around';
 }
 ```
 
@@ -108,17 +113,17 @@ interface Theme {
 ```typescript
 interface PaletteOptions {
   mode: 'light' | 'dark';
-  primary: PaletteColor;     // main, light, dark, contrastText
+  primary: PaletteColor; // main, light, dark, contrastText
   secondary: PaletteColor;
   error: PaletteColor;
   warning: PaletteColor;
   info: PaletteColor;
   success: PaletteColor;
-  grey: PaletteColor;        // 50, 100, ..., 900
-  text: TextColor;           // primary, secondary, disabled
-  background: Background;    // default, paper
+  grey: PaletteColor; // 50, 100, ..., 900
+  text: TextColor; // primary, secondary, disabled
+  background: Background; // default, paper
   divider: string;
-  action: Action;            // active, hover, selected, disabled, focus
+  action: Action; // active, hover, selected, disabled, focus
 }
 ```
 

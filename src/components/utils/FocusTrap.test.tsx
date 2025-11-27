@@ -93,7 +93,7 @@ describe('FocusTrap', () => {
           <button>Button</button>
         </FocusTrap>
       );
-      
+
       const button = screen.getByText('Button');
       expect(button).not.toHaveFocus();
     });
@@ -111,11 +111,15 @@ describe('FocusTrap', () => {
       button2.focus();
 
       // Simulate Tab key press
-      const tabEvent = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });
+      const tabEvent = new KeyboardEvent('keydown', {
+        key: 'Tab',
+        bubbles: true,
+        cancelable: true,
+      });
       const preventDefaultSpy = vi.spyOn(tabEvent, 'preventDefault');
-      
+
       container.firstElementChild?.dispatchEvent(tabEvent);
-      
+
       // Should handle Tab key
       expect(preventDefaultSpy).toHaveBeenCalled();
     });
@@ -132,13 +136,13 @@ describe('FocusTrap', () => {
       button1.focus();
 
       // Create and dispatch Shift+Tab key event
-      const shiftTabEvent = new KeyboardEvent('keydown', { 
+      const shiftTabEvent = new KeyboardEvent('keydown', {
         key: 'Tab',
         shiftKey: true,
         bubbles: true,
-        cancelable: true 
+        cancelable: true,
       });
-      
+
       const preventDefaultSpy = vi.spyOn(shiftTabEvent, 'preventDefault');
       container.firstElementChild?.dispatchEvent(shiftTabEvent);
 
@@ -153,12 +157,12 @@ describe('FocusTrap', () => {
         </FocusTrap>
       );
 
-      const enterEvent = new KeyboardEvent('keydown', { 
-        key: 'Enter', 
+      const enterEvent = new KeyboardEvent('keydown', {
+        key: 'Enter',
         bubbles: true,
-        cancelable: true 
+        cancelable: true,
       });
-      
+
       const preventDefaultSpy = vi.spyOn(enterEvent, 'preventDefault');
       container.firstElementChild?.dispatchEvent(enterEvent);
 
@@ -172,12 +176,12 @@ describe('FocusTrap', () => {
         </FocusTrap>
       );
 
-      const tabEvent = new KeyboardEvent('keydown', { 
-        key: 'Tab', 
+      const tabEvent = new KeyboardEvent('keydown', {
+        key: 'Tab',
         bubbles: true,
-        cancelable: true 
+        cancelable: true,
       });
-      
+
       const preventDefaultSpy = vi.spyOn(tabEvent, 'preventDefault');
       container.firstElementChild?.dispatchEvent(tabEvent);
 
@@ -213,10 +217,12 @@ describe('FocusTrap', () => {
     it('handles various focusable element types', () => {
       render(
         <FocusTrap active autoFocus={false}>
-          <a href="#test">Link FE</a>
-          <input type="text" placeholder="Input FE" />
-          <textarea placeholder="Textarea FE" />
-          <select><option>Select FE</option></select>
+          <a href='#test'>Link FE</a>
+          <input type='text' placeholder='Input FE' />
+          <textarea placeholder='Textarea FE' />
+          <select>
+            <option>Select FE</option>
+          </select>
           <button>Button FE</button>
         </FocusTrap>
       );
@@ -229,7 +235,7 @@ describe('FocusTrap', () => {
       const { container } = render(
         <FocusTrap active>
           <button disabled>Disabled Button</button>
-          <input disabled placeholder="Disabled Input" />
+          <input disabled placeholder='Disabled Input' />
         </FocusTrap>
       );
 
@@ -287,18 +293,18 @@ describe('FocusTrap', () => {
       expect(button).toBeInTheDocument();
 
       // Tab on single element
-      const tabEvent = new KeyboardEvent('keydown', { 
-        key: 'Tab', 
+      const tabEvent = new KeyboardEvent('keydown', {
+        key: 'Tab',
         bubbles: true,
-        cancelable: true 
+        cancelable: true,
       });
-      
+
       const preventDefaultSpy = vi.spyOn(tabEvent, 'preventDefault');
       container.firstElementChild?.dispatchEvent(tabEvent);
-      
+
       // Should handle tab even with single element
       expect(preventDefaultSpy).toBeDefined();
-      
+
       unmount();
     });
 
@@ -324,7 +330,7 @@ describe('FocusTrap', () => {
       // All buttons should be in the document
       expect(screen.getByText('Dynamic Button 2')).toBeInTheDocument();
       expect(screen.getByText('Dynamic Button 3')).toBeInTheDocument();
-      
+
       unmount();
     });
 

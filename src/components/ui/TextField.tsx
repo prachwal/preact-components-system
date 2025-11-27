@@ -8,7 +8,10 @@ export type TextFieldVariant = 'outlined' | 'filled' | 'standard';
 export type TextFieldSize = 'small' | 'medium' | 'large';
 export type TextFieldColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
-export interface TextFieldProps extends Omit<JSX.HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'size' | 'label'> {
+export interface TextFieldProps extends Omit<
+  JSX.HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  'size' | 'label'
+> {
   /**
    * TextField variant
    */
@@ -209,7 +212,18 @@ export const TextField = ({
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 
   const stateColor = getStateColor(error, success, warning, color);
-  const rootClasses = getRootClasses(variant, size, stateColor, disabled, fullWidth, error, success, warning, readOnly, className);
+  const rootClasses = getRootClasses(
+    variant,
+    size,
+    stateColor,
+    disabled,
+    fullWidth,
+    error,
+    success,
+    warning,
+    readOnly,
+    className
+  );
   const inputClasses = getInputClasses(startAdornment, endAdornment);
 
   const baseInputProps = {
@@ -233,15 +247,17 @@ export const TextField = ({
   return (
     <div className={rootClasses}>
       {label && (
-        <label htmlFor={inputId} className="textfield-label">
+        <label htmlFor={inputId} className='textfield-label'>
           {label}
-          {required && <span className="textfield-required" aria-label="required">*</span>}
+          {required && (
+            <span className='textfield-required' aria-label='required'>
+              *
+            </span>
+          )}
         </label>
       )}
-      <div className="textfield-input-wrapper">
-        {startAdornment && (
-          <div className="textfield-start-adornment">{startAdornment}</div>
-        )}
+      <div className='textfield-input-wrapper'>
+        {startAdornment && <div className='textfield-start-adornment'>{startAdornment}</div>}
         {multiline ? (
           <textarea
             ref={inputRef as React.RefObject<HTMLTextAreaElement>}
@@ -255,9 +271,7 @@ export const TextField = ({
             {...(inputProps as JSX.HTMLAttributes<HTMLInputElement>)}
           />
         )}
-        {endAdornment && (
-          <div className="textfield-end-adornment">{endAdornment}</div>
-        )}
+        {endAdornment && <div className='textfield-end-adornment'>{endAdornment}</div>}
       </div>
       {helperText && (
         <div id={helperTextId} className={getHelperTextClasses(error, success, warning)}>

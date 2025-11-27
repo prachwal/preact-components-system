@@ -119,12 +119,12 @@
 
 ### Bundle Size Optimization ⭐
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| ES Module | 1,023 kB | 40.19 kB | **96% reduction** |
-| UMD | 884 kB | 28.80 kB | **97% reduction** |
-| Gzipped ES | 169.76 kB | 10.87 kB | **94% reduction** |
-| Gzipped UMD | 161.72 kB | 9.58 kB | **94% reduction** |
+| Metric      | Before    | After    | Improvement       |
+| ----------- | --------- | -------- | ----------------- |
+| ES Module   | 1,023 kB  | 40.19 kB | **96% reduction** |
+| UMD         | 884 kB    | 28.80 kB | **97% reduction** |
+| Gzipped ES  | 169.76 kB | 10.87 kB | **94% reduction** |
+| Gzipped UMD | 161.72 kB | 9.58 kB  | **94% reduction** |
 
 ### Optimization Techniques Applied
 

@@ -86,25 +86,43 @@ export const Spacing: Story = {
       <div>
         <h3>Spacing 0</h3>
         <Grid container spacing={0}>
-          <Grid item xs={4}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 3</DemoBox></Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
       <div>
         <h3>Spacing 2</h3>
         <Grid container spacing={2}>
-          <Grid item xs={4}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 3</DemoBox></Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
       <div>
         <h3>Spacing 4</h3>
         <Grid container spacing={4}>
-          <Grid item xs={4}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 3</DemoBox></Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
     </div>
@@ -116,26 +134,44 @@ export const Alignment: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3>Center Alignment</h3>
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
-          <Grid item><DemoBox style={{ height: '100px' }}>Tall Item</DemoBox></Grid>
-          <Grid item><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item><DemoBox>Item 3</DemoBox></Grid>
+        <Grid container spacing={2} alignItems='center' justifyContent='center'>
+          <Grid item>
+            <DemoBox style={{ height: '100px' }}>Tall Item</DemoBox>
+          </Grid>
+          <Grid item>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
       <div>
         <h3>Space Between</h3>
-        <Grid container spacing={2} justifyContent="space-between">
-          <Grid item xs={3}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={3}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={3}><DemoBox>Item 3</DemoBox></Grid>
+        <Grid container spacing={2} justifyContent='space-between'>
+          <Grid item xs={3}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={3}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={3}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
       <div>
         <h3>Flex End</h3>
-        <Grid container spacing={2} justifyContent="flex-end">
-          <Grid item xs={3}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={3}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={3}><DemoBox>Item 3</DemoBox></Grid>
+        <Grid container spacing={2} justifyContent='flex-end'>
+          <Grid item xs={3}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={3}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={3}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
     </div>
@@ -147,18 +183,30 @@ export const Direction: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3>Row (Default)</h3>
-        <Grid container spacing={2} direction="row">
-          <Grid item xs={4}><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item xs={4}><DemoBox>Item 3</DemoBox></Grid>
+        <Grid container spacing={2} direction='row'>
+          <Grid item xs={4}>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item xs={4}>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
       <div>
         <h3>Column</h3>
-        <Grid container spacing={2} direction="column">
-          <Grid item><DemoBox>Item 1</DemoBox></Grid>
-          <Grid item><DemoBox>Item 2</DemoBox></Grid>
-          <Grid item><DemoBox>Item 3</DemoBox></Grid>
+        <Grid container spacing={2} direction='column'>
+          <Grid item>
+            <DemoBox>Item 1</DemoBox>
+          </Grid>
+          <Grid item>
+            <DemoBox>Item 2</DemoBox>
+          </Grid>
+          <Grid item>
+            <DemoBox>Item 3</DemoBox>
+          </Grid>
         </Grid>
       </div>
     </div>

@@ -38,7 +38,7 @@ describe('Logo', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(<Logo className="custom-logo" />);
+    const { container } = render(<Logo className='custom-logo' />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveClass('custom-logo');
   });

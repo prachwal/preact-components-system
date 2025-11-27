@@ -77,7 +77,7 @@ export function getContrastRatio(foreground: string, background: string): number
 export function getContrastText(background: string): string {
   const contrastWhite = getContrastRatio('#ffffff', background);
   const contrastBlack = getContrastRatio('#000000', background);
-  
+
   return contrastWhite >= contrastBlack ? '#ffffff' : '#000000';
 }
 

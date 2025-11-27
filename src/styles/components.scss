@@ -39,7 +39,7 @@
   display: flex;
   flex-direction: column;
   gap: $space-1;
-  
+
   @include media.breakpoint(md) {
     margin-left: $space-4;
   }
@@ -55,15 +55,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
-  
+
   @include media.breakpoint(sm) {
     max-width: 300px;
   }
-  
+
   @include media.breakpoint(md) {
     max-width: none;
   }
-  
+
   @include media.breakpoint(lg) {
     font-size: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
   }
@@ -78,11 +78,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
-  
+
   @include media.breakpoint(sm) {
     max-width: 300px;
   }
-  
+
   @include media.breakpoint(md) {
     font-size: $font-size-sm;
     max-width: none;
@@ -112,13 +112,13 @@
   margin-right: $space-3;
   border-radius: $radius-sm;
   transition: $button-transition;
-  
+
   @include focus.focus-visible(var(--pcs-primary), 2px, 2px);
-  
+
   &:hover {
     background-color: var(--pcs-bg-hover-light);
   }
-  
+
   @include media.breakpoint(md) {
     margin-right: $space-4;
   }
@@ -127,13 +127,14 @@
     width: 100%;
     height: 2px;
     background-color: var(--pcs-text);
-    transition: transform $duration-normal $ease-standard,
-                opacity $duration-normal $ease-standard;
+    transition:
+      transform $duration-normal $ease-standard,
+      opacity $duration-normal $ease-standard;
     transform-origin: center;
     border-radius: 2px;
   }
 
-  &[aria-expanded="true"] {
+  &[aria-expanded='true'] {
     .hamburger__line {
       &:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
@@ -149,7 +150,7 @@
       }
     }
   }
-  
+
   @include media.reduced-motion {
     .hamburger__line {
       transition: none;
@@ -181,7 +182,9 @@
   background-color: var(--pcs-overlay);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--pcs-transition-normal), visibility var(--pcs-transition-normal);
+  transition:
+    opacity var(--pcs-transition-normal),
+    visibility var(--pcs-transition-normal);
   z-index: 90;
 
   &.is-open {
@@ -204,7 +207,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  
+
   @media (min-width: 1920px) {
     width: 320px;
   }
@@ -219,7 +222,7 @@
 
   nav {
     flex: 1;
-    
+
     ul {
       list-style: none;
       padding: $space-3 0;
@@ -231,12 +234,13 @@
 
     li {
       margin: 0;
-      
+
       a {
         display: flex;
         align-items: center;
         gap: $space-3;
-        padding: clamp(0.625rem, 0.5rem + 0.625vw, 0.875rem) clamp(0.875rem, 0.75rem + 0.625vw, 1.25rem);
+        padding: clamp(0.625rem, 0.5rem + 0.625vw, 0.875rem)
+          clamp(0.875rem, 0.75rem + 0.625vw, 1.25rem);
         color: var(--pcs-text);
         font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
         font-weight: $font-weight-medium;
@@ -245,14 +249,15 @@
         margin: 0 $space-2;
         transition: $nav-transition;
         position: relative;
-        
+
         // Touch target minimum
         min-height: $touch-target-min;
-        
+
         @include focus.focus-visible(var(--pcs-primary), 2px, 0px);
-        
+
         // Icon styling
-        svg, .icon {
+        svg,
+        .icon {
           width: 1.25rem;
           height: 1.25rem;
           flex-shrink: 0;
@@ -263,8 +268,9 @@
         &:hover {
           background-color: var(--pcs-bg-hover-light);
           color: var(--pcs-accent);
-          
-          svg, .icon {
+
+          svg,
+          .icon {
             opacity: 1;
           }
         }
@@ -274,7 +280,7 @@
         background-color: var(--pcs-nav-active-bg);
         color: var(--pcs-nav-active-text);
         font-weight: $font-weight-semibold;
-        
+
         // Active indicator
         &::before {
           content: '';
@@ -287,13 +293,14 @@
           background-color: var(--pcs-primary);
           border-radius: 0 $radius-sm $radius-sm 0;
         }
-        
-        svg, .icon {
+
+        svg,
+        .icon {
           opacity: 1;
         }
       }
     }
-    
+
     @include media.reduced-motion {
       a {
         transition: none;
@@ -330,11 +337,11 @@
   width: 100%;
   margin: 0 auto;
   max-width: 100%;
-  
+
   @include media.breakpoint(lg) {
     max-width: 1200px;
   }
-  
+
   @media (min-width: 1440px) {
     max-width: 1400px;
   }
@@ -383,15 +390,15 @@
   .app-main {
     max-width: 1800px;
   }
-  
+
   .grid-cols-4 {
     gap: 1.5rem;
   }
-  
+
   .grid-cols-3 {
     gap: 1.75rem;
   }
-  
+
   .grid-cols-2 {
     gap: 2rem;
   }
@@ -404,7 +411,7 @@
   border: 1px solid var(--pcs-border);
   box-shadow: var(--elevation-resting, $card-shadow);
   transition: var(--transition-interactive, $card-transition);
-  
+
   @include media.hover-capable {
     &:hover {
       transform: var(--hover-elevation, translateY(-2px));
@@ -418,16 +425,16 @@
     margin-bottom: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
     color: var(--pcs-text);
   }
-  
+
   p {
     color: var(--pcs-text-secondary);
     line-height: 1.625;
     font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
   }
-  
+
   @include media.reduced-motion {
     transition: none;
-    
+
     &:hover {
       transform: none;
     }

@@ -26,7 +26,7 @@ export const BasicCard: Story = {
         </p>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size='small'>Learn More</Button>
       </CardActions>
     </Card>
   ),
@@ -35,14 +35,9 @@ export const BasicCard: Story = {
 export const WithHeader: Story = {
   render: () => (
     <Card>
-      <CardHeader
-        title="Card with Header"
-        subheader="September 14, 2024"
-      />
+      <CardHeader title='Card with Header' subheader='September 14, 2024' />
       <CardContent>
-        <p style={{ margin: 0 }}>
-          This card includes a header with title and subheader.
-        </p>
+        <p style={{ margin: 0 }}>This card includes a header with title and subheader.</p>
       </CardContent>
     </Card>
   ),
@@ -52,10 +47,10 @@ export const WithMedia: Story = {
   render: () => (
     <Card style={{ maxWidth: '345px' }}>
       <CardMedia
-        component="div"
+        component='div'
         height={140}
-        image="https://via.placeholder.com/345x140/1976d2/ffffff?text=Card+Image"
-        alt="Placeholder"
+        image='https://via.placeholder.com/345x140/1976d2/ffffff?text=Card+Image'
+        alt='Placeholder'
       />
       <CardContent>
         <h2 style={{ margin: '0 0 8px 0' }}>Beautiful Landscape</h2>
@@ -64,8 +59,12 @@ export const WithMedia: Story = {
         </p>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">Share</Button>
-        <Button size="small" color="primary">Learn More</Button>
+        <Button size='small' color='primary'>
+          Share
+        </Button>
+        <Button size='small' color='primary'>
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   ),
@@ -76,41 +75,52 @@ export const ComplexCard: Story = {
     <Card style={{ maxWidth: '400px' }}>
       <CardHeader
         avatar={
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            backgroundColor: '#1976d2',
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 'bold',
-          }}>
+          <div
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              backgroundColor: '#1976d2',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold',
+            }}
+          >
             R
           </div>
         }
         action={
-          <Button variant="text" size="small">⋮</Button>
+          <Button variant='text' size='small'>
+            ⋮
+          </Button>
         }
-        title="User Name"
-        subheader="Posted 2 hours ago"
+        title='User Name'
+        subheader='Posted 2 hours ago'
       />
       <CardMedia
-        component="div"
+        component='div'
         height={194}
-        image="https://via.placeholder.com/400x194/9c27b0/ffffff?text=Post+Image"
-        alt="Post"
+        image='https://via.placeholder.com/400x194/9c27b0/ffffff?text=Post+Image'
+        alt='Post'
       />
       <CardContent>
         <p style={{ margin: 0 }}>
-          This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
+          This impressive paella is a perfect party dish and a fun meal to cook together with your
+          guests.
         </p>
       </CardContent>
       <CardActions disableSpacing>
-        <Button variant="text" size="small">Like</Button>
-        <Button variant="text" size="small">Comment</Button>
-        <Button variant="text" size="small">Share</Button>
+        <Button variant='text' size='small'>
+          Like
+        </Button>
+        <Button variant='text' size='small'>
+          Comment
+        </Button>
+        <Button variant='text' size='small'>
+          Share
+        </Button>
       </CardActions>
     </Card>
   ),
@@ -118,12 +128,10 @@ export const ComplexCard: Story = {
 
 export const Outlined: Story = {
   render: () => (
-    <Card variant="outlined">
+    <Card variant='outlined'>
       <CardContent>
         <h2 style={{ margin: '0 0 8px 0' }}>Outlined Card</h2>
-        <p style={{ margin: 0 }}>
-          This card uses the outlined variant instead of elevation.
-        </p>
+        <p style={{ margin: 0 }}>This card uses the outlined variant instead of elevation.</p>
       </CardContent>
     </Card>
   ),
@@ -131,7 +139,13 @@ export const Outlined: Story = {
 
 export const Hoverable: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '16px',
+      }}
+    >
       <Card hoverable>
         <CardContent>
           <h3 style={{ margin: '0 0 8px 0' }}>Hoverable Card 1</h3>

@@ -97,7 +97,9 @@ export function useResponsiveStyles(props: SpacingProps): ResolvedStyles {
     const styles: ResolvedStyles = {};
 
     // Helper function to resolve responsive value
-    const resolveValue = <T>(value: ResponsiveValue<T> | undefined): T | undefined => {
+    const resolveValue = <T>(
+      value: ResponsiveValue<T> | undefined
+    ): T | undefined => {
       if (typeof value !== 'object' || value === null) return value as T;
 
       const responsiveValue = value as Partial<Record<Breakpoint, T>>;

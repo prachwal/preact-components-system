@@ -19,7 +19,7 @@ describe('Container', () => {
   });
 
   it('applies maxWidth class correctly', () => {
-    const { container } = render(<Container maxWidth="sm">Content</Container>);
+    const { container } = render(<Container maxWidth='sm'>Content</Container>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('container-max-width-sm');
   });
@@ -37,7 +37,7 @@ describe('Container', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(<Container className="custom-class">Content</Container>);
+    const { container } = render(<Container className='custom-class'>Content</Container>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('container', 'custom-class');
   });
@@ -49,7 +49,7 @@ describe('Container', () => {
   });
 
   it('renders as different component', () => {
-    const { container } = render(<Container component="section">Content</Container>);
+    const { container } = render(<Container component='section'>Content</Container>);
     expect(container.querySelector('section')).toBeInTheDocument();
   });
 

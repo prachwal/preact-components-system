@@ -88,14 +88,39 @@ export const Decorative: Story = {
 export const IconShowcase: Story = {
   render: () => {
     const popularIcons: IconName[] = [
-      'Home', 'Star', 'Heart', 'User', 'Mail', 'Settings',
-      'Search', 'Menu', 'X', 'Check', 'ChevronRight', 'ChevronLeft',
-      'Info', 'AlertCircle', 'AlertTriangle', 'HelpCircle',
-      'Calendar', 'Clock', 'Download', 'Upload', 'Edit', 'Trash2',
+      'Home',
+      'Star',
+      'Heart',
+      'User',
+      'Mail',
+      'Settings',
+      'Search',
+      'Menu',
+      'X',
+      'Check',
+      'ChevronRight',
+      'ChevronLeft',
+      'Info',
+      'AlertCircle',
+      'AlertTriangle',
+      'HelpCircle',
+      'Calendar',
+      'Clock',
+      'Download',
+      'Upload',
+      'Edit',
+      'Trash2',
     ];
 
     return (
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px', padding: '20px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(6, 1fr)',
+          gap: '16px',
+          padding: '20px',
+        }}
+      >
         {popularIcons.map((iconName) => (
           <div
             key={iconName}
@@ -106,7 +131,7 @@ export const IconShowcase: Story = {
               gap: '8px',
             }}
           >
-            <Icon name={iconName} size="medium" />
+            <Icon name={iconName} size='medium' />
             <span style={{ fontSize: '12px', textAlign: 'center' }}>{iconName}</span>
           </div>
         ))}

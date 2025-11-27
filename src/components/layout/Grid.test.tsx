@@ -26,14 +26,18 @@ describe('Grid', () => {
 
   describe('Props API', () => {
     it('applies direction class correctly', () => {
-      const { container } = renderWithTheme(<Grid container direction="column">Content</Grid>);
+      const { container } = renderWithTheme(
+        <Grid container direction='column'>
+          Content
+        </Grid>
+      );
       const grid = container.querySelector('.grid-direction-column');
       expect(grid).toBeInTheDocument();
     });
 
     it('applies alignment classes correctly', () => {
       const { container } = renderWithTheme(
-        <Grid container alignItems="center" justifyContent="space-between">
+        <Grid container alignItems='center' justifyContent='space-between'>
           Content
         </Grid>
       );
@@ -43,13 +47,17 @@ describe('Grid', () => {
     });
 
     it('sets custom columns via CSS variable', () => {
-      const { container } = renderWithTheme(<Grid container columns={24}>Content</Grid>);
+      const { container } = renderWithTheme(
+        <Grid container columns={24}>
+          Content
+        </Grid>
+      );
       const grid = container.querySelector('.grid') as HTMLElement;
       expect(grid?.style.getPropertyValue('--grid-columns')).toBe('24');
     });
 
     it('renders as custom component when specified', () => {
-      const { container } = renderWithTheme(<Grid component="section">Content</Grid>);
+      const { container } = renderWithTheme(<Grid component='section'>Content</Grid>);
       const section = container.querySelector('section');
       expect(section).toBeInTheDocument();
     });
@@ -65,12 +73,20 @@ describe('Grid', () => {
 
   describe('Responsive Design', () => {
     it('supports responsive direction', () => {
-      const { container } = renderWithTheme(<Grid container direction={{ xs: 'column', md: 'row' }}>Content</Grid>);
+      const { container } = renderWithTheme(
+        <Grid container direction={{ xs: 'column', md: 'row' }}>
+          Content
+        </Grid>
+      );
       expect(container.querySelector('.grid-container')).toBeInTheDocument();
     });
 
     it('supports responsive columns', () => {
-      const { container } = renderWithTheme(<Grid container columns={{ xs: 4, md: 12 }}>Content</Grid>);
+      const { container } = renderWithTheme(
+        <Grid container columns={{ xs: 4, md: 12 }}>
+          Content
+        </Grid>
+      );
       expect(container.querySelector('.grid-container')).toBeInTheDocument();
     });
   });

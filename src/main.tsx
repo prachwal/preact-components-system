@@ -1,7 +1,7 @@
-import { render } from 'preact'
+import { render } from 'preact';
 
-import App from './App'
-import './styles/index.scss'
+import App from './App';
+import './styles/index.scss';
 
 /**
  * Punkt wejścia aplikacji - renderuje główny komponent App do elementu DOM o id 'app'.

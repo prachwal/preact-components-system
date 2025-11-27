@@ -68,7 +68,7 @@ describe('Component', () => {
 - **Functions**: 90%+ (New components: 100% for most)
 - **Lines**: 90%+ (New components: 100% for most)
 
-*Note: Overall project coverage is affected by existing untested code, but all newly implemented components meet or exceed coverage requirements.*
+_Note: Overall project coverage is affected by existing untested code, but all newly implemented components meet or exceed coverage requirements._
 
 ### Test Patterns to Follow
 

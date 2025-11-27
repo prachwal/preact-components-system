@@ -3,7 +3,7 @@
 **Data analizy**: 27 listopada 2025  
 **Wersja projektu**: 1.0.1  
 **Analizowany przez**: Kilo Code (Code Skeptic Mode)  
-**Czas analizy**: 20:09 - 20:22 UTC  
+**Czas analizy**: 20:09 - 20:22 UTC
 
 ---
 
@@ -59,15 +59,15 @@ preact-components-system/
 
 ### Technologie i Narzędzia
 
-| Technologia | Wersja | Status |
-|-------------|--------|--------|
-| Preact | 10.27.2 | ✅ Aktualna |
-| TypeScript | 5.9.3 | ✅ Aktualna |
-| Vite | 7.1.12 | ✅ Aktualna |
-| Vitest | 4.0.6 | ✅ Aktualna |
-| Storybook | 10.0.2 | ✅ Aktualna |
-| ESLint | 9.39.1 | ✅ Aktualna |
-| Sass | 1.93.3 | ✅ Aktualna |
+| Technologia | Wersja  | Status      |
+| ----------- | ------- | ----------- |
+| Preact      | 10.27.2 | ✅ Aktualna |
+| TypeScript  | 5.9.3   | ✅ Aktualna |
+| Vite        | 7.1.12  | ✅ Aktualna |
+| Vitest      | 4.0.6   | ✅ Aktualna |
+| Storybook   | 10.0.2  | ✅ Aktualna |
+| ESLint      | 9.39.1  | ✅ Aktualna |
+| Sass        | 1.93.3  | ✅ Aktualna |
 
 ---
 
@@ -222,7 +222,7 @@ preact-components-system/
 **Zoptymalizowane external dependencies:**
 
 ```javascript
-external: ['preact', 'preact/hooks', 'preact/compat', 'lucide-preact', 'clsx']
+external: ['preact', 'preact/hooks', 'preact/compat', 'lucide-preact', 'clsx'];
 ```
 
 **Manual chunks undefined** - optymalne dla małych bibliotek
@@ -435,14 +435,14 @@ external: ['preact', 'preact/hooks', 'preact/compat', 'lucide-preact', 'clsx']
 
 ## 📊 Podsumowanie Metryk
 
-| Metryka | Deklarowane | Rzeczywiste | Status |
-|---------|-------------|-------------|---------|
-| Testy | 298/298 | 319/319 | ✅ Lepiej |
-| Bundle ES | 40.19 kB | 53.92 kB | ❌ Gorzej |
-| Bundle Gzip | 10.87 kB | 14.36 kB | ❌ Gorzej |
-| TypeScript | ✅ Strict | ✅ Strict | ✅ OK |
-| ESLint | ? | 235 problemów | ❌ Błędy |
-| Pokrycie | 77/77 | 83.38% | ✅ Lepiej |
+| Metryka     | Deklarowane | Rzeczywiste   | Status    |
+| ----------- | ----------- | ------------- | --------- |
+| Testy       | 298/298     | 319/319       | ✅ Lepiej |
+| Bundle ES   | 40.19 kB    | 53.92 kB      | ❌ Gorzej |
+| Bundle Gzip | 10.87 kB    | 14.36 kB      | ❌ Gorzej |
+| TypeScript  | ✅ Strict   | ✅ Strict     | ✅ OK     |
+| ESLint      | ?           | 235 problemów | ❌ Błędy  |
+| Pokrycie    | 77/77       | 83.38%        | ✅ Lepiej |
 
 ---
 
@@ -486,7 +486,7 @@ external: ['preact', 'preact/hooks', 'preact/compat', 'lucide-preact', 'clsx']
 **Czas analizy:** 13 minut  
 **Pliki przeanalizowane:** 50+  
 **Testy uruchomione:** 319  
-**ESLint warnings/errors:** 235  
+**ESLint warnings/errors:** 235
 
 **Analizowany przez:** Kilo Code w trybie Code Skeptic - każdy claim został zweryfikowany komendami.
 

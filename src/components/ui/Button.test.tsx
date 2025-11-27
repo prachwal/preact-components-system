@@ -13,19 +13,19 @@ describe('Button', () => {
     });
 
     it('applies variant classes correctly', () => {
-      const { container } = renderWithTheme(<Button variant="outlined">Test</Button>);
+      const { container } = renderWithTheme(<Button variant='outlined'>Test</Button>);
       const button = container.querySelector('button');
       expect(button).toHaveClass('button-variant-outlined');
     });
 
     it('applies color classes correctly', () => {
-      const { container } = renderWithTheme(<Button color="secondary">Test</Button>);
+      const { container } = renderWithTheme(<Button color='secondary'>Test</Button>);
       const button = container.querySelector('button');
       expect(button).toHaveClass('button-color-secondary');
     });
 
     it('applies size classes correctly', () => {
-      const { container } = renderWithTheme(<Button size="large">Test</Button>);
+      const { container } = renderWithTheme(<Button size='large'>Test</Button>);
       const button = container.querySelector('button');
       expect(button).toHaveClass('button-size-large');
     });
@@ -52,22 +52,18 @@ describe('Button', () => {
     });
 
     it('renders as submit type when specified', () => {
-      const { container } = renderWithTheme(<Button type="submit">Submit</Button>);
+      const { container } = renderWithTheme(<Button type='submit'>Submit</Button>);
       const button = container.querySelector('button');
       expect(button).toHaveAttribute('type', 'submit');
     });
 
     it('renders with start icon', () => {
-      const { container } = renderWithTheme(
-        <Button startIcon={<span>→</span>}>Test</Button>
-      );
+      const { container } = renderWithTheme(<Button startIcon={<span>→</span>}>Test</Button>);
       expect(container.querySelector('.button-start-icon')).toBeInTheDocument();
     });
 
     it('renders with end icon', () => {
-      const { container } = renderWithTheme(
-        <Button endIcon={<span>←</span>}>Test</Button>
-      );
+      const { container } = renderWithTheme(<Button endIcon={<span>←</span>}>Test</Button>);
       expect(container.querySelector('.button-end-icon')).toBeInTheDocument();
     });
   });

@@ -17,7 +17,7 @@ describe('Footer', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = renderWithTheme(<Footer className="custom-footer" />);
+    const { container } = renderWithTheme(<Footer className='custom-footer' />);
     const footer = container.querySelector('footer');
     expect(footer).toHaveClass('footer', 'custom-footer');
   });

@@ -11,32 +11,30 @@ describe('ContentSection', () => {
   });
 
   it('renders title when provided', () => {
-    render(<ContentSection title="Test Title">Content</ContentSection>);
+    render(<ContentSection title='Test Title'>Content</ContentSection>);
     expect(screen.getByText('Test Title')).toBeInTheDocument();
   });
 
   it('renders description when provided', () => {
-    render(<ContentSection desc="Test description">Content</ContentSection>);
+    render(<ContentSection desc='Test description'>Content</ContentSection>);
     expect(screen.getByText('Test description')).toBeInTheDocument();
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <ContentSection className="custom-class">Content</ContentSection>
-    );
+    const { container } = render(<ContentSection className='custom-class'>Content</ContentSection>);
     expect(container.querySelector('.content-section.custom-class')).toBeInTheDocument();
   });
 
   it('renders as different wrapper element', () => {
-    const { container } = render(
-      <ContentSection as="section">Content</ContentSection>
-    );
+    const { container } = render(<ContentSection as='section'>Content</ContentSection>);
     expect(container.querySelector('section.content-section')).toBeInTheDocument();
   });
 
   it('renders title with correct heading level', () => {
     const { container } = render(
-      <ContentSection title="Title" level={3}>Content</ContentSection>
+      <ContentSection title='Title' level={3}>
+        Content
+      </ContentSection>
     );
     expect(container.querySelector('h3')).toBeInTheDocument();
   });
@@ -53,7 +51,7 @@ describe('ContentSection', () => {
 
   it('applies custom grid className', () => {
     const { container } = render(
-      <ContentSection gridClassName="custom-grid" hasChildrenContainer>
+      <ContentSection gridClassName='custom-grid' hasChildrenContainer>
         <div>Item</div>
       </ContentSection>
     );

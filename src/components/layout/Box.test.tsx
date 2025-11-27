@@ -3,9 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { ThemeProvider } from '../../providers/ThemeProvider';
 import { render } from '../../test/test-utils';
 
-
 import { Box } from './Box';
-
 
 // Mock useBreakpoint hook
 const mockUseBreakpoint = vi.fn();
@@ -24,16 +22,14 @@ describe('Box', () => {
   });
 
   it('renders with custom className', () => {
-    const { container } = renderWithTheme(<Box className="custom-class">Content</Box>);
+    const { container } = renderWithTheme(<Box className='custom-class'>Content</Box>);
     const box = container.querySelector('.box');
     expect(box).toHaveClass('custom-class');
   });
 
   it('applies inline styles', () => {
     const { container } = renderWithTheme(
-      <Box style={{ color: 'red', backgroundColor: 'blue' }}>
-        Content
-      </Box>
+      <Box style={{ color: 'red', backgroundColor: 'blue' }}>Content</Box>
     );
     const box = container.querySelector('.box') as HTMLElement;
     expect(box.style.color).toBe('red');
@@ -41,18 +37,18 @@ describe('Box', () => {
   });
 
   it('renders as custom component', () => {
-    const { container } = renderWithTheme(<Box component="section">Section Content</Box>);
+    const { container } = renderWithTheme(<Box component='section'>Section Content</Box>);
     expect(container.querySelector('section')).toBeInTheDocument();
     expect(container.querySelector('section')?.textContent).toBe('Section Content');
   });
 
   it('renders as article component', () => {
-    const { container } = renderWithTheme(<Box component="article">Article Content</Box>);
+    const { container } = renderWithTheme(<Box component='article'>Article Content</Box>);
     expect(container.querySelector('article')).toBeInTheDocument();
   });
 
   it('renders as header component', () => {
-    const { container } = renderWithTheme(<Box component="header">Header Content</Box>);
+    const { container } = renderWithTheme(<Box component='header'>Header Content</Box>);
     expect(container.querySelector('header')).toBeInTheDocument();
   });
 
@@ -145,26 +141,28 @@ describe('Box', () => {
   });
 
   it('applies display property', () => {
-    const { container } = renderWithTheme(<Box display="flex">Content</Box>);
+    const { container } = renderWithTheme(<Box display='flex'>Content</Box>);
     const box = container.querySelector('.box') as HTMLElement;
     expect(box.style.display).toBe('flex');
   });
 
   it('applies inline-block display', () => {
-    const { container } = renderWithTheme(<Box display="inline-block">Content</Box>);
+    const { container } = renderWithTheme(<Box display='inline-block'>Content</Box>);
     const box = container.querySelector('.box') as HTMLElement;
     expect(box.style.display).toBe('inline-block');
   });
 
   it('applies grid display', () => {
-    const { container } = renderWithTheme(<Box display="grid">Content</Box>);
+    const { container } = renderWithTheme(<Box display='grid'>Content</Box>);
     const box = container.querySelector('.box') as HTMLElement;
     expect(box.style.display).toBe('grid');
   });
 
   it('combines multiple spacing props', () => {
     const { container } = renderWithTheme(
-      <Box p={2} m={1} mt={3}>Content</Box>
+      <Box p={2} m={1} mt={3}>
+        Content
+      </Box>
     );
     const box = container.querySelector('.box') as HTMLElement;
     expect(box.style.padding).toBe('16px');
@@ -176,7 +174,9 @@ describe('Box', () => {
 
   it('overrides individual properties with combined ones', () => {
     const { container } = renderWithTheme(
-      <Box p={2} px={4}>Content</Box>
+      <Box p={2} px={4}>
+        Content
+      </Box>
     );
     const box = container.querySelector('.box') as HTMLElement;
     // px should override horizontal padding from p
@@ -188,7 +188,7 @@ describe('Box', () => {
 
   it('spreads rest props to component', () => {
     const { container } = renderWithTheme(
-      <Box data-testid="test-box" role="main" aria-label="Test Box">
+      <Box data-testid='test-box' role='main' aria-label='Test Box'>
         Content
       </Box>
     );
@@ -212,8 +212,8 @@ describe('Box', () => {
 
   it('maintains component hierarchy with custom component', () => {
     const { container } = renderWithTheme(
-      <Box component="section" className="section-box">
-        <Box component="article" className="article-box">
+      <Box component='section' className='section-box'>
+        <Box component='article' className='article-box'>
           Nested Content
         </Box>
       </Box>
@@ -243,9 +243,7 @@ describe('Box', () => {
       // Mock breakpoint as 'xs'
       mockUseBreakpoint.mockReturnValue('xs');
 
-      const { container } = renderWithTheme(
-        <Box p={{ xs: 1, md: 3 }}>Content</Box>
-      );
+      const { container } = renderWithTheme(<Box p={{ xs: 1, md: 3 }}>Content</Box>);
       const box = container.querySelector('.box') as HTMLElement;
       expect(box.style.padding).toBe('8px'); // 1 * 8px for xs
     });
@@ -254,9 +252,7 @@ describe('Box', () => {
       // Mock breakpoint as 'md'
       mockUseBreakpoint.mockReturnValue('md');
 
-      const { container } = renderWithTheme(
-        <Box p={{ xs: 1, md: 3 }}>Content</Box>
-      );
+      const { container } = renderWithTheme(<Box p={{ xs: 1, md: 3 }}>Content</Box>);
       const box = container.querySelector('.box') as HTMLElement;
       expect(box.style.padding).toBe('24px'); // 3 * 8px for md
     });
@@ -265,9 +261,7 @@ describe('Box', () => {
       // Mock breakpoint as 'sm'
       mockUseBreakpoint.mockReturnValue('sm');
 
-      const { container } = renderWithTheme(
-        <Box m={{ xs: 2, sm: 4, lg: 6 }}>Content</Box>
-      );
+      const { container } = renderWithTheme(<Box m={{ xs: 2, sm: 4, lg: 6 }}>Content</Box>);
       const box = container.querySelector('.box') as HTMLElement;
       expect(box.style.margin).toBe('32px'); // 4 * 8px for sm
     });
@@ -287,9 +281,7 @@ describe('Box', () => {
       // Mock breakpoint as 'lg'
       mockUseBreakpoint.mockReturnValue('lg');
 
-      const { container } = renderWithTheme(
-        <Box p={{ xs: 1, xl: 5 }}>Content</Box>
-      );
+      const { container } = renderWithTheme(<Box p={{ xs: 1, xl: 5 }}>Content</Box>);
       const box = container.querySelector('.box') as HTMLElement;
       expect(box.style.padding).toBe('8px'); // Falls back to xs since lg has no value
     });

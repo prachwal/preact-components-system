@@ -32,11 +32,11 @@
   $red: math.div(color.red($color), 255);
   $green: math.div(color.green($color), 255);
   $blue: math.div(color.blue($color), 255);
-  
+
   $r: linearize-channel($red);
   $g: linearize-channel($green);
   $b: linearize-channel($blue);
-  
+
   @return $r * 0.2126 + $g * 0.7152 + $b * 0.0722;
 }
 
@@ -58,10 +58,10 @@
 @function get-contrast-ratio($foreground, $background) {
   $lum1: get-luminance($foreground);
   $lum2: get-luminance($background);
-  
+
   $lighter: math.max($lum1, $lum2);
   $darker: math.min($lum1, $lum2);
-  
+
   @return math.div($lighter + 0.05, $darker + 0.05);
 }
 
@@ -79,7 +79,7 @@
 @function get-contrast-text($background, $dark: $neutral-900, $light: #fff, $threshold: 4.5) {
   $dark-contrast: get-contrast-ratio($dark, $background);
   $light-contrast: get-contrast-ratio($light, $background);
-  
+
   // If both meet threshold, choose the one with higher contrast
   @if $dark-contrast >= $threshold and $light-contrast >= $threshold {
     @if $dark-contrast > $light-contrast {
@@ -88,16 +88,16 @@
       @return $light;
     }
   }
-  
+
   // If only one meets threshold, use it
   @if $dark-contrast >= $threshold {
     @return $dark;
   }
-  
+
   @if $light-contrast >= $threshold {
     @return $light;
   }
-  
+
   // If neither meets threshold, use the one with higher contrast
   @if $dark-contrast > $light-contrast {
     @return $dark;
@@ -118,20 +118,20 @@
 
 @function ensure-contrast($color, $background, $ratio: 4.5) {
   $current-ratio: get-contrast-ratio($color, $background);
-  
+
   @if $current-ratio >= $ratio {
     @return $color;
   }
-  
+
   // Try darkening or lightening in steps
   $adjusted: $color;
   $step: 5%;
   $attempts: 0;
   $max-attempts: 20;
-  
+
   @while get-contrast-ratio($adjusted, $background) < $ratio and $attempts < $max-attempts {
     $attempts: $attempts + 1;
-    
+
     // Try darkening first if color is lighter than background
     @if color.lightness($color) > color.lightness($background) {
       $adjusted: color.adjust($adjusted, $lightness: -$step);
@@ -139,7 +139,7 @@
       $adjusted: color.adjust($adjusted, $lightness: $step);
     }
   }
-  
+
   @return $adjusted;
 }
 
@@ -172,7 +172,7 @@
 
 @mixin contrast-warning($foreground, $background, $required-ratio: 4.5, $context: '') {
   $ratio: get-contrast-ratio($foreground, $background);
-  
+
   @if $ratio < $required-ratio {
     @warn "Insufficient contrast ratio: #{$ratio} (required: #{$required-ratio}) #{$context}";
   }
@@ -193,10 +193,10 @@
 @mixin accessible-link($color, $background, $hover-color: null) {
   $safe-color: ensure-contrast($color, $background, 4.5);
   color: $safe-color;
-  
+
   @if $hover-color {
     $safe-hover: ensure-contrast($hover-color, $background, 4.5);
-    
+
     &:hover,
     &:focus {
       color: $safe-hover;
@@ -227,17 +227,17 @@
 
 @mixin accessible-button($bg-color, $text-color: null) {
   background-color: $bg-color;
-  
+
   @if $text-color {
     color: ensure-contrast($text-color, $bg-color, 4.5);
   } @else {
     color: get-contrast-text($bg-color);
   }
-  
+
   &:hover:not(:disabled) {
     background-color: color.adjust($bg-color, $lightness: -5%);
   }
-  
+
   &:active:not(:disabled) {
     background-color: color.adjust($bg-color, $lightness: -10%);
   }
@@ -255,7 +255,7 @@
 
 @mixin high-contrast-text($background) {
   color: get-contrast-text($background, $neutral-900, #fff, 7);
-  
+
   // Forced colors mode support (Windows High Contrast)
   @media (forced-colors: active) {
     color: CanvasText;

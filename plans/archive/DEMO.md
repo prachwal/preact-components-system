@@ -109,7 +109,7 @@ import { FocusTrap } from 'preact-components-system';
     <button>Focus will cycle here</button>
     <button>And here</button>
   </Dialog>
-</FocusTrap>
+</FocusTrap>;
 ```
 
 ### ClickAwayListener Component
@@ -119,7 +119,7 @@ import { ClickAwayListener } from 'preact-components-system';
 
 <ClickAwayListener onClickAway={() => setOpen(false)}>
   <Menu>Menu items...</Menu>
-</ClickAwayListener>
+</ClickAwayListener>;
 ```
 
 ## Design Highlights

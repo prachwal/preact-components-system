@@ -17,7 +17,7 @@ describe('ComponentName', () => {
     });
 
     it('applies custom className', () => {
-      render(<ComponentName className="custom-class" />);
+      render(<ComponentName className='custom-class' />);
       expect(screen.getByRole('generic')).toHaveClass('custom-class');
     });
   });
@@ -32,7 +32,7 @@ describe('ComponentName', () => {
 
   describe('Accessibility', () => {
     it('has proper ARIA attributes', () => {
-      render(<ComponentName aria-label="Test label" />);
+      render(<ComponentName aria-label='Test label' />);
       expect(screen.getByLabelText('Test label')).toBeInTheDocument();
     });
 

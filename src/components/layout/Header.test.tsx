@@ -6,18 +6,24 @@ import { Header } from './Header';
 
 describe('Header', () => {
   it('renders header element', () => {
-    const { container } = renderWithTheme(<Header onToggleSidebar={() => {}} sidebarOpen={false} />);
+    const { container } = renderWithTheme(
+      <Header onToggleSidebar={() => {}} sidebarOpen={false} />
+    );
     expect(container.querySelector('header')).toBeInTheDocument();
   });
 
   it('applies correct role', () => {
-    const { container } = renderWithTheme(<Header onToggleSidebar={() => {}} sidebarOpen={false} />);
+    const { container } = renderWithTheme(
+      <Header onToggleSidebar={() => {}} sidebarOpen={false} />
+    );
     const header = container.querySelector('header');
     expect(header).toHaveAttribute('role', 'banner');
   });
 
   it('applies app-header class', () => {
-    const { container } = renderWithTheme(<Header onToggleSidebar={() => {}} sidebarOpen={false} />);
+    const { container } = renderWithTheme(
+      <Header onToggleSidebar={() => {}} sidebarOpen={false} />
+    );
     const header = container.querySelector('header');
     expect(header).toHaveClass('app-header');
   });
@@ -29,7 +35,9 @@ describe('Header', () => {
   });
 
   it('renders brand text as h1', () => {
-    const { container } = renderWithTheme(<Header onToggleSidebar={() => {}} sidebarOpen={false} />);
+    const { container } = renderWithTheme(
+      <Header onToggleSidebar={() => {}} sidebarOpen={false} />
+    );
     expect(container.querySelector('h1.brand-text')).toBeInTheDocument();
   });
 

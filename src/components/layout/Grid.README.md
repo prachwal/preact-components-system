@@ -61,17 +61,27 @@ Grid items can span multiple columns and have different sizes at different break
 ```tsx
 <Grid container spacing={2}>
   {/* Full width on mobile, half on tablet+ */}
-  <Grid item xs={12} sm={6}>Item 1</Grid>
+  <Grid item xs={12} sm={6}>
+    Item 1
+  </Grid>
 
   {/* Auto-sized based on content */}
-  <Grid item xs>Auto-sized item</Grid>
+  <Grid item xs>
+    Auto-sized item
+  </Grid>
 
   {/* Fixed 6 columns on all sizes */}
-  <Grid item xs={6}>Fixed width</Grid>
+  <Grid item xs={6}>
+    Fixed width
+  </Grid>
 
   {/* Span multiple columns */}
-  <Grid item xs={8}>8 columns</Grid>
-  <Grid item xs={4}>4 columns</Grid>
+  <Grid item xs={8}>
+    8 columns
+  </Grid>
+  <Grid item xs={4}>
+    4 columns
+  </Grid>
 </Grid>
 ```
 
@@ -133,31 +143,31 @@ Control spacing between grid items and alignment:
 
 ### Container Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `container` | `boolean` | `false` | Makes this grid a container |
-| `spacing` | `ResponsiveValue<number>` | `0` | Spacing between items (0-10) |
-| `columns` | `ResponsiveValue<number>` | `12` | Number of columns in grid |
-| `direction` | `ResponsiveValue<Direction>` | `'row'` | Flex direction |
-| `wrap` | `Wrap` | `'wrap'` | Flex wrap behavior |
-| `alignItems` | `AlignItems` | - | Vertical alignment |
-| `justifyContent` | `JustifyContent` | - | Horizontal alignment |
+| Prop             | Type                         | Default  | Description                  |
+| ---------------- | ---------------------------- | -------- | ---------------------------- |
+| `container`      | `boolean`                    | `false`  | Makes this grid a container  |
+| `spacing`        | `ResponsiveValue<number>`    | `0`      | Spacing between items (0-10) |
+| `columns`        | `ResponsiveValue<number>`    | `12`     | Number of columns in grid    |
+| `direction`      | `ResponsiveValue<Direction>` | `'row'`  | Flex direction               |
+| `wrap`           | `Wrap`                       | `'wrap'` | Flex wrap behavior           |
+| `alignItems`     | `AlignItems`                 | -        | Vertical alignment           |
+| `justifyContent` | `JustifyContent`             | -        | Horizontal alignment         |
 
 ### Item Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `item` | `boolean` | `false` | Makes this grid an item |
-| `xs`, `sm`, `md`, `lg`, `xl` | `GridSize` | - | Column span at breakpoint |
-| `component` | `keyof JSX.IntrinsicElements` | `'div'` | HTML element to render |
+| Prop                         | Type                          | Default | Description               |
+| ---------------------------- | ----------------------------- | ------- | ------------------------- |
+| `item`                       | `boolean`                     | `false` | Makes this grid an item   |
+| `xs`, `sm`, `md`, `lg`, `xl` | `GridSize`                    | -       | Column span at breakpoint |
+| `component`                  | `keyof JSX.IntrinsicElements` | `'div'` | HTML element to render    |
 
 ### Common Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `style` | `JSX.CSSProperties` | - | Inline styles |
-| `children` | `ComponentChildren` | - | Child elements |
+| Prop        | Type                | Default | Description            |
+| ----------- | ------------------- | ------- | ---------------------- |
+| `className` | `string`            | -       | Additional CSS classes |
+| `style`     | `JSX.CSSProperties` | -       | Inline styles          |
+| `children`  | `ComponentChildren` | -       | Child elements         |
 
 ## GridSize Values
 

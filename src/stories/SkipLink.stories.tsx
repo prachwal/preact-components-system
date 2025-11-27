@@ -10,7 +10,8 @@ const meta: Meta<typeof SkipLink> = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Accessibility component that provides a keyboard navigation link to skip to main content.',
+        component:
+          'Accessibility component that provides a keyboard navigation link to skip to main content.',
       },
     },
   },
@@ -25,7 +26,8 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'The skip link appears at the top of the page and is only visible when focused with keyboard navigation.',
+        story:
+          'The skip link appears at the top of the page and is only visible when focused with keyboard navigation.',
       },
     },
   },
@@ -37,13 +39,28 @@ export const WithMainContent: Story = {
     (Story) => (
       <div>
         <Story />
-        <header style={{ padding: '1rem', background: 'var(--pcs-bg-secondary)', borderBottom: '1px solid var(--pcs-border)' }}>
+        <header
+          style={{
+            padding: '1rem',
+            background: 'var(--pcs-bg-secondary)',
+            borderBottom: '1px solid var(--pcs-border)',
+          }}
+        >
           <h1 style={{ color: 'var(--pcs-text)', margin: 0 }}>Site Header</h1>
           <nav>
-            <a href="#main" style={{ color: 'var(--pcs-accent)' }}>Link 1</a> | <a href="#main" style={{ color: 'var(--pcs-accent)' }}>Link 2</a>
+            <a href='#main' style={{ color: 'var(--pcs-accent)' }}>
+              Link 1
+            </a>{' '}
+            |{' '}
+            <a href='#main' style={{ color: 'var(--pcs-accent)' }}>
+              Link 2
+            </a>
           </nav>
         </header>
-        <main id="main-content" style={{ padding: '2rem', minHeight: '400px', color: 'var(--pcs-text)' }}>
+        <main
+          id='main-content'
+          style={{ padding: '2rem', minHeight: '400px', color: 'var(--pcs-text)' }}
+        >
           <h2>Main Content</h2>
           <p>This is the main content area that the skip link targets.</p>
           <p>Use Tab key to focus the skip link at the top of the page.</p>
@@ -54,7 +71,8 @@ export const WithMainContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Shows the skip link in context with header and main content. Press Tab to reveal the skip link.',
+        story:
+          'Shows the skip link in context with header and main content. Press Tab to reveal the skip link.',
       },
     },
   },

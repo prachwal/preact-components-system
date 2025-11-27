@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 export const DefaultTheme: Story = {
   render: () => {
     const theme = createTheme();
-    
+
     return (
       <Box p={3}>
         <h2>Default Theme</h2>
@@ -29,66 +29,106 @@ export const DefaultTheme: Story = {
           <Grid item xs={12}>
             <h3>Primary Color</h3>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.primary.light,
-                color: theme.palette.primary.contrastText,
-              }}>Light</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.primary.contrastText,
-              }}>Main</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.primary.dark,
-                color: theme.palette.primary.contrastText,
-              }}>Dark</div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.contrastText,
+                }}
+              >
+                Light
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText,
+                }}
+              >
+                Main
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.primary.dark,
+                  color: theme.palette.primary.contrastText,
+                }}
+              >
+                Dark
+              </div>
             </div>
           </Grid>
           <Grid item xs={12}>
             <h3>Secondary Color</h3>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.secondary.light,
-                color: theme.palette.secondary.contrastText,
-              }}>Light</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.secondary.main,
-                color: theme.palette.secondary.contrastText,
-              }}>Main</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.secondary.dark,
-                color: theme.palette.secondary.contrastText,
-              }}>Dark</div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.secondary.light,
+                  color: theme.palette.secondary.contrastText,
+                }}
+              >
+                Light
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.secondary.main,
+                  color: theme.palette.secondary.contrastText,
+                }}
+              >
+                Main
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.secondary.dark,
+                  color: theme.palette.secondary.contrastText,
+                }}
+              >
+                Dark
+              </div>
             </div>
           </Grid>
           <Grid item xs={12}>
             <h3>Status Colors</h3>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.error.main,
-                color: theme.palette.error.contrastText,
-              }}>Error</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.warning.main,
-                color: theme.palette.warning.contrastText,
-              }}>Warning</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.info.main,
-                color: theme.palette.info.contrastText,
-              }}>Info</div>
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: theme.palette.success.main,
-                color: theme.palette.success.contrastText,
-              }}>Success</div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.error.main,
+                  color: theme.palette.error.contrastText,
+                }}
+              >
+                Error
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.warning.main,
+                  color: theme.palette.warning.contrastText,
+                }}
+              >
+                Warning
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.info.main,
+                  color: theme.palette.info.contrastText,
+                }}
+              >
+                Info
+              </div>
+              <div
+                style={{
+                  padding: '16px',
+                  backgroundColor: theme.palette.success.main,
+                  color: theme.palette.success.contrastText,
+                }}
+              >
+                Success
+              </div>
             </div>
           </Grid>
           <Grid item xs={12}>
@@ -122,7 +162,7 @@ export const CustomTheme: Story = {
         fontFamily: 'Georgia, serif',
       },
     });
-    
+
     return (
       <ThemeProvider theme={customTheme}>
         <Box p={3}>
@@ -131,41 +171,65 @@ export const CustomTheme: Story = {
             <Grid item xs={12}>
               <h3>Custom Primary Color (#ff5722)</h3>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.primary.light,
-                  color: customTheme.palette.primary.contrastText,
-                }}>Light</div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.primary.main,
-                  color: customTheme.palette.primary.contrastText,
-                }}>Main</div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.primary.dark,
-                  color: customTheme.palette.primary.contrastText,
-                }}>Dark</div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.primary.light,
+                    color: customTheme.palette.primary.contrastText,
+                  }}
+                >
+                  Light
+                </div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.primary.main,
+                    color: customTheme.palette.primary.contrastText,
+                  }}
+                >
+                  Main
+                </div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.primary.dark,
+                    color: customTheme.palette.primary.contrastText,
+                  }}
+                >
+                  Dark
+                </div>
               </div>
             </Grid>
             <Grid item xs={12}>
               <h3>Custom Secondary Color (#00bcd4)</h3>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.secondary.light,
-                  color: customTheme.palette.secondary.contrastText,
-                }}>Light</div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.secondary.main,
-                  color: customTheme.palette.secondary.contrastText,
-                }}>Main</div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: customTheme.palette.secondary.dark,
-                  color: customTheme.palette.secondary.contrastText,
-                }}>Dark</div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.secondary.light,
+                    color: customTheme.palette.secondary.contrastText,
+                  }}
+                >
+                  Light
+                </div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.secondary.main,
+                    color: customTheme.palette.secondary.contrastText,
+                  }}
+                >
+                  Main
+                </div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: customTheme.palette.secondary.dark,
+                    color: customTheme.palette.secondary.contrastText,
+                  }}
+                >
+                  Dark
+                </div>
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -177,10 +241,18 @@ export const CustomTheme: Story = {
             <Grid item xs={12}>
               <h3>Components with Custom Theme</h3>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <Button variant="contained" color="primary">Primary</Button>
-                <Button variant="contained" color="secondary">Secondary</Button>
-                <Button variant="outlined" color="primary">Outlined Primary</Button>
-                <Button variant="outlined" color="secondary">Outlined Secondary</Button>
+                <Button variant='contained' color='primary'>
+                  Primary
+                </Button>
+                <Button variant='contained' color='secondary'>
+                  Secondary
+                </Button>
+                <Button variant='outlined' color='primary'>
+                  Outlined Primary
+                </Button>
+                <Button variant='outlined' color='secondary'>
+                  Outlined Secondary
+                </Button>
               </div>
             </Grid>
           </Grid>
@@ -197,12 +269,12 @@ export const DarkMode: Story = {
         mode: 'dark',
       },
     });
-    
+
     return (
       <ThemeProvider theme={darkTheme}>
-        <Box 
-          p={3} 
-          style={{ 
+        <Box
+          p={3}
+          style={{
             backgroundColor: darkTheme.palette.background.default,
             color: darkTheme.palette.text.primary,
           }}
@@ -212,17 +284,25 @@ export const DarkMode: Story = {
             <Grid item xs={12}>
               <h3>Background Colors</h3>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: darkTheme.palette.background.default,
-                  border: `1px solid ${darkTheme.palette.divider}`,
-                  color: darkTheme.palette.text.primary,
-                }}>Default Background</div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: darkTheme.palette.background.paper,
-                  color: darkTheme.palette.text.primary,
-                }}>Paper Background</div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: darkTheme.palette.background.default,
+                    border: `1px solid ${darkTheme.palette.divider}`,
+                    color: darkTheme.palette.text.primary,
+                  }}
+                >
+                  Default Background
+                </div>
+                <div
+                  style={{
+                    padding: '16px',
+                    backgroundColor: darkTheme.palette.background.paper,
+                    color: darkTheme.palette.text.primary,
+                  }}
+                >
+                  Paper Background
+                </div>
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -236,10 +316,18 @@ export const DarkMode: Story = {
             <Grid item xs={12}>
               <h3>Components in Dark Mode</h3>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <Button variant="contained" color="primary">Primary</Button>
-                <Button variant="contained" color="secondary">Secondary</Button>
-                <Button variant="outlined" color="error">Error</Button>
-                <Button variant="text" color="success">Success</Button>
+                <Button variant='contained' color='primary'>
+                  Primary
+                </Button>
+                <Button variant='contained' color='secondary'>
+                  Secondary
+                </Button>
+                <Button variant='outlined' color='error'>
+                  Error
+                </Button>
+                <Button variant='text' color='success'>
+                  Success
+                </Button>
               </div>
             </Grid>
           </Grid>
@@ -252,7 +340,7 @@ export const DarkMode: Story = {
 export const SpacingSystem: Story = {
   render: () => {
     const theme = createTheme();
-    
+
     return (
       <Box p={3}>
         <h2>Spacing System</h2>
@@ -261,15 +349,19 @@ export const SpacingSystem: Story = {
           <Grid item xs={12}>
             <h3>Spacing Examples</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {[0, 1, 2, 3, 4, 5].map(factor => (
+              {[0, 1, 2, 3, 4, 5].map((factor) => (
                 <div key={factor}>
-                  <code>spacing({factor}) = {theme.spacing(factor)}</code>
-                  <div style={{ 
-                    width: theme.spacing(factor), 
-                    height: '20px', 
-                    backgroundColor: '#1976d2',
-                    marginTop: '4px',
-                  }} />
+                  <code>
+                    spacing({factor}) = {theme.spacing(factor)}
+                  </code>
+                  <div
+                    style={{
+                      width: theme.spacing(factor),
+                      height: '20px',
+                      backgroundColor: '#1976d2',
+                      marginTop: '4px',
+                    }}
+                  />
                 </div>
               ))}
             </div>

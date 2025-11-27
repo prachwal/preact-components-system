@@ -1,6 +1,6 @@
 /**
  * Theme constants - centralized magic numbers
- * 
+ *
  * This file contains all the numeric constants used throughout the theme system
  * to eliminate magic numbers and improve maintainability.
  */

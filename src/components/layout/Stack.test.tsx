@@ -18,7 +18,7 @@ describe('Stack', () => {
   });
 
   it('applies direction class', () => {
-    const { container } = renderWithTheme(<Stack direction="row">Content</Stack>);
+    const { container } = renderWithTheme(<Stack direction='row'>Content</Stack>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('stack-direction-row');
   });
@@ -30,19 +30,19 @@ describe('Stack', () => {
   });
 
   it('applies alignItems class', () => {
-    const { container } = renderWithTheme(<Stack alignItems="center">Content</Stack>);
+    const { container } = renderWithTheme(<Stack alignItems='center'>Content</Stack>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('stack-align-center');
   });
 
   it('applies justifyContent class', () => {
-    const { container } = renderWithTheme(<Stack justifyContent="space-between">Content</Stack>);
+    const { container } = renderWithTheme(<Stack justifyContent='space-between'>Content</Stack>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('stack-justify-space-between');
   });
 
   it('applies custom className', () => {
-    const { container } = renderWithTheme(<Stack className="custom-class">Content</Stack>);
+    const { container } = renderWithTheme(<Stack className='custom-class'>Content</Stack>);
     const div = container.querySelector('div');
     expect(div).toHaveClass('stack', 'custom-class');
   });
@@ -54,7 +54,7 @@ describe('Stack', () => {
   });
 
   it('renders as different component', () => {
-    const { container } = renderWithTheme(<Stack component="section">Content</Stack>);
+    const { container } = renderWithTheme(<Stack component='section'>Content</Stack>);
     expect(container.querySelector('section')).toBeInTheDocument();
   });
 

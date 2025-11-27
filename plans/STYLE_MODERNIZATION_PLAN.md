@@ -90,16 +90,16 @@ $bp-lg: 1024px;
 
 ```scss
 // Bazowy: Material Blue 700 #1976d2 → dostosowany dla kontrastu
-$primary-50: #e3f2fd;   // Tło subtle
-$primary-100: #bbdefb;  // Hover light
-$primary-200: #90caf9;  // Disabled state
-$primary-300: #64b5f6;  // Accent light
-$primary-400: #42a5f5;  // Hover
-$primary-500: #2196f3;  // Base (adjusted for 4.5:1 on white)
-$primary-600: #1e88e5;  // Main interactive
-$primary-700: #1976d2;  // Default
-$primary-800: #1565c0;  // Hover dark
-$primary-900: #0d47a1;  // Dark theme base
+$primary-50: #e3f2fd; // Tło subtle
+$primary-100: #bbdefb; // Hover light
+$primary-200: #90caf9; // Disabled state
+$primary-300: #64b5f6; // Accent light
+$primary-400: #42a5f5; // Hover
+$primary-500: #2196f3; // Base (adjusted for 4.5:1 on white)
+$primary-600: #1e88e5; // Main interactive
+$primary-700: #1976d2; // Default
+$primary-800: #1565c0; // Hover dark
+$primary-900: #0d47a1; // Dark theme base
 
 // Kontrast na białym (#ffffff):
 // primary-700 (#1976d2): 4.62:1 ✅
@@ -111,55 +111,55 @@ $primary-900: #0d47a1;  // Dark theme base
 ```scss
 // Success (Green) - 4.5:1 na białym
 $success-50: #e8f5e9;
-$success-500: #43a047;  // 4.53:1 ✅
-$success-700: #2e7d32;  // 6.47:1 ✅
-$success-900: #1b5e20;  // 10.01:1 ✅
+$success-500: #43a047; // 4.53:1 ✅
+$success-700: #2e7d32; // 6.47:1 ✅
+$success-900: #1b5e20; // 10.01:1 ✅
 
 // Error (Red) - 4.5:1 na białym
 $error-50: #ffebee;
-$error-500: #e53935;    // 4.52:1 ✅
-$error-700: #c62828;    // 6.88:1 ✅
-$error-900: #b71c1c;    // 8.61:1 ✅
+$error-500: #e53935; // 4.52:1 ✅
+$error-700: #c62828; // 6.88:1 ✅
+$error-900: #b71c1c; // 8.61:1 ✅
 
 // Warning (Orange) - 4.5:1 na białym
 $warning-50: #fff3e0;
-$warning-500: #f57c00;  // 4.56:1 ✅
-$warning-700: #e65100;  // 6.32:1 ✅
-$warning-900: #e65100;  // 6.32:1 ✅
+$warning-500: #f57c00; // 4.56:1 ✅
+$warning-700: #e65100; // 6.32:1 ✅
+$warning-900: #e65100; // 6.32:1 ✅
 
 // Info (Light Blue) - 4.5:1 na białym
 $info-50: #e1f5fe;
-$info-500: #039be5;     // 4.54:1 ✅
-$info-700: #0277bd;     // 6.89:1 ✅
-$info-900: #01579b;     // 9.86:1 ✅
+$info-500: #039be5; // 4.54:1 ✅
+$info-700: #0277bd; // 6.89:1 ✅
+$info-900: #01579b; // 9.86:1 ✅
 ```
 
 ### 3. **Neutral Palette** (Grey Scale - WCAG AA)
 
 ```scss
 // Light Theme
-$neutral-50: #fafafa;   // Background subtle
-$neutral-100: #f5f5f5;  // Background secondary
-$neutral-200: #eeeeee;  // Border light
-$neutral-300: #e0e0e0;  // Border default
-$neutral-400: #bdbdbd;  // Border strong
-$neutral-500: #9e9e9e;  // Disabled text (3.94:1 - use 600 for body)
-$neutral-600: #757575;  // Text secondary (4.54:1 ✅)
-$neutral-700: #616161;  // Text primary (5.87:1 ✅)
-$neutral-800: #424242;  // Text emphasis (9.12:1 ✅)
-$neutral-900: #212121;  // Text strong (16.05:1 ✅)
+$neutral-50: #fafafa; // Background subtle
+$neutral-100: #f5f5f5; // Background secondary
+$neutral-200: #eeeeee; // Border light
+$neutral-300: #e0e0e0; // Border default
+$neutral-400: #bdbdbd; // Border strong
+$neutral-500: #9e9e9e; // Disabled text (3.94:1 - use 600 for body)
+$neutral-600: #757575; // Text secondary (4.54:1 ✅)
+$neutral-700: #616161; // Text primary (5.87:1 ✅)
+$neutral-800: #424242; // Text emphasis (9.12:1 ✅)
+$neutral-900: #212121; // Text strong (16.05:1 ✅)
 
 // Dark Theme (on #1a1a1a)
-$neutral-dark-50: #0a0a0a;   // Background deep
-$neutral-dark-100: #1a1a1a;  // Background primary
-$neutral-dark-200: #2d2d2d;  // Background secondary
-$neutral-dark-300: #404040;  // Border default (3.01:1 ✅ for UI)
-$neutral-dark-400: #525252;  // Border strong
-$neutral-dark-500: #737373;  // Disabled text
-$neutral-dark-600: #a3a3a3;  // Text secondary (4.76:1 ✅)
-$neutral-dark-700: #d4d4d4;  // Text primary (8.32:1 ✅)
-$neutral-dark-800: #e5e5e5;  // Text emphasis (10.42:1 ✅)
-$neutral-dark-900: #fafafa;  // Text strong (14.95:1 ✅)
+$neutral-dark-50: #0a0a0a; // Background deep
+$neutral-dark-100: #1a1a1a; // Background primary
+$neutral-dark-200: #2d2d2d; // Background secondary
+$neutral-dark-300: #404040; // Border default (3.01:1 ✅ for UI)
+$neutral-dark-400: #525252; // Border strong
+$neutral-dark-500: #737373; // Disabled text
+$neutral-dark-600: #a3a3a3; // Text secondary (4.76:1 ✅)
+$neutral-dark-700: #d4d4d4; // Text primary (8.32:1 ✅)
+$neutral-dark-800: #e5e5e5; // Text emphasis (10.42:1 ✅)
+$neutral-dark-900: #fafafa; // Text strong (14.95:1 ✅)
 ```
 
 ---
@@ -172,22 +172,22 @@ $neutral-dark-900: #fafafa;  // Text strong (14.95:1 ✅)
 // Base: 16px (1rem) @ 375px → 18px (1.125rem) @ 1440px
 // Ratio: Minor Third (1.2) / Perfect Fourth (1.333)
 
-$font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);      // 12px → 14px
-$font-size-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);       // 14px → 16px
-$font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);      // 16px → 18px
-$font-size-md: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);    // 18px → 20px
-$font-size-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);        // 20px → 24px
-$font-size-xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);          // 24px → 32px
-$font-size-2xl: clamp(2rem, 1.75rem + 1.25vw, 2.5rem);         // 32px → 40px
-$font-size-3xl: clamp(2.5rem, 2.15rem + 1.75vw, 3rem);         // 40px → 48px
-$font-size-4xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);             // 48px → 64px
+$font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); // 12px → 14px
+$font-size-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem); // 14px → 16px
+$font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); // 16px → 18px
+$font-size-md: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem); // 18px → 20px
+$font-size-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem); // 20px → 24px
+$font-size-xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem); // 24px → 32px
+$font-size-2xl: clamp(2rem, 1.75rem + 1.25vw, 2.5rem); // 32px → 40px
+$font-size-3xl: clamp(2.5rem, 2.15rem + 1.75vw, 3rem); // 40px → 48px
+$font-size-4xl: clamp(3rem, 2.5rem + 2.5vw, 4rem); // 48px → 64px
 
 // Line Heights (unitless for scaling)
-$line-height-tight: 1.25;   // Headings
-$line-height-snug: 1.375;   // Subheadings
-$line-height-normal: 1.5;   // Body text (WCAG recommended)
+$line-height-tight: 1.25; // Headings
+$line-height-snug: 1.375; // Subheadings
+$line-height-normal: 1.5; // Body text (WCAG recommended)
 $line-height-relaxed: 1.625; // Long-form content
-$line-height-loose: 2;      // Spacious layouts
+$line-height-loose: 2; // Spacious layouts
 ```
 
 ### Font Weights
@@ -210,22 +210,22 @@ $font-weight-extrabold: 800;
 ```scss
 // Base unit: 4px @ 375px → 8px @ 1440px
 $space-0: 0;
-$space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);   // 4px → 6px
-$space-2: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);      // 8px → 12px
-$space-3: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);       // 12px → 16px
-$space-4: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);       // 16px → 24px
-$space-5: clamp(1.25rem, 1rem + 1.25vw, 2rem);         // 20px → 32px
-$space-6: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);     // 24px → 40px
-$space-8: clamp(2rem, 1.5rem + 2.5vw, 3rem);           // 32px → 48px
-$space-10: clamp(2.5rem, 2rem + 2.5vw, 4rem);          // 40px → 64px
-$space-12: clamp(3rem, 2.5rem + 2.5vw, 5rem);          // 48px → 80px
-$space-16: clamp(4rem, 3rem + 5vw, 6rem);              // 64px → 96px
-$space-20: clamp(5rem, 4rem + 5vw, 8rem);              // 80px → 128px
+$space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem); // 4px → 6px
+$space-2: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem); // 8px → 12px
+$space-3: clamp(0.75rem, 0.65rem + 0.5vw, 1rem); // 12px → 16px
+$space-4: clamp(1rem, 0.85rem + 0.75vw, 1.5rem); // 16px → 24px
+$space-5: clamp(1.25rem, 1rem + 1.25vw, 2rem); // 20px → 32px
+$space-6: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem); // 24px → 40px
+$space-8: clamp(2rem, 1.5rem + 2.5vw, 3rem); // 32px → 48px
+$space-10: clamp(2.5rem, 2rem + 2.5vw, 4rem); // 40px → 64px
+$space-12: clamp(3rem, 2.5rem + 2.5vw, 5rem); // 48px → 80px
+$space-16: clamp(4rem, 3rem + 5vw, 6rem); // 64px → 96px
+$space-20: clamp(5rem, 4rem + 5vw, 8rem); // 80px → 128px
 
 // Semantic spacing
 $gap-xs: $space-1;
 $gap-sm: $space-2;
-$gap: $space-4;        // Default
+$gap: $space-4; // Default
 $gap-md: $space-5;
 $gap-lg: $space-8;
 $gap-xl: $space-12;
@@ -237,13 +237,13 @@ $gap-xl: $space-12;
 
 ```scss
 // Mobile-first approach
-$bp-xs: 320px;    // Small phones
-$bp-sm: 480px;    // Large phones (portrait)
-$bp-md: 768px;    // Tablets (portrait)
-$bp-lg: 1024px;   // Tablets (landscape) / Small laptops
-$bp-xl: 1280px;   // Laptops / Desktop
-$bp-2xl: 1536px;  // Large desktop
-$bp-3xl: 1920px;  // Ultra-wide
+$bp-xs: 320px; // Small phones
+$bp-sm: 480px; // Large phones (portrait)
+$bp-md: 768px; // Tablets (portrait)
+$bp-lg: 1024px; // Tablets (landscape) / Small laptops
+$bp-xl: 1280px; // Laptops / Desktop
+$bp-2xl: 1536px; // Large desktop
+$bp-3xl: 1920px; // Ultra-wide
 
 // Container max-widths
 $container-sm: 640px;
@@ -265,7 +265,7 @@ $container-2xl: 1536px;
   $max-rem: calc($max-size / 16);
   $slope: calc(($max-size - $min-size) / ($max-vw - $min-vw));
   $y-intersection: calc($min-size - ($slope * $min-vw));
-  
+
   @return clamp(
     #{$min-rem}rem,
     #{$y-intersection / 16}rem + #{$slope * 100}vw,
@@ -279,13 +279,17 @@ $container-2xl: 1536px;
 ### 2. **Focus Styles (WCAG 2.4.7)**
 
 ```scss
-@mixin focus-visible($color: var(--pcs-primary-600), $offset: 2px, $width: 2px) {
+@mixin focus-visible(
+  $color: var(--pcs-primary-600),
+  $offset: 2px,
+  $width: 2px
+) {
   &:focus-visible {
     outline: $width solid $color;
     outline-offset: $offset;
     box-shadow: 0 0 0 calc($offset + $width) rgba($color, 0.1);
   }
-  
+
   &:focus:not(:focus-visible) {
     outline: none;
   }
@@ -295,7 +299,11 @@ $container-2xl: 1536px;
 ### 3. **Contrast-Safe Text**
 
 ```scss
-@mixin text-color($bg-color, $light-text: $neutral-900, $dark-text: $neutral-dark-900) {
+@mixin text-color(
+  $bg-color,
+  $light-text: $neutral-900,
+  $dark-text: $neutral-dark-900
+) {
   @if lightness($bg-color) > 50% {
     color: $light-text;
   } @else {
@@ -381,16 +389,13 @@ src/styles/
   - [ ] Semantic colors (success, error, warning, info)
   - [ ] Neutral scale (light + dark)
   - [ ] Validate all contrasts with WebAIM tool
-  
 - [ ] **Typography**: Implement fluid type scale
   - [ ] Create clamp-based font sizes
   - [ ] Update line-heights for readability
   - [ ] Add font-weight variables
-  
 - [ ] **Spacing**: Fluid spacing system
   - [ ] 8-point grid with clamp()
   - [ ] Semantic spacing aliases
-  
 - [ ] **Breakpoints**: Extended responsive system
   - [ ] Add xs (320px), xl (1280px), 2xl (1536px)
   - [ ] Container queries support
@@ -401,12 +406,10 @@ src/styles/
   - [ ] Create tokens/ directory
   - [ ] Separate primitive vs semantic tokens
   - [ ] Update CSS custom properties
-  
 - [ ] **Dark Mode**: Refined dark theme
   - [ ] Systematic grey scale
   - [ ] Adjusted color brightness
   - [ ] Test contrast ratios
-  
 - [ ] **Documentation**: Token documentation
   - [ ] Storybook integration
   - [ ] Usage examples
@@ -419,7 +422,6 @@ src/styles/
   - [ ] Alert: contrast-safe colors
   - [ ] Cards: elevation with shadows
   - [ ] Navigation: responsive with container queries
-  
 - [ ] **Testing**: Accessibility audit
   - [ ] Axe DevTools scan
   - [ ] Manual keyboard navigation
@@ -432,12 +434,10 @@ src/styles/
   - [ ] Remove unused styles
   - [ ] Optimize custom properties
   - [ ] Minimize selectors
-  
 - [ ] **Documentation**: Complete style guide
   - [ ] Design tokens page
   - [ ] Accessibility guidelines
   - [ ] Responsive patterns
-  
 - [ ] **Migration Guide**: For existing users
   - [ ] Breaking changes
   - [ ] Deprecation notices
@@ -597,7 +597,7 @@ src/styles/
 
 - **Files Created**: 10 new files (6 tokens + 4 mixins)
 - **Lines of Code**: ~1,675 lines of modern SCSS
-- **CSS Custom Properties**: 80+ new --pcs-* variables
+- **CSS Custom Properties**: 80+ new --pcs-\* variables
 - **Breakpoints**: 7 (was 3) - 320px to 1920px
 - **Color Shades**: 72 WCAG AA validated colors
 - **Fluid Values**: All typography and spacing scale responsively (375px-1440px)
@@ -610,7 +610,7 @@ src/styles/
 ✅ Material Design elevation system  
 ✅ Modern focus management  
 ✅ Comprehensive accessibility support  
-✅ No breaking changes - backward compatible  
+✅ No breaking changes - backward compatible
 
 ---
 

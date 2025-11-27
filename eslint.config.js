@@ -1,11 +1,11 @@
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import importPlugin from 'eslint-plugin-import';
-import globals from 'globals';
 import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
 export default [
   {
@@ -110,6 +110,67 @@ export default [
     }
   },
   {
+    files: ['.storybook/**/*.{ts,tsx}', 'eslint.config.js'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+        // Disable type-aware linting for Storybook and config files
+        project: false
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.es2022,
+        ...globals.node
+      }
+    },
+    plugins: {
+      '@typescript-eslint': tseslint,
+      'import': importPlugin
+    },
+    rules: {
+      // Disable all type-aware rules for files not in tsconfig.app.json
+      '@typescript-eslint/prefer-nullish-coalescing': 'off',
+      '@typescript-eslint/prefer-optional-chain': 'off',
+      '@typescript-eslint/consistent-type-imports': 'off',
+      '@typescript-eslint/no-import-type-side-effects': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/strict-boolean-expressions': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
+      
+      // Basic rules that don't require type information
+      'no-unused-vars': 'off', // TypeScript handles this
+      'no-undef': 'off', // TypeScript handles this
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      
+      // Import organization rules
+      'import/order': ['error', {
+        'groups': [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index'
+        ],
+        'newlines-between': 'always',
+        'alphabetize': {
+          order: 'asc',
+          caseInsensitive: true
+        }
+      }],
+      
+      // General rules
+      'no-console': 'warn',
+      'prefer-const': 'error'
+    }
+  },
+  {
     files: ['**/*.{test,spec}.{ts,tsx}'],
     languageOptions: {
       parserOptions: {
@@ -140,5 +201,7 @@ export default [
     rules: {
       'react-refresh/only-export-components': 'off' // Stories can export multiple components
     }
-  }
+  },
+  // Prettier configuration - must be last to disable conflicting rules
+  prettierConfig
 ];

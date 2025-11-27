@@ -292,7 +292,21 @@ const resolvedPt = useResponsive(pt);
 ```typescript
 // Proposed - EFFICIENT
 const resolvedStyles = useResponsiveStyles({
-  p, pt, pr, pb, pl, px, py, m, mt, mr, mb, ml, mx, my, display
+  p,
+  pt,
+  pr,
+  pb,
+  pl,
+  px,
+  py,
+  m,
+  mt,
+  mr,
+  mb,
+  ml,
+  mx,
+  my,
+  display,
 });
 ```
 

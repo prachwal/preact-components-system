@@ -47,10 +47,10 @@ export const AppShell = () => {
   }, [sidebarOpen]);
 
   return (
-    <div className="app-shell">
+    <div className='app-shell'>
       <SkipLink />
       <Header onToggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
-      <div className="app-content">
+      <div className='app-content'>
         <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
         <Main />
       </div>

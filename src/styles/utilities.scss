@@ -19,7 +19,6 @@
     transform: translateX(0);
   }
 
-
   .grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -39,7 +38,6 @@
 }
 
 @include mixins.media-min(variables.$bp-lg) {
-
   .grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -65,7 +63,7 @@
 .container {
   padding-left: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
   padding-right: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
-  
+
   @media (min-width: 1440px) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -106,7 +104,7 @@
     --pcs-accent: var(--pcs-color-black);
   }
 
-  [data-theme="dark"] {
+  [data-theme='dark'] {
     --pcs-border: var(--pcs-color-white);
     --pcs-text: var(--pcs-color-white);
     --pcs-bg: var(--pcs-color-black);

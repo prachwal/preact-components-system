@@ -1,11 +1,22 @@
 export { Button } from './Button';
 export type { ButtonProps, ButtonVariant, ButtonColor, ButtonSize } from './Button';
 export { Typography } from './Typography';
-export type { TypographyProps, TypographyVariant, TypographyAlign, TypographyColor } from './Typography';
+export type {
+  TypographyProps,
+  TypographyVariant,
+  TypographyAlign,
+  TypographyColor,
+} from './Typography';
 export { Paper } from './Paper';
 export type { PaperProps } from './Paper';
 export { Card, CardHeader, CardMedia, CardContent, CardActions } from './Card';
-export type { CardProps, CardHeaderProps, CardMediaProps, CardContentProps, CardActionsProps } from './Card';
+export type {
+  CardProps,
+  CardHeaderProps,
+  CardMediaProps,
+  CardContentProps,
+  CardActionsProps,
+} from './Card';
 export { Alert, AlertTitle } from './Alert';
 export type { AlertProps, AlertTitleProps, AlertSeverity, AlertVariant } from './Alert';
 export { Icon } from './Icon';

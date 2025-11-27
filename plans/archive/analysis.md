@@ -196,18 +196,18 @@ const menuItems = [
 
 ## 📊 Scorecard porównawczy
 
-| Kategoria | Twój projekt | MUI | Ant Design | Gap |
-|-----------|--------------|-----|------------|-----|
-| Layout System | 3/10 | 9/10 | 9/10 | -6 |
-| Theme Customization | 4/10 | 10/10 | 9/10 | -6 |
-| Component Library | 2/10 | 10/10 | 9/10 | -8 |
-| Form Components | 0/10 | 10/10 | 10/10 | -10 |
-| Data Display | 1/10 | 9/10 | 9/10 | -8 |
-| Navigation | 5/10 | 9/10 | 9/10 | -4 |
-| Feedback | 0/10 | 9/10 | 9/10 | -9 |
-| Utilities | 2/10 | 9/10 | 8/10 | -7 |
-| Accessibility | 6/10 | 9/10 | 8/10 | -3 |
-| TypeScript Support | 7/10 | 10/10 | 9/10 | -3 |
-| Documentation | 5/10 | 10/10 | 9/10 | -5 |
-| Responsive Design | 6/10 | 10/10 | 9/10 | -4 |
-| **TOTAL** | **3.4/10** | **9.5/10** | **8.9/10** | **-6.1**
+| Kategoria           | Twój projekt | MUI        | Ant Design | Gap      |
+| ------------------- | ------------ | ---------- | ---------- | -------- |
+| Layout System       | 3/10         | 9/10       | 9/10       | -6       |
+| Theme Customization | 4/10         | 10/10      | 9/10       | -6       |
+| Component Library   | 2/10         | 10/10      | 9/10       | -8       |
+| Form Components     | 0/10         | 10/10      | 10/10      | -10      |
+| Data Display        | 1/10         | 9/10       | 9/10       | -8       |
+| Navigation          | 5/10         | 9/10       | 9/10       | -4       |
+| Feedback            | 0/10         | 9/10       | 9/10       | -9       |
+| Utilities           | 2/10         | 9/10       | 8/10       | -7       |
+| Accessibility       | 6/10         | 9/10       | 8/10       | -3       |
+| TypeScript Support  | 7/10         | 10/10      | 9/10       | -3       |
+| Documentation       | 5/10         | 10/10      | 9/10       | -5       |
+| Responsive Design   | 6/10         | 10/10      | 9/10       | -4       |
+| **TOTAL**           | **3.4/10**   | **9.5/10** | **8.9/10** | **-6.1** |

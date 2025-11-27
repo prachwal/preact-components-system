@@ -106,7 +106,7 @@
   .grid-spacing-#{$i} {
     width: calc(100% + #{$i * 8}px);
     margin: -#{$i * 4}px;
-    
+
     > .grid-item {
       padding: #{$i * 4}px;
     }
@@ -117,21 +117,21 @@
 // Generate for each breakpoint
 @mixin grid-item-sizes($breakpoint: '') {
   $prefix: if($breakpoint != '', 'grid-#{$breakpoint}-', 'grid-xs-');
-  
+
   // Auto sizing
   .#{$prefix}auto {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  
+
   // True (equal width)
   .#{$prefix}true {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  
+
   // Specific sizes (1-12)
   @for $i from 1 through 12 {
     .#{$prefix}#{$i} {

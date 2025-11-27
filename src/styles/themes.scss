@@ -188,7 +188,7 @@
   --pcs-font-size-4xl: #{$font-size-4xl};
   --pcs-font-size-5xl: #{$font-size-5xl};
   --pcs-font-size-6xl: #{$font-size-6xl};
-  
+
   // Spacing Tokens (Fluid 8-point grid)
   --pcs-space-0: #{$space-0};
   --pcs-space-1: #{$space-1};
@@ -204,7 +204,7 @@
   --pcs-space-20: #{$space-20};
   --pcs-space-24: #{$space-24};
   --pcs-space-32: #{$space-32};
-  
+
   // Semantic Spacing
   --pcs-gap-xs: #{$gap-xs};
   --pcs-gap-s: #{$gap-sm};
@@ -212,7 +212,7 @@
   --pcs-gap-l: #{$gap-lg};
   --pcs-gap-xl: #{$gap-xl};
   --pcs-gap-2xl: #{$gap-2xl};
-  
+
   // Border Radius (Fluid)
   --pcs-radius-xs: #{$radius-xs};
   --pcs-radius-s: #{$radius-sm};
@@ -221,7 +221,7 @@
   --pcs-radius-xl: #{$radius-xl};
   --pcs-radius-2xl: #{$radius-2xl};
   --pcs-radius-full: #{$radius-full};
-  
+
   // Shadow Tokens (Material Design)
   --pcs-shadow-xs: #{$shadow-xs};
   --pcs-shadow-s: #{$shadow-sm};
@@ -230,7 +230,7 @@
   --pcs-shadow-xl: #{$shadow-xl};
   --pcs-shadow-2xl: #{$shadow-2xl};
   --pcs-shadow-inner: #{$shadow-inner};
-  
+
   // Transition Tokens
   --pcs-duration-fast: #{$duration-fast};
   --pcs-duration-normal: #{$duration-normal};
@@ -238,7 +238,7 @@
   --pcs-ease-standard: #{$ease-standard};
   --pcs-ease-decelerate: #{$ease-decelerate};
   --pcs-ease-accelerate: #{$ease-accelerate};
-  
+
   // Z-index Scale
   --pcs-z-dropdown: #{$z-index-dropdown};
   --pcs-z-sticky: #{$z-index-sticky};
@@ -251,7 +251,7 @@
 
 // Light Theme
 :root,
-[data-theme="light"] {
+[data-theme='light'] {
   --pcs-bg: #{map.get(colors.$light-palette, bg)};
   --pcs-bg-secondary: #{map.get(colors.$light-palette, bg-secondary)};
   --pcs-bg-tertiary: #{map.get(colors.$light-palette, bg-tertiary)};
@@ -265,19 +265,19 @@
   --pcs-focus-ring: #{map.get(colors.$light-palette, focus-ring)};
   --pcs-nav-active-bg: #{map.get(colors.$light-palette, nav-active-bg)};
   --pcs-nav-active-text: #{map.get(colors.$light-palette, nav-active-text)};
-  
+
   // New Token System - Light Theme Colors (WCAG AA)
   --pcs-primary: #{token-colors.$primary-500};
   --pcs-primary-hover: #{token-colors.$primary-600};
   --pcs-primary-active: #{token-colors.$primary-700};
   --pcs-primary-light: #{token-colors.$primary-100};
   --pcs-primary-dark: #{token-colors.$primary-900};
-  
+
   --pcs-semantic-success: #{token-colors.$success-600};
   --pcs-semantic-error: #{token-colors.$error-600};
   --pcs-semantic-warning: #{token-colors.$warning-600};
   --pcs-semantic-info: #{token-colors.$info-600};
-  
+
   --pcs-neutral: #{token-colors.$neutral-500};
   --pcs-neutral-bg: #{token-colors.$neutral-50};
   --pcs-neutral-border: #{token-colors.$neutral-300};
@@ -286,7 +286,7 @@
 }
 
 // Dark Theme
-[data-theme="dark"],
+[data-theme='dark'],
 .is-dark {
   --pcs-bg: #{map.get(colors.$dark-palette, bg)};
   --pcs-bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
@@ -304,19 +304,19 @@
 
   // Logo
   --pcs-logo-bg-opacity: 0.2;
-  
+
   // New Token System - Dark Theme Colors (WCAG AA)
   --pcs-primary: #{token-colors.$primary-400};
   --pcs-primary-hover: #{token-colors.$primary-300};
   --pcs-primary-active: #{token-colors.$primary-200};
   --pcs-primary-light: #{token-colors.$primary-900};
   --pcs-primary-dark: #{token-colors.$primary-100};
-  
+
   --pcs-semantic-success: #{token-colors.$success-400};
   --pcs-semantic-error: #{token-colors.$error-400};
   --pcs-semantic-warning: #{token-colors.$warning-400};
   --pcs-semantic-info: #{token-colors.$info-400};
-  
+
   --pcs-neutral: #{token-colors.$neutral-dark-500};
   --pcs-neutral-bg: #{token-colors.$neutral-dark-900};
   --pcs-neutral-border: #{token-colors.$neutral-dark-700};
@@ -326,7 +326,7 @@
 
 // System Theme
 @include mixins.prefers-color-scheme(dark) {
-  [data-theme="system"] {
+  [data-theme='system'] {
     --pcs-bg: #{map.get(colors.$dark-palette, bg)};
     --pcs-bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
     --pcs-bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
@@ -340,17 +340,17 @@
     --pcs-focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
     --pcs-nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
     --pcs-nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
-    
+
     // New Token System - System Dark Mode Colors
     --pcs-primary: #{token-colors.$primary-400};
     --pcs-primary-hover: #{token-colors.$primary-300};
     --pcs-primary-active: #{token-colors.$primary-200};
-    
+
     --pcs-semantic-success: #{token-colors.$success-400};
     --pcs-semantic-error: #{token-colors.$error-400};
     --pcs-semantic-warning: #{token-colors.$warning-400};
     --pcs-semantic-info: #{token-colors.$info-400};
-    
+
     --pcs-neutral: #{token-colors.$neutral-dark-500};
     --pcs-neutral-bg: #{token-colors.$neutral-dark-900};
     --pcs-neutral-border: #{token-colors.$neutral-dark-700};

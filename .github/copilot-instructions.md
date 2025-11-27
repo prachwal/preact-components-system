@@ -1,6 +1,7 @@
 # Preact Components System - AI Agent Instructions
 
 ## Architecture Overview
+
 This is a Preact component library built with Vite and TypeScript. The codebase follows a modular architecture with clear separation of concerns:
 
 - **Components**: Organized in `src/components/` by category (`common/`, `layout/`, `ui/`)
@@ -9,6 +10,7 @@ This is a Preact component library built with Vite and TypeScript. The codebase 
 - **Hooks**: Custom hooks in `src/hooks/`
 
 ## Build & Development
+
 - **Build**: `npm run build` (runs TypeScript declarations, CSS compilation, then Vite library build)
 - **Dev**: `npm run dev` (Vite dev server)
 - **TypeScript**: Uses project references with separate configs:
@@ -19,6 +21,7 @@ This is a Preact component library built with Vite and TypeScript. The codebase 
 - **Library Output**: ES module + UMD builds in `dist/`
 
 ## Component Patterns
+
 - Functional components with explicit TypeScript interfaces
 - Props destructuring with default values: `const Component = ({ prop = default }: Props) =>`
 - Class name concatenation: `const className = \`base-class ${additionalClasses}\`.trim()`
@@ -27,17 +30,21 @@ This is a Preact component library built with Vite and TypeScript. The codebase 
 - Theme cycling logic: light → dark → system → light
 
 ## Theme System
+
 Custom theme implementation supporting 'light', 'dark', 'system':
+
 - Persists to localStorage with key `'app:theme'`
 - Applies `data-theme` attribute to `<html>` and `is-dark` class for system preference handling
 - Use `useTheme()` hook from `src/contexts/ThemeContext`
 
 ## Responsive Design
+
 - Mobile-first approach with breakpoint constants: `MOBILE_BREAKPOINT = 768`, `TABLET_BREAKPOINT = 1024`
 - Responsive sidebar with collapse states based on viewport width
 - Touch-friendly hamburger menu with accessibility controls
 
 ## Accessibility Patterns
+
 - ARIA labels and controls: `aria-label`, `aria-controls`, `aria-expanded`
 - Focus management: programmatic focus on menu open/close
 - Keyboard navigation: Escape key handling, Tab trapping
@@ -45,11 +52,13 @@ Custom theme implementation supporting 'light', 'dark', 'system':
 - Skip links for screen reader navigation
 
 ## Navigation & State
+
 - Hash-based routing for section navigation
 - Active section tracking via `window.location.hash`
 - Responsive sidebar state management with body scroll locking
 
 ## Development Workflows
+
 - **Storybook**: `npm run storybook` for component development and testing
 - **Documentation**: `npm run docs` generates TypeDoc documentation
 - **Type Checking**: `npm run type-check` for strict TypeScript validation
@@ -62,9 +71,10 @@ Custom theme implementation supporting 'light', 'dark', 'system':
 - **Test Files**: Colocated with components (e.g., `Button.test.tsx`)
 - **Coverage**: Comprehensive component testing with 100% pass rate
 - **UI Testing**: `npm run test:ui` launches Vitest UI for interactive testing
-App version injected via Vite's `define` from `package.json` as `__APP_VERSION__` global constant. Access via `useAppVersion()` hook or `APP_VERSION` from `src/config/constants.ts`.
+  App version injected via Vite's `define` from `package.json` as `__APP_VERSION__` global constant. Access via `useAppVersion()` hook or `APP_VERSION` from `src/config/constants.ts`.
 
 ## Key Files
+
 - `src/App.tsx`: Root component wrapped in ThemeProvider
 - `src/components/layout/AppShell.tsx`: Main layout with sidebar state management
 - `src/providers/ThemeProvider.tsx`: Theme logic and system preference detection
@@ -80,12 +90,14 @@ App version injected via Vite's `define` from `package.json` as `__APP_VERSION__
 - `plans/archive/`: Completed planning documents for reference
 
 ## Build Configuration
+
 - **Vite**: Configured for library mode with external dependencies (`preact`, `preact/hooks`)
 - **CSS**: Compiled from `src/index.scss` using Sass
 - **Declarations**: Generated from `index.ts` entry point, excluding runtime constants
 - **Package**: Published as dual ES+UMD with TypeScript declarations
 
 ## Common Patterns
+
 - Component composition over inheritance
 - Context + hooks for shared state
 - Semantic HTML with configurable wrapper elements

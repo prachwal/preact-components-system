@@ -123,25 +123,25 @@
 }
 
 /* Dark mode support */
-[data-theme="dark"] .alert-variant-standard.alert-severity-error,
+[data-theme='dark'] .alert-variant-standard.alert-severity-error,
 .is-dark .alert-variant-standard.alert-severity-error {
   color: var(--pcs-alert-error-text-dark);
   background-color: var(--pcs-alert-error-bg-dark);
 }
 
-[data-theme="dark"] .alert-variant-standard.alert-severity-warning,
+[data-theme='dark'] .alert-variant-standard.alert-severity-warning,
 .is-dark .alert-variant-standard.alert-severity-warning {
   color: var(--pcs-alert-warning-text-dark);
   background-color: var(--pcs-alert-warning-bg-dark);
 }
 
-[data-theme="dark"] .alert-variant-standard.alert-severity-info,
+[data-theme='dark'] .alert-variant-standard.alert-severity-info,
 .is-dark .alert-variant-standard.alert-severity-info {
   color: var(--pcs-alert-info-text-dark);
   background-color: var(--pcs-alert-info-bg-dark);
 }
 
-[data-theme="dark"] .alert-variant-standard.alert-severity-success,
+[data-theme='dark'] .alert-variant-standard.alert-severity-success,
 .is-dark .alert-variant-standard.alert-severity-success {
   color: var(--pcs-alert-success-text-dark);
   background-color: var(--pcs-alert-success-bg-dark);

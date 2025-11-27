@@ -27,25 +27,25 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   cursor: pointer;
   position: relative;
   user-select: none;
-  
+
   &-disabled {
     cursor: default;
     opacity: 0.6;
   }
-  
+
   // Label placements
   &-label-end {
     flex-direction: row;
   }
-  
+
   &-label-start {
     flex-direction: row-reverse;
   }
-  
+
   &-label-top {
     flex-direction: column-reverse;
   }
-  
+
   &-label-bottom {
     flex-direction: column;
   }
@@ -61,11 +61,11 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   padding: 9px;
   border-radius: 50%;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   &:hover {
     background-color: $hover-bg-light;
   }
-  
+
   .radio-disabled & {
     &:hover {
       background-color: transparent;
@@ -91,7 +91,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   cursor: inherit;
   opacity: 0;
   z-index: 1;
-  
+
   &:focus-visible ~ .radio-icon {
     .radio-icon-outer {
       outline: 2px solid currentColor;
@@ -107,7 +107,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   width: 24px;
   height: 24px;
   position: relative;
-  
+
   &-outer {
     width: 100%;
     height: 100%;
@@ -115,12 +115,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     border-radius: 50%;
     box-sizing: border-box;
     transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     .radio-disabled & {
       border-color: $text-disabled-light;
     }
   }
-  
+
   &-inner {
     position: absolute;
     width: 12px;
@@ -128,8 +128,9 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     border-radius: 50%;
     background-color: transparent;
     transform: scale(0);
-    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
-                background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -138,7 +139,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   .radio-icon-outer {
     border-color: $text-secondary-dark;
   }
-  
+
   .radio-disabled .radio-icon-outer {
     border-color: $text-disabled-dark;
   }
@@ -149,7 +150,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   .radio-icon-outer {
     border-color: $primary-color;
   }
-  
+
   .radio-icon-inner {
     background-color: $primary-color;
     transform: scale(1);
@@ -162,12 +163,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $primary-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $primary-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-primary-opacity-04);
   }
@@ -184,12 +185,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $secondary-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $secondary-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-secondary-opacity-04);
   }
@@ -206,12 +207,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $error-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $error-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-error-opacity-04);
   }
@@ -228,12 +229,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $warning-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $warning-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-warning-opacity-04);
   }
@@ -250,12 +251,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $info-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $info-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-info-opacity-04);
   }
@@ -272,12 +273,12 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     .radio-icon-outer {
       border-color: $success-color;
     }
-    
+
     .radio-icon-inner {
       background-color: $success-color;
     }
   }
-  
+
   .radio-wrapper:hover {
     background-color: var(--pcs-success-opacity-04);
   }
@@ -296,17 +297,17 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     height: 36px;
     padding: 6px;
   }
-  
+
   .radio-icon {
     width: 20px;
     height: 20px;
-    
+
     &-inner {
       width: 10px;
       height: 10px;
     }
   }
-  
+
   .radio-label {
     font-size: 0.875rem;
   }
@@ -318,17 +319,17 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
     height: 48px;
     padding: 12px;
   }
-  
+
   .radio-icon {
     width: 28px;
     height: 28px;
-    
+
     &-inner {
       width: 14px;
       height: 14px;
     }
   }
-  
+
   .radio-label {
     font-size: 1.125rem;
   }
@@ -339,23 +340,23 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   font-size: 1rem;
   color: $text-primary-light;
   line-height: 1.5;
-  
+
   .radio-disabled & {
     color: $text-disabled-light;
   }
-  
+
   .radio-label-end & {
     margin-left: 0.5rem;
   }
-  
+
   .radio-label-start & {
     margin-right: 0.5rem;
   }
-  
+
   .radio-label-top & {
     margin-bottom: 0.25rem;
   }
-  
+
   .radio-label-bottom & {
     margin-top: 0.25rem;
   }
@@ -366,7 +367,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   .radio-label {
     color: $text-primary-dark;
   }
-  
+
   .radio-disabled .radio-label {
     color: $text-disabled-dark;
   }
@@ -382,7 +383,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  
+
   &-row {
     flex-direction: row;
     gap: 1rem;

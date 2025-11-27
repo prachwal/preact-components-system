@@ -41,31 +41,31 @@ export const MaxWidths: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3>xs (444px)</h3>
-        <Container maxWidth="xs">
+        <Container maxWidth='xs'>
           <DemoContent />
         </Container>
       </div>
       <div>
         <h3>sm (600px)</h3>
-        <Container maxWidth="sm">
+        <Container maxWidth='sm'>
           <DemoContent />
         </Container>
       </div>
       <div>
         <h3>md (900px)</h3>
-        <Container maxWidth="md">
+        <Container maxWidth='md'>
           <DemoContent />
         </Container>
       </div>
       <div>
         <h3>lg (1200px)</h3>
-        <Container maxWidth="lg">
+        <Container maxWidth='lg'>
           <DemoContent />
         </Container>
       </div>
       <div>
         <h3>xl (1536px)</h3>
-        <Container maxWidth="xl">
+        <Container maxWidth='xl'>
           <DemoContent />
         </Container>
       </div>

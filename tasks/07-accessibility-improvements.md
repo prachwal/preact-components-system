@@ -211,7 +211,7 @@ All accessibility improvements have been successfully implemented and tested:
 
 3. **Improved Form Components Accessibility**:
    - **TextField**: Added `aria-required` attribute
-   - **Checkbox**: Added `aria-required` attribute  
+   - **Checkbox**: Added `aria-required` attribute
    - **Radio**: Maintained proper accessibility (aria-required not applicable for radio inputs)
    - **Switch**: Added `aria-required` attribute
 
@@ -226,7 +226,7 @@ All accessibility improvements have been successfully implemented and tested:
 ### 🧪 Validation Results
 
 - ✅ All 298 tests pass (including new accessibility tests)
-- ✅ Build completes successfully  
+- ✅ Build completes successfully
 - ✅ TypeScript compilation passes
 - ✅ Components pass accessibility audits with jest-axe
 - ✅ WCAG 2.1 AA compliance achieved
@@ -234,7 +234,7 @@ All accessibility improvements have been successfully implemented and tested:
 ### 📁 Files Modified
 
 - `src/components/layout/Container.tsx` - Added accessibility props
-- `src/components/layout/Stack.tsx` - Added accessibility props  
+- `src/components/layout/Stack.tsx` - Added accessibility props
 - `src/components/ui/Button.tsx` - Enhanced with ARIA attributes
 - `src/components/ui/TextField.tsx` - Added aria-required
 - `src/components/ui/Checkbox.tsx` - Added aria-required

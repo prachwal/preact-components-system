@@ -42,7 +42,7 @@ export const BasicStack: Story = {
 
 export const HorizontalStack: Story = {
   render: () => (
-    <Stack direction="row" spacing={2}>
+    <Stack direction='row' spacing={2}>
       <DemoBox>Item 1</DemoBox>
       <DemoBox>Item 2</DemoBox>
       <DemoBox>Item 3</DemoBox>
@@ -83,7 +83,10 @@ export const Spacing: Story = {
 
 export const WithDivider: Story = {
   render: () => (
-    <Stack spacing={2} divider={<hr style={{ border: 0, borderTop: '1px solid #ccc', margin: 0 }} />}>
+    <Stack
+      spacing={2}
+      divider={<hr style={{ border: 0, borderTop: '1px solid #ccc', margin: 0 }} />}
+    >
       <DemoBox>Item 1</DemoBox>
       <DemoBox>Item 2</DemoBox>
       <DemoBox>Item 3</DemoBox>
@@ -96,7 +99,7 @@ export const Alignment: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3>Align Center</h3>
-        <Stack spacing={2} alignItems="center">
+        <Stack spacing={2} alignItems='center'>
           <DemoBox style={{ width: '200px' }}>200px</DemoBox>
           <DemoBox style={{ width: '300px' }}>300px</DemoBox>
           <DemoBox style={{ width: '150px' }}>150px</DemoBox>
@@ -104,7 +107,7 @@ export const Alignment: Story = {
       </div>
       <div>
         <h3>Align Flex-End</h3>
-        <Stack spacing={2} alignItems="flex-end">
+        <Stack spacing={2} alignItems='flex-end'>
           <DemoBox style={{ width: '200px' }}>200px</DemoBox>
           <DemoBox style={{ width: '300px' }}>300px</DemoBox>
           <DemoBox style={{ width: '150px' }}>150px</DemoBox>
@@ -119,7 +122,12 @@ export const JustifyContent: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3>Space Between</h3>
-        <Stack direction="row" spacing={0} justifyContent="space-between" style={{ minHeight: '100px' }}>
+        <Stack
+          direction='row'
+          spacing={0}
+          justifyContent='space-between'
+          style={{ minHeight: '100px' }}
+        >
           <DemoBox>Item 1</DemoBox>
           <DemoBox>Item 2</DemoBox>
           <DemoBox>Item 3</DemoBox>
@@ -127,7 +135,7 @@ export const JustifyContent: Story = {
       </div>
       <div>
         <h3>Center</h3>
-        <Stack direction="row" spacing={0} justifyContent="center" style={{ minHeight: '100px' }}>
+        <Stack direction='row' spacing={0} justifyContent='center' style={{ minHeight: '100px' }}>
           <DemoBox>Item 1</DemoBox>
           <DemoBox>Item 2</DemoBox>
           <DemoBox>Item 3</DemoBox>

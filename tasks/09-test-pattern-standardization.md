@@ -196,12 +196,24 @@ Organize tests by categories:
 
 ```typescript
 describe('ComponentName', () => {
-  describe('Rendering', () => { /* ... */ });
-  describe('Props API', () => { /* ... */ });
-  describe('User Interactions', () => { /* ... */ });
-  describe('Accessibility', () => { /* ... */ });
-  describe('Responsive Design', () => { /* ... */ });
-  describe('Error Handling', () => { /* ... */ });
+  describe('Rendering', () => {
+    /* ... */
+  });
+  describe('Props API', () => {
+    /* ... */
+  });
+  describe('User Interactions', () => {
+    /* ... */
+  });
+  describe('Accessibility', () => {
+    /* ... */
+  });
+  describe('Responsive Design', () => {
+    /* ... */
+  });
+  describe('Error Handling', () => {
+    /* ... */
+  });
 });
 ```
 

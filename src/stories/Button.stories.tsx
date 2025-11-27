@@ -79,22 +79,42 @@ export const Text: Story = {
 export const AllColors: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-      <Button variant="contained" color="primary">Primary</Button>
-      <Button variant="contained" color="secondary">Secondary</Button>
-      <Button variant="contained" color="error">Error</Button>
-      <Button variant="contained" color="warning">Warning</Button>
-      <Button variant="contained" color="info">Info</Button>
-      <Button variant="contained" color="success">Success</Button>
+      <Button variant='contained' color='primary'>
+        Primary
+      </Button>
+      <Button variant='contained' color='secondary'>
+        Secondary
+      </Button>
+      <Button variant='contained' color='error'>
+        Error
+      </Button>
+      <Button variant='contained' color='warning'>
+        Warning
+      </Button>
+      <Button variant='contained' color='info'>
+        Info
+      </Button>
+      <Button variant='contained' color='success'>
+        Success
+      </Button>
     </div>
   ),
 };
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}>
-      <Button variant="contained" color="primary">Contained</Button>
-      <Button variant="outlined" color="primary">Outlined</Button>
-      <Button variant="text" color="primary">Text</Button>
+    <div
+      style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}
+    >
+      <Button variant='contained' color='primary'>
+        Contained
+      </Button>
+      <Button variant='outlined' color='primary'>
+        Outlined
+      </Button>
+      <Button variant='text' color='primary'>
+        Text
+      </Button>
     </div>
   ),
 };
@@ -102,19 +122,31 @@ export const AllVariants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <Button size="small" color="primary">Small</Button>
-      <Button size="medium" color="primary">Medium</Button>
-      <Button size="large" color="primary">Large</Button>
+      <Button size='small' color='primary'>
+        Small
+      </Button>
+      <Button size='medium' color='primary'>
+        Medium
+      </Button>
+      <Button size='large' color='primary'>
+        Large
+      </Button>
     </div>
   ),
 };
 
 export const WithIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}>
-      <Button variant="contained" startIcon={<span>←</span>}>Start Icon</Button>
-      <Button variant="contained" endIcon={<span>→</span>}>End Icon</Button>
-      <Button variant="outlined" startIcon={<span>↓</span>} endIcon={<span>↓</span>}>
+    <div
+      style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}
+    >
+      <Button variant='contained' startIcon={<span>←</span>}>
+        Start Icon
+      </Button>
+      <Button variant='contained' endIcon={<span>→</span>}>
+        End Icon
+      </Button>
+      <Button variant='outlined' startIcon={<span>↓</span>} endIcon={<span>↓</span>}>
         Both Icons
       </Button>
     </div>
@@ -132,10 +164,18 @@ export const Loading: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}>
-      <Button variant="contained" disabled>Contained Disabled</Button>
-      <Button variant="outlined" disabled>Outlined Disabled</Button>
-      <Button variant="text" disabled>Text Disabled</Button>
+    <div
+      style={{ display: 'flex', gap: '16px', flexDirection: 'column', alignItems: 'flex-start' }}
+    >
+      <Button variant='contained' disabled>
+        Contained Disabled
+      </Button>
+      <Button variant='outlined' disabled>
+        Outlined Disabled
+      </Button>
+      <Button variant='text' disabled>
+        Text Disabled
+      </Button>
     </div>
   ),
 };

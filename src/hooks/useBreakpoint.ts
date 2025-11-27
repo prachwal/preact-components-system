@@ -112,11 +112,7 @@ const evaluateDirectionalQuery = (
  */
 export function useBreakpoint(): Breakpoint;
 export function useBreakpoint(direction: 'up' | 'down', breakpoint: Breakpoint): boolean;
-export function useBreakpoint(
-  direction: 'between',
-  start: Breakpoint,
-  end: Breakpoint
-): boolean;
+export function useBreakpoint(direction: 'between', start: Breakpoint, end: Breakpoint): boolean;
 export function useBreakpoint(
   direction?: BreakpointDirection,
   breakpointOrStart?: Breakpoint,
@@ -136,10 +132,18 @@ export function useBreakpoint(
   );
 
   // Handle directional queries - call hooks unconditionally
-  const upQuery = useMediaQuery(getMediaQuery(theme, 'up', direction === 'up' ? breakpointOrStart : undefined));
-  const downQuery = useMediaQuery(getMediaQuery(theme, 'down', direction === 'down' ? breakpointOrStart : undefined));
-  const betweenQuery = useMediaQuery(getMediaQuery(theme, 'between', direction === 'between' ? breakpointOrStart : undefined, end));
-  const onlyQuery = useMediaQuery(getMediaQuery(theme, 'only', direction === 'only' ? breakpointOrStart : undefined));
+  const upQuery = useMediaQuery(
+    getMediaQuery(theme, 'up', direction === 'up' ? breakpointOrStart : undefined)
+  );
+  const downQuery = useMediaQuery(
+    getMediaQuery(theme, 'down', direction === 'down' ? breakpointOrStart : undefined)
+  );
+  const betweenQuery = useMediaQuery(
+    getMediaQuery(theme, 'between', direction === 'between' ? breakpointOrStart : undefined, end)
+  );
+  const onlyQuery = useMediaQuery(
+    getMediaQuery(theme, 'only', direction === 'only' ? breakpointOrStart : undefined)
+  );
 
   // If no direction specified, return current breakpoint
   if (!direction) {

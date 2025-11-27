@@ -19,7 +19,7 @@ describe('Portal', () => {
   it('renders children in a portal to document.body', () => {
     render(
       <Portal>
-        <div data-testid="portal-content">Portal Content</div>
+        <div data-testid='portal-content'>Portal Content</div>
       </Portal>
     );
 
@@ -34,7 +34,7 @@ describe('Portal', () => {
 
     render(
       <Portal container={customContainer}>
-        <div data-testid="portal-content">Custom Portal</div>
+        <div data-testid='portal-content'>Custom Portal</div>
       </Portal>
     );
 
@@ -47,9 +47,9 @@ describe('Portal', () => {
 
   it('renders inline when disabled', () => {
     render(
-      <div data-testid="wrapper">
+      <div data-testid='wrapper'>
         <Portal disabled>
-          <div data-testid="portal-content">Inline Content</div>
+          <div data-testid='portal-content'>Inline Content</div>
         </Portal>
       </div>
     );

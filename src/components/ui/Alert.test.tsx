@@ -11,12 +11,12 @@ describe('Alert', () => {
   });
 
   it('applies severity class', () => {
-    const { container } = render(<Alert severity="error">Error message</Alert>);
+    const { container } = render(<Alert severity='error'>Error message</Alert>);
     expect(container.querySelector('.alert-severity-error')).toBeInTheDocument();
   });
 
   it('applies variant class', () => {
-    const { container } = render(<Alert variant="filled">Message</Alert>);
+    const { container } = render(<Alert variant='filled'>Message</Alert>);
     expect(container.querySelector('.alert-variant-filled')).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe('Alert', () => {
 
   it('renders default icon for each severity', () => {
     const severities = ['error', 'warning', 'info', 'success'] as const;
-    severities.forEach(severity => {
+    severities.forEach((severity) => {
       const { container } = render(<Alert severity={severity}>Message</Alert>);
       expect(container.querySelector('.alert-icon')).toBeInTheDocument();
     });
@@ -50,7 +50,7 @@ describe('Alert', () => {
 
   it('renders custom icon', () => {
     const { container } = render(
-      <Alert icon={<span data-testid="custom-icon">!</span>}>Message</Alert>
+      <Alert icon={<span data-testid='custom-icon'>!</span>}>Message</Alert>
     );
     expect(container.querySelector('[data-testid="custom-icon"]')).toBeInTheDocument();
   });

@@ -22,26 +22,26 @@ export interface MainProps {}
  * - Accessible content structure with proper heading hierarchy
  */
 export const Main = () => (
-  <main id="main-content" role="main" className="app-main">
+  <main id='main-content' role='main' className='app-main'>
     <ContentSection
-      title="Welcome to our application"
-      desc="This is the main content area of the application."
+      title='Welcome to our application'
+      desc='This is the main content area of the application.'
       columns={4}
       hasChildrenContainer={true}
     >
-      <article className="feature-card">
+      <article className='feature-card'>
         <h3>Feature One</h3>
         <p>Description of feature one.</p>
       </article>
-      <article className="feature-card">
+      <article className='feature-card'>
         <h3>Feature Two</h3>
         <p>Description of feature two.</p>
       </article>
-      <article className="feature-card">
+      <article className='feature-card'>
         <h3>Feature Three</h3>
         <p>Description of feature three.</p>
       </article>
-      <article className="feature-card">
+      <article className='feature-card'>
         <h3>Feature Four</h3>
         <p>Description of feature four.</p>
       </article>

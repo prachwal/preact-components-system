@@ -21,16 +21,11 @@
 //   @include focus-visible();
 //   @include focus-visible($error-500, 3px, 4px);
 
-@mixin focus-visible(
-  $color: $primary-500,
-  $width: 2px,
-  $offset: 2px,
-  $style: solid
-) {
+@mixin focus-visible($color: $primary-500, $width: 2px, $offset: 2px, $style: solid) {
   &:focus {
     outline: none; // Remove default outline
   }
-  
+
   &:focus-visible {
     outline: $width $style $color;
     outline-offset: $offset;
@@ -51,15 +46,11 @@
 //   @include focus-ring();
 //   @include focus-ring($error-500, 4px, 0.5);
 
-@mixin focus-ring(
-  $color: $primary-500,
-  $spread: 3px,
-  $opacity: 0.3
-) {
+@mixin focus-ring($color: $primary-500, $spread: 3px, $opacity: 0.3) {
   &:focus {
     outline: none;
   }
-  
+
   &:focus-visible {
     box-shadow: 0 0 0 $spread rgba($color, $opacity);
     transition: $focus-transition;
@@ -96,26 +87,22 @@
 // Example:
 //   @include interactive-focus($primary-500, rgba($primary-500, 0.1));
 
-@mixin interactive-focus(
-  $focus-color: $primary-500,
-  $hover-bg: null,
-  $ring-width: 2px
-) {
+@mixin interactive-focus($focus-color: $primary-500, $hover-bg: null, $ring-width: 2px) {
   transition: $button-transition;
-  
+
   &:hover:not(:disabled) {
     @if $hover-bg {
       background-color: $hover-bg;
     }
     cursor: pointer;
   }
-  
+
   @include focus-visible($focus-color, $ring-width);
-  
+
   &:active:not(:disabled) {
     transform: scale(0.98);
   }
-  
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
@@ -137,7 +124,7 @@
   &:focus:not(:focus-visible) {
     outline: none;
   }
-  
+
   &:focus-visible {
     outline: 2px solid $color;
     outline-offset: 2px;
@@ -157,7 +144,7 @@
   &:focus {
     outline: none;
   }
-  
+
   // First and last focusable elements get visible indicators
   > :first-child:focus-visible,
   > :last-child:focus-visible {
@@ -184,7 +171,7 @@
   font-weight: $font-weight-bold;
   text-decoration: none;
   border-radius: $radius-sm;
-  
+
   &:focus {
     left: $space-4;
     top: $space-4;
@@ -207,7 +194,7 @@
   &:focus-visible {
     outline: 3px solid $color;
     outline-offset: 3px;
-    
+
     // Forced colors mode support (Windows High Contrast)
     @media (forced-colors: active) {
       outline: 3px solid currentColor;
@@ -228,7 +215,7 @@
 
 @mixin focus-indicator-icon($icon-content, $icon-color: $success-500) {
   position: relative;
-  
+
   &:focus-visible::after {
     content: $icon-content;
     position: absolute;

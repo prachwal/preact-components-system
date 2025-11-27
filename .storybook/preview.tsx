@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/preact-vite';
+
 import { ThemeProvider } from '../src/providers/ThemeProvider';
 import '../src/styles/index.scss';
 
@@ -18,16 +19,14 @@ const preview: Preview = {
         <div
           data-theme={theme}
           style={{
-            backgroundColor: 'var(--bg)',
-            color: 'var(--text)',
+            color: 'var(--pcs-text)',
+            backgroundColor: 'var(--pcs-bg)',
             // minHeight: '100vh',
             padding: '1rem',
-            transition: 'background-color 0.25s ease, color 0.25s ease'
+            transition: 'background-color 0.25s ease, color 0.25s ease',
           }}
         >
-          <ThemeProvider>
-            {Story(context)}
-          </ThemeProvider>
+          <ThemeProvider>{Story(context)}</ThemeProvider>
         </div>
       );
     },
@@ -42,7 +41,7 @@ const preview: Preview = {
         items: [
           { value: 'light', icon: 'sun', title: 'Light theme' },
           { value: 'dark', icon: 'moon', title: 'Dark theme' },
-          { value: 'system', icon: 'computer', title: 'System theme' },
+          { value: 'system', icon: 'contrast', title: 'System theme' },
         ],
         showName: true,
       },

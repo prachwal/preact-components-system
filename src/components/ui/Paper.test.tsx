@@ -17,7 +17,7 @@ describe('Paper', () => {
   });
 
   it('applies outlined variant', () => {
-    const { container } = renderWithTheme(<Paper variant="outlined">Content</Paper>);
+    const { container } = renderWithTheme(<Paper variant='outlined'>Content</Paper>);
     const paper = container.querySelector('.paper-variant-outlined');
     expect(paper).toBeInTheDocument();
   });
@@ -29,7 +29,7 @@ describe('Paper', () => {
   });
 
   it('renders as custom component', () => {
-    const { container } = renderWithTheme(<Paper component="section">Content</Paper>);
+    const { container } = renderWithTheme(<Paper component='section'>Content</Paper>);
     expect(container.querySelector('section')).toBeInTheDocument();
   });
 });

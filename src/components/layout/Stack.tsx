@@ -6,7 +6,13 @@ import type { ResponsiveValue } from '../../theme/types';
 
 export type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
-export type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+export type JustifyContent =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
 
 export interface StackProps {
   /**
@@ -121,7 +127,11 @@ export const Stack = ({
   );
 
   // Convert children to array and filter out null/undefined
-  const childArray = Array.isArray(children) ? children : (children !== undefined && children !== null) ? [children] : [];
+  const childArray = Array.isArray(children)
+    ? children
+    : children !== undefined && children !== null
+      ? [children]
+      : [];
   const validChildren = childArray.filter((child) => child != null);
 
   // If divider is provided, insert it between children
@@ -130,7 +140,7 @@ export const Stack = ({
         acc.push(child);
         if (index < validChildren.length - 1) {
           acc.push(
-            <div key={`divider-${index}`} className="stack-divider">
+            <div key={`divider-${index}`} className='stack-divider'>
               {divider}
             </div>
           );
@@ -142,12 +152,7 @@ export const Stack = ({
   const semanticRole = landmark ? undefined : role;
 
   return (
-    <Component
-      className={classes}
-      style={style}
-      role={semanticRole as any}
-      aria-label={ariaLabel}
-    >
+    <Component className={classes} style={style} role={semanticRole as any} aria-label={ariaLabel}>
       {childrenWithDivider}
     </Component>
   );

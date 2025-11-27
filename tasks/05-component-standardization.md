@@ -114,7 +114,13 @@ export { ThemeToggle } from './ThemeToggle';
 export type { ButtonProps } from './Button';
 export type { TypographyProps } from './Typography';
 export type { PaperProps } from './Paper';
-export type { CardProps, CardHeaderProps, CardMediaProps, CardContentProps, CardActionsProps } from './Card';
+export type {
+  CardProps,
+  CardHeaderProps,
+  CardMediaProps,
+  CardContentProps,
+  CardActionsProps,
+} from './Card';
 export type { AlertProps, AlertTitleProps } from './Alert';
 export type { IconName } from './Icon';
 export type { TextFieldProps } from './TextField';

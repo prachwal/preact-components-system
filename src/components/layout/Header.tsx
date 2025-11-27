@@ -29,12 +29,12 @@ export interface HeaderProps {
  * - Semantic header role for accessibility
  */
 export const Header = ({ onToggleSidebar, sidebarOpen }: HeaderProps) => (
-  <header role="banner" className="app-header">
+  <header role='banner' className='app-header'>
     <Hamburger onClick={onToggleSidebar} isOpen={sidebarOpen} />
     <Logo />
-    <div className="brand-info">
-      <h1 className="brand-text">App Name</h1>
-      <p className="brand-subtext">Tagline goes here</p>
+    <div className='brand-info'>
+      <h1 className='brand-text'>App Name</h1>
+      <p className='brand-subtext'>Tagline goes here</p>
     </div>
     <ThemeToggle />
   </header>

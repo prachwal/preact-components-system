@@ -40,7 +40,7 @@ const resolvedPt = useResponsive(pt);
 
 **File:** `src/hooks/useResponsiveBatch.ts`
 
-```typescript
+````typescript
 import { useMemo } from 'preact/hooks';
 import { useBreakpoint } from './useBreakpoint';
 import type { ResponsiveValue, Breakpoint } from '../theme/types';
@@ -60,7 +60,9 @@ import type { ResponsiveValue, Breakpoint } from '../theme/types';
  * });
  * ```
  */
-export function useResponsiveBatch<T extends Record<string, ResponsiveValue<any>>>(
+export function useResponsiveBatch<
+  T extends Record<string, ResponsiveValue<any>>,
+>(
   values: T
 ): { [K in keyof T]: T[K] extends ResponsiveValue<infer U> ? U : never } {
   const currentBreakpoint = useBreakpoint();
@@ -106,7 +108,7 @@ export function useResponsiveBatch<T extends Record<string, ResponsiveValue<any>
     return resolved;
   }, [values, currentBreakpoint]);
 }
-```
+````
 
 ### 2. Create Specialized Hooks
 

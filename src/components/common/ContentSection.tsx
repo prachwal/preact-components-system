@@ -1,6 +1,6 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren } from 'preact';
 
-import { Heading } from "./Heading";
+import { Heading } from './Heading';
 
 /**
  * Props for the ContentSection component.
@@ -17,7 +17,7 @@ export interface ContentSectionProps {
   /** Additional CSS class names for the wrapper element. */
   className?: string;
   /** The HTML element to use as the wrapper. Defaults to 'article'. */
-  as?: "article" | "section" | "div";
+  as?: 'article' | 'section' | 'div';
   /** Number of columns in the grid layout (1-6). Defaults to 4. */
   columns?: 1 | 2 | 3 | 4 | 5 | 6;
   /** Custom class name for the grid container. If not provided, uses grid-cols-{columns}. */
@@ -65,7 +65,7 @@ export const ContentSection = ({
   desc,
   children,
   className,
-  as: Wrapper = "article",
+  as: Wrapper = 'article',
   columns = 4,
   gridClassName,
   hasChildrenContainer = false,
@@ -73,18 +73,14 @@ export const ContentSection = ({
   // Validate columns prop
   const validColumns = Math.max(1, Math.min(6, columns));
 
-  const wrapperClass = `content-section ${className ?? ""}`.trim();
+  const wrapperClass = `content-section ${className ?? ''}`.trim();
   const gridClass = gridClassName ?? `grid-cols-${validColumns}`;
 
   return (
     <Wrapper className={wrapperClass}>
       {title ? <Heading level={level}>{title}</Heading> : null}
       {desc ? <p>{desc}</p> : null}
-      {hasChildrenContainer ? (
-        <div className={gridClass}>{children}</div>
-      ) : (
-        children
-      )}
+      {hasChildrenContainer ? <div className={gridClass}>{children}</div> : children}
     </Wrapper>
   );
 };

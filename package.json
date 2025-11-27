@@ -41,7 +41,10 @@
     "merge-ts": "node scripts/merge-files.js",
     "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "lint:check": "eslint src --ext .ts,.tsx --report-unused-disable-directives"
+    "lint:check": "eslint src --ext .ts,.tsx --report-unused-disable-directives",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -71,6 +74,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "jest-axe": "^10.0.0",
     "jsdom": "^27.1.0",
+    "prettier": "^3.7.1",
     "rollup-plugin-visualizer": "^6.0.5",
     "sass": "^1.93.3",
     "storybook": "^10.0.2",

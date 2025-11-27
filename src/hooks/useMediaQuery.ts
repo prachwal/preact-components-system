@@ -63,10 +63,7 @@ export interface UseMediaQueryOptions {
  * - Automatic event listener cleanup
  * - TypeScript support with proper typing
  */
-export function useMediaQuery(
-  query: QueryInput,
-  options: UseMediaQueryOptions = {}
-): boolean {
+export function useMediaQuery(query: QueryInput, options: UseMediaQueryOptions = {}): boolean {
   const { noSsr = false, defaultMatches = false } = options;
 
   // Resolve query string

@@ -93,12 +93,12 @@ export const Radio = ({
   );
 
   const radioElement = (
-    <div className="radio-wrapper">
+    <div className='radio-wrapper'>
       <input
         ref={inputRef}
-        type="radio"
+        type='radio'
         id={inputId}
-        className="radio-input"
+        className='radio-input'
         checked={checked}
         defaultChecked={defaultChecked}
         disabled={disabled}
@@ -108,9 +108,9 @@ export const Radio = ({
         value={value}
         {...rest}
       />
-      <span className="radio-icon" aria-hidden="true">
-        <span className="radio-icon-outer" />
-        <span className="radio-icon-inner" />
+      <span className='radio-icon' aria-hidden='true'>
+        <span className='radio-icon-outer' />
+        <span className='radio-icon-inner' />
       </span>
     </div>
   );
@@ -122,9 +122,13 @@ export const Radio = ({
   return (
     <label className={rootClasses}>
       {radioElement}
-      <span className="radio-label">
+      <span className='radio-label'>
         {label}
-        {required && <span className="radio-required" aria-label="required">*</span>}
+        {required && (
+          <span className='radio-required' aria-label='required'>
+            *
+          </span>
+        )}
       </span>
     </label>
   );
@@ -187,7 +191,7 @@ export const RadioGroup = ({
   };
 
   return (
-    <div className={rootClasses} role="radiogroup" onChange={handleChange} {...rest}>
+    <div className={rootClasses} role='radiogroup' onChange={handleChange} {...rest}>
       {children}
     </div>
   );

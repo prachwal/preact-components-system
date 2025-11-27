@@ -136,15 +136,12 @@ describe('useResponsiveBatch', () => {
   it('recomputes when values change', () => {
     mockUseBreakpoint.mockReturnValue('md');
 
-    const { result, rerender } = renderHook(
-      (values) => useResponsiveBatch(values),
-      {
-        initialProps: {
-          padding: { xs: 1, md: 3 },
-          margin: '10px',
-        },
-      }
-    );
+    const { result, rerender } = renderHook((values) => useResponsiveBatch(values), {
+      initialProps: {
+        padding: { xs: 1, md: 3 },
+        margin: '10px',
+      },
+    });
 
     const firstResult = result.current;
 

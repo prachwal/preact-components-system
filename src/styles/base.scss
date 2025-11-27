@@ -17,13 +17,13 @@ html {
   // Better font rendering
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   // Prevent text size adjust on orientation change
   -webkit-text-size-adjust: 100%;
-  
+
   // Smooth scrolling (respects prefers-reduced-motion)
   scroll-behavior: smooth;
-  
+
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
   }
@@ -35,12 +35,13 @@ body {
   line-height: $line-height-normal; // 1.5
   color: var(--pcs-text);
   background-color: var(--pcs-bg);
-  transition: background-color $duration-normal $ease-standard, 
-              color $duration-normal $ease-standard;
-  
+  transition:
+    background-color $duration-normal $ease-standard,
+    color $duration-normal $ease-standard;
+
   // Minimum height for sticky footer
   min-height: 100vh;
-  
+
   // Better text rendering
   text-rendering: optimizeLegibility;
 }
@@ -49,7 +50,12 @@ body {
 // HEADINGS - Fluid Typography
 // ============================================================================
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-weight: $font-weight-bold;
   line-height: $line-height-tight;
@@ -105,15 +111,20 @@ small {
   font-size: $font-size-sm;
 }
 
-strong, b {
+strong,
+b {
   font-weight: $font-weight-bold;
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: $font-family-mono;
   font-size: $code-font-size;
 }
@@ -131,7 +142,7 @@ a {
     color: var(--pcs-accent-hover);
     text-decoration: underline;
   }
-  
+
   @include focus.focus-visible(var(--pcs-primary));
 }
 
@@ -149,7 +160,7 @@ button {
   color: inherit;
 
   @include focus.focus-visible(var(--pcs-primary));
-  
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
@@ -160,11 +171,13 @@ button {
 // FORM ELEMENTS - Consistent Styling
 // ============================================================================
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  
+
   @include focus.focus-visible(var(--pcs-primary));
 }
 
@@ -172,7 +185,8 @@ input, textarea, select {
 // LISTS
 // ============================================================================
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style-position: inside;
@@ -182,7 +196,14 @@ ul, ol {
 // IMAGES & MEDIA
 // ============================================================================
 
-img, svg, video, canvas, audio, iframe, embed, object {
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
   display: block;
   max-width: 100%;
   height: auto;

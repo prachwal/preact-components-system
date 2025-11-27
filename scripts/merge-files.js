@@ -11,11 +11,11 @@ import path from 'path';
 function getAllFiles(dirPath, arrayOfFiles = [], extensions = ['.ts', '.tsx', '.scss']) {
   const files = fs.readdirSync(dirPath);
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const fullPath = path.join(dirPath, file);
     if (fs.statSync(fullPath).isDirectory()) {
       arrayOfFiles = getAllFiles(fullPath, arrayOfFiles, extensions);
-    } else if (extensions.some(ext => file.endsWith(ext))) {
+    } else if (extensions.some((ext) => file.endsWith(ext))) {
       arrayOfFiles.push(fullPath);
     }
   });
@@ -24,8 +24,8 @@ function getAllFiles(dirPath, arrayOfFiles = [], extensions = ['.ts', '.tsx', '.
 }
 
 // Get all .ts and .tsx files from src directory (excluding styles)
-const tsFiles = getAllFiles('./src', [], ['.ts', '.tsx']).filter(file =>
-  !file.startsWith(path.join('./src', 'styles'))
+const tsFiles = getAllFiles('./src', [], ['.ts', '.tsx']).filter(
+  (file) => !file.startsWith(path.join('./src', 'styles'))
 );
 
 // Get all .scss files from src/styles directory
@@ -38,7 +38,7 @@ const allFiles = [...tsFiles, ...scssFiles];
 let mergedContent = '';
 
 // Concatenate files with path comments
-allFiles.forEach(file => {
+allFiles.forEach((file) => {
   const content = fs.readFileSync(file, 'utf8');
   const commentPrefix = file.endsWith('.scss') ? '//' : '//';
   mergedContent += `${commentPrefix} ===== ${file} =====\n${content}\n\n`;

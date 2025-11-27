@@ -11,7 +11,7 @@ const isValidTheme = (value: string): value is ThemeMode =>
 
 const getStoredTheme = (): ThemeMode => {
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  return (savedTheme && isValidTheme(savedTheme)) ? savedTheme : 'system';
+  return savedTheme && isValidTheme(savedTheme) ? savedTheme : 'system';
 };
 
 export interface ThemeProviderProps {
@@ -29,7 +29,7 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
     if (customTheme && 'palette' in customTheme && 'typography' in customTheme) {
       return customTheme as Theme;
     }
-    
+
     // Determine effective mode for theme creation
     let effectiveMode: 'light' | 'dark' = 'light';
     if (mode === 'dark') {
@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
     } else if (mode === 'system' && window.matchMedia) {
       effectiveMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    
+
     // Create theme with effective mode
     const themeOptions: ThemeOptions = {
       ...(customTheme ?? {}),
@@ -46,7 +46,7 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
         mode: effectiveMode,
       },
     };
-    
+
     return createTheme(themeOptions);
   }, [mode, customTheme]);
 
@@ -55,17 +55,17 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
     html.setAttribute('data-theme', currentMode);
 
     let shouldBeDark = currentMode === 'dark';
-    
+
     if (currentMode === 'system' && window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       shouldBeDark = mediaQuery.matches;
     }
-    
+
     html.classList.toggle('is-dark', shouldBeDark);
   }, []);
 
   const handleSystemThemeChange = useCallback((e: MediaQueryListEvent) => {
-    setMode(current => {
+    setMode((current) => {
       if (current === 'system') {
         htmlRef.current.classList.toggle('is-dark', e.matches);
       }
@@ -98,14 +98,16 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
   }, [mode, applyTheme]);
 
   return (
-    <ThemeContext.Provider value={{ 
-      mode, 
-      setMode,
-      themeObject,
-      // Legacy compatibility
-      theme: mode,
-      setTheme: setMode,
-    }}>
+    <ThemeContext.Provider
+      value={{
+        mode,
+        setMode,
+        themeObject,
+        // Legacy compatibility
+        theme: mode,
+        setTheme: setMode,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

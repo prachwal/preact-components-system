@@ -45,7 +45,7 @@ function App() {
           <Card>
             <Card.Header>Hello World</Card.Header>
             <Card.Content>
-              <Button variant="contained" color="primary">
+              <Button variant='contained' color='primary'>
                 Click me
               </Button>
             </Card.Content>
@@ -76,11 +76,7 @@ const theme = createTheme({
 });
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      {/* Your app */}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{/* Your app */}</ThemeProvider>;
 }
 ```
 
@@ -124,7 +120,7 @@ import { useTheme } from 'preact-components-system';
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  
+
   return (
     <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
       Toggle Theme
@@ -171,6 +167,17 @@ npm run build:storybook  # Build Storybook static site
 npm run type-check       # TypeScript type checking
 ```
 
+### Code Quality
+
+```bash
+npm run lint             # Run ESLint
+npm run lint:fix         # Fix ESLint issues automatically
+npm run lint:check       # Check ESLint without fixing
+npm run format           # Format code with Prettier
+npm run format:check     # Check if code is formatted correctly
+npm run format:fix       # Alias for format (fix formatting issues)
+```
+
 ### Documentation
 
 ```bash
@@ -179,13 +186,13 @@ npm run docs             # Generate TypeDoc documentation
 
 ## 📊 Performance
 
-| Metric | Value | Notes |
-|--------|-------|-------|
-| Bundle Size (ES) | 53.92 kB | Gzipped: 14.36 kB |
-| Bundle Size (UMD) | 37.96 kB | Gzipped: 12.40 kB |
-| CSS Size | 23.52 kB | Gzipped: 3.39 kB |
-| Test Coverage | 319/319 | 100% passing (83.38% statements) |
-| Improvement | 95% | From 1,023 kB initial |
+| Metric            | Value    | Notes                            |
+| ----------------- | -------- | -------------------------------- |
+| Bundle Size (ES)  | 53.92 kB | Gzipped: 14.36 kB                |
+| Bundle Size (UMD) | 37.96 kB | Gzipped: 12.40 kB                |
+| CSS Size          | 23.52 kB | Gzipped: 3.39 kB                 |
+| Test Coverage     | 319/319  | 100% passing (83.38% statements) |
+| Improvement       | 95%      | From 1,023 kB initial            |
 
 ## 🏗️ Architecture
 

@@ -48,13 +48,7 @@ export const Card = ({
   );
 
   return (
-    <Paper
-      variant={variant}
-      elevation={elevation}
-      className={classes}
-      style={style}
-      {...rest}
-    >
+    <Paper variant={variant} elevation={elevation} className={classes} style={style} {...rest}>
       {children}
     </Paper>
   );
@@ -99,12 +93,12 @@ export const CardHeader = ({
 
   return (
     <div className={classes} style={style}>
-      {avatar && <div className="card-header-avatar">{avatar}</div>}
-      <div className="card-header-content">
-        <div className="card-header-title">{title}</div>
-        {subheader && <div className="card-header-subheader">{subheader}</div>}
+      {avatar && <div className='card-header-avatar'>{avatar}</div>}
+      <div className='card-header-content'>
+        <div className='card-header-title'>{title}</div>
+        {subheader && <div className='card-header-subheader'>{subheader}</div>}
       </div>
-      {action && <div className="card-header-action">{action}</div>}
+      {action && <div className='card-header-action'>{action}</div>}
     </div>
   );
 };
@@ -158,20 +152,12 @@ export const CardMedia = ({
   };
 
   if (MediaComponent === 'img') {
-    return (
-      <img
-        src={image}
-        alt={alt}
-        className={classes}
-        style={mediaStyle}
-        {...rest as any}
-      />
-    );
+    return <img src={image} alt={alt} className={classes} style={mediaStyle} {...(rest as any)} />;
   }
 
   if (MediaComponent === 'video') {
     return (
-      <video className={classes} style={mediaStyle} {...rest as any}>
+      <video className={classes} style={mediaStyle} {...(rest as any)}>
         {children}
       </video>
     );
@@ -186,7 +172,7 @@ export const CardMedia = ({
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      {...rest as any}
+      {...(rest as any)}
     >
       {children}
     </div>
@@ -208,11 +194,7 @@ export interface CardContentProps {
   children?: ComponentChildren;
 }
 
-export const CardContent = ({
-  className,
-  style,
-  children,
-}: CardContentProps) => {
+export const CardContent = ({ className, style, children }: CardContentProps) => {
   const classes = clsx('card-content', className);
 
   return (

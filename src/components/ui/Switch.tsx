@@ -103,13 +103,13 @@ export const Switch = ({
   );
 
   const switchElement = (
-    <div className="switch-wrapper">
+    <div className='switch-wrapper'>
       <input
         ref={inputRef}
-        type="checkbox"
-        role="switch"
+        type='checkbox'
+        role='switch'
         id={inputId}
-        className="switch-input"
+        className='switch-input'
         checked={checked}
         defaultChecked={defaultChecked}
         disabled={disabled}
@@ -121,10 +121,10 @@ export const Switch = ({
         aria-required={required ? 'true' : undefined}
         {...rest}
       />
-      <span className="switch-track" aria-hidden="true">
-        <span className="switch-thumb">
+      <span className='switch-track' aria-hidden='true'>
+        <span className='switch-thumb'>
           {(onLabel ?? offLabel) && (
-            <span className="switch-thumb-label">
+            <span className='switch-thumb-label'>
               {checked ? (onLabel ?? '') : (offLabel ?? '')}
             </span>
           )}
@@ -140,9 +140,13 @@ export const Switch = ({
   return (
     <label className={rootClasses}>
       {switchElement}
-      <span className="switch-label">
+      <span className='switch-label'>
         {label}
-        {required && <span className="switch-required" aria-label="required">*</span>}
+        {required && (
+          <span className='switch-required' aria-label='required'>
+            *
+          </span>
+        )}
       </span>
     </label>
   );

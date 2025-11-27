@@ -74,7 +74,7 @@
   @if map.has-key($breakpoints, $min-breakpoint) and map.has-key($breakpoints, $max-breakpoint) {
     $min: map.get($breakpoints, $min-breakpoint);
     $max: map.get($breakpoints, $max-breakpoint);
-    
+
     @media (min-width: $min) and (max-width: #{$max - 1px}) {
       @content;
     }
@@ -99,7 +99,7 @@
   margin-right: auto;
   padding-left: $space-4;
   padding-right: $space-4;
-  
+
   @each $breakpoint, $max-width in $containers {
     @include breakpoint($breakpoint) {
       max-width: $max-width;
@@ -114,7 +114,7 @@
 // Show element at breakpoint and above
 @mixin show-at($breakpoint) {
   display: none;
-  
+
   @include breakpoint($breakpoint) {
     display: block;
   }
@@ -130,7 +130,7 @@
 // Show only between two breakpoints
 @mixin show-between($min-breakpoint, $max-breakpoint) {
   display: none;
-  
+
   @include breakpoint-between($min-breakpoint, $max-breakpoint) {
     display: block;
   }
@@ -189,8 +189,7 @@
 //   @include retina { ... }
 
 @mixin retina {
-  @media (-webkit-min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi) {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     @content;
   }
 }
@@ -223,7 +222,7 @@
   @media (prefers-color-scheme: dark) {
     @content;
   }
-  
+
   // Also support data attribute (for manual theme switching)
   [data-theme='dark'] & {
     @content;
@@ -238,7 +237,7 @@
   @media (prefers-color-scheme: light) {
     @content;
   }
-  
+
   [data-theme='light'] & {
     @content;
   }
@@ -316,7 +315,7 @@
 @mixin responsive-grid-columns($columns) {
   display: grid;
   gap: $space-4;
-  
+
   @each $breakpoint, $count in $columns {
     @if $breakpoint == 'xs' {
       grid-template-columns: repeat($count, 1fr);

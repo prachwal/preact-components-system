@@ -67,14 +67,20 @@ Box can render as different HTML elements or custom components:
 
 ```tsx
 // Semantic HTML
-<Box as="section" padding={4}>
+<Box as='section' padding={4}>
   <h2>Section Title</h2>
   <p>Section content...</p>
-</Box>
+</Box>;
 
 // Custom component
 const CustomCard = ({ children, ...props }) => (
-  <Box as="article" padding={3} borderRadius={4} boxShadow="0 2px 4px rgba(0,0,0,0.1)" {...props}>
+  <Box
+    as='article'
+    padding={3}
+    borderRadius={4}
+    boxShadow='0 2px 4px rgba(0,0,0,0.1)'
+    {...props}
+  >
     {children}
   </Box>
 );
@@ -82,27 +88,27 @@ const CustomCard = ({ children, ...props }) => (
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ComponentChildren` | - | Content to render inside the box |
-| `as` | `keyof JSX.IntrinsicElements` | `'div'` | HTML element to render as |
-| `className` | `string` | - | Additional CSS classes |
-| `style` | `JSX.CSSProperties` | - | Inline styles |
-| `padding` | `ResponsiveValue<number \| string>` | - | Padding spacing |
-| `margin` | `ResponsiveValue<number \| string>` | - | Margin spacing |
-| `display` | `string` | - | CSS display property |
-| `flexDirection` | `ResponsiveValue<string>` | - | Flex direction |
-| `alignItems` | `string` | - | Flex align-items |
-| `justifyContent` | `string` | - | Flex justify-content |
-| `gap` | `ResponsiveValue<number \| string>` | - | Gap between flex items |
-| `width` | `ResponsiveValue<string \| number>` | - | Width property |
-| `height` | `ResponsiveValue<string \| number>` | - | Height property |
-| `position` | `string` | - | CSS position property |
-| `top`, `right`, `bottom`, `left` | `ResponsiveValue<string \| number>` | - | Position offsets |
-| `borderRadius` | `ResponsiveValue<string \| number>` | - | Border radius |
-| `boxShadow` | `string` | - | Box shadow |
-| `backgroundColor` | `string` | - | Background color |
-| `color` | `string` | - | Text color |
+| Prop                             | Type                                | Default | Description                      |
+| -------------------------------- | ----------------------------------- | ------- | -------------------------------- |
+| `children`                       | `ComponentChildren`                 | -       | Content to render inside the box |
+| `as`                             | `keyof JSX.IntrinsicElements`       | `'div'` | HTML element to render as        |
+| `className`                      | `string`                            | -       | Additional CSS classes           |
+| `style`                          | `JSX.CSSProperties`                 | -       | Inline styles                    |
+| `padding`                        | `ResponsiveValue<number \| string>` | -       | Padding spacing                  |
+| `margin`                         | `ResponsiveValue<number \| string>` | -       | Margin spacing                   |
+| `display`                        | `string`                            | -       | CSS display property             |
+| `flexDirection`                  | `ResponsiveValue<string>`           | -       | Flex direction                   |
+| `alignItems`                     | `string`                            | -       | Flex align-items                 |
+| `justifyContent`                 | `string`                            | -       | Flex justify-content             |
+| `gap`                            | `ResponsiveValue<number \| string>` | -       | Gap between flex items           |
+| `width`                          | `ResponsiveValue<string \| number>` | -       | Width property                   |
+| `height`                         | `ResponsiveValue<string \| number>` | -       | Height property                  |
+| `position`                       | `string`                            | -       | CSS position property            |
+| `top`, `right`, `bottom`, `left` | `ResponsiveValue<string \| number>` | -       | Position offsets                 |
+| `borderRadius`                   | `ResponsiveValue<string \| number>` | -       | Border radius                    |
+| `boxShadow`                      | `string`                            | -       | Box shadow                       |
+| `backgroundColor`                | `string`                            | -       | Background color                 |
+| `color`                          | `string`                            | -       | Text color                       |
 
 ## Responsive Values
 

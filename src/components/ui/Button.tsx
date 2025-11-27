@@ -82,41 +82,40 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   // Extract class computation to reduce complexity
-  const getButtonClasses = () => clsx(
-    'button',
-    `button-variant-${variant}`,
-    `button-color-${color}`,
-    `button-size-${size}`,
-    {
-      'button-disabled': disabled || loading,
-      'button-full-width': fullWidth,
-      'button-loading': loading,
-    },
-    className
-  );
+  const getButtonClasses = () =>
+    clsx(
+      'button',
+      `button-variant-${variant}`,
+      `button-color-${color}`,
+      `button-size-${size}`,
+      {
+        'button-disabled': disabled || loading,
+        'button-full-width': fullWidth,
+        'button-loading': loading,
+      },
+      className
+    );
 
   // Extract content rendering to reduce complexity
   const renderButtonContent = () => (
     <>
       {loading && (
-        <span className="button-loader" aria-hidden="true">
-          <svg className="button-spinner" viewBox="0 0 24 24">
+        <span className='button-loader' aria-hidden='true'>
+          <svg className='button-spinner' viewBox='0 0 24 24'>
             <circle
-              className="button-spinner-circle"
-              cx="12"
-              cy="12"
-              r="10"
-              fill="none"
-              strokeWidth="3"
+              className='button-spinner-circle'
+              cx='12'
+              cy='12'
+              r='10'
+              fill='none'
+              strokeWidth='3'
             />
           </svg>
         </span>
       )}
-      {!loading && startIcon != null && <span className="button-start-icon">{startIcon}</span>}
-      <span className={clsx('button-label', { 'button-label-hidden': loading })}>
-        {children}
-      </span>
-      {!loading && endIcon != null && <span className="button-end-icon">{endIcon}</span>}
+      {!loading && startIcon != null && <span className='button-start-icon'>{startIcon}</span>}
+      <span className={clsx('button-label', { 'button-label-hidden': loading })}>{children}</span>
+      {!loading && endIcon != null && <span className='button-end-icon'>{endIcon}</span>}
     </>
   );
 

@@ -131,9 +131,21 @@ export const Box = ({
 }: BoxProps) => {
   // Single hook call instead of 13+
   const responsiveStyles = useResponsiveStyles({
-    p, pt, pr, pb, pl, px, py,
-    m, mt, mr, mb, ml, mx, my,
-    display
+    p,
+    pt,
+    pr,
+    pb,
+    pl,
+    px,
+    py,
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    mx,
+    my,
+    display,
   });
 
   const boxStyle: JSX.CSSProperties = {

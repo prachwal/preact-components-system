@@ -79,15 +79,9 @@ export const WithoutTitle: Story = {
     hasChildrenContainer: true,
     children: (
       <>
-        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
-          Item 1
-        </div>
-        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
-          Item 2
-        </div>
-        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>
-          Item 3
-        </div>
+        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>Item 1</div>
+        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>Item 2</div>
+        <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px' }}>Item 3</div>
       </>
     ),
   },
@@ -100,7 +94,14 @@ export const SingleColumn: Story = {
     columns: 1,
     hasChildrenContainer: true,
     children: (
-      <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '4px', textAlign: 'center' }}>
+      <div
+        style={{
+          padding: '1rem',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          textAlign: 'center',
+        }}
+      >
         Single centered item
       </div>
     ),

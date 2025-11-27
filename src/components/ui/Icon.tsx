@@ -34,16 +34,16 @@ import type { FunctionComponent } from 'preact';
 
 export type IconSize = 'small' | 'medium' | 'large';
 
-export type IconName = 
-  | 'Home' 
-  | 'Star' 
-  | 'Info' 
-  | 'Mail' 
-  | 'Heart' 
-  | 'Settings' 
-  | 'User' 
-  | 'Search' 
-  | 'Menu' 
+export type IconName =
+  | 'Home'
+  | 'Star'
+  | 'Info'
+  | 'Mail'
+  | 'Heart'
+  | 'Settings'
+  | 'User'
+  | 'Search'
+  | 'Menu'
   | 'X'
   | 'Check'
   | 'ChevronRight'
@@ -132,7 +132,7 @@ const sizeMap: Record<IconSize, number> = {
 
 /**
  * Icon component using lucide-preact icons
- * 
+ *
  * @example
  * ```tsx
  * <Icon name="Home" size="medium" />

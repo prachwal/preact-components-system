@@ -23,18 +23,18 @@ describe('Card', () => {
 
 describe('CardHeader', () => {
   it('renders title', () => {
-    renderWithTheme(<CardHeader title="Card Title" />);
+    renderWithTheme(<CardHeader title='Card Title' />);
     expect(screen.getByText('Card Title')).toBeInTheDocument();
   });
 
   it('renders subheader', () => {
-    renderWithTheme(<CardHeader title="Title" subheader="Subheader" />);
+    renderWithTheme(<CardHeader title='Title' subheader='Subheader' />);
     expect(screen.getByText('Subheader')).toBeInTheDocument();
   });
 
   it('renders avatar', () => {
     const { container } = renderWithTheme(
-      <CardHeader title="Title" avatar={<div data-testid="avatar">A</div>} />
+      <CardHeader title='Title' avatar={<div data-testid='avatar'>A</div>} />
     );
     expect(container.querySelector('[data-testid="avatar"]')).toBeInTheDocument();
   });

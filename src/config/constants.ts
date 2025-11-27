@@ -45,7 +45,11 @@ export const APP_VERSION = globalThis.__APP_VERSION__ ?? '0.0.0';
 /**
  * Deployment URLs - injected at build time via vite.config.ts
  */
-export const STORYBOOK_URL = globalThis.__STORYBOOK_URL__ ?? 'https://prachwal.github.io/preact-components-system/storybook/';
-export const DOCS_URL = globalThis.__DOCS_URL__ ?? 'https://prachwal.github.io/preact-components-system/docs/';
-export const COVERAGE_URL = globalThis.__COVERAGE_URL__ ?? 'https://prachwal.github.io/preact-components-system/coverage/';
-export const REPOSITORY_URL = globalThis.__REPOSITORY_URL__ ?? 'https://github.com/prachwal/preact-components-system';
+export const STORYBOOK_URL =
+  globalThis.__STORYBOOK_URL__ ?? 'https://prachwal.github.io/preact-components-system/storybook/';
+export const DOCS_URL =
+  globalThis.__DOCS_URL__ ?? 'https://prachwal.github.io/preact-components-system/docs/';
+export const COVERAGE_URL =
+  globalThis.__COVERAGE_URL__ ?? 'https://prachwal.github.io/preact-components-system/coverage/';
+export const REPOSITORY_URL =
+  globalThis.__REPOSITORY_URL__ ?? 'https://github.com/prachwal/preact-components-system';

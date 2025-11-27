@@ -26,12 +26,7 @@
   @return $number;
 }
 
-@function fluid-size(
-  $min-size,
-  $max-size,
-  $min-viewport: 375px,
-  $max-viewport: 1440px
-) {
+@function fluid-size($min-size, $max-size, $min-viewport: 375px, $max-viewport: 1440px) {
   // Strip units for calculation
   $min-size-unitless: strip-unit($min-size);
   $max-size-unitless: strip-unit($max-size);
@@ -45,7 +40,7 @@
   // Calculate slope and intercept
   $viewport-range: $max-viewport-unitless - $min-viewport-unitless;
   $size-range: $max-size-unitless - $min-size-unitless;
-  
+
   $slope: math.div($size-range * 100, $viewport-range);
   $intercept-px: $min-size-unitless - ($slope * $min-viewport-unitless / 100);
   $intercept-rem: math.div($intercept-px, 16);
@@ -68,13 +63,7 @@
 //   @include fluid-spacing(padding, 16px, 32px);
 //   @include fluid-spacing(margin-bottom, 24px, 48px);
 
-@mixin fluid-spacing(
-  $property,
-  $min-size,
-  $max-size,
-  $min-viewport: 375px,
-  $max-viewport: 1440px
-) {
+@mixin fluid-spacing($property, $min-size, $max-size, $min-viewport: 375px, $max-viewport: 1440px) {
   #{$property}: fluid-size($min-size, $max-size, $min-viewport, $max-viewport);
 }
 
@@ -102,13 +91,13 @@
   $max-viewport: 1440px
 ) {
   font-size: fluid-size($min-font-size, $max-font-size, $min-viewport, $max-viewport);
-  
+
   @if $min-line-height != $max-line-height {
     // Fluid line-height (convert to px for calculation, but output unitless)
     $min-lh-px: strip-unit($min-font-size) * $min-line-height;
     $max-lh-px: strip-unit($max-font-size) * $max-line-height;
     $fluid-lh: fluid-size($min-lh-px * 1px, $max-lh-px * 1px, $min-viewport, $max-viewport);
-    
+
     // Calculate unitless line-height by dividing by font-size
     line-height: calc(#{$fluid-lh} / 1em);
   } @else {
@@ -128,17 +117,13 @@
 // Example:
 //   @include fluid-container(16px, 48px, 1200px);
 
-@mixin fluid-container(
-  $min-padding: 16px,
-  $max-padding: 32px,
-  $max-width: null
-) {
+@mixin fluid-container($min-padding: 16px, $max-padding: 32px, $max-width: null) {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: fluid-size($min-padding, $max-padding);
   padding-right: fluid-size($min-padding, $max-padding);
-  
+
   @if $max-width {
     max-width: $max-width;
   }
@@ -157,13 +142,9 @@
 //   @include fluid-gap(16px, 32px);
 //   @include fluid-gap(8px, 16px, 'column');
 
-@mixin fluid-gap(
-  $min-gap,
-  $max-gap,
-  $direction: 'both'
-) {
+@mixin fluid-gap($min-gap, $max-gap, $direction: 'both') {
   $fluid-value: fluid-size($min-gap, $max-gap);
-  
+
   @if $direction == 'row' {
     column-gap: $fluid-value;
   } @else if $direction == 'column' {
@@ -186,14 +167,9 @@
 // Example:
 //   @include fluid-between(16px, 32px, '> *', 'vertical');
 
-@mixin fluid-between(
-  $min-space,
-  $max-space,
-  $selector: '*',
-  $direction: 'vertical'
-) {
+@mixin fluid-between($min-space, $max-space, $selector: '*', $direction: 'vertical') {
   $property: if($direction == 'vertical', 'margin-top', 'margin-left');
-  
+
   #{$selector} + #{$selector} {
     #{$property}: fluid-size($min-space, $max-space);
   }

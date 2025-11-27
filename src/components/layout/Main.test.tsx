@@ -35,7 +35,9 @@ describe('Main', () => {
 
   it('renders welcome description', () => {
     renderWithTheme(<Main />);
-    expect(screen.getByText('This is the main content area of the application.')).toBeInTheDocument();
+    expect(
+      screen.getByText('This is the main content area of the application.')
+    ).toBeInTheDocument();
   });
 
   it('renders feature sections', () => {

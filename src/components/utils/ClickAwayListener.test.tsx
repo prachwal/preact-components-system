@@ -79,7 +79,7 @@ describe('ClickAwayListener', () => {
   it('supports different mouse events', () => {
     const mockClickAway = vi.fn();
     render(
-      <ClickAwayListener onClickAway={mockClickAway} mouseEvent="onMouseDown">
+      <ClickAwayListener onClickAway={mockClickAway} mouseEvent='onMouseDown'>
         <div>Test</div>
       </ClickAwayListener>
     );
@@ -93,7 +93,7 @@ describe('ClickAwayListener', () => {
   it('supports touch events', () => {
     const mockClickAway = vi.fn();
     render(
-      <ClickAwayListener onClickAway={mockClickAway} touchEvent="onTouchStart">
+      <ClickAwayListener onClickAway={mockClickAway} touchEvent='onTouchStart'>
         <div>Test</div>
       </ClickAwayListener>
     );

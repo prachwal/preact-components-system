@@ -3,14 +3,7 @@
   "out": "docs",
   "name": "Preact Components System",
   "includeVersion": true,
-  "exclude": [
-    "**/*.test.*",
-    "**/*.stories.*",
-    "**/node_modules/**",
-    "**/dist/**",
-    "**/coverage/**",
-    "**/stories/**"
-  ],
+  "exclude": ["**/*.test.*", "**/*.stories.*", "**/node_modules/**", "**/dist/**", "**/coverage/**", "**/stories/**"],
   "excludeExternals": true,
   "excludeInternal": false,
   "excludePrivate": true,

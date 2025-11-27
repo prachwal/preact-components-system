@@ -15,38 +15,46 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const DemoContent = () => (
-  <div style={{ padding: '16px' }}>
-    Paper Content
-  </div>
-);
+const DemoContent = () => <div style={{ padding: '16px' }}>Paper Content</div>;
 
 export const Elevations: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <div>
         <h3>Elevation 0</h3>
-        <Paper elevation={0}><DemoContent /></Paper>
+        <Paper elevation={0}>
+          <DemoContent />
+        </Paper>
       </div>
       <div>
         <h3>Elevation 1</h3>
-        <Paper elevation={1}><DemoContent /></Paper>
+        <Paper elevation={1}>
+          <DemoContent />
+        </Paper>
       </div>
       <div>
         <h3>Elevation 2</h3>
-        <Paper elevation={2}><DemoContent /></Paper>
+        <Paper elevation={2}>
+          <DemoContent />
+        </Paper>
       </div>
       <div>
         <h3>Elevation 4</h3>
-        <Paper elevation={4}><DemoContent /></Paper>
+        <Paper elevation={4}>
+          <DemoContent />
+        </Paper>
       </div>
       <div>
         <h3>Elevation 8</h3>
-        <Paper elevation={8}><DemoContent /></Paper>
+        <Paper elevation={8}>
+          <DemoContent />
+        </Paper>
       </div>
       <div>
         <h3>Elevation 24</h3>
-        <Paper elevation={24}><DemoContent /></Paper>
+        <Paper elevation={24}>
+          <DemoContent />
+        </Paper>
       </div>
     </div>
   ),
@@ -54,7 +62,7 @@ export const Elevations: Story = {
 
 export const Outlined: Story = {
   render: () => (
-    <Paper variant="outlined">
+    <Paper variant='outlined'>
       <DemoContent />
     </Paper>
   ),
@@ -75,10 +83,8 @@ export const Square: Story = {
 
 export const CustomComponent: Story = {
   render: () => (
-    <Paper component="section" elevation={2}>
-      <div style={{ padding: '16px' }}>
-        Rendered as &lt;section&gt; element
-      </div>
+    <Paper component='section' elevation={2}>
+      <div style={{ padding: '16px' }}>Rendered as &lt;section&gt; element</div>
     </Paper>
   ),
 };

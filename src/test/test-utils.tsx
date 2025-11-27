@@ -1,7 +1,14 @@
 // @vite-ignore
 
-import type { RenderOptions} from '@testing-library/preact';
-import { render as rtlRender, screen, fireEvent, waitFor, act, cleanup } from '@testing-library/preact';
+import type { RenderOptions } from '@testing-library/preact';
+import {
+  render as rtlRender,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+  cleanup,
+} from '@testing-library/preact';
 import type { ComponentChildren } from 'preact';
 
 import { ThemeProvider } from '../providers/ThemeProvider';
@@ -13,10 +20,7 @@ export { screen, fireEvent, waitFor, act, cleanup };
  * Custom render function that includes theme provider
  * Use this instead of the global render function when you need theme context
  */
-export function renderWithTheme(
-  ui: ComponentChildren,
-  options?: Omit<RenderOptions, 'wrapper'>
-) {
+export function renderWithTheme(ui: ComponentChildren, options?: Omit<RenderOptions, 'wrapper'>) {
   const Wrapper = ({ children }: { children: ComponentChildren }) => (
     <ThemeProvider>{children}</ThemeProvider>
   );

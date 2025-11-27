@@ -18,19 +18,23 @@ type Story = StoryObj<typeof meta>;
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Typography variant="h1">H1 Heading</Typography>
-      <Typography variant="h2">H2 Heading</Typography>
-      <Typography variant="h3">H3 Heading</Typography>
-      <Typography variant="h4">H4 Heading</Typography>
-      <Typography variant="h5">H5 Heading</Typography>
-      <Typography variant="h6">H6 Heading</Typography>
-      <Typography variant="subtitle1">Subtitle 1</Typography>
-      <Typography variant="subtitle2">Subtitle 2</Typography>
-      <Typography variant="body1">Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
-      <Typography variant="body2">Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
-      <Typography variant="button">Button Text</Typography>
-      <Typography variant="caption">Caption text</Typography>
-      <Typography variant="overline">Overline Text</Typography>
+      <Typography variant='h1'>H1 Heading</Typography>
+      <Typography variant='h2'>H2 Heading</Typography>
+      <Typography variant='h3'>H3 Heading</Typography>
+      <Typography variant='h4'>H4 Heading</Typography>
+      <Typography variant='h5'>H5 Heading</Typography>
+      <Typography variant='h6'>H6 Heading</Typography>
+      <Typography variant='subtitle1'>Subtitle 1</Typography>
+      <Typography variant='subtitle2'>Subtitle 2</Typography>
+      <Typography variant='body1'>
+        Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Typography>
+      <Typography variant='body2'>
+        Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Typography>
+      <Typography variant='button'>Button Text</Typography>
+      <Typography variant='caption'>Caption text</Typography>
+      <Typography variant='overline'>Overline Text</Typography>
     </div>
   ),
 };
@@ -38,12 +42,12 @@ export const AllVariants: Story = {
 export const Colors: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Typography color="primary">Primary color text</Typography>
-      <Typography color="secondary">Secondary color text</Typography>
-      <Typography color="textPrimary">Text primary</Typography>
-      <Typography color="textSecondary">Text secondary</Typography>
-      <Typography color="error">Error color text</Typography>
-      <Typography color="inherit">Inherit color</Typography>
+      <Typography color='primary'>Primary color text</Typography>
+      <Typography color='secondary'>Secondary color text</Typography>
+      <Typography color='textPrimary'>Text primary</Typography>
+      <Typography color='textSecondary'>Text secondary</Typography>
+      <Typography color='error'>Error color text</Typography>
+      <Typography color='inherit'>Inherit color</Typography>
     </div>
   ),
 };
@@ -51,10 +55,13 @@ export const Colors: Story = {
 export const Alignment: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Typography align="left">Left aligned text</Typography>
-      <Typography align="center">Center aligned text</Typography>
-      <Typography align="right">Right aligned text</Typography>
-      <Typography align="justify">Justified text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
+      <Typography align='left'>Left aligned text</Typography>
+      <Typography align='center'>Center aligned text</Typography>
+      <Typography align='right'>Right aligned text</Typography>
+      <Typography align='justify'>
+        Justified text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Typography>
     </div>
   ),
 };
@@ -72,7 +79,7 @@ export const NoWrap: Story = {
 export const GutterBottom: Story = {
   render: () => (
     <div>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant='h4' gutterBottom>
         Heading with gutter bottom
       </Typography>
       <Typography>
@@ -89,11 +96,10 @@ export const Paragraph: Story = {
         First paragraph with bottom margin. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Typography>
       <Typography paragraph>
-        Second paragraph with bottom margin. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Second paragraph with bottom margin. Sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
       </Typography>
-      <Typography>
-        Last paragraph without margin.
-      </Typography>
+      <Typography>Last paragraph without margin.</Typography>
     </div>
   ),
 };

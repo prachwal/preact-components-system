@@ -7,30 +7,30 @@
 // Base: 4px @ 375px viewport → 8px @ 1440px viewport
 // Each step scales proportionally for consistent rhythm across viewports
 
-$space-0: 0;                                                    // 0px (no space)
-$space-px: 1px;                                                 // 1px (hairline)
-$space-0-5: clamp(0.125rem, 0.1rem + 0.125vw, 0.1875rem);     // 2px → 3px
-$space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);          // 4px → 6px
-$space-1-5: clamp(0.375rem, 0.3rem + 0.375vw, 0.5rem);        // 6px → 8px
-$space-2: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);             // 8px → 12px
-$space-2-5: clamp(0.625rem, 0.5rem + 0.625vw, 0.875rem);      // 10px → 14px
-$space-3: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);              // 12px → 16px
-$space-3-5: clamp(0.875rem, 0.75rem + 0.625vw, 1.125rem);     // 14px → 18px
-$space-4: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);              // 16px → 24px
-$space-5: clamp(1.25rem, 1rem + 1.25vw, 2rem);                // 20px → 32px
-$space-6: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);            // 24px → 40px
-$space-7: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);           // 28px → 44px
-$space-8: clamp(2rem, 1.5rem + 2.5vw, 3rem);                  // 32px → 48px
-$space-9: clamp(2.25rem, 1.65rem + 3vw, 3.5rem);              // 36px → 56px
-$space-10: clamp(2.5rem, 2rem + 2.5vw, 4rem);                 // 40px → 64px
-$space-11: clamp(2.75rem, 2.15rem + 3vw, 4.5rem);             // 44px → 72px
-$space-12: clamp(3rem, 2.5rem + 2.5vw, 5rem);                 // 48px → 80px
-$space-14: clamp(3.5rem, 2.85rem + 3.25vw, 5.5rem);           // 56px → 88px
-$space-16: clamp(4rem, 3rem + 5vw, 6rem);                     // 64px → 96px
-$space-20: clamp(5rem, 4rem + 5vw, 8rem);                     // 80px → 128px
-$space-24: clamp(6rem, 5rem + 5vw, 10rem);                    // 96px → 160px
-$space-28: clamp(7rem, 5.85rem + 5.75vw, 11rem);              // 112px → 176px
-$space-32: clamp(8rem, 6.5rem + 7.5vw, 12rem);                // 128px → 192px
+$space-0: 0; // 0px (no space)
+$space-px: 1px; // 1px (hairline)
+$space-0-5: clamp(0.125rem, 0.1rem + 0.125vw, 0.1875rem); // 2px → 3px
+$space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem); // 4px → 6px
+$space-1-5: clamp(0.375rem, 0.3rem + 0.375vw, 0.5rem); // 6px → 8px
+$space-2: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem); // 8px → 12px
+$space-2-5: clamp(0.625rem, 0.5rem + 0.625vw, 0.875rem); // 10px → 14px
+$space-3: clamp(0.75rem, 0.65rem + 0.5vw, 1rem); // 12px → 16px
+$space-3-5: clamp(0.875rem, 0.75rem + 0.625vw, 1.125rem); // 14px → 18px
+$space-4: clamp(1rem, 0.85rem + 0.75vw, 1.5rem); // 16px → 24px
+$space-5: clamp(1.25rem, 1rem + 1.25vw, 2rem); // 20px → 32px
+$space-6: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem); // 24px → 40px
+$space-7: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem); // 28px → 44px
+$space-8: clamp(2rem, 1.5rem + 2.5vw, 3rem); // 32px → 48px
+$space-9: clamp(2.25rem, 1.65rem + 3vw, 3.5rem); // 36px → 56px
+$space-10: clamp(2.5rem, 2rem + 2.5vw, 4rem); // 40px → 64px
+$space-11: clamp(2.75rem, 2.15rem + 3vw, 4.5rem); // 44px → 72px
+$space-12: clamp(3rem, 2.5rem + 2.5vw, 5rem); // 48px → 80px
+$space-14: clamp(3.5rem, 2.85rem + 3.25vw, 5.5rem); // 56px → 88px
+$space-16: clamp(4rem, 3rem + 5vw, 6rem); // 64px → 96px
+$space-20: clamp(5rem, 4rem + 5vw, 8rem); // 80px → 128px
+$space-24: clamp(6rem, 5rem + 5vw, 10rem); // 96px → 160px
+$space-28: clamp(7rem, 5.85rem + 5.75vw, 11rem); // 112px → 176px
+$space-32: clamp(8rem, 6.5rem + 7.5vw, 12rem); // 128px → 192px
 
 // ============================================================================
 // SEMANTIC SPACING
@@ -38,106 +38,106 @@ $space-32: clamp(8rem, 6.5rem + 7.5vw, 12rem);                // 128px → 192px
 // Named aliases for common use cases - improves readability and intent
 
 // Extra small spacing (tight layouts, compact components)
-$gap-xs: $space-1;      // 4px → 6px
-$gap-sm: $space-2;      // 8px → 12px
+$gap-xs: $space-1; // 4px → 6px
+$gap-sm: $space-2; // 8px → 12px
 
 // Default spacing (most common use case)
-$gap: $space-4;         // 16px → 24px (default gap)
-$gap-md: $space-5;      // 20px → 32px
+$gap: $space-4; // 16px → 24px (default gap)
+$gap-md: $space-5; // 20px → 32px
 
 // Large spacing (section separators, generous whitespace)
-$gap-lg: $space-8;      // 32px → 48px
-$gap-xl: $space-12;     // 48px → 80px
-$gap-2xl: $space-16;    // 64px → 96px
+$gap-lg: $space-8; // 32px → 48px
+$gap-xl: $space-12; // 48px → 80px
+$gap-2xl: $space-16; // 64px → 96px
 
 // ============================================================================
 // COMPONENT SPACING
 // ============================================================================
 
 // Padding presets
-$padding-xs: $space-1 $space-2;         // 4→6px vertical, 8→12px horizontal
-$padding-sm: $space-2 $space-3;         // 8→12px vertical, 12→16px horizontal
-$padding-md: $space-3 $space-4;         // 12→16px vertical, 16→24px horizontal
-$padding-lg: $space-4 $space-6;         // 16→24px vertical, 24→40px horizontal
-$padding-xl: $space-6 $space-8;         // 24→40px vertical, 32→48px horizontal
+$padding-xs: $space-1 $space-2; // 4→6px vertical, 8→12px horizontal
+$padding-sm: $space-2 $space-3; // 8→12px vertical, 12→16px horizontal
+$padding-md: $space-3 $space-4; // 12→16px vertical, 16→24px horizontal
+$padding-lg: $space-4 $space-6; // 16→24px vertical, 24→40px horizontal
+$padding-xl: $space-6 $space-8; // 24→40px vertical, 32→48px horizontal
 
 // Container padding (responsive page margins)
-$container-padding-xs: $space-4;        // 16px → 24px (mobile)
-$container-padding-sm: $space-5;        // 20px → 32px (tablet)
-$container-padding-md: $space-6;        // 24px → 40px (laptop)
-$container-padding-lg: $space-8;        // 32px → 48px (desktop)
+$container-padding-xs: $space-4; // 16px → 24px (mobile)
+$container-padding-sm: $space-5; // 20px → 32px (tablet)
+$container-padding-md: $space-6; // 24px → 40px (laptop)
+$container-padding-lg: $space-8; // 32px → 48px (desktop)
 
 // Section spacing (between major page sections)
-$section-spacing-sm: $space-8;          // 32px → 48px
-$section-spacing-md: $space-12;         // 48px → 80px
-$section-spacing-lg: $space-16;         // 64px → 96px
-$section-spacing-xl: $space-24;         // 96px → 160px
+$section-spacing-sm: $space-8; // 32px → 48px
+$section-spacing-md: $space-12; // 48px → 80px
+$section-spacing-lg: $space-16; // 64px → 96px
+$section-spacing-xl: $space-24; // 96px → 160px
 
 // ============================================================================
 // LAYOUT SPACING
 // ============================================================================
 
 // Header & Footer
-$header-height: clamp(3.5rem, 3rem + 2.5vw, 4.5rem);    // 56px → 72px
+$header-height: clamp(3.5rem, 3rem + 2.5vw, 4.5rem); // 56px → 72px
 $header-padding: $space-4 $container-padding-xs;
 
 $footer-padding: $space-8 $container-padding-xs;
 
 // Sidebar
-$sidebar-width: clamp(15rem, 14rem + 5vw, 18rem);       // 240px → 288px
+$sidebar-width: clamp(15rem, 14rem + 5vw, 18rem); // 240px → 288px
 $sidebar-padding: $space-4;
-$sidebar-collapsed-width: clamp(3rem, 2.75rem + 1.25vw, 4rem);  // 48px → 64px
+$sidebar-collapsed-width: clamp(3rem, 2.75rem + 1.25vw, 4rem); // 48px → 64px
 
 // Navigation
 $nav-item-padding: $space-2 $space-4;
 $nav-item-gap: $space-1;
 
 // Cards & Containers
-$card-padding: $space-4;                                 // 16px → 24px
-$card-gap: $space-3;                                     // 12px → 16px (between card elements)
+$card-padding: $space-4; // 16px → 24px
+$card-gap: $space-3; // 12px → 16px (between card elements)
 
 // Form Elements
-$input-padding-y: $space-2;                              // 8px → 12px
-$input-padding-x: $space-3;                              // 12px → 16px
-$form-group-gap: $space-4;                               // 16px → 24px (between form fields)
+$input-padding-y: $space-2; // 8px → 12px
+$input-padding-x: $space-3; // 12px → 16px
+$form-group-gap: $space-4; // 16px → 24px (between form fields)
 
 // Buttons
-$button-padding-y: $space-2;                             // 8px → 12px
-$button-padding-x: $space-4;                             // 16px → 24px
-$button-gap: $space-2;                                   // 8px → 12px (icon spacing)
+$button-padding-y: $space-2; // 8px → 12px
+$button-padding-x: $space-4; // 16px → 24px
+$button-gap: $space-2; // 8px → 12px (icon spacing)
 
 // Icons
-$icon-margin: $space-2;                                  // 8px → 12px (spacing around icons)
+$icon-margin: $space-2; // 8px → 12px (spacing around icons)
 
 // ============================================================================
 // GRID SPACING
 // ============================================================================
 
-$grid-gap-xs: $space-2;     // 8px → 12px
-$grid-gap-sm: $space-3;     // 12px → 16px
-$grid-gap: $space-4;        // 16px → 24px (default)
-$grid-gap-md: $space-5;     // 20px → 32px
-$grid-gap-lg: $space-6;     // 24px → 40px
-$grid-gap-xl: $space-8;     // 32px → 48px
+$grid-gap-xs: $space-2; // 8px → 12px
+$grid-gap-sm: $space-3; // 12px → 16px
+$grid-gap: $space-4; // 16px → 24px (default)
+$grid-gap-md: $space-5; // 20px → 32px
+$grid-gap-lg: $space-6; // 24px → 40px
+$grid-gap-xl: $space-8; // 32px → 48px
 
 // ============================================================================
 // TOUCH TARGET SIZES (WCAG 2.5.5)
 // ============================================================================
 // Minimum 44x44px for touch targets on mobile
 
-$touch-target-min: 2.75rem;     // 44px (WCAG minimum)
+$touch-target-min: 2.75rem; // 44px (WCAG minimum)
 $touch-target-comfortable: 3rem; // 48px (comfortable)
-$touch-target-large: 3.5rem;    // 56px (generous)
+$touch-target-large: 3.5rem; // 56px (generous)
 
 // ============================================================================
 // BORDER WIDTHS
 // ============================================================================
 
 $border-width-0: 0;
-$border-width-1: 1px;           // Default
-$border-width-2: 2px;           // Emphasis
-$border-width-4: 4px;           // Strong emphasis
-$border-width-8: 8px;           // Very strong (progress bars)
+$border-width-1: 1px; // Default
+$border-width-2: 2px; // Emphasis
+$border-width-4: 4px; // Strong emphasis
+$border-width-8: 8px; // Very strong (progress bars)
 
 // ============================================================================
 // BORDER RADIUS
@@ -145,15 +145,15 @@ $border-width-8: 8px;           // Very strong (progress bars)
 // Fluid rounding for consistent appearance across sizes
 
 $radius-none: 0;
-$radius-xs: clamp(0.125rem, 0.1rem + 0.125vw, 0.1875rem);  // 2px → 3px
-$radius-sm: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);     // 4px → 6px
-$radius: clamp(0.375rem, 0.3rem + 0.375vw, 0.5rem);        // 6px → 8px (default)
-$radius-md: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);        // 8px → 12px
-$radius-lg: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);         // 12px → 16px
-$radius-xl: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);         // 16px → 24px
-$radius-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);        // 24px → 32px
-$radius-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);            // 32px → 48px
-$radius-full: 9999px;                                        // Pill shape
+$radius-xs: clamp(0.125rem, 0.1rem + 0.125vw, 0.1875rem); // 2px → 3px
+$radius-sm: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem); // 4px → 6px
+$radius: clamp(0.375rem, 0.3rem + 0.375vw, 0.5rem); // 6px → 8px (default)
+$radius-md: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem); // 8px → 12px
+$radius-lg: clamp(0.75rem, 0.65rem + 0.5vw, 1rem); // 12px → 16px
+$radius-xl: clamp(1rem, 0.85rem + 0.75vw, 1.5rem); // 16px → 24px
+$radius-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem); // 24px → 32px
+$radius-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem); // 32px → 48px
+$radius-full: 9999px; // Pill shape
 
 // Component-specific radius
 $button-radius: $radius-sm;

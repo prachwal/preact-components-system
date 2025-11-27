@@ -13,7 +13,7 @@
   --component-size-small: 32px;
   --component-size-medium: 40px;
   --component-size-large: 48px;
-  
+
   // Icon sizes
   --icon-size-small: 16px;
   --icon-size-medium: 20px;
@@ -24,13 +24,13 @@
 $component-sizes: (
   small: 32px,
   medium: 40px,
-  large: 48px
+  large: 48px,
 );
 
 $icon-sizes: (
   small: 16px,
   medium: 20px,
-  large: 24px
+  large: 24px,
 );
 
 // ============================================================================
@@ -44,7 +44,7 @@ $icon-sizes: (
   --hover-bg-dark: rgba(255, 255, 255, 0.08);
   --hover-transition: background-color 150ms ease;
   --hover-elevation: translateY(-2px);
-  
+
   // Focus states (WCAG 2.4.7 compliant)
   --focus-outline-width: 2px;
   --focus-outline-color: var(--pcs-primary);
@@ -52,11 +52,11 @@ $icon-sizes: (
   --focus-offset: 2px;
   --focus-ring-opacity: 0.2;
   --focus-ring: 0 0 0 3px rgba(25, 118, 210, var(--focus-ring-opacity));
-  
+
   // Active/pressed states
   --active-scale: scale(0.98);
   --active-opacity: 0.7;
-  
+
   // Disabled states
   --disabled-opacity: 0.38;
   --disabled-cursor: not-allowed;
@@ -93,12 +93,12 @@ $icon-sizes: (
   --button-padding-small: #{$space-2} #{$space-3};
   --button-padding-medium: #{$space-3} #{$space-4};
   --button-padding-large: #{$space-4} #{$space-6};
-  
+
   // Input padding
   --input-padding-small: #{$space-2} #{$space-3};
   --input-padding-medium: #{$space-3} #{$space-4};
   --input-padding-large: #{$space-4} #{$space-5};
-  
+
   // Card padding
   --card-padding-small: #{$space-3};
   --card-padding-medium: #{$space-4};
@@ -114,15 +114,14 @@ $icon-sizes: (
   --transition-fast: 150ms ease;
   --transition-normal: 200ms ease;
   --transition-slow: 300ms ease;
-  
+
   // Specific properties
   --transition-color: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
   --transition-transform: transform 200ms ease;
   --transition-opacity: opacity 150ms ease;
   --transition-shadow: box-shadow 200ms ease;
-  
+
   // Combined
-  --transition-interactive: background-color 150ms ease, 
-                            transform 200ms ease, 
-                            box-shadow 200ms ease;
+  --transition-interactive:
+    background-color 150ms ease, transform 200ms ease, box-shadow 200ms ease;
 }

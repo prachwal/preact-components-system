@@ -58,7 +58,7 @@ function App() {
       <Card>
         <Card.Header>Welcome</Card.Header>
         <Card.Content>
-          <Button variant="contained" color="primary">
+          <Button variant='contained' color='primary'>
             Get Started
           </Button>
         </Card.Content>
@@ -105,7 +105,7 @@ A responsive 12-column grid system based on flexbox.
 One-dimensional layout with consistent spacing.
 
 ```tsx
-<Stack direction="vertical" spacing={2}>
+<Stack direction='vertical' spacing={2}>
   <Button>Item 1</Button>
   <Button>Item 2</Button>
   <Button>Item 3</Button>
@@ -124,8 +124,8 @@ One-dimensional layout with consistent spacing.
 Content wrapper with max-width constraints.
 
 ```tsx
-<Container maxWidth="md">
-  <Typography variant="h1">Title</Typography>
+<Container maxWidth='md'>
+  <Typography variant='h1'>Title</Typography>
 </Container>
 ```
 
@@ -140,7 +140,7 @@ Content wrapper with max-width constraints.
 Universal wrapper component with styling props.
 
 ```tsx
-<Box padding={2} margin={1} backgroundColor="primary.light">
+<Box padding={2} margin={1} backgroundColor='primary.light'>
   Content
 </Box>
 ```
@@ -158,10 +158,10 @@ Universal wrapper component with styling props.
 Interactive button with multiple variants and states.
 
 ```tsx
-<Button 
-  variant="contained" 
-  color="primary" 
-  size="medium"
+<Button
+  variant='contained'
+  color='primary'
+  size='medium'
   disabled={false}
   onClick={handleClick}
 >
@@ -205,13 +205,13 @@ Container for content with optional header, media, and actions.
 ```tsx
 <Card>
   <Card.Header>
-    <Typography variant="h5">Card Title</Typography>
+    <Typography variant='h5'>Card Title</Typography>
   </Card.Header>
   <Card.Media>
-    <img src="image.jpg" alt="Description" />
+    <img src='image.jpg' alt='Description' />
   </Card.Media>
   <Card.Content>
-    <Typography variant="body1">Card content</Typography>
+    <Typography variant='body1'>Card content</Typography>
   </Card.Content>
   <Card.Actions>
     <Button>Action 1</Button>
@@ -230,7 +230,7 @@ Container for content with optional header, media, and actions.
 Surface component with elevation system.
 
 ```tsx
-<Paper elevation={2} variant="elevation">
+<Paper elevation={2} variant='elevation'>
   <Typography>Content on elevated surface</Typography>
 </Paper>
 ```
@@ -246,7 +246,7 @@ Surface component with elevation system.
 Feedback messages with severity levels.
 
 ```tsx
-<Alert severity="success" onClose={handleClose}>
+<Alert severity='success' onClose={handleClose}>
   <Alert.Title>Success!</Alert.Title>
   Operation completed successfully.
 </Alert>
@@ -378,11 +378,7 @@ const customTheme = createTheme({
 });
 
 function App() {
-  return (
-    <ThemeProvider theme={customTheme}>
-      {/* Your app */}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={customTheme}>{/* Your app */}</ThemeProvider>;
 }
 ```
 
@@ -393,7 +389,7 @@ import { useTheme } from 'preact-components-system';
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  
+
   return (
     <div>
       <button onClick={() => setTheme('light')}>Light</button>
@@ -412,12 +408,14 @@ import { useTheme } from 'preact-components-system';
 
 function CustomComponent() {
   const { theme, currentTheme } = useTheme();
-  
+
   return (
-    <div style={{ 
-      color: currentTheme.palette.primary.main,
-      fontFamily: currentTheme.typography.fontFamily 
-    }}>
+    <div
+      style={{
+        color: currentTheme.palette.primary.main,
+        fontFamily: currentTheme.typography.fontFamily,
+      }}
+    >
       Themed content
     </div>
   );
@@ -479,8 +477,8 @@ Use `FocusTrap` for modal dialogs and similar components:
 
 ```tsx
 <FocusTrap active={isOpen} autoFocus restoreFocus>
-  <Dialog role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-    <h2 id="dialog-title">Dialog Title</h2>
+  <Dialog role='dialog' aria-modal='true' aria-labelledby='dialog-title'>
+    <h2 id='dialog-title'>Dialog Title</h2>
     <button onClick={handleClose}>Close</button>
   </Dialog>
 </FocusTrap>
@@ -531,7 +529,7 @@ Icons use selective imports to minimize bundle size:
 ```tsx
 // ✅ Good - only imports Home icon
 import { Icon } from 'preact-components-system';
-<Icon name="Home" />
+<Icon name='Home' />;
 
 // ❌ Bad - would import all icons (don't do this in your code)
 import * as icons from 'lucide-preact';
@@ -671,6 +669,7 @@ The library includes a comprehensive set of form components built with accessibi
 A versatile text input component supporting single-line and multiline input.
 
 **Features**:
+
 - Three variants: outlined, filled, standard
 - Validation states (error, success, warning)
 - Helper text
@@ -679,18 +678,19 @@ A versatile text input component supporting single-line and multiline input.
 - Full width option
 
 **Example**:
+
 ```tsx
 import { TextField } from 'preact-components-system';
 
 <TextField
-  label="Email"
-  type="email"
-  variant="outlined"
+  label='Email'
+  type='email'
+  variant='outlined'
   error={!!errors.email}
   helperText={errors.email || "We'll never share your email"}
   startAdornment={<EmailIcon />}
   fullWidth
-/>
+/>;
 ```
 
 ### Checkbox
@@ -698,21 +698,23 @@ import { TextField } from 'preact-components-system';
 A checkbox input with support for indeterminate state.
 
 **Features**:
+
 - Indeterminate state support
 - Label positioning
 - Form integration
 - Interactive Storybook examples (select all pattern)
 
 **Example**:
+
 ```tsx
 import { Checkbox } from 'preact-components-system';
 
 <Checkbox
   checked={accepted}
   onChange={(e) => setAccepted(e.target.checked)}
-  label="I accept the terms and conditions"
+  label='I accept the terms and conditions'
   required
-/>
+/>;
 ```
 
 ### Radio & RadioGroup
@@ -720,20 +722,22 @@ import { Checkbox } from 'preact-components-system';
 Radio buttons for mutually exclusive selections.
 
 **Features**:
+
 - RadioGroup for managing radio groups
 - Horizontal and vertical layouts
 - Form integration
 - Accessibility with role="radiogroup"
 
 **Example**:
+
 ```tsx
 import { Radio, RadioGroup } from 'preact-components-system';
 
-<RadioGroup name="size" value={size} onChange={setSize}>
-  <Radio value="small" label="Small" />
-  <Radio value="medium" label="Medium" />
-  <Radio value="large" label="Large" />
-</RadioGroup>
+<RadioGroup name='size' value={size} onChange={setSize}>
+  <Radio value='small' label='Small' />
+  <Radio value='medium' label='Medium' />
+  <Radio value='large' label='Large' />
+</RadioGroup>;
 ```
 
 ### Switch
@@ -741,22 +745,24 @@ import { Radio, RadioGroup } from 'preact-components-system';
 A toggle switch for boolean states.
 
 **Features**:
+
 - Custom on/off labels
 - Label positioning
 - Settings panel examples
 - Role="switch" for accessibility
 
 **Example**:
+
 ```tsx
 import { Switch } from 'preact-components-system';
 
 <Switch
   checked={enabled}
   onChange={(e) => setEnabled(e.target.checked)}
-  label="Enable notifications"
-  onLabel="ON"
-  offLabel="OFF"
-/>
+  label='Enable notifications'
+  onLabel='ON'
+  offLabel='OFF'
+/>;
 ```
 
 ## Support

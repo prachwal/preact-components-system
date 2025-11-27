@@ -1,8 +1,8 @@
-import { 
-  BREAKPOINT_VALUES, 
-  TRANSITION_DURATIONS, 
-  Z_INDEX_LAYERS, 
-  SPACING_MULTIPLIERS 
+import {
+  BREAKPOINT_VALUES,
+  TRANSITION_DURATIONS,
+  Z_INDEX_LAYERS,
+  SPACING_MULTIPLIERS,
 } from './constants';
 import type { PaletteOptions, TypographyOptions, Shadows, Transitions, ZIndex } from './types';
 

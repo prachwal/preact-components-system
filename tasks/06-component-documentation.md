@@ -86,7 +86,14 @@
   "excludeProtected": false,
   "hideGenerator": true,
   "categorizeByGroup": true,
-  "categoryOrder": ["Components", "Hooks", "Contexts", "Types", "Utilities", "*"],
+  "categoryOrder": [
+    "Components",
+    "Hooks",
+    "Contexts",
+    "Types",
+    "Utilities",
+    "*"
+  ],
   "defaultCategory": "Components",
   "groupOrder": ["Components", "Hooks", "Contexts", "Types", "Utilities", "*"],
   "sort": ["source-order", "required-first", "kind"],
@@ -136,7 +143,7 @@
 
 ### Component Documentation Format
 
-```typescript
+````typescript
 /**
  * Component description - what it does and when to use it
  *
@@ -156,7 +163,7 @@
  * @accessibility
  * Notes about accessibility features or requirements
  */
-```
+````
 
 ### Prop Documentation
 

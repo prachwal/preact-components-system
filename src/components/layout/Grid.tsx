@@ -7,7 +7,13 @@ import type { ResponsiveValue } from '../../theme/types';
 
 export type GridSize = number | 'auto' | boolean;
 export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
-export type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+export type JustifyContent =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
 export type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type Wrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
@@ -116,7 +122,7 @@ export interface GridProps {
  */
 const getGridSizeClasses = (breakpoint: string, size?: GridSize) => {
   if (size === undefined || size === null) return {};
-  
+
   return {
     [`grid-${breakpoint}-auto`]: size === 'auto',
     [`grid-${breakpoint}-true`]: size === true,
@@ -136,7 +142,7 @@ const getContainerClasses = (
   justifyContent?: JustifyContent
 ) => {
   if (!container) return {};
-  
+
   return {
     'grid-container': true,
     [`grid-spacing-${resolvedSpacing}`]: resolvedSpacing > 0,
@@ -150,7 +156,13 @@ const getContainerClasses = (
 /**
  * Helper function to generate all grid item size classes
  */
-const getGridItemClasses = (xs?: GridSize, sm?: GridSize, md?: GridSize, lg?: GridSize, xl?: GridSize) => {
+const getGridItemClasses = (
+  xs?: GridSize,
+  sm?: GridSize,
+  md?: GridSize,
+  lg?: GridSize,
+  xl?: GridSize
+) => {
   return {
     ...getGridSizeClasses('xs', xs),
     ...getGridSizeClasses('sm', sm),
@@ -179,7 +191,11 @@ export const Grid = ({
   children,
   component: Component = 'div',
 }: GridProps) => {
-  const { spacing: resolvedSpacing, columns: resolvedColumns, direction: resolvedDirection } = useResponsiveBatch({
+  const {
+    spacing: resolvedSpacing,
+    columns: resolvedColumns,
+    direction: resolvedDirection,
+  } = useResponsiveBatch({
     spacing,
     columns,
     direction,
@@ -189,7 +205,14 @@ export const Grid = ({
     'grid',
     {
       'grid-item': item,
-      ...getContainerClasses(container, resolvedSpacing, resolvedDirection, wrap, alignItems, justifyContent),
+      ...getContainerClasses(
+        container,
+        resolvedSpacing,
+        resolvedDirection,
+        wrap,
+        alignItems,
+        justifyContent
+      ),
       ...getGridItemClasses(xs, sm, md, lg, xl),
     },
     className
@@ -197,7 +220,7 @@ export const Grid = ({
 
   const gridStyle: JSX.CSSProperties = {
     ...style,
-    ...(container && { '--grid-columns': resolvedColumns.toString() } as JSX.CSSProperties),
+    ...(container && ({ '--grid-columns': resolvedColumns.toString() } as JSX.CSSProperties)),
   };
 
   return (

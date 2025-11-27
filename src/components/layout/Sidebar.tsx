@@ -95,7 +95,9 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
   useEffect(() => {
     const checkWidth = () => {
-      setIsCollapsed(window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < TABLET_BREAKPOINT);
+      setIsCollapsed(
+        window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < TABLET_BREAKPOINT
+      );
     };
 
     checkWidth();
@@ -137,14 +139,14 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           }
         }}
         tabIndex={isOpen ? 0 : -1}
-        role="button"
-        aria-label="Close sidebar"
+        role='button'
+        aria-label='Close sidebar'
         aria-hidden={!isOpen}
       />
       <aside
-        id="app-sidebar"
-        role="navigation"
-        aria-label="Main navigation"
+        id='app-sidebar'
+        role='navigation'
+        aria-label='Main navigation'
         aria-hidden={!isOpen}
         className={`app-sidebar ${isOpen ? 'is-open' : ''} ${isCollapsed ? 'is-collapsed' : ''}`}
         ref={sidebarRef}
@@ -152,32 +154,56 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         <nav>
           <ul>
             <li className={activeSection === 'home' ? 'is-active' : ''}>
-              <a href="#home" title={isCollapsed ? "Home" : undefined} aria-label="Home">
-                <Icon name="Home" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
-                {!isCollapsed && "Home"}
+              <a href='#home' title={isCollapsed ? 'Home' : undefined} aria-label='Home'>
+                <Icon
+                  name='Home'
+                  size='small'
+                  decorative
+                  style={{ marginRight: ICON_MARGIN_RIGHT }}
+                />
+                {!isCollapsed && 'Home'}
               </a>
             </li>
             <li className={activeSection === 'features' ? 'is-active' : ''}>
-              <a href="#features" title={isCollapsed ? "Features" : undefined} aria-label="Features">
-                <Icon name="Star" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
-                {!isCollapsed && "Features"}
+              <a
+                href='#features'
+                title={isCollapsed ? 'Features' : undefined}
+                aria-label='Features'
+              >
+                <Icon
+                  name='Star'
+                  size='small'
+                  decorative
+                  style={{ marginRight: ICON_MARGIN_RIGHT }}
+                />
+                {!isCollapsed && 'Features'}
               </a>
             </li>
             <li className={activeSection === 'about' ? 'is-active' : ''}>
-              <a href="#about" title={isCollapsed ? "About" : undefined} aria-label="About">
-                <Icon name="Info" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
-                {!isCollapsed && "About"}
+              <a href='#about' title={isCollapsed ? 'About' : undefined} aria-label='About'>
+                <Icon
+                  name='Info'
+                  size='small'
+                  decorative
+                  style={{ marginRight: ICON_MARGIN_RIGHT }}
+                />
+                {!isCollapsed && 'About'}
               </a>
             </li>
             <li className={activeSection === 'contact' ? 'is-active' : ''}>
-              <a href="#contact" title={isCollapsed ? "Contact" : undefined} aria-label="Contact">
-                <Icon name="Mail" size="small" decorative style={{ marginRight: ICON_MARGIN_RIGHT }} />
-                {!isCollapsed && "Contact"}
+              <a href='#contact' title={isCollapsed ? 'Contact' : undefined} aria-label='Contact'>
+                <Icon
+                  name='Mail'
+                  size='small'
+                  decorative
+                  style={{ marginRight: ICON_MARGIN_RIGHT }}
+                />
+                {!isCollapsed && 'Contact'}
               </a>
             </li>
           </ul>
         </nav>
-        <footer className="sidebar-footer">
+        <footer className='sidebar-footer'>
           <Logo />
           <p>Version {appVersion}</p>
         </footer>

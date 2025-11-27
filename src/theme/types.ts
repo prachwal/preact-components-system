@@ -196,12 +196,14 @@ export interface ThemeOptions {
   accessibility?: Partial<Accessibility>;
 }
 
-export type ResponsiveValue<T> = T | {
-  [K in Breakpoint]?: T;
-} & {
-  xs?: T;
-  sm?: T;
-  md?: T;
-  lg?: T;
-  xl?: T;
-};
+export type ResponsiveValue<T> =
+  | T
+  | ({
+      [K in Breakpoint]?: T;
+    } & {
+      xs?: T;
+      sm?: T;
+      md?: T;
+      lg?: T;
+      xl?: T;
+    });

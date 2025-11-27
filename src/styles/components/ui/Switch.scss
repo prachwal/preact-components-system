@@ -33,25 +33,25 @@ $track-checked-opacity: 0.5;
   cursor: pointer;
   position: relative;
   user-select: none;
-  
+
   &-disabled {
     cursor: default;
     opacity: 0.6;
   }
-  
+
   // Label placements
   &-label-end {
     flex-direction: row;
   }
-  
+
   &-label-start {
     flex-direction: row-reverse;
   }
-  
+
   &-label-top {
     flex-direction: column-reverse;
   }
-  
+
   &-label-bottom {
     flex-direction: column;
   }
@@ -76,7 +76,7 @@ $track-checked-opacity: 0.5;
   cursor: inherit;
   opacity: 0;
   z-index: 1;
-  
+
   &:focus-visible ~ .switch-track {
     outline: 2px solid currentColor;
     outline-offset: 2px;
@@ -92,7 +92,7 @@ $track-checked-opacity: 0.5;
   position: relative;
   display: flex;
   align-items: center;
-  
+
   .switch-input:checked ~ & {
     background-color: rgba($primary-color, $track-checked-opacity);
   }
@@ -110,23 +110,25 @@ $track-checked-opacity: 0.5;
   height: 20px;
   border-radius: 50%;
   background-color: $thumb-bg-light;
-  box-shadow: 0px 2px 1px -1px var(--pcs-shadow-black),
-              0px 1px 1px 0px var(--pcs-shadow-black-md),
-              0px 1px 3px 0px var(--pcs-shadow-black-sm);
+  box-shadow:
+    0px 2px 1px -1px var(--pcs-shadow-black),
+    0px 1px 1px 0px var(--pcs-shadow-black-md),
+    0px 1px 3px 0px var(--pcs-shadow-black-sm);
   position: absolute;
   left: 0;
   transform: translateX(0);
-  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .switch-input:checked ~ .switch-track & {
     transform: translateX(20px);
     background-color: $primary-color;
   }
-  
+
   .switch-disabled & {
     background-color: $thumb-disabled-light;
   }
@@ -137,7 +139,7 @@ $track-checked-opacity: 0.5;
   .switch-thumb {
     background-color: $thumb-bg-dark;
   }
-  
+
   .switch-disabled .switch-thumb {
     background-color: $thumb-disabled-dark;
   }
@@ -154,7 +156,7 @@ $track-checked-opacity: 0.5;
 .switch-color-primary {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($primary-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $primary-color;
     }
@@ -164,7 +166,7 @@ $track-checked-opacity: 0.5;
 .switch-color-secondary {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($secondary-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $secondary-color;
     }
@@ -174,7 +176,7 @@ $track-checked-opacity: 0.5;
 .switch-color-error {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($error-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $error-color;
     }
@@ -184,7 +186,7 @@ $track-checked-opacity: 0.5;
 .switch-color-warning {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($warning-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $warning-color;
     }
@@ -194,7 +196,7 @@ $track-checked-opacity: 0.5;
 .switch-color-info {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($info-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $info-color;
     }
@@ -204,7 +206,7 @@ $track-checked-opacity: 0.5;
 .switch-color-success {
   .switch-input:checked ~ .switch-track {
     background-color: rgba($success-color, $track-checked-opacity);
-    
+
     .switch-thumb {
       background-color: $success-color;
     }
@@ -218,16 +220,16 @@ $track-checked-opacity: 0.5;
     height: 12px;
     border-radius: 6px;
   }
-  
+
   .switch-thumb {
     width: 16px;
     height: 16px;
   }
-  
+
   .switch-input:checked ~ .switch-track .switch-thumb {
     transform: translateX(16px);
   }
-  
+
   .switch-label {
     font-size: 0.875rem;
   }
@@ -239,16 +241,16 @@ $track-checked-opacity: 0.5;
     height: 18px;
     border-radius: 9px;
   }
-  
+
   .switch-thumb {
     width: 26px;
     height: 26px;
   }
-  
+
   .switch-input:checked ~ .switch-track .switch-thumb {
     transform: translateX(26px);
   }
-  
+
   .switch-label {
     font-size: 1.125rem;
   }
@@ -259,23 +261,23 @@ $track-checked-opacity: 0.5;
   font-size: 1rem;
   color: $text-primary-light;
   line-height: 1.5;
-  
+
   .switch-disabled & {
     color: $text-disabled-light;
   }
-  
+
   .switch-label-end & {
     margin-left: 0.5rem;
   }
-  
+
   .switch-label-start & {
     margin-right: 0.5rem;
   }
-  
+
   .switch-label-top & {
     margin-bottom: 0.25rem;
   }
-  
+
   .switch-label-bottom & {
     margin-top: 0.25rem;
   }
@@ -286,7 +288,7 @@ $track-checked-opacity: 0.5;
   .switch-label {
     color: $text-primary-dark;
   }
-  
+
   .switch-disabled .switch-label {
     color: $text-disabled-dark;
   }

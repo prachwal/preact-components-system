@@ -42,7 +42,9 @@ describe('Heading', () => {
 
   it('applies custom className', () => {
     const { container } = render(
-      <Heading level={1} className="custom-class">Heading</Heading>
+      <Heading level={1} className='custom-class'>
+        Heading
+      </Heading>
     );
     const heading = container.querySelector('h1');
     expect(heading).toHaveClass('custom-class');
