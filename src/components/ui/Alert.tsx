@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
-import clsx from 'clsx';
 import './Alert.scss';
 
 type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
@@ -106,7 +106,7 @@ export const Alert = ({
     className
   );
 
-  const displayIcon = icon === false ? null : icon || defaultIcons[severity];
+  const displayIcon = icon === false ? null : icon ?? defaultIcons[severity];
 
   return (
     <div className={classes} style={style} role="alert" {...rest}>

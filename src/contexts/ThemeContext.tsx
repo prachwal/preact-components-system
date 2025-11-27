@@ -1,7 +1,8 @@
 import { createContext } from 'preact';
 import { useContext } from 'preact/hooks';
-import type { ThemeContextType } from '../types/theme';
+
 import type { Theme } from '../theme/types';
+import type { ThemeContextType } from '../types/theme';
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 

@@ -1,5 +1,4 @@
-import type { FunctionComponent } from 'preact';
-// Import only the icons we need
+import clsx from 'clsx';
 import {
   Home,
   Star,
@@ -30,7 +29,8 @@ import {
   Package,
   type LucideProps,
 } from 'lucide-preact';
-import clsx from 'clsx';
+import type { FunctionComponent } from 'preact';
+// Import only the icons we need
 
 type IconSize = 'small' | 'medium' | 'large';
 

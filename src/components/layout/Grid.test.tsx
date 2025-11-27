@@ -1,7 +1,10 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/preact';
-import { Grid } from './Grid';
+import { describe, it, expect } from 'vitest';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
+import { Grid } from './Grid';
+
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

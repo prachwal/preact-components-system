@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import { h } from 'preact';
 import type { ComponentChildren } from 'preact';
-import clsx from 'clsx';
-import type { ResponsiveValue } from '../../theme/types';
+
 import { useResponsive } from '../../hooks/useResponsive';
+import type { ResponsiveValue } from '../../theme/types';
 
 export interface BoxProps {
   /**

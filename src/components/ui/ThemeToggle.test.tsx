@@ -1,6 +1,8 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/preact';
+import { fireEvent, render, screen } from '@testing-library/preact';
+import { describe, expect, it } from 'vitest';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
 import ThemeToggle from './ThemeToggle';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {

@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import type { JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
-import clsx from 'clsx';
 import './Radio.scss';
 
 type RadioSize = 'small' | 'medium' | 'large';
@@ -78,7 +78,7 @@ export const Radio = ({
   ...rest
 }: RadioProps) => {
   const generatedId = useId();
-  const inputId = customId || `radio-${generatedId}`;
+  const inputId = customId ?? `radio-${generatedId}`;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const rootClasses = clsx(
@@ -163,9 +163,9 @@ export interface RadioGroupProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>
 }
 
 export const RadioGroup = ({
-  name,
-  value,
-  defaultValue,
+  name: _name,
+  value: _value,
+  defaultValue: _defaultValue,
   onChange,
   row = false,
   className,

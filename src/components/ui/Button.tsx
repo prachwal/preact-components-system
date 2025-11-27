@@ -1,5 +1,5 @@
-import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
+import type { ComponentChildren, JSX } from 'preact';
 import './Button.scss';
 
 type ButtonVariant = 'contained' | 'outlined' | 'text';

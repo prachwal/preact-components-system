@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
+
 import ContentSection from '../components/common/ContentSection';
 
 const meta: Meta<typeof ContentSection> = {

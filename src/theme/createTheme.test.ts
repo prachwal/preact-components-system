@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { createTheme } from './createTheme';
+
 import { lighten, darken, alpha, getContrastText } from './colorUtils';
+import { createTheme } from './createTheme';
 
 describe('Theme System', () => {
   describe('createTheme', () => {

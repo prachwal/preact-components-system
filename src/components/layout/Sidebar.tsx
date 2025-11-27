@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
+
 import { useAppVersion } from '../../hooks/useAppVersion';
 import Logo from '../common/Logo';
 import { Icon } from '../ui/Icon';
@@ -74,6 +75,14 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
       <div
         className={`sidebar-backdrop ${isOpen ? 'is-open' : ''}`}
         onClick={onClose}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            onClose();
+          }
+        }}
+        tabIndex={isOpen ? 0 : -1}
+        role="button"
+        aria-label="Close sidebar"
         aria-hidden={!isOpen}
       />
       <aside

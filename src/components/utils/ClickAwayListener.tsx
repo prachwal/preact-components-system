@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
+import { useEffect, useRef } from 'preact/hooks';
 
 export interface ClickAwayListenerProps {
   /**
@@ -60,8 +60,7 @@ export const ClickAwayListener = ({
     const handleEvent = (event: Event) => {
       const node = nodeRef.current;
 
-      // Ignore if the click is inside the component
-      if (node && node.contains(event.target as Node)) {
+      if (node?.contains(event.target as Node)) {
         return;
       }
 

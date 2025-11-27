@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/preact';
+import { describe, it, expect } from 'vitest';
+
 import { Alert, AlertTitle } from './Alert';
 
 describe('Alert', () => {

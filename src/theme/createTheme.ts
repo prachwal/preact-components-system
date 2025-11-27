@@ -1,4 +1,4 @@
-import type { Theme, ThemeOptions, Breakpoint, SpacingArgument, PaletteColor, SimplePaletteColor } from './types';
+import { generateColorVariants } from './colorUtils';
 import {
   lightPalette,
   darkPalette,
@@ -9,7 +9,7 @@ import {
   defaultBreakpoints,
   defaultSpacing as defaultSpacingValue,
 } from './defaultTheme';
-import { generateColorVariants } from './colorUtils';
+import type { Theme, ThemeOptions, Breakpoint, SpacingArgument, PaletteColor, SimplePaletteColor } from './types';
 
 /**
  * Deep merge utility
@@ -62,9 +62,9 @@ function generatePaletteColor(color: SimplePaletteColor | Partial<PaletteColor>)
   
   return {
     main,
-    light: light || generated.light,
-    dark: dark || generated.dark,
-    contrastText: contrastText || generated.contrastText,
+    light: light ?? generated.light,
+    dark: dark ?? generated.dark,
+    contrastText: contrastText ?? generated.contrastText,
   };
 }
 
@@ -148,7 +148,7 @@ export function createTheme(options: ThemeOptions = {}): Theme {
   } = options;
   
   // Determine mode
-  const mode = paletteInput.mode || 'light';
+  const mode = paletteInput.mode ?? 'light';
   const basePalette = mode === 'light' ? lightPalette : darkPalette;
   
   // Generate palette colors

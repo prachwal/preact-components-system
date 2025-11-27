@@ -1,7 +1,8 @@
-import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
-import type { ResponsiveValue } from '../../theme/types';
+import type { ComponentChildren, JSX } from 'preact';
+
 import { useResponsive } from '../../hooks/useResponsive';
+import type { ResponsiveValue } from '../../theme/types';
 import './Grid.scss';
 
 type GridSize = number | 'auto' | boolean;

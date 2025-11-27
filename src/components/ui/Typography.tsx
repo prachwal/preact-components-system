@@ -1,6 +1,7 @@
+import clsx from 'clsx';
 import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
-import clsx from 'clsx';
+
 import { useTheme } from '../../contexts/ThemeContext';
 
 type TypographyVariant = 
@@ -85,7 +86,7 @@ export const Typography = ({
   ...rest
 }: TypographyProps) => {
   const theme = useTheme();
-  const Component = (component || variantMapping[variant]) as any;
+  const Component = (component ?? variantMapping[variant]) as any;
 
   const getColor = () => {
     switch (color) {

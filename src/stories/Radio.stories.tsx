@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Radio, RadioGroup } from '../components/ui/Radio';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+
+import { Radio, RadioGroup } from '../components/ui/Radio';
 
 const meta = {
   title: 'Components/Forms/Radio',

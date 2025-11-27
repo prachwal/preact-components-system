@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'preact/hooks';
+
 import type { Theme } from '../theme/types';
 
 type QueryInput = string | ((theme: Theme) => string);

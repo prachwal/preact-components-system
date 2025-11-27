@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
+
 import Logo from '../components/common/Logo';
 
 const meta: Meta<typeof Logo> = {

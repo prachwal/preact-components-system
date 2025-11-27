@@ -1,5 +1,5 @@
-import Hamburger from '../ui/Hamburger';
 import Logo from '../common/Logo';
+import Hamburger from '../ui/Hamburger';
 import ThemeToggle from '../ui/ThemeToggle';
 
 const Header = ({ onToggleSidebar, sidebarOpen }: { onToggleSidebar: () => void; sidebarOpen: boolean }) => (

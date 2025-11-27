@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import type { JSX } from 'preact';
 import { useRef, useId, useEffect } from 'preact/hooks';
-import clsx from 'clsx';
 import './Checkbox.scss';
 
 type CheckboxSize = 'small' | 'medium' | 'large';
@@ -83,7 +83,7 @@ export const Checkbox = ({
   ...rest
 }: CheckboxProps) => {
   const generatedId = useId();
-  const inputId = customId || `checkbox-${generatedId}`;
+  const inputId = customId ?? `checkbox-${generatedId}`;
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Set indeterminate state using ref in useEffect

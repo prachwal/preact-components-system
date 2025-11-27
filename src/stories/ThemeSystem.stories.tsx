@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+
+import { Box } from '../components/layout/Box';
+import { Grid } from '../components/layout/Grid';
+import { Button } from '../components/ui/Button';
 import { ThemeProvider } from '../providers/ThemeProvider';
 import { createTheme } from '../theme/createTheme';
-import { Button } from '../components/ui/Button';
-import { Grid } from '../components/layout/Grid';
-import { Box } from '../components/layout/Box';
 
 const meta = {
   title: 'Theme/Theme System',

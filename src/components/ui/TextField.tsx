@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
-import clsx from 'clsx';
 import './TextField.scss';
 
 type TextFieldVariant = 'outlined' | 'filled' | 'standard';
@@ -134,7 +134,7 @@ export const TextField = ({
   ...rest
 }: TextFieldProps) => {
   const generatedId = useId();
-  const inputId = customId || `textfield-${generatedId}`;
+  const inputId = customId ?? `textfield-${generatedId}`;
   const helperTextId = helperText ? `${inputId}-helper` : undefined;
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
 

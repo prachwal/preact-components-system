@@ -3,6 +3,7 @@ import tsParser from '@typescript-eslint/parser';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 import prettierConfig from 'eslint-config-prettier';
 
@@ -30,7 +31,8 @@ export default [
       '@typescript-eslint': tseslint,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      'jsx-a11y': jsxA11y
+      'jsx-a11y': jsxA11y,
+      'import': importPlugin
     },
     rules: {
       // TypeScript-specific rules

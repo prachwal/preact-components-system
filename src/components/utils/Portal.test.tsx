@@ -1,5 +1,6 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/preact';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+
 import { Portal } from './Portal';
 
 describe('Portal', () => {
@@ -44,7 +45,7 @@ describe('Portal', () => {
   });
 
   it('renders inline when disabled', () => {
-    const { container } = render(
+    render(
       <div data-testid="wrapper">
         <Portal disabled>
           <div data-testid="portal-content">Inline Content</div>

@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import type { JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
-import clsx from 'clsx';
 import './Switch.scss';
 
 type SwitchSize = 'small' | 'medium' | 'large';
@@ -88,7 +88,7 @@ export const Switch = ({
   ...rest
 }: SwitchProps) => {
   const generatedId = useId();
-  const inputId = customId || `switch-${generatedId}`;
+  const inputId = customId ?? `switch-${generatedId}`;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const rootClasses = clsx(
@@ -123,9 +123,9 @@ export const Switch = ({
       />
       <span className="switch-track" aria-hidden="true">
         <span className="switch-thumb">
-          {(onLabel || offLabel) && (
+          {(onLabel ?? offLabel) && (
             <span className="switch-thumb-label">
-              {checked ? (onLabel || '') : (offLabel || '')}
+              {checked ? (onLabel ?? '') : (offLabel ?? '')}
             </span>
           )}
         </span>

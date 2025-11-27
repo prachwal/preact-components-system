@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Paper } from '../components/ui/Paper';
 import { h } from 'preact';
+
+import { Paper } from '../components/ui/Paper';
 
 const meta = {
   title: 'Components/Paper',

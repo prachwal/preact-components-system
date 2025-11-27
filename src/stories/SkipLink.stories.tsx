@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
+
 import SkipLink from '../components/common/SkipLink';
 
 const meta: Meta<typeof SkipLink> = {

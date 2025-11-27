@@ -1,6 +1,8 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/preact';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
 import Sidebar from './Sidebar';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {

@@ -1,7 +1,10 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/preact';
-import { Box } from './Box';
+import { describe, it, expect, vi } from 'vitest';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
+import { Box } from './Box';
+
 
 // Mock useBreakpoint hook
 const mockUseBreakpoint = vi.fn();

@@ -1,18 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { useState } from 'preact/hooks';
-import { ThemeProvider } from '../providers/ThemeProvider';
+
+import { Container } from '../components/layout/Container';
 import { Grid } from '../components/layout/Grid';
 import { Stack } from '../components/layout/Stack';
-import { Container } from '../components/layout/Container';
-import { Card, CardHeader, CardContent, CardActions } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { Typography } from '../components/ui/Typography';
 import { Alert } from '../components/ui/Alert';
-import { Paper } from '../components/ui/Paper';
+import { Button } from '../components/ui/Button';
+import { Card, CardHeader, CardContent, CardActions } from '../components/ui/Card';
 import { Icon } from '../components/ui/Icon';
-import { Portal } from '../components/utils/Portal';
+import { Paper } from '../components/ui/Paper';
+import { Typography } from '../components/ui/Typography';
 import { ClickAwayListener } from '../components/utils/ClickAwayListener';
 import { FocusTrap } from '../components/utils/FocusTrap';
+import { Portal } from '../components/utils/Portal';
+import { ThemeProvider } from '../providers/ThemeProvider';
 
 const meta = {
   title: 'Demo/Complete Showcase',
@@ -207,6 +208,14 @@ const DemoShowcase = () => {
                 zIndex: 9999,
               }}
               onClick={() => setModalOpen(false)}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setModalOpen(false);
+                }
+              }}
+              tabIndex={-1}
+              role="button"
+              aria-label="Close modal"
             >
               <FocusTrap active={modalOpen}>
                 <Card

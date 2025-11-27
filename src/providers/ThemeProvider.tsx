@@ -1,9 +1,10 @@
 import { useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'preact/hooks';
-import { ThemeContext } from '../contexts/ThemeContext';
-import type { ThemeMode } from '../types/theme';
-import type { Theme, ThemeOptions } from '../theme/types';
-import { createTheme } from '../theme/createTheme';
+
 import { THEME_STORAGE_KEY } from '../config/constants';
+import { ThemeContext } from '../contexts/ThemeContext';
+import { createTheme } from '../theme/createTheme';
+import type { Theme, ThemeOptions } from '../theme/types';
+import type { ThemeMode } from '../types/theme';
 
 const isValidTheme = (value: string): value is ThemeMode =>
   ['light', 'dark', 'system'].includes(value);
@@ -39,7 +40,7 @@ export const ThemeProvider = ({ children, theme: customTheme }: ThemeProviderPro
     
     // Create theme with effective mode
     const themeOptions: ThemeOptions = {
-      ...(customTheme || {}),
+      ...(customTheme ?? {}),
       palette: {
         ...(customTheme && 'palette' in customTheme ? customTheme.palette : {}),
         mode: effectiveMode,

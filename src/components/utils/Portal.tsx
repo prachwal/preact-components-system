@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'preact/hooks';
-import { createPortal } from 'preact/compat';
 import type { ComponentChildren } from 'preact';
+import { createPortal } from 'preact/compat';
+import { useEffect, useRef } from 'preact/hooks';
 
 export interface PortalProps {
   /**
@@ -61,7 +61,7 @@ export const Portal = ({ children, container, disabled = false }: PortalProps) =
     return <>{children}</>;
   }
 
-  const targetContainer = container || defaultContainer.current;
+  const targetContainer = container ?? defaultContainer.current;
 
   if (!targetContainer) {
     return null;

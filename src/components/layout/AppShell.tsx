@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'preact/hooks';
+
 import SkipLink from '../common/SkipLink';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Main from './Main';
+
 import { Footer } from './Footer';
+import Header from './Header';
+import Main from './Main';
+import Sidebar from './Sidebar';
 
 const AppShell = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

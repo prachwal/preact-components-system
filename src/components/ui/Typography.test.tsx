@@ -1,7 +1,10 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/preact';
-import { Typography } from './Typography';
+import { describe, it, expect } from 'vitest';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
+import { Typography } from './Typography';
+
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

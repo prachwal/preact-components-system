@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
+
 import { Box } from '../components/layout/Box';
 
 const meta = {

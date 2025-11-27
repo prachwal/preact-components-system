@@ -2,15 +2,6 @@
  * Application configuration constants
  */
 
-/** Global build-time injected variables interface */
-interface GlobalBuildVars {
-  __APP_VERSION__?: string;
-  __STORYBOOK_URL__?: string;
-  __DOCS_URL__?: string;
-  __COVERAGE_URL__?: string;
-  __REPOSITORY_URL__?: string;
-}
-
 /** Extend globalThis to include build variables */
 declare global {
   var __APP_VERSION__: string | undefined;
@@ -49,12 +40,12 @@ export const AVAILABLE_THEMES = ['light', 'dark', 'system'] as const;
  * Injected at build time via vite.config.ts
  * Use this for runtime version information
  */
-export const APP_VERSION = globalThis.__APP_VERSION__ || '0.0.0';
+export const APP_VERSION = globalThis.__APP_VERSION__ ?? '0.0.0';
 
 /**
  * Deployment URLs - injected at build time via vite.config.ts
  */
-export const STORYBOOK_URL = globalThis.__STORYBOOK_URL__ || 'https://prachwal.github.io/preact-components-system/storybook/';
-export const DOCS_URL = globalThis.__DOCS_URL__ || 'https://prachwal.github.io/preact-components-system/docs/';
-export const COVERAGE_URL = globalThis.__COVERAGE_URL__ || 'https://prachwal.github.io/preact-components-system/coverage/';
-export const REPOSITORY_URL = globalThis.__REPOSITORY_URL__ || 'https://github.com/prachwal/preact-components-system';
+export const STORYBOOK_URL = globalThis.__STORYBOOK_URL__ ?? 'https://prachwal.github.io/preact-components-system/storybook/';
+export const DOCS_URL = globalThis.__DOCS_URL__ ?? 'https://prachwal.github.io/preact-components-system/docs/';
+export const COVERAGE_URL = globalThis.__COVERAGE_URL__ ?? 'https://prachwal.github.io/preact-components-system/coverage/';
+export const REPOSITORY_URL = globalThis.__REPOSITORY_URL__ ?? 'https://github.com/prachwal/preact-components-system';

@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
+import { useEffect, useRef } from 'preact/hooks';
 
 export interface FocusTrapProps {
   /**

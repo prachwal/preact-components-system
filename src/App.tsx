@@ -1,5 +1,5 @@
-import { ThemeProvider } from './providers/ThemeProvider';
 import AppShell from './components/layout/AppShell';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 /**
  * Główny komponent aplikacji Preact Components System.

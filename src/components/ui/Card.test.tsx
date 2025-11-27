@@ -1,7 +1,10 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/preact';
-import { Card, CardHeader, CardContent, CardActions } from './Card';
+import { describe, it, expect } from 'vitest';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
+import { Card, CardHeader, CardContent, CardActions } from './Card';
+
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);

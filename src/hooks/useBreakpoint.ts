@@ -1,7 +1,9 @@
 import { useMemo } from 'preact/hooks';
+
 import { useTheme } from '../contexts/ThemeContext';
-import { useMediaQuery } from './useMediaQuery';
 import type { Breakpoint } from '../theme/types';
+
+import { useMediaQuery } from './useMediaQuery';
 
 type BreakpointDirection = 'up' | 'down' | 'only' | 'between';
 
@@ -37,6 +39,12 @@ export function useBreakpoint(
     return 'xs';
   }, [isXs, isSm, isMd, isLg, isXl]);
 
+  // Handle directional queries - call hooks unconditionally
+  const upQuery = useMediaQuery(direction === 'up' && breakpointOrStart ? theme.breakpoints.up(breakpointOrStart) : '');
+  const downQuery = useMediaQuery(direction === 'down' && breakpointOrStart ? theme.breakpoints.down(breakpointOrStart) : '');
+  const betweenQuery = useMediaQuery(direction === 'between' && breakpointOrStart && end ? theme.breakpoints.between(breakpointOrStart, end) : '');
+  const onlyQuery = useMediaQuery(direction === 'only' && breakpointOrStart ? theme.breakpoints.only(breakpointOrStart) : '');
+
   // If no direction specified, return current breakpoint
   if (!direction) {
     return currentBreakpoint;
@@ -44,23 +52,19 @@ export function useBreakpoint(
 
   // Handle directional queries
   if (direction === 'up' && breakpointOrStart) {
-    const matches = useMediaQuery(theme.breakpoints.up(breakpointOrStart));
-    return matches;
+    return upQuery;
   }
 
   if (direction === 'down' && breakpointOrStart) {
-    const matches = useMediaQuery(theme.breakpoints.down(breakpointOrStart));
-    return matches;
+    return downQuery;
   }
 
   if (direction === 'between' && breakpointOrStart && end) {
-    const matches = useMediaQuery(theme.breakpoints.between(breakpointOrStart, end));
-    return matches;
+    return betweenQuery;
   }
 
   if (direction === 'only' && breakpointOrStart) {
-    const matches = useMediaQuery(theme.breakpoints.only(breakpointOrStart));
-    return matches;
+    return onlyQuery;
   }
 
   return currentBreakpoint;

@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Checkbox } from '../components/ui/Checkbox';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+
+import { Checkbox } from '../components/ui/Checkbox';
 
 const meta = {
   title: 'Components/Forms/Checkbox',

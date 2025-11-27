@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/preact';
+import { describe, it, expect } from 'vitest';
+
 import { Container } from './Container';
 
 describe('Container', () => {

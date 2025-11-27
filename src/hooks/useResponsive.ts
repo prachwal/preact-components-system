@@ -1,6 +1,8 @@
 import { useMemo } from 'preact/hooks';
-import { useBreakpoint } from './useBreakpoint';
+
 import type { ResponsiveValue, Breakpoint } from '../theme/types';
+
+import { useBreakpoint } from './useBreakpoint';
 
 /**
  * Hook to resolve responsive values based on current breakpoint

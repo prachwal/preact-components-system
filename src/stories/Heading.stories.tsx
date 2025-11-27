@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
+
 import Heading from '../components/common/Heading';
 
 const meta: Meta<typeof Heading> = {

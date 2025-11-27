@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Switch } from '../components/ui/Switch';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+
+import { Switch } from '../components/ui/Switch';
 
 const meta = {
   title: 'Components/Forms/Switch',

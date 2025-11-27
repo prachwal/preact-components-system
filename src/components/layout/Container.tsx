@@ -1,5 +1,5 @@
-import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
+import type { ComponentChildren, JSX } from 'preact';
 import './Container.scss';
 
 type MaxWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;

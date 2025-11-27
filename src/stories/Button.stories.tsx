@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
-import { Button } from '../components/ui/Button';
 import { h } from 'preact';
+
+import { Button } from '../components/ui/Button';
 
 const meta = {
   title: 'Components/Button',

@@ -1,6 +1,8 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/preact';
+import { describe, expect, it } from 'vitest';
+import { render, screen } from '@testing-library/preact';
+
 import { ThemeProvider } from '../../providers/ThemeProvider';
+
 import AppShell from './AppShell';
 
 const renderWithTheme = (component: preact.ComponentChildren) => {
