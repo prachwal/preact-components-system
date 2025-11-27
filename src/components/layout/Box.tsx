@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { h } from 'preact';
 import type { ComponentChildren } from 'preact';
 
-import { useResponsive } from '../../hooks/useResponsive';
+import { useResponsiveStyles } from '../../hooks/useResponsiveStyles';
 import type { ResponsiveValue } from '../../theme/types';
 
 export interface BoxProps {
@@ -110,82 +110,17 @@ export const Box = ({
   children,
   ...rest
 }: BoxProps) => {
-  const resolvedP = useResponsive(p);
-  const resolvedPt = useResponsive(pt);
-  const resolvedPr = useResponsive(pr);
-  const resolvedPb = useResponsive(pb);
-  const resolvedPl = useResponsive(pl);
-  const resolvedPx = useResponsive(px);
-  const resolvedPy = useResponsive(py);
-  const resolvedM = useResponsive(m);
-  const resolvedMt = useResponsive(mt);
-  const resolvedMr = useResponsive(mr);
-  const resolvedMb = useResponsive(mb);
-  const resolvedMl = useResponsive(ml);
-  const resolvedMx = useResponsive(mx);
-  const resolvedMy = useResponsive(my);
-  const resolvedDisplay = useResponsive(display);
-
-  const spacing = 8; // Default spacing unit
+  // Single hook call instead of 13+
+  const responsiveStyles = useResponsiveStyles({
+    p, pt, pr, pb, pl, px, py,
+    m, mt, mr, mb, ml, mx, my,
+    display
+  });
 
   const boxStyle: h.JSX.CSSProperties = {
     ...style,
+    ...responsiveStyles, // Apply all resolved styles at once
   };
-
-  // Apply padding
-  if (resolvedP !== undefined) {
-    boxStyle.padding = `${resolvedP * spacing}px`;
-  }
-  if (resolvedPt !== undefined) {
-    boxStyle.paddingTop = `${resolvedPt * spacing}px`;
-  }
-  if (resolvedPr !== undefined) {
-    boxStyle.paddingRight = `${resolvedPr * spacing}px`;
-  }
-  if (resolvedPb !== undefined) {
-    boxStyle.paddingBottom = `${resolvedPb * spacing}px`;
-  }
-  if (resolvedPl !== undefined) {
-    boxStyle.paddingLeft = `${resolvedPl * spacing}px`;
-  }
-  if (resolvedPx !== undefined) {
-    boxStyle.paddingLeft = `${resolvedPx * spacing}px`;
-    boxStyle.paddingRight = `${resolvedPx * spacing}px`;
-  }
-  if (resolvedPy !== undefined) {
-    boxStyle.paddingTop = `${resolvedPy * spacing}px`;
-    boxStyle.paddingBottom = `${resolvedPy * spacing}px`;
-  }
-
-  // Apply margin
-  if (resolvedM !== undefined) {
-    boxStyle.margin = `${resolvedM * spacing}px`;
-  }
-  if (resolvedMt !== undefined) {
-    boxStyle.marginTop = `${resolvedMt * spacing}px`;
-  }
-  if (resolvedMr !== undefined) {
-    boxStyle.marginRight = `${resolvedMr * spacing}px`;
-  }
-  if (resolvedMb !== undefined) {
-    boxStyle.marginBottom = `${resolvedMb * spacing}px`;
-  }
-  if (resolvedMl !== undefined) {
-    boxStyle.marginLeft = `${resolvedMl * spacing}px`;
-  }
-  if (resolvedMx !== undefined) {
-    boxStyle.marginLeft = `${resolvedMx * spacing}px`;
-    boxStyle.marginRight = `${resolvedMx * spacing}px`;
-  }
-  if (resolvedMy !== undefined) {
-    boxStyle.marginTop = `${resolvedMy * spacing}px`;
-    boxStyle.marginBottom = `${resolvedMy * spacing}px`;
-  }
-
-  // Apply display
-  if (resolvedDisplay !== undefined) {
-    boxStyle.display = resolvedDisplay;
-  }
 
   return (
     <Component className={clsx('box', className)} style={boxStyle} {...rest}>
