@@ -58,7 +58,7 @@ export const Paper = ({
   };
 
   return (
-    <Component className={classes} style={paperStyle} {...(rest as any)}>
+    <Component className={classes} style={paperStyle} {...(rest as Record<string, unknown>)}>
       {children}
     </Component>
   );

@@ -11,10 +11,12 @@ afterEach(() => {
 });
 
 // Define global constants used in the app
-(globalThis as any).__APP_VERSION__ = '1.0.1';
-(globalThis as any).__STORYBOOK_URL__ =
+(globalThis as Record<string, unknown>).__APP_VERSION__ = '1.0.1';
+(globalThis as Record<string, unknown>).__STORYBOOK_URL__ =
   'https://prachwal.github.io/preact-components-system/storybook/';
-(globalThis as any).__DOCS_URL__ = 'https://github.com/prachwal/preact-components-system/docs/';
-(globalThis as any).__COVERAGE_URL__ =
+(globalThis as Record<string, unknown>).__DOCS_URL__ =
+  'https://github.com/prachwal/preact-components-system/docs/';
+(globalThis as Record<string, unknown>).__COVERAGE_URL__ =
   'https://github.com/prachwal/preact-components-system/coverage/';
-(globalThis as any).__REPOSITORY_URL__ = 'https://github.com/prachwal/preact-components-system';
+(globalThis as Record<string, unknown>).__REPOSITORY_URL__ =
+  'https://github.com/prachwal/preact-components-system';

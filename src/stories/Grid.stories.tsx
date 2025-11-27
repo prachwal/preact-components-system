@@ -15,7 +15,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const DemoBox = ({ children, ...props }: any) => (
+const DemoBox = ({ children, ...props }: Record<string, unknown>) => (
   <div
     style={{
       padding: '16px',

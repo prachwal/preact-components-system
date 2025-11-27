@@ -36,11 +36,11 @@ type DeepMerge<T, U> = U extends object
     : U
   : U;
 
-function deepMerge<T extends Record<string, any>, U extends Record<string, any>>(
+function deepMerge<T extends Record<string, unknown>, U extends Record<string, unknown>>(
   target: T,
   source: U
 ): DeepMerge<T, U> {
-  const output = { ...target } as Record<string, any>;
+  const output = { ...target } as Record<string, unknown>;
 
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key) => {
@@ -75,7 +75,7 @@ function isObject(item: unknown): item is Record<string, unknown> {
 function generatePaletteColor(color: SimplePaletteColor | Partial<PaletteColor>): PaletteColor {
   const { main, light, dark, contrastText } = color;
 
-  if (!main) {
+  if (main == null) {
     throw new Error('Main color is required');
   }
 

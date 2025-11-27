@@ -111,7 +111,7 @@ export const WithTitle: Story = {
 export const WithCloseButton: Story = {
   render: () => {
     return (
-      <Alert severity='warning' onClose={() => console.log('Close clicked')}>
+      <Alert severity='warning' onClose={() => {}}>
         <AlertTitle>Dismissible Alert</AlertTitle>
         This alert can be closed by clicking the close button
       </Alert>
@@ -139,7 +139,7 @@ export const WithAction: Story = {
             View
           </Button>
         }
-        onClose={() => console.log('Close clicked')}
+        onClose={() => {}}
       >
         <AlertTitle>Success!</AlertTitle>
         Your changes have been saved successfully

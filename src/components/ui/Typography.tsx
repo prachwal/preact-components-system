@@ -100,7 +100,7 @@ export const Typography = ({
   ...rest
 }: TypographyProps) => {
   const theme = useTheme();
-  const Component = (component ?? variantMapping[variant]) as any;
+  const Component = (component ?? variantMapping[variant]) as string;
 
   const getColor = () => {
     switch (color) {

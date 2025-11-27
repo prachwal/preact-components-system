@@ -19,13 +19,13 @@ import { useBreakpoint } from './useBreakpoint';
  * });
  * ```
  */
-export function useResponsiveBatch<T extends Record<string, ResponsiveValue<any>>>(
+export function useResponsiveBatch<T extends Record<string, ResponsiveValue<unknown>>>(
   values: T
 ): { [K in keyof T]: T[K] extends ResponsiveValue<infer U> ? U : never } {
   const currentBreakpoint = useBreakpoint();
 
   return useMemo(() => {
-    const resolved: any = {};
+    const resolved: Record<string, unknown> = {};
 
     // Breakpoint resolution order
     const breakpointOrder: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
@@ -37,10 +37,10 @@ export function useResponsiveBatch<T extends Record<string, ResponsiveValue<any>
         continue;
       }
 
-      const responsiveValue = value as Partial<Record<Breakpoint, any>>;
+      const responsiveValue = value as Partial<Record<Breakpoint, unknown>>;
 
       // Find value for current breakpoint (fallback to smaller breakpoints)
-      let resolvedValue: any = undefined;
+      let resolvedValue: unknown = undefined;
       for (let i = currentIndex; i >= 0; i--) {
         const bp = breakpointOrder[i];
         if (responsiveValue[bp] !== undefined) {

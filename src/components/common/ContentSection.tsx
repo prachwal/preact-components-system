@@ -78,8 +78,8 @@ export const ContentSection = ({
 
   return (
     <Wrapper className={wrapperClass}>
-      {title ? <Heading level={level}>{title}</Heading> : null}
-      {desc ? <p>{desc}</p> : null}
+      {title != null ? <Heading level={level}>{title}</Heading> : null}
+      {desc != null ? <p>{desc}</p> : null}
       {hasChildrenContainer ? <div className={gridClass}>{children}</div> : children}
     </Wrapper>
   );

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, afterEach } from 'vitest';
 
-import { render, screen, waitFor } from '../../test/test-utils';
+import { render, screen } from '../../test/test-utils';
 
 import { FocusTrap } from './FocusTrap';
 
@@ -88,7 +88,7 @@ describe('FocusTrap', () => {
     });
 
     it('does not trap focus when inactive', () => {
-      const { container } = render(
+      render(
         <FocusTrap active={false}>
           <button>Button</button>
         </FocusTrap>
@@ -232,7 +232,7 @@ describe('FocusTrap', () => {
     });
 
     it('ignores disabled elements', () => {
-      const { container } = render(
+      render(
         <FocusTrap active>
           <button disabled>Disabled Button</button>
           <input disabled placeholder='Disabled Input' />

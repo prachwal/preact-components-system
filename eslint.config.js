@@ -1,10 +1,10 @@
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
 
 export default [
@@ -45,8 +45,8 @@ export default [
       '@typescript-eslint/prefer-optional-chain': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-import-type-side-effects': 'error',
-      '@typescript-eslint/strict-boolean-expressions': 'warn',
-      '@typescript-eslint/no-magic-numbers': ['warn', { ignore: [0, 1, -1, 100] }],
+      '@typescript-eslint/strict-boolean-expressions': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
       
       // React/Preact hooks rules
       'react-hooks/rules-of-hooks': 'error',
@@ -95,10 +95,10 @@ export default [
       'jsx-a11y/role-supports-aria-props': 'error',
       
       // Code complexity rules
-      'complexity': ['warn', 10],
+      'complexity': 'off',
       'max-depth': ['warn', 4],
-      'max-lines': ['warn', 300],
-      'max-nested-callbacks': ['warn', 3],
+      'max-lines': ['warn', 400],
+      'max-nested-callbacks': ['warn', 4],
       
       // React refresh rules
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }]

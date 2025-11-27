@@ -67,7 +67,7 @@ export type IconName =
 // This explicit mapping is necessary for proper tree-shaking.
 // Dynamic resolution (e.g., LucideIcons[name]) would include ALL icons in the bundle.
 // By explicitly importing and mapping only the icons we need, we reduce bundle size by ~96%.
-const iconRegistry: Record<IconName, FunctionComponent<LucideProps>> = {
+const iconRegistry: Record<IconName, FunctionComponent<LucideProps> | undefined> = {
   Home,
   Star,
   Info,
@@ -152,8 +152,7 @@ export const Icon = ({
   const IconComponent = iconRegistry[name];
 
   if (!IconComponent) {
-    console.warn(`Icon "${name}" not found in lucide-preact`);
-    return null;
+    throw new Error(`Icon "${name}" not found in lucide-preact`);
   }
 
   const iconSize = typeof size === 'number' ? size : sizeMap[size];
@@ -163,8 +162,8 @@ export const Icon = ({
     color,
     className: clsx('icon', className),
     ...(decorative ? { 'aria-hidden': true } : {}),
-    ...(!decorative && ariaLabel ? { 'aria-label': ariaLabel } : {}),
-    ...(!decorative && !ariaLabel ? { 'aria-label': name, role: 'img' } : {}),
+    ...(!decorative && ariaLabel != null ? { 'aria-label': ariaLabel } : {}),
+    ...(!decorative && ariaLabel == null ? { 'aria-label': name, role: 'img' } : {}),
     ...rest,
   };
 

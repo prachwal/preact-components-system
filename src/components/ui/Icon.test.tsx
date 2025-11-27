@@ -68,7 +68,7 @@ describe('Icon', () => {
   });
 
   it('returns null for non-existent icon', () => {
-    const { container } = render(<Icon name={'NonExistent' as any} />);
+    const { container } = render(<Icon name={'NonExistent' as IconName} />);
     expect(container.querySelector('svg')).not.toBeInTheDocument();
   });
 });

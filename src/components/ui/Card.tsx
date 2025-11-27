@@ -93,12 +93,12 @@ export const CardHeader = ({
 
   return (
     <div className={classes} style={style}>
-      {avatar && <div className='card-header-avatar'>{avatar}</div>}
+      {Boolean(avatar) && <div className='card-header-avatar'>{avatar}</div>}
       <div className='card-header-content'>
         <div className='card-header-title'>{title}</div>
-        {subheader && <div className='card-header-subheader'>{subheader}</div>}
+        {Boolean(subheader) && <div className='card-header-subheader'>{subheader}</div>}
       </div>
-      {action && <div className='card-header-action'>{action}</div>}
+      {Boolean(action) && <div className='card-header-action'>{action}</div>}
     </div>
   );
 };
@@ -152,12 +152,20 @@ export const CardMedia = ({
   };
 
   if (MediaComponent === 'img') {
-    return <img src={image} alt={alt} className={classes} style={mediaStyle} {...(rest as any)} />;
+    return (
+      <img
+        src={image}
+        alt={alt}
+        className={classes}
+        style={mediaStyle}
+        {...(rest as Record<string, unknown>)}
+      />
+    );
   }
 
   if (MediaComponent === 'video') {
     return (
-      <video className={classes} style={mediaStyle} {...(rest as any)}>
+      <video className={classes} style={mediaStyle} {...(rest as Record<string, unknown>)}>
         {children}
       </video>
     );
@@ -168,11 +176,11 @@ export const CardMedia = ({
       className={classes}
       style={{
         ...mediaStyle,
-        backgroundImage: image ? `url(${image})` : undefined,
+        backgroundImage: image != null ? `url(${image})` : undefined,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      {...(rest as any)}
+      {...(rest as Record<string, unknown>)}
     >
       {children}
     </div>

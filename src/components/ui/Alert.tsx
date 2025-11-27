@@ -84,9 +84,9 @@ export const Alert = ({
 
   return (
     <div className={classes} style={style} role='alert' {...rest}>
-      {displayIcon && <div className='alert-icon'>{displayIcon}</div>}
+      {Boolean(displayIcon) && <div className='alert-icon'>{displayIcon}</div>}
       <div className='alert-message'>{children}</div>
-      {action && <div className='alert-action'>{action}</div>}
+      {Boolean(action) && <div className='alert-action'>{action}</div>}
       {onClose && (
         <button type='button' className='alert-close' onClick={onClose} aria-label='Close'>
           <svg width='18' height='18' viewBox='0 0 24 24' fill='currentColor'>

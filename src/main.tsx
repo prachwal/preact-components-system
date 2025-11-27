@@ -10,10 +10,5 @@ const appElement = document.getElementById('app');
 if (appElement) {
   render(<App />, appElement);
 } else {
-  console.error('Element with id "app" not found');
-  // Fallback: create the element if it doesn't exist
-  const fallbackElement = document.createElement('div');
-  fallbackElement.id = 'app';
-  document.body.appendChild(fallbackElement);
-  render(<App />, fallbackElement);
+  throw new Error('Element with id "app" not found');
 }

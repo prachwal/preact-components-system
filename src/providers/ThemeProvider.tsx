@@ -11,7 +11,7 @@ const isValidTheme = (value: string): value is ThemeMode =>
 
 const getStoredTheme = (): ThemeMode => {
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  return savedTheme && isValidTheme(savedTheme) ? savedTheme : 'system';
+  return savedTheme != null && isValidTheme(savedTheme) ? savedTheme : 'system';
 };
 
 export interface ThemeProviderProps {

@@ -152,7 +152,12 @@ export const Stack = ({
   const semanticRole = landmark ? undefined : role;
 
   return (
-    <Component className={classes} style={style} role={semanticRole as any} aria-label={ariaLabel}>
+    <Component
+      className={classes}
+      style={style}
+      role={semanticRole as string}
+      aria-label={ariaLabel}
+    >
       {childrenWithDivider}
     </Component>
   );

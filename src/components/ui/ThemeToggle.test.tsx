@@ -37,10 +37,11 @@ describe('ThemeToggle', () => {
     it('changes theme when clicked', () => {
       const { container } = renderWithTheme(<ThemeToggle />);
       const button = container.querySelector('button');
-      const initialLabel = button?.getAttribute('aria-label');
+      expect(button).toBeTruthy();
+      const initialLabel = button.getAttribute('aria-label');
 
-      fireEvent.click(button!);
-      const newLabel = button?.getAttribute('aria-label');
+      fireEvent.click(button);
+      const newLabel = button.getAttribute('aria-label');
 
       expect(newLabel).not.toBe(initialLabel);
     });

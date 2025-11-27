@@ -73,7 +73,8 @@ describe('Button', () => {
       const handleClick = vi.fn();
       const { container } = renderWithTheme(<Button onClick={handleClick}>Click me</Button>);
       const button = container.querySelector('button');
-      fireEvent.click(button!);
+      expect(button).toBeTruthy();
+      fireEvent.click(button);
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
   });

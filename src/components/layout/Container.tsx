@@ -90,7 +90,7 @@ export const Container = ({
     <Component
       className={classes}
       style={style}
-      role={role as any}
+      role={role as string}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
     >

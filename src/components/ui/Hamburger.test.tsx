@@ -56,7 +56,8 @@ describe('Hamburger', () => {
     const mockClick = vi.fn();
     const { container } = render(<Hamburger onClick={mockClick} isOpen={false} />);
     const button = container.querySelector('button');
-    fireEvent.click(button!);
+    expect(button).toBeTruthy();
+    fireEvent.click(button);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });
