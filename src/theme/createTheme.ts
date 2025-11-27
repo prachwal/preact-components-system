@@ -14,19 +14,29 @@ import { generateColorVariants } from './colorUtils';
 /**
  * Deep merge utility
  */
-function deepMerge<T>(target: any, source: any): T {
+// Overload for Record types (objects with string keys)
+function deepMerge<T extends Record<string, any>>(target: T, source: Partial<T>): T;
+
+// Overload for non-Record types (specific theme interfaces)
+function deepMerge<T extends object>(target: T, source: Partial<T>): T;
+
+// Implementation
+function deepMerge(target: object, source: Partial<object>): object {
   const output = { ...target };
   
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
-          output[key] = source[key];
+          (output as Record<string, unknown>)[key] = source[key] as unknown;
         } else {
-          output[key] = deepMerge(target[key], source[key]);
+          (output as Record<string, unknown>)[key] = deepMerge(
+            (target as Record<string, unknown>)[key] as object,
+            source[key] as object
+          );
         }
       } else {
-        output[key] = source[key];
+        (output as Record<string, unknown>)[key] = source[key] as unknown;
       }
     });
   }
@@ -34,8 +44,8 @@ function deepMerge<T>(target: any, source: any): T {
   return output;
 }
 
-function isObject(item: any): boolean {
-  return item && typeof item === 'object' && !Array.isArray(item);
+function isObject(item: unknown): item is Record<string, unknown> {
+  return item !== null && typeof item === 'object' && !Array.isArray(item);
 }
 
 /**

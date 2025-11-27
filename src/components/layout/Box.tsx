@@ -81,6 +81,10 @@ export interface BoxProps {
    * Children elements
    */
   children?: ComponentChildren;
+  /**
+   * Additional HTML attributes
+   */
+  [key: string]: unknown;
 }
 
 export const Box = ({
