@@ -18,8 +18,9 @@ const DemoContent = () => (
   <div
     style={{
       padding: '32px',
-      backgroundColor: '#e3f2fd',
-      border: '2px dashed #1976d2',
+      backgroundColor: 'var(--bg-secondary)',
+      border: '2px dashed var(--accent)',
+      color: 'var(--text)',
       textAlign: 'center',
     }}
   >

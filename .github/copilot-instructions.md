@@ -53,9 +53,15 @@ Custom theme implementation supporting 'light', 'dark', 'system':
 - **Storybook**: `npm run storybook` for component development and testing
 - **Documentation**: `npm run docs` generates TypeDoc documentation
 - **Type Checking**: `npm run type-check` for strict TypeScript validation
-- **File Merging**: `npm run merge-ts` creates `merged-ts-files.txt` for AI analysis
+- **Bundle Analysis**: `npm run build:analyze` opens bundle visualizer
+- **Testing**: `npm run test:coverage` for coverage reports (77/77 tests passing)
 
-## Versioning
+## Testing Setup
+
+- **Framework**: Vitest with @testing-library/preact and @testing-library/jest-dom
+- **Test Files**: Colocated with components (e.g., `Button.test.tsx`)
+- **Coverage**: Comprehensive component testing with 100% pass rate
+- **UI Testing**: `npm run test:ui` launches Vitest UI for interactive testing
 App version injected via Vite's `define` from `package.json` as `__APP_VERSION__` global constant. Access via `useAppVersion()` hook or `APP_VERSION` from `src/config/constants.ts`.
 
 ## Key Files
@@ -65,6 +71,13 @@ App version injected via Vite's `define` from `package.json` as `__APP_VERSION__
 - `src/components/layout/Sidebar.tsx`: Responsive navigation with accessibility features
 - `tsconfig.app.json`: React path mapping for Preact compatibility (`"react": ["./node_modules/preact/compat/"]`)
 - `index.ts`: Library entry point exporting components
+
+## Documentation & Planning
+
+- `plans/STATUS.md`: Current project status, achievements, and metrics
+- `plans/IMPLEMENTATION_SUMMARY.md`: Development summary and accomplishments
+- `plans/README.md`: Guide to planning documents and archive
+- `plans/archive/`: Completed planning documents for reference
 
 ## Build Configuration
 - **Vite**: Configured for library mode with external dependencies (`preact`, `preact/hooks`)

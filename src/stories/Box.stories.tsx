@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { Box } from '../components/layout/Box';
-import { h } from 'preact';
 
 const meta = {
   title: 'Layout/Box',
@@ -16,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Box style={{ backgroundColor: '#e3f2fd', border: '1px solid #1976d2' }}>
+    <Box style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)', border: '1px solid var(--border)' }}>
       Default Box Content
     </Box>
   ),
@@ -25,16 +24,16 @@ export const Default: Story = {
 export const Padding: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Box p={1} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box p={1} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Padding 1 (8px)
       </Box>
-      <Box p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Padding 2 (16px)
       </Box>
-      <Box p={4} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box p={4} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Padding 4 (32px)
       </Box>
-      <Box px={2} py={1} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box px={2} py={1} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Horizontal 2, Vertical 1
       </Box>
     </div>
@@ -43,14 +42,14 @@ export const Padding: Story = {
 
 export const Margin: Story = {
   render: () => (
-    <div style={{ backgroundColor: '#f5f5f5', padding: '8px' }}>
-      <Box m={2} p={2} style={{ backgroundColor: '#e3f2fd' }}>
+    <div style={{ backgroundColor: 'var(--bg)', color: 'var(--text)', padding: '8px' }}>
+      <Box m={2} p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Margin 2 (16px)
       </Box>
-      <Box mt={3} p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box mt={3} p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Margin Top 3 (24px)
       </Box>
-      <Box mx={4} p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box mx={4} p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Margin Horizontal 4 (32px)
       </Box>
     </div>
@@ -61,15 +60,15 @@ export const Display: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <Box display="flex" style={{ gap: '8px' }}>
-        <Box p={2} style={{ backgroundColor: '#e3f2fd', flex: 1 }}>Flex Item 1</Box>
-        <Box p={2} style={{ backgroundColor: '#e3f2fd', flex: 1 }}>Flex Item 2</Box>
+        <Box p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)', flex: 1 }}>Flex Item 1</Box>
+        <Box p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)', flex: 1 }}>Flex Item 2</Box>
       </Box>
-      <Box display="inline-block" p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box display="inline-block" p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Inline Block
       </Box>
       <Box display="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <Box p={2} style={{ backgroundColor: '#e3f2fd' }}>Grid Item 1</Box>
-        <Box p={2} style={{ backgroundColor: '#e3f2fd' }}>Grid Item 2</Box>
+        <Box p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>Grid Item 1</Box>
+        <Box p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>Grid Item 2</Box>
       </Box>
     </div>
   ),
@@ -78,13 +77,13 @@ export const Display: Story = {
 export const AsComponent: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Box component="section" p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box component="section" p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Rendered as &lt;section&gt;
       </Box>
-      <Box component="article" p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box component="article" p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Rendered as &lt;article&gt;
       </Box>
-      <Box component="header" p={2} style={{ backgroundColor: '#e3f2fd' }}>
+      <Box component="header" p={2} style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text)' }}>
         Rendered as &lt;header&gt;
       </Box>
     </div>
@@ -99,16 +98,17 @@ export const Combined: Story = {
       m={2}
       display="flex"
       style={{
-        backgroundColor: '#e3f2fd',
+        backgroundColor: 'var(--bg-secondary)',
+        color: 'var(--text)',
         borderRadius: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        boxShadow: 'var(--shadow-sm)',
         gap: '16px',
       }}
     >
-      <Box p={2} style={{ backgroundColor: 'white', flex: 1, borderRadius: '4px' }}>
+      <Box p={2} style={{ backgroundColor: 'var(--bg)', color: 'var(--text)', flex: 1, borderRadius: '4px' }}>
         Content 1
       </Box>
-      <Box p={2} style={{ backgroundColor: 'white', flex: 1, borderRadius: '4px' }}>
+      <Box p={2} style={{ backgroundColor: 'var(--bg)', color: 'var(--text)', flex: 1, borderRadius: '4px' }}>
         Content 2
       </Box>
     </Box>
