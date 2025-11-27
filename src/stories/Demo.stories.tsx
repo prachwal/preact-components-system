@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { useState } from 'preact/hooks';
 
-import { Container } from '../components/layout/Container';
-import { Grid } from '../components/layout/Grid';
-import { Stack } from '../components/layout/Stack';
-import { Alert } from '../components/ui/Alert';
-import { Button } from '../components/ui/Button';
-import { Card, CardHeader, CardContent, CardActions } from '../components/ui/Card';
-import { Icon } from '../components/ui/Icon';
-import { Paper } from '../components/ui/Paper';
-import { Typography } from '../components/ui/Typography';
-import { ClickAwayListener } from '../components/utils/ClickAwayListener';
-import { FocusTrap } from '../components/utils/FocusTrap';
-import { Portal } from '../components/utils/Portal';
-import { ThemeProvider } from '../providers/ThemeProvider';
+import { Container } from '../lib/components/layout/Container';
+import { Grid } from '../lib/components/layout/Grid';
+import { Stack } from '../lib/components/layout/Stack';
+import { Alert } from '../lib/components/ui/Alert';
+import { Button } from '../lib/components/ui/Button';
+import { Card, CardHeader, CardContent, CardActions } from '../lib/components/ui/Card';
+import { Icon } from '../lib/components/ui/Icon';
+import { Paper } from '../lib/components/ui/Paper';
+import { Typography } from '../lib/components/ui/Typography';
+import { ClickAwayListener } from '../lib/components/utils/ClickAwayListener';
+import { FocusTrap } from '../lib/components/utils/FocusTrap';
+import { Portal } from '../lib/components/utils/Portal';
+import { ThemeProvider } from '../lib/providers/ThemeProvider';
 
 const meta = {
   title: 'Demo/Complete Showcase',

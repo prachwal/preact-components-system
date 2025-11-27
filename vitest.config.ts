@@ -9,6 +9,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: true,
+    types: ['@testing-library/jest-dom'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'cobertura'],

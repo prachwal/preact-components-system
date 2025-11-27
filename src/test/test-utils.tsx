@@ -11,7 +11,7 @@ import {
 } from '@testing-library/preact';
 import type { ComponentChildren } from 'preact';
 
-import { ThemeProvider } from '../providers/ThemeProvider';
+import { ThemeProvider } from '../lib/providers/ThemeProvider';
 
 // Explicitly export testing library functions
 export { screen, fireEvent, waitFor, act, cleanup };

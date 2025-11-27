@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 
-import { Button } from '../components/ui/Button';
-import { Card, CardHeader, CardMedia, CardContent, CardActions } from '../components/ui/Card';
+import { Button } from '../lib/components/ui/Button';
+import { Card, CardHeader, CardMedia, CardContent, CardActions } from '../lib/components/ui/Card';
 
 const meta = {
   title: 'Components/Card',

@@ -1,26 +1,26 @@
-export { default as App } from './src/App';
+export { default as App } from './src/demo/App';
 
 // Theme
-export * from './src/theme';
-export { ThemeProvider } from './src/providers/ThemeProvider';
-export type { ThemeProviderProps } from './src/providers/ThemeProvider';
-export { useTheme } from './src/contexts/ThemeContext';
-export type { ThemeContextType, ThemeMode } from './src/types/theme';
+export * from './src/lib/theme';
+export { ThemeProvider } from './src/lib/providers/ThemeProvider';
+export type { ThemeProviderProps } from './src/lib/providers/ThemeProvider';
+export { useTheme } from './src/lib/contexts/ThemeContext';
+export type { ThemeContextType, ThemeMode } from './src/lib/types/theme';
 
 // Layout Components
-export * from './src/components/layout';
+export * from './src/lib/components/layout';
 
 // UI Components
-export * from './src/components/ui';
+export * from './src/lib/components/ui';
 
 // Common Components
-export * from './src/components/common';
+export * from './src/lib/components/common';
 
 // Utility Components
-export * from './src/components/utils';
+export * from './src/lib/components/utils';
 
 // Hooks
-export * from './src/hooks';
+export * from './src/lib/hooks';
 
 // Constants
-export * from './src/config/constants';
+export * from './src/lib/config/constants';

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 
-import { Box } from '../components/layout/Box';
+import { Box } from '../lib/components/layout/Box';
 
 const meta = {
   title: 'Layout/Box',

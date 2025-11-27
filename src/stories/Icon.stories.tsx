@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 
-import { Icon, type IconName } from '../components/ui/Icon';
+import { Icon, type IconName } from '../lib/components/ui/Icon';
 
 const meta = {
   title: 'UI/Icon',

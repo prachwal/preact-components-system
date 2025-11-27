@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 
-import { Grid } from '../components/layout/Grid';
+import { Grid } from '../lib/components/layout/Grid';
 
 const meta = {
   title: 'Layout/Grid',

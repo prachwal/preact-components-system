@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
-import { Switch } from '../components/ui/Switch';
+import { Switch } from '../lib/components/ui/Switch';
 
 const meta = {
   title: 'Components/Forms/Switch',

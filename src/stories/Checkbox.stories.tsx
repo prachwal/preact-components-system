@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
-import { Checkbox } from '../components/ui/Checkbox';
+import { Checkbox } from '../lib/components/ui/Checkbox';
 
 const meta = {
   title: 'Components/Forms/Checkbox',

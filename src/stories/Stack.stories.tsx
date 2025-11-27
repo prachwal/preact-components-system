@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 
-import { Stack } from '../components/layout/Stack';
+import { Stack } from '../lib/components/layout/Stack';
 
 const meta = {
   title: 'Layout/Stack',

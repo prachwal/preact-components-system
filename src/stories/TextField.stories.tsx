@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 
-import { TextField } from '../components/ui/TextField';
+import { TextField } from '../lib/components/ui/TextField';
 
 const meta = {
   title: 'Components/Forms/TextField',

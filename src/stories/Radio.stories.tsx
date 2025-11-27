@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
-import { Radio, RadioGroup } from '../components/ui/Radio';
+import { Radio, RadioGroup } from '../lib/components/ui/Radio';
 
 const meta = {
   title: 'Components/Forms/Radio',

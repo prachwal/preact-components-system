@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 
-import { Typography } from '../components/ui/Typography';
+import { Typography } from '../lib/components/ui/Typography';
 
 const meta = {
   title: 'Components/Typography',
