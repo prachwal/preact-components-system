@@ -3,12 +3,51 @@
   "version": "1.0.1",
   "description": "A system of reusable Preact components",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "style": "dist/index.css",
   "files": [
     "dist"
   ],
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "style": "./dist/index.css",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks.d.ts",
+      "import": "./dist/hooks.mjs",
+      "require": "./dist/hooks.js"
+    },
+    "./layout": {
+      "types": "./dist/layout.d.ts",
+      "import": "./dist/layout.mjs",
+      "require": "./dist/layout.js"
+    },
+    "./ui": {
+      "types": "./dist/ui.d.ts",
+      "import": "./dist/ui.mjs",
+      "require": "./dist/ui.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs",
+      "require": "./dist/utils.js"
+    },
+    "./components": {
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.mjs",
+      "require": "./dist/components.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/prachwal/preact-components-system.git"
@@ -17,10 +56,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p tsconfig.lib.json && npm run build:css && vite build",
+    "build": "npm run build:lib && npm run build:css",
+    "build:lib": "tsc -p tsconfig.lib.json && vite build --mode lib",
+    "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
     "build:app": "vite build --config vite.config.app.ts",
     "build:analyze": "ANALYZE=true npm run build",
-    "build:css": "sass src/styles/index.scss dist/index.css --style=compressed",
+    "build:clean": "rimraf dist",
     "type-check": "tsc --noEmit",
     "test": "NO_COLOR=1 vitest run",
     "test:ui": "vitest --ui",
@@ -75,6 +116,7 @@
     "jest-axe": "^10.0.0",
     "jsdom": "^27.1.0",
     "prettier": "^3.7.1",
+    "rimraf": "^6.0.1",
     "rollup-plugin-visualizer": "^6.0.5",
     "sass": "^1.93.3",
     "storybook": "^10.0.2",
@@ -82,5 +124,18 @@
     "typescript": "~5.9.3",
     "vite": "^7.1.12",
     "vitest": "^4.0.6"
+  },
+  "keywords": [
+    "preact",
+    "components",
+    "ui",
+    "typescript",
+    "javascript",
+    "library",
+    "design-system"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
   }
 }

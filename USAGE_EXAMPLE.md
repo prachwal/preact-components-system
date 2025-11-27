@@ -104,7 +104,7 @@ export function ComponentExamples() {
 
 Po instalacji biblioteki w Twoim projekcie:
 
-```
+```text
 node_modules/preact-components-system/
 ├── dist/
 │   ├── index.js          # ES modules

@@ -1,7 +1,9 @@
-import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
-import packageJson from './package.json'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig } from 'vite'
+
+import packageJson from './package.json'
+
 
 // Deployment URLs - can be overridden via environment variables
 const DEPLOYMENT_BASE_URL = process.env.DEPLOYMENT_BASE_URL || 'https://prachwal.github.io/preact-components-system';
@@ -29,11 +31,22 @@ export default defineConfig({
     lib: {
       entry: './index.ts',
       name: 'PreactComponentsSystem',
-      fileName: 'index',
-      formats: ['es', 'umd']
+      fileName: (format) => {
+        // Output different filenames for different formats
+        if (format === 'es') return 'index.mjs';
+        if (format === 'cjs') return 'index.js';
+        return 'index.js';
+      },
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
-      external: ['preact', 'preact/hooks', 'preact/compat', 'lucide-preact', 'clsx'],
+      external: [
+        'preact',
+        'preact/hooks',
+        'preact/compat',
+        'lucide-preact',
+        'clsx'
+      ],
       output: {
         globals: {
           preact: 'Preact',
@@ -42,13 +55,18 @@ export default defineConfig({
           'lucide-preact': 'LucidePreact',
           'clsx': 'clsx'
         },
-        // Optimize chunk splitting
-        manualChunks: undefined,
+        // Preserve module structure for better tree shaking
+        preserveModules: true,
+        preserveModulesRoot: 'src/lib',
+        // Note: manualChunks is not compatible with preserveModules
+        // Chunking will be handled automatically by Rollup
       },
     },
-    // Use default minification (esbuild)
-    minify: true,
-    // Source maps for debugging
+    // Minification settings
+    minify: 'esbuild',
     sourcemap: true,
+    // Copy CSS file
+    copyPublicDir: false,
+    assetsDir: 'assets',
   }
 })

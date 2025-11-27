@@ -110,15 +110,20 @@ export default [
     }
   },
   {
-    files: ['.storybook/**/*.{ts,tsx}', 'eslint.config.js'],
+    files: ['.storybook/**/*.{ts,tsx}', 'eslint.config.js', 'vite.config.ts'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',
         ecmaFeatures: { jsx: true },
-        // Disable type-aware linting for Storybook and config files
-        project: false
+        // Use specific config for vite.config.ts
+        project: (filePath) => {
+          if (filePath.includes('vite.config.ts')) {
+            return './tsconfig.vite.json';
+          }
+          return false;
+        }
       },
       globals: {
         ...globals.browser,
