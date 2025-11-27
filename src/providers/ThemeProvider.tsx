@@ -14,7 +14,7 @@ const getStoredTheme = (): ThemeMode => {
   return (savedTheme && isValidTheme(savedTheme)) ? savedTheme : 'system';
 };
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children: preact.ComponentChildren;
   theme?: Theme | ThemeOptions;
 }

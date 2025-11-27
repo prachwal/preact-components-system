@@ -28,11 +28,11 @@ type DeepMerge<T, U> = U extends object
     : U
   : U;
 
-function deepMerge<T extends Record<string, unknown>, U extends Record<string, unknown>>(
+function deepMerge<T extends Record<string, any>, U extends Record<string, any>>(
   target: T,
   source: U
 ): DeepMerge<T, U> {
-  const output = { ...target } as Record<string, unknown>;
+  const output = { ...target } as Record<string, any>;
   
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key) => {
@@ -189,21 +189,21 @@ export function createTheme(options: ThemeOptions = {}): Theme {
   };
   
   // Merge typography
-  const typography = deepMerge(defaultTypography, typographyInput);
+  const typography = deepMerge(defaultTypography, typographyInput) as typeof defaultTypography;
   
   // Create spacing
   const spacing = createSpacing(spacingInput);
   
   // Create breakpoints
   const breakpoints = createBreakpoints(
-    deepMerge(defaultBreakpoints, breakpointsInput)
+    deepMerge(defaultBreakpoints, breakpointsInput) as typeof defaultBreakpoints
   );
   
   // Merge shadows
   const shadows = { ...defaultShadows, ...shadowsInput };
   
   // Merge transitions
-  const transitions = deepMerge(defaultTransitions, transitionsInput);
+  const transitions = deepMerge(defaultTransitions, transitionsInput) as typeof defaultTransitions;
   
   // Merge zIndex
   const zIndex = { ...defaultZIndex, ...zIndexInput };

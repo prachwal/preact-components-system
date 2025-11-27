@@ -7,6 +7,27 @@ export interface HeaderProps {
   sidebarOpen: boolean;
 }
 
+/**
+ * Header component - application header with navigation controls
+ *
+ * Displays the application header with hamburger menu for sidebar toggle,
+ * logo, branding information, and theme toggle. Provides the main navigation
+ * controls and branding for the application.
+ *
+ * @example
+ * ```tsx
+ * <Header
+ *   onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+ *   sidebarOpen={sidebarOpen}
+ * />
+ * ```
+ *
+ * Features:
+ * - Hamburger menu for sidebar toggle
+ * - Application logo and branding
+ * - Theme toggle for light/dark mode switching
+ * - Semantic header role for accessibility
+ */
 export const Header = ({ onToggleSidebar, sidebarOpen }: HeaderProps) => (
   <header role="banner" className="app-header">
     <Hamburger onClick={onToggleSidebar} isOpen={sidebarOpen} />

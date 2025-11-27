@@ -5,11 +5,11 @@ import { useResponsive } from '../../hooks/useResponsive';
 import type { ResponsiveValue } from '../../theme/types';
 import './Grid.scss';
 
-type GridSize = number | 'auto' | boolean;
-type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
-type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
-type Wrap = 'wrap' | 'nowrap' | 'wrap-reverse';
+export type GridSize = number | 'auto' | boolean;
+export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
+export type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+export type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+export type Wrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
 export interface GridProps {
   /**
@@ -82,6 +82,35 @@ export interface GridProps {
   component?: keyof JSX.IntrinsicElements;
 }
 
+/**
+ * Grid component - flexible CSS grid system
+ *
+ * Implements a responsive grid system similar to Material-UI's Grid component.
+ * Can be used as a container to create grid layouts or as an item within a grid.
+ * Supports responsive breakpoints (xs, sm, md, lg, xl) and flexible spacing.
+ *
+ * @example
+ * ```tsx
+ * // Basic 12-column grid container
+ * <Grid container spacing={2}>
+ *   <Grid item xs={6}>Half width</Grid>
+ *   <Grid item xs={6}>Half width</Grid>
+ * </Grid>
+ *
+ * // Responsive grid
+ * <Grid container>
+ *   <Grid item xs={12} sm={6} md={4}>Responsive item</Grid>
+ *   <Grid item xs={12} sm={6} md={4}>Responsive item</Grid>
+ *   <Grid item xs={12} sm={6} md={4}>Responsive item</Grid>
+ * </Grid>
+ *
+ * // Auto-sizing columns
+ * <Grid container>
+ *   <Grid item xs>Auto-sized</Grid>
+ *   <Grid item xs={6}>Fixed width</Grid>
+ * </Grid>
+ * ```
+ */
 export const Grid = ({
   container = false,
   item = false,
@@ -118,26 +147,26 @@ export const Grid = ({
       // Grid item sizes
       'grid-xs-auto': xs === 'auto',
       'grid-xs-true': xs === true,
-      [`grid-xs-${xs}`]: xs && typeof xs === 'number',
+      [`grid-xs-${xs}`]: xs !== undefined && xs !== null && typeof xs === 'number',
       'grid-sm-auto': sm === 'auto',
       'grid-sm-true': sm === true,
-      [`grid-sm-${sm}`]: sm && typeof sm === 'number',
+      [`grid-sm-${sm}`]: sm !== undefined && sm !== null && typeof sm === 'number',
       'grid-md-auto': md === 'auto',
       'grid-md-true': md === true,
-      [`grid-md-${md}`]: md && typeof md === 'number',
+      [`grid-md-${md}`]: md !== undefined && md !== null && typeof md === 'number',
       'grid-lg-auto': lg === 'auto',
       'grid-lg-true': lg === true,
-      [`grid-lg-${lg}`]: lg && typeof lg === 'number',
+      [`grid-lg-${lg}`]: lg !== undefined && lg !== null && typeof lg === 'number',
       'grid-xl-auto': xl === 'auto',
       'grid-xl-true': xl === true,
-      [`grid-xl-${xl}`]: xl && typeof xl === 'number',
+      [`grid-xl-${xl}`]: xl !== undefined && xl !== null && typeof xl === 'number',
     },
     className
   );
 
-  const gridStyle = {
+  const gridStyle: JSX.CSSProperties = {
     ...style,
-    ...(container && { '--grid-columns': resolvedColumns.toString() } as any),
+    ...(container && { '--grid-columns': resolvedColumns.toString() } as JSX.CSSProperties),
   };
 
   return (

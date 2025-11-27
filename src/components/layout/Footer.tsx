@@ -7,7 +7,26 @@ export interface FooterProps {
 }
 
 /**
- * Footer component with links to documentation and resources
+ * Footer component - application footer with navigation links
+ *
+ * Displays application branding, version information, and navigation links to
+ * documentation resources (Storybook, API docs, test coverage, GitHub repository).
+ * Includes accessibility features with proper ARIA labels and semantic navigation.
+ *
+ * @example
+ * ```tsx
+ * // Basic footer
+ * <Footer />
+ *
+ * // Footer with custom class
+ * <Footer className="custom-footer" />
+ * ```
+ *
+ * Features:
+ * - Application branding with version display
+ * - External links to documentation resources
+ * - Accessible navigation with ARIA labels
+ * - Responsive layout with proper spacing
  */
 export const Footer = ({ className = '' }: FooterProps) => {
   const links = [

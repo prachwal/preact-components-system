@@ -12,6 +12,29 @@ export interface SidebarProps {
   onClose: () => void;
 }
 
+/**
+ * Sidebar component - responsive navigation sidebar
+ *
+ * Provides a responsive sidebar navigation with mobile overlay, tablet collapse mode,
+ * and desktop expanded mode. Includes accessibility features like keyboard navigation,
+ * focus trapping, and ARIA attributes. Tracks active sections via hash routing.
+ *
+ * @example
+ * ```tsx
+ * <Sidebar
+ *   isOpen={sidebarOpen}
+ *   onClose={() => setSidebarOpen(false)}
+ * />
+ * ```
+ *
+ * Features:
+ * - Responsive behavior: overlay (mobile), collapsed (tablet), expanded (desktop)
+ * - Keyboard navigation with Tab trapping and Escape key handling
+ * - Hash-based active section tracking
+ * - Focus management for accessibility
+ * - Backdrop overlay for mobile interactions
+ * - Logo and version display in footer
+ */
 export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const appVersion = useAppVersion();

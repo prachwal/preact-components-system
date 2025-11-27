@@ -3,8 +3,8 @@ import type { JSX } from 'preact';
 import { useRef, useId, useEffect } from 'preact/hooks';
 import './Checkbox.scss';
 
-type CheckboxSize = 'small' | 'medium' | 'large';
-type CheckboxColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type CheckboxSize = 'small' | 'medium' | 'large';
+export type CheckboxColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
 export interface CheckboxProps extends Omit<JSX.HTMLAttributes<HTMLInputElement>, 'size' | 'label'> {
   /**

@@ -9,6 +9,25 @@ import { Sidebar } from './Sidebar';
 
 export interface AppShellProps {}
 
+/**
+ * AppShell component - main application layout structure
+ *
+ * Provides the overall application shell with header, sidebar, main content area, and footer.
+ * Manages responsive sidebar state and includes accessibility features like skip links.
+ * Composes Header, Sidebar, Main, and Footer components into a complete page layout.
+ *
+ * @example
+ * ```tsx
+ * // Basic app shell usage
+ * <AppShell />
+ * ```
+ *
+ * Features:
+ * - Responsive sidebar with mobile overlay
+ * - Body scroll locking when sidebar is open
+ * - Skip link for keyboard navigation
+ * - Composed layout with header, sidebar, main, and footer
+ */
 export const AppShell = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 

@@ -5,7 +5,7 @@ import type { ResponsiveValue, Breakpoint } from '../theme/types';
 import { useBreakpoint } from './useBreakpoint';
 
 
-type SpacingProps = {
+export type SpacingProps = {
   p?: ResponsiveValue<number>;
   pt?: ResponsiveValue<number>;
   pr?: ResponsiveValue<number>;
@@ -23,7 +23,7 @@ type SpacingProps = {
   display?: ResponsiveValue<string>;
 };
 
-type ResolvedStyles = {
+export type ResolvedStyles = {
   padding?: string;
   paddingTop?: string;
   paddingRight?: string;

@@ -33,15 +33,37 @@ const eventTypeMap = {
 };
 
 /**
- * Component that detects clicks outside of its children
- * Useful for closing dropdowns, modals, and popovers
- * 
+ * ClickAwayListener component - detects clicks outside of its children
+ *
+ * Listens for mouse and touch events outside the component's boundaries and
+ * triggers a callback when such events occur. Useful for closing dropdowns,
+ * modals, popovers, and other overlay components when clicking outside.
+ *
  * @example
  * ```tsx
- * <ClickAwayListener onClickAway={() => setOpen(false)}>
- *   <div>Content that can be clicked away from</div>
+ * // Basic dropdown with click-away behavior
+ * <ClickAwayListener onClickAway={() => setDropdownOpen(false)}>
+ *   <div className="dropdown">
+ *     <button>Toggle</button>
+ *     {isOpen && <div className="dropdown-menu">Menu content</div>}
+ *   </div>
+ * </ClickAwayListener>
+ *
+ * // Modal with custom event types
+ * <ClickAwayListener
+ *   onClickAway={() => setModalOpen(false)}
+ *   mouseEvent="onMouseDown"
+ *   touchEvent="onTouchStart"
+ * >
+ *   <Modal>Modal content</Modal>
  * </ClickAwayListener>
  * ```
+ *
+ * Features:
+ * - Configurable mouse and touch event types
+ * - Automatic event listener cleanup
+ * - Disabled state support
+ * - Delayed event attachment to prevent mount-time triggers
  */
 export const ClickAwayListener = ({
   onClickAway,

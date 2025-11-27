@@ -3,7 +3,9 @@ export { default as App } from './src/App';
 // Theme
 export * from './src/theme';
 export { ThemeProvider } from './src/providers/ThemeProvider';
+export type { ThemeProviderProps } from './src/providers/ThemeProvider';
 export { useTheme } from './src/contexts/ThemeContext';
+export type { ThemeContextType, ThemeMode } from './src/types/theme';
 
 // Layout Components
 export * from './src/components/layout';

@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 import './Button.scss';
 
-type ButtonVariant = 'contained' | 'outlined' | 'text';
-type ButtonColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
-type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonVariant = 'contained' | 'outlined' | 'text';
+export type ButtonColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'size'> {
   /**

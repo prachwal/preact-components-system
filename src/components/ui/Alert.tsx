@@ -3,8 +3,8 @@ import { h } from 'preact';
 import type { ComponentChildren, JSX } from 'preact';
 import './Alert.scss';
 
-type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
-type AlertVariant = 'standard' | 'filled' | 'outlined';
+export type AlertSeverity = 'error' | 'warning' | 'info' | 'success';
+export type AlertVariant = 'standard' | 'filled' | 'outlined';
 
 export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   /**

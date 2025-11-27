@@ -5,9 +5,9 @@ import { useResponsive } from '../../hooks/useResponsive';
 import type { ResponsiveValue } from '../../theme/types';
 import './Stack.scss';
 
-type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
-type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
-type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+export type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+export type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
+export type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
 
 export interface StackProps {
   /**
@@ -48,6 +48,36 @@ export interface StackProps {
   component?: keyof JSX.IntrinsicElements;
 }
 
+/**
+ * Stack component - flexible flexbox layout container
+ *
+ * Arranges children in a vertical or horizontal stack with configurable spacing.
+ * Supports optional dividers between children and responsive direction changes.
+ * Uses CSS flexbox for layout with automatic spacing calculations.
+ *
+ * @example
+ * ```tsx
+ * // Vertical stack with spacing
+ * <Stack spacing={2}>
+ *   <div>Item 1</div>
+ *   <div>Item 2</div>
+ *   <div>Item 3</div>
+ * </Stack>
+ *
+ * // Horizontal stack with divider
+ * <Stack direction="row" spacing={1} divider={<span>•</span>}>
+ *   <span>Tag 1</span>
+ *   <span>Tag 2</span>
+ *   <span>Tag 3</span>
+ * </Stack>
+ *
+ * // Responsive direction
+ * <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+ *   <div>Responsive content</div>
+ *   <div>Responsive content</div>
+ * </Stack>
+ * ```
+ */
 export const Stack = ({
   direction = 'column',
   spacing = 0,
@@ -74,7 +104,7 @@ export const Stack = ({
   );
 
   // Convert children to array and filter out null/undefined
-  const childArray = Array.isArray(children) ? children : children ? [children] : [];
+  const childArray = Array.isArray(children) ? children : (children !== undefined && children !== null) ? [children] : [];
   const validChildren = childArray.filter((child) => child != null);
 
   // If divider is provided, insert it between children

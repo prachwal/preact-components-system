@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { ComponentChildren, JSX } from 'preact';
 import './Container.scss';
 
-type MaxWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
+export type MaxWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 
 export interface ContainerProps {
   /**
@@ -35,6 +35,24 @@ export interface ContainerProps {
   component?: keyof JSX.IntrinsicElements;
 }
 
+/**
+ * Container component - responsive layout container
+ *
+ * Provides a responsive container with configurable max-width and gutters.
+ * Centers content horizontally and applies consistent spacing.
+ *
+ * @example
+ * ```tsx
+ * // Basic container
+ * <Container>Content</Container>
+ *
+ * // Fixed width container
+ * <Container fixed maxWidth="md">Fixed content</Container>
+ *
+ * // Container without gutters
+ * <Container disableGutters>Full-width content</Container>
+ * ```
+ */
 export const Container = ({
   maxWidth = 'lg',
   fixed = false,

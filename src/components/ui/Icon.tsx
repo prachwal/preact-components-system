@@ -32,7 +32,7 @@ import {
 import type { FunctionComponent } from 'preact';
 // Import only the icons we need
 
-type IconSize = 'small' | 'medium' | 'large';
+export type IconSize = 'small' | 'medium' | 'large';
 
 export type IconName = 
   | 'Home' 

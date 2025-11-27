@@ -4,14 +4,14 @@ import type { ComponentChildren, JSX } from 'preact';
 
 import { useTheme } from '../../contexts/ThemeContext';
 
-type TypographyVariant = 
+export type TypographyVariant = 
   | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   | 'subtitle1' | 'subtitle2'
   | 'body1' | 'body2'
   | 'button' | 'caption' | 'overline';
 
-type TypographyAlign = 'left' | 'center' | 'right' | 'justify' | 'inherit';
-type TypographyColor = 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error' | 'inherit';
+export type TypographyAlign = 'left' | 'center' | 'right' | 'justify' | 'inherit';
+export type TypographyColor = 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error' | 'inherit';
 
 export interface TypographyProps extends Omit<JSX.HTMLAttributes<HTMLElement>, 'style'> {
   /**

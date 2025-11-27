@@ -3,8 +3,8 @@ import type { JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 import './Switch.scss';
 
-type SwitchSize = 'small' | 'medium' | 'large';
-type SwitchColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type SwitchSize = 'small' | 'medium' | 'large';
+export type SwitchColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
 export interface SwitchProps extends Omit<JSX.HTMLAttributes<HTMLInputElement>, 'size' | 'label'> {
   /**

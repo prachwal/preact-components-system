@@ -5,6 +5,26 @@ import type { ComponentChildren } from 'preact';
 import { useResponsiveStyles } from '../../hooks/useResponsiveStyles';
 import type { ResponsiveValue } from '../../theme/types';
 
+/**
+ * Box component - flexible container with responsive spacing
+ *
+ * Provides a flexible container component with responsive padding, margin,
+ * and display properties. Supports custom components and styling.
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <Box p={2}>Content</Box>
+ *
+ * // Responsive spacing
+ * <Box p={{ xs: 1, md: 3 }}>Responsive content</Box>
+ *
+ * // Custom component
+ * <Box component="article" className="article-box">
+ *   Article content
+ * </Box>
+ * ```
+ */
 export interface BoxProps {
   /**
    * Component to render as

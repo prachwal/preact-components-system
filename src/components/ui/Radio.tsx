@@ -3,8 +3,8 @@ import type { JSX, ComponentChildren } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 import './Radio.scss';
 
-type RadioSize = 'small' | 'medium' | 'large';
-type RadioColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type RadioSize = 'small' | 'medium' | 'large';
+export type RadioColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
 export interface RadioProps extends Omit<JSX.HTMLAttributes<HTMLInputElement>, 'size' | 'label'> {
   /**

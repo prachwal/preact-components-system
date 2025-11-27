@@ -3,9 +3,9 @@ import type { ComponentChildren, JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 import './TextField.scss';
 
-type TextFieldVariant = 'outlined' | 'filled' | 'standard';
-type TextFieldSize = 'small' | 'medium' | 'large';
-type TextFieldColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+export type TextFieldVariant = 'outlined' | 'filled' | 'standard';
+export type TextFieldSize = 'small' | 'medium' | 'large';
+export type TextFieldColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 
 export interface TextFieldProps extends Omit<JSX.HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'size' | 'label'> {
   /**

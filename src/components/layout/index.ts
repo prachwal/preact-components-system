@@ -1,11 +1,12 @@
 export { Box } from './Box';
 export type { BoxProps } from './Box';
 export { Container } from './Container';
-export type { ContainerProps } from './Container';
+export type { ContainerProps, MaxWidth } from './Container';
 export { Grid } from './Grid';
-export type { GridProps } from './Grid';
+export type { GridProps, GridSize, AlignItems, JustifyContent, Direction, Wrap } from './Grid';
 export { Stack } from './Stack';
 export type { StackProps } from './Stack';
+export type { Direction as StackDirection, AlignItems as StackAlignItems, JustifyContent as StackJustifyContent } from './Stack';
 export { AppShell } from './AppShell';
 export type { AppShellProps } from './AppShell';
 export { Footer } from './Footer';

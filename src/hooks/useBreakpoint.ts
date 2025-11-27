@@ -5,10 +5,47 @@ import type { Breakpoint } from '../theme/types';
 
 import { useMediaQuery } from './useMediaQuery';
 
-type BreakpointDirection = 'up' | 'down' | 'only' | 'between';
+export type BreakpointDirection = 'up' | 'down' | 'only' | 'between';
 
 /**
- * Hook to get the current breakpoint
+ * useBreakpoint hook - responsive breakpoint detection and queries
+ *
+ * Provides access to the current breakpoint and allows directional breakpoint queries
+ * (up, down, only, between). Uses the theme's breakpoint system for consistent
+ * responsive behavior across components.
+ *
+ * @returns Current breakpoint name or boolean result of directional query
+ *
+ * @example
+ * ```tsx
+ * // Get current breakpoint
+ * const breakpoint = useBreakpoint(); // 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+ *
+ * // Check if screen is at least medium size
+ * const isMediumUp = useBreakpoint('up', 'md'); // boolean
+ *
+ * // Check if screen is smaller than large
+ * const isLargeDown = useBreakpoint('down', 'lg'); // boolean
+ *
+ * // Check if screen is exactly medium
+ * const isMediumOnly = useBreakpoint('only', 'md'); // boolean
+ *
+ * // Check if screen is between small and large
+ * const isBetween = useBreakpoint('between', 'sm', 'lg'); // boolean
+ *
+ * // Usage in component
+ * function ResponsiveComponent() {
+ *   const isMobile = useBreakpoint('down', 'sm');
+ *   const isDesktop = useBreakpoint('up', 'lg');
+ *
+ *   return (
+ *     <div>
+ *       {isMobile && <MobileLayout />}
+ *       {isDesktop && <DesktopLayout />}
+ *     </div>
+ *   );
+ * }
+ * ```
  */
 export function useBreakpoint(): Breakpoint;
 export function useBreakpoint(direction: 'up' | 'down', breakpoint: Breakpoint): boolean;
@@ -25,7 +62,6 @@ export function useBreakpoint(
   const theme = useTheme();
 
   // Get current breakpoint
-  const isXs = useMediaQuery(theme.breakpoints.only('xs'));
   const isSm = useMediaQuery(theme.breakpoints.only('sm'));
   const isMd = useMediaQuery(theme.breakpoints.only('md'));
   const isLg = useMediaQuery(theme.breakpoints.only('lg'));
@@ -37,7 +73,7 @@ export function useBreakpoint(
     if (isMd) return 'md';
     if (isSm) return 'sm';
     return 'xs';
-  }, [isXs, isSm, isMd, isLg, isXl]);
+  }, [isSm, isMd, isLg, isXl]);
 
   // Handle directional queries - call hooks unconditionally
   const upQuery = useMediaQuery(direction === 'up' && breakpointOrStart ? theme.breakpoints.up(breakpointOrStart) : '');

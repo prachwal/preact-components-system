@@ -1,4 +1,35 @@
 {
   "entryPoints": ["./index.ts"],
-  "out": "docs"
+  "out": "docs",
+  "name": "Preact Components System",
+  "includeVersion": true,
+  "exclude": [
+    "**/*.test.*",
+    "**/*.stories.*",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "**/stories/**"
+  ],
+  "excludeExternals": true,
+  "excludeInternal": false,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "hideGenerator": true,
+  "categorizeByGroup": true,
+  "categoryOrder": ["Components", "Hooks", "Contexts", "Types", "Utilities", "*"],
+  "defaultCategory": "Components",
+  "groupOrder": ["Components", "Hooks", "Contexts", "Types", "Utilities", "*"],
+  "sort": ["source-order", "required-first", "kind"],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "searchInComments": true,
+  "cleanOutputDir": true,
+  "disableSources": false,
+  "gitRevision": "main",
+  "githubPages": false,
+  "readme": "README.md",
+  "plugin": []
 }

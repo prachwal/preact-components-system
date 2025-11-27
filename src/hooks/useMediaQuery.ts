@@ -2,7 +2,7 @@ import { useState, useEffect } from 'preact/hooks';
 
 import type { Theme } from '../theme/types';
 
-type QueryInput = string | ((theme: Theme) => string);
+export type QueryInput = string | ((theme: Theme) => string);
 
 export interface UseMediaQueryOptions {
   /**
@@ -16,9 +16,52 @@ export interface UseMediaQueryOptions {
 }
 
 /**
- * Hook to execute media queries and track their state
- * @param query - Media query string or function that receives theme
- * @param options - Options for SSR and default matches
+ * useMediaQuery hook - executes media queries and tracks their state
+ *
+ * Provides a reactive way to check if a CSS media query matches the current
+ * viewport. Supports both static media query strings and theme-based queries.
+ * Handles SSR safely with configurable defaults and no-SSR options.
+ *
+ * @param query - Media query string or function that receives theme and returns a query
+ * @param options - Configuration options for SSR behavior
+ * @returns Boolean indicating if the media query currently matches
+ *
+ * @example
+ * ```tsx
+ * // Simple media query
+ * const isMobile = useMediaQuery('(max-width: 768px)');
+ *
+ * // Theme-based query
+ * const isDark = useMediaQuery((theme) => `(prefers-color-scheme: ${theme.palette.mode})`);
+ *
+ * // With SSR options
+ * const isLargeScreen = useMediaQuery('(min-width: 1024px)', {
+ *   noSsr: true,
+ *   defaultMatches: false
+ * });
+ *
+ * // Usage in component
+ * function ResponsiveComponent() {
+ *   const isMobile = useMediaQuery('(max-width: 768px)');
+ *   const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1023px)');
+ *   const isDesktop = useMediaQuery('(min-width: 1024px)');
+ *
+ *   return (
+ *     <div>
+ *       {isMobile && <MobileLayout />}
+ *       {isTablet && <TabletLayout />}
+ *       {isDesktop && <DesktopLayout />}
+ *     </div>
+ *   );
+ * }
+ * ```
+ *
+ * Features:
+ * - Reactive media query evaluation
+ * - SSR-safe with configurable defaults
+ * - Theme integration support
+ * - Automatic event listener cleanup
+ * - TypeScript support with proper typing
  */
 export function useMediaQuery(
   query: QueryInput,

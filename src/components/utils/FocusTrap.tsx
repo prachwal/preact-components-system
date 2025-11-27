@@ -32,17 +32,40 @@ const FOCUSABLE_ELEMENTS = [
 ].join(',');
 
 /**
- * Component that traps focus within its children
- * Useful for modals and dialogs to ensure keyboard navigation stays within the component
- * 
+ * FocusTrap component - traps keyboard focus within its children
+ *
+ * Restricts keyboard navigation to focusable elements within the component,
+ * preventing focus from escaping to elements outside. Essential for accessibility
+ * in modals, dialogs, and other overlay components. Handles Tab key navigation
+ * and can automatically focus the first element and restore focus when deactivated.
+ *
  * @example
  * ```tsx
- * <FocusTrap active={isOpen} autoFocus restoreFocus>
- *   <Dialog>
- *     <button>Close</button>
- *   </Dialog>
+ * // Modal with focus trapping
+ * <FocusTrap active={isModalOpen} autoFocus restoreFocus>
+ *   <Modal>
+ *     <h2>Modal Title</h2>
+ *     <input type="text" placeholder="Focusable input" />
+ *     <button>Action Button</button>
+ *     <button onClick={closeModal}>Close</button>
+ *   </Modal>
+ * </FocusTrap>
+ *
+ * // Dropdown menu with focus trapping
+ * <FocusTrap active={isDropdownOpen}>
+ *   <DropdownMenu>
+ *     <MenuItem>Option 1</MenuItem>
+ *     <MenuItem>Option 2</MenuItem>
+ *   </DropdownMenu>
  * </FocusTrap>
  * ```
+ *
+ * Features:
+ * - Tab key trapping with circular navigation
+ * - Automatic focus on first element when activated
+ * - Focus restoration when deactivated
+ * - Configurable activation state
+ * - Support for all standard focusable elements
  */
 export const FocusTrap = ({
   children,
