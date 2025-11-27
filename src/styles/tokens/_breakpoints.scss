@@ -1,0 +1,85 @@
+// Design Tokens: Breakpoints
+// Mobile-first responsive breakpoints and container widths
+
+// ============================================================================
+// BREAKPOINTS
+// ============================================================================
+// Mobile-first approach: start with smallest screen, scale up
+
+$bp-xs: 320px;      // Extra small devices (small phones in portrait)
+$bp-sm: 480px;      // Small devices (phones in portrait)
+$bp-md: 768px;      // Medium devices (tablets in portrait, large phones in landscape)
+$bp-lg: 1024px;     // Large devices (tablets in landscape, small laptops)
+$bp-xl: 1280px;     // Extra large devices (laptops, desktops)
+$bp-2xl: 1536px;    // 2X large devices (large desktops)
+$bp-3xl: 1920px;    // 3X large devices (ultra-wide monitors)
+
+// ============================================================================
+// CONTAINER MAX WIDTHS
+// ============================================================================
+// Maximum content width at each breakpoint for optimal readability
+
+$container-xs: 100%;        // Full width on mobile
+$container-sm: 640px;       // 640px max at sm+
+$container-md: 768px;       // 768px max at md+
+$container-lg: 1024px;      // 1024px max at lg+
+$container-xl: 1280px;      // 1280px max at xl+
+$container-2xl: 1536px;     // 1536px max at 2xl+
+$container-3xl: 1728px;     // 1728px max at 3xl+ (90% of 1920px)
+
+// Content max-width (for readability - prose)
+$content-max-width: 65ch;   // Optimal line length for reading (~65 characters)
+$content-narrow: 45ch;      // Narrow content (forms, sidebars)
+$content-wide: 80ch;        // Wide content (dashboards)
+
+// ============================================================================
+// BREAKPOINT MAP
+// ============================================================================
+// For programmatic access in loops or mixins
+
+$breakpoints: (
+  xs: $bp-xs,
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+  2xl: $bp-2xl,
+  3xl: $bp-3xl
+);
+
+// ============================================================================
+// CONTAINER MAP
+// ============================================================================
+
+$containers: (
+  xs: $container-xs,
+  sm: $container-sm,
+  md: $container-md,
+  lg: $container-lg,
+  xl: $container-xl,
+  2xl: $container-2xl,
+  3xl: $container-3xl
+);
+
+// ============================================================================
+// DEVICE CATEGORIES
+// ============================================================================
+// Named aliases for common device types
+
+$mobile-portrait: $bp-xs;       // 320px+
+$mobile-landscape: $bp-sm;      // 480px+
+$tablet-portrait: $bp-md;       // 768px+
+$tablet-landscape: $bp-lg;      // 1024px+
+$laptop: $bp-xl;                // 1280px+
+$desktop: $bp-2xl;              // 1536px+
+$desktop-wide: $bp-3xl;         // 1920px+
+
+// ============================================================================
+// COMMON VIEWPORT RANGES
+// ============================================================================
+// Useful for @media queries targeting specific ranges
+
+$mobile-only-max: calc($bp-md - 1px);      // < 768px
+$tablet-only-min: $bp-md;                  // >= 768px
+$tablet-only-max: calc($bp-lg - 1px);      // < 1024px
+$desktop-only-min: $bp-lg;                 // >= 1024px

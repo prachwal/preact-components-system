@@ -3,6 +3,14 @@
 @use './colors';
 @use './mixins';
 
+// Import new token system
+@use './tokens/colors' as token-colors;
+@use './tokens/typography' as *;
+@use './tokens/spacing' as *;
+@use './tokens/breakpoints' as *;
+@use './tokens/shadows' as *;
+@use './tokens/transitions' as *;
+
 // CSS Custom Properties (kept as CSS variables for runtime usage)
 :root {
   // Breakpoints
@@ -164,6 +172,81 @@
   --pcs-shadow-black: #{colors.$shadow-black};
   --pcs-shadow-black-md: #{colors.$shadow-black-md};
   --pcs-shadow-black-sm: #{colors.$shadow-black-sm};
+
+  // ============================================================================
+  // NEW TOKEN SYSTEM - Fluid & WCAG AA Compliant
+  // ============================================================================
+
+  // Typography Tokens (Fluid)
+  --pcs-font-size-xs: #{$font-size-xs};
+  --pcs-font-size-s: #{$font-size-sm};
+  --pcs-font-size-md: #{$font-size-md};
+  --pcs-font-size-l: #{$font-size-lg};
+  --pcs-font-size-xl: #{$font-size-xl};
+  --pcs-font-size-2xl: #{$font-size-2xl};
+  --pcs-font-size-3xl: #{$font-size-3xl};
+  --pcs-font-size-4xl: #{$font-size-4xl};
+  --pcs-font-size-5xl: #{$font-size-5xl};
+  --pcs-font-size-6xl: #{$font-size-6xl};
+  
+  // Spacing Tokens (Fluid 8-point grid)
+  --pcs-space-0: #{$space-0};
+  --pcs-space-1: #{$space-1};
+  --pcs-space-2: #{$space-2};
+  --pcs-space-3: #{$space-3};
+  --pcs-space-4: #{$space-4};
+  --pcs-space-5: #{$space-5};
+  --pcs-space-6: #{$space-6};
+  --pcs-space-8: #{$space-8};
+  --pcs-space-10: #{$space-10};
+  --pcs-space-12: #{$space-12};
+  --pcs-space-16: #{$space-16};
+  --pcs-space-20: #{$space-20};
+  --pcs-space-24: #{$space-24};
+  --pcs-space-32: #{$space-32};
+  
+  // Semantic Spacing
+  --pcs-gap-xs: #{$gap-xs};
+  --pcs-gap-s: #{$gap-sm};
+  --pcs-gap-m: #{$gap-md};
+  --pcs-gap-l: #{$gap-lg};
+  --pcs-gap-xl: #{$gap-xl};
+  --pcs-gap-2xl: #{$gap-2xl};
+  
+  // Border Radius (Fluid)
+  --pcs-radius-xs: #{$radius-xs};
+  --pcs-radius-s: #{$radius-sm};
+  --pcs-radius-md: #{$radius-md};
+  --pcs-radius-l: #{$radius-lg};
+  --pcs-radius-xl: #{$radius-xl};
+  --pcs-radius-2xl: #{$radius-2xl};
+  --pcs-radius-full: #{$radius-full};
+  
+  // Shadow Tokens (Material Design)
+  --pcs-shadow-xs: #{$shadow-xs};
+  --pcs-shadow-s: #{$shadow-sm};
+  --pcs-shadow-m: #{$shadow-md};
+  --pcs-shadow-l: #{$shadow-lg};
+  --pcs-shadow-xl: #{$shadow-xl};
+  --pcs-shadow-2xl: #{$shadow-2xl};
+  --pcs-shadow-inner: #{$shadow-inner};
+  
+  // Transition Tokens
+  --pcs-duration-fast: #{$duration-fast};
+  --pcs-duration-normal: #{$duration-normal};
+  --pcs-duration-slow: #{$duration-slow};
+  --pcs-ease-standard: #{$ease-standard};
+  --pcs-ease-decelerate: #{$ease-decelerate};
+  --pcs-ease-accelerate: #{$ease-accelerate};
+  
+  // Z-index Scale
+  --pcs-z-dropdown: #{$z-index-dropdown};
+  --pcs-z-sticky: #{$z-index-sticky};
+  --pcs-z-fixed: #{$z-index-fixed};
+  --pcs-z-modal-backdrop: #{$z-index-modal-backdrop};
+  --pcs-z-modal: #{$z-index-modal};
+  --pcs-z-popover: #{$z-index-popover};
+  --pcs-z-tooltip: #{$z-index-tooltip};
 }
 
 // Light Theme
@@ -182,6 +265,24 @@
   --pcs-focus-ring: #{map.get(colors.$light-palette, focus-ring)};
   --pcs-nav-active-bg: #{map.get(colors.$light-palette, nav-active-bg)};
   --pcs-nav-active-text: #{map.get(colors.$light-palette, nav-active-text)};
+  
+  // New Token System - Light Theme Colors (WCAG AA)
+  --pcs-primary: #{token-colors.$primary-500};
+  --pcs-primary-hover: #{token-colors.$primary-600};
+  --pcs-primary-active: #{token-colors.$primary-700};
+  --pcs-primary-light: #{token-colors.$primary-100};
+  --pcs-primary-dark: #{token-colors.$primary-900};
+  
+  --pcs-semantic-success: #{token-colors.$success-600};
+  --pcs-semantic-error: #{token-colors.$error-600};
+  --pcs-semantic-warning: #{token-colors.$warning-600};
+  --pcs-semantic-info: #{token-colors.$info-600};
+  
+  --pcs-neutral: #{token-colors.$neutral-500};
+  --pcs-neutral-bg: #{token-colors.$neutral-50};
+  --pcs-neutral-border: #{token-colors.$neutral-300};
+  --pcs-neutral-text: #{token-colors.$neutral-900};
+  --pcs-neutral-text-secondary: #{token-colors.$neutral-700};
 }
 
 // Dark Theme
@@ -203,6 +304,24 @@
 
   // Logo
   --pcs-logo-bg-opacity: 0.2;
+  
+  // New Token System - Dark Theme Colors (WCAG AA)
+  --pcs-primary: #{token-colors.$primary-400};
+  --pcs-primary-hover: #{token-colors.$primary-300};
+  --pcs-primary-active: #{token-colors.$primary-200};
+  --pcs-primary-light: #{token-colors.$primary-900};
+  --pcs-primary-dark: #{token-colors.$primary-100};
+  
+  --pcs-semantic-success: #{token-colors.$success-400};
+  --pcs-semantic-error: #{token-colors.$error-400};
+  --pcs-semantic-warning: #{token-colors.$warning-400};
+  --pcs-semantic-info: #{token-colors.$info-400};
+  
+  --pcs-neutral: #{token-colors.$neutral-dark-500};
+  --pcs-neutral-bg: #{token-colors.$neutral-dark-900};
+  --pcs-neutral-border: #{token-colors.$neutral-dark-700};
+  --pcs-neutral-text: #{token-colors.$neutral-dark-50};
+  --pcs-neutral-text-secondary: #{token-colors.$neutral-dark-300};
 }
 
 // System Theme
@@ -221,5 +340,20 @@
     --pcs-focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
     --pcs-nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
     --pcs-nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
+    
+    // New Token System - System Dark Mode Colors
+    --pcs-primary: #{token-colors.$primary-400};
+    --pcs-primary-hover: #{token-colors.$primary-300};
+    --pcs-primary-active: #{token-colors.$primary-200};
+    
+    --pcs-semantic-success: #{token-colors.$success-400};
+    --pcs-semantic-error: #{token-colors.$error-400};
+    --pcs-semantic-warning: #{token-colors.$warning-400};
+    --pcs-semantic-info: #{token-colors.$info-400};
+    
+    --pcs-neutral: #{token-colors.$neutral-dark-500};
+    --pcs-neutral-bg: #{token-colors.$neutral-dark-900};
+    --pcs-neutral-border: #{token-colors.$neutral-dark-700};
+    --pcs-neutral-text: #{token-colors.$neutral-dark-50};
   }
 }

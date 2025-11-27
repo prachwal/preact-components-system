@@ -1,3 +1,6 @@
+@use '../../mixins/interactive' as interactive;
+@use '../../tokens/standards' as *;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -7,7 +10,6 @@
   outline: 0;
   border: 0;
   margin: 0;
-  cursor: pointer;
   user-select: none;
   vertical-align: middle;
   text-decoration: none;
@@ -17,20 +19,13 @@
   letter-spacing: 0.02857em;
   text-transform: uppercase;
   min-width: var(--pcs-button-min-width);
-  padding: var(--pcs-button-padding-y) var(--pcs-button-padding-x);
   border-radius: var(--pcs-button-radius);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-              color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  
+  // Apply unified interactive element standards
+  @include interactive.interactive-element('button', false);
   
   &:hover {
     text-decoration: none;
-  }
-
-  &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
   }
 }
 
@@ -102,9 +97,9 @@
   }
 }
 
-// Sizes
+// Sizes - using unified component-size mixin
 .button-size-small {
-  padding: 4px 10px;
+  @include interactive.component-size('small', 'button');
   font-size: 0.8125rem;
   
   .button-start-icon {
@@ -116,8 +111,21 @@
   }
 }
 
+.button-size-medium {
+  @include interactive.component-size('medium', 'button');
+  font-size: 0.875rem;
+  
+  .button-start-icon {
+    margin-left: -4px;
+  }
+  
+  .button-end-icon {
+    margin-right: -4px;
+  }
+}
+
 .button-size-large {
-  padding: 8px 22px;
+  @include interactive.component-size('large', 'button');
   font-size: 0.9375rem;
   
   .button-start-icon {
@@ -134,30 +142,17 @@
   width: 100%;
 }
 
-// Disabled
+// Disabled - uses unified standards from interactive-element mixin
 .button-disabled {
   cursor: default;
   pointer-events: none;
+  opacity: var(--disabled-opacity);
 }
 
 // Variants and Colors
-// Contained variant
+// Contained variant - using unified elevation system
 .button-variant-contained {
-  box-shadow: 0px 3px 1px -2px var(--pcs-shadow-black),
-              0px 2px 2px 0px var(--pcs-shadow-black-md),
-              0px 1px 5px 0px var(--pcs-shadow-black-sm);
-  
-  &:hover {
-    box-shadow: 0px 2px 4px -1px var(--pcs-shadow-black),
-                0px 4px 5px 0px var(--pcs-shadow-black-md),
-                0px 1px 10px 0px var(--pcs-shadow-black-sm);
-  }
-  
-  &:active {
-    box-shadow: 0px 5px 5px -3px var(--pcs-shadow-black),
-                0px 8px 10px 1px var(--pcs-shadow-black-md),
-                0px 3px 14px 2px var(--pcs-shadow-black-sm);
-  }
+  @include interactive.elevation(true);
 }
 
 .button-variant-contained.button-color-primary {
@@ -169,9 +164,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -184,9 +177,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -199,9 +190,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -214,9 +203,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -229,9 +216,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -244,9 +229,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -267,8 +250,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -282,8 +264,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -297,8 +278,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -312,8 +292,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -327,8 +306,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -342,8 +320,7 @@
   }
   
   &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-    border-color: var(--pcs-bg-default-dark);
+    border-color: transparent;
   }
 }
 
@@ -359,10 +336,6 @@
   &:hover {
     background-color: var(--pcs-hover-bg-light);
   }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-  }
 }
 
 .button-variant-text.button-color-secondary {
@@ -370,10 +343,6 @@
   
   &:hover {
     background-color: var(--pcs-hover-bg-light);
-  }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
   }
 }
 
@@ -383,10 +352,6 @@
   &:hover {
     background-color: var(--pcs-hover-bg-light);
   }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-  }
 }
 
 .button-variant-text.button-color-warning {
@@ -394,10 +359,6 @@
   
   &:hover {
     background-color: var(--pcs-hover-bg-light);
-  }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
   }
 }
 
@@ -407,10 +368,6 @@
   &:hover {
     background-color: var(--pcs-hover-bg-light);
   }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
-  }
 }
 
 .button-variant-text.button-color-success {
@@ -418,9 +375,5 @@
   
   &:hover {
     background-color: var(--pcs-hover-bg-light);
-  }
-  
-  &.button-disabled {
-    color: var(--pcs-text-disabled-light);
   }
 }

@@ -1,0 +1,329 @@
+// Enhanced Mixins: Responsive Media Queries
+// Mobile-first responsive design utilities
+
+@use 'sass:meta';
+@use 'sass:map';
+@use '../tokens/breakpoints' as *;
+
+// ============================================================================
+// BREAKPOINT MIXIN
+// ============================================================================
+// Generate min-width media query
+//
+// @param {String|Number} $breakpoint - Breakpoint name or custom value
+//
+// Example:
+//   @include breakpoint(md) { ... }
+//   @include breakpoint(768px) { ... }
+
+@mixin breakpoint($breakpoint) {
+  @if meta.type-of($breakpoint) == 'string' {
+    @if map.has-key($breakpoints, $breakpoint) {
+      @media (min-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @error "Invalid breakpoint: #{$breakpoint}. Available: #{map.keys($breakpoints)}";
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// ============================================================================
+// BREAKPOINT MAX MIXIN
+// ============================================================================
+// Generate max-width media query (mobile-first fallback)
+//
+// @param {String|Number} $breakpoint - Breakpoint name or custom value
+//
+// Example:
+//   @include breakpoint-max(md) { ... }
+
+@mixin breakpoint-max($breakpoint) {
+  @if meta.type-of($breakpoint) == 'string' {
+    @if map.has-key($breakpoints, $breakpoint) {
+      $value: map.get($breakpoints, $breakpoint);
+      @media (max-width: #{$value - 1px}) {
+        @content;
+      }
+    } @else {
+      @error "Invalid breakpoint: #{$breakpoint}";
+    }
+  } @else {
+    @media (max-width: #{$breakpoint - 1px}) {
+      @content;
+    }
+  }
+}
+
+// ============================================================================
+// BREAKPOINT BETWEEN MIXIN
+// ============================================================================
+// Generate media query between two breakpoints
+//
+// @param {String} $min-breakpoint - Lower breakpoint
+// @param {String} $max-breakpoint - Upper breakpoint
+//
+// Example:
+//   @include breakpoint-between(sm, lg) { ... }
+
+@mixin breakpoint-between($min-breakpoint, $max-breakpoint) {
+  @if map.has-key($breakpoints, $min-breakpoint) and map.has-key($breakpoints, $max-breakpoint) {
+    $min: map.get($breakpoints, $min-breakpoint);
+    $max: map.get($breakpoints, $max-breakpoint);
+    
+    @media (min-width: $min) and (max-width: #{$max - 1px}) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoints: #{$min-breakpoint} or #{$max-breakpoint}";
+  }
+}
+
+// ============================================================================
+// RESPONSIVE CONTAINER MIXIN
+// ============================================================================
+// Generate container with max-width at each breakpoint
+//
+// @param {Map} $containers [$container-max-widths] - Container widths map
+//
+// Example:
+//   @include responsive-container();
+
+@mixin responsive-container($containers: $container-max-widths) {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space-4;
+  padding-right: $space-4;
+  
+  @each $breakpoint, $max-width in $containers {
+    @include breakpoint($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+// ============================================================================
+// SHOW/HIDE AT BREAKPOINT MIXINS
+// ============================================================================
+
+// Show element at breakpoint and above
+@mixin show-at($breakpoint) {
+  display: none;
+  
+  @include breakpoint($breakpoint) {
+    display: block;
+  }
+}
+
+// Hide element at breakpoint and above
+@mixin hide-at($breakpoint) {
+  @include breakpoint($breakpoint) {
+    display: none;
+  }
+}
+
+// Show only between two breakpoints
+@mixin show-between($min-breakpoint, $max-breakpoint) {
+  display: none;
+  
+  @include breakpoint-between($min-breakpoint, $max-breakpoint) {
+    display: block;
+  }
+}
+
+// ============================================================================
+// TOUCH DEVICE MIXIN
+// ============================================================================
+// Target touch-capable devices
+//
+// Example:
+//   @include touch-device { ... }
+
+@mixin touch-device {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// ============================================================================
+// HOVER CAPABLE MIXIN
+// ============================================================================
+// Target devices with accurate hover capability
+//
+// Example:
+//   @include hover-capable { ... }
+
+@mixin hover-capable {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+// ============================================================================
+// LANDSCAPE/PORTRAIT MIXINS
+// ============================================================================
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// ============================================================================
+// RETINA DISPLAY MIXIN
+// ============================================================================
+// Target high DPI displays
+//
+// Example:
+//   @include retina { ... }
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+// ============================================================================
+// REDUCED MOTION MIXIN
+// ============================================================================
+// Respect user's motion preferences (WCAG 2.3.3)
+//
+// Example:
+//   @include reduced-motion {
+//     animation: none;
+//   }
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// ============================================================================
+// DARK MODE MIXIN
+// ============================================================================
+// Target dark color scheme preference
+//
+// Example:
+//   @include dark-mode { ... }
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+  
+  // Also support data attribute (for manual theme switching)
+  [data-theme='dark'] & {
+    @content;
+  }
+}
+
+// ============================================================================
+// LIGHT MODE MIXIN
+// ============================================================================
+
+@mixin light-mode {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+  
+  [data-theme='light'] & {
+    @content;
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST MODE MIXIN
+// ============================================================================
+// Target Windows High Contrast mode
+//
+// Example:
+//   @include high-contrast { ... }
+
+@mixin high-contrast {
+  @media (forced-colors: active) {
+    @content;
+  }
+}
+
+// ============================================================================
+// PRINT MIXIN
+// ============================================================================
+// Styles for print media
+//
+// Example:
+//   @include print { ... }
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+// ============================================================================
+// RESPONSIVE TYPOGRAPHY MIXIN
+// ============================================================================
+// Apply different font sizes at each breakpoint
+//
+// @param {Map} $sizes - Map of breakpoint: font-size pairs
+//
+// Example:
+//   @include responsive-typography((
+//     xs: 14px,
+//     md: 16px,
+//     lg: 18px
+//   ));
+
+@mixin responsive-typography($sizes) {
+  @each $breakpoint, $size in $sizes {
+    @if $breakpoint == 'xs' {
+      font-size: $size;
+    } @else {
+      @include breakpoint($breakpoint) {
+        font-size: $size;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// RESPONSIVE GRID COLUMNS MIXIN
+// ============================================================================
+// Generate responsive grid columns
+//
+// @param {Map} $columns - Map of breakpoint: column-count pairs
+//
+// Example:
+//   @include responsive-grid-columns((
+//     xs: 1,
+//     sm: 2,
+//     md: 3,
+//     lg: 4
+//   ));
+
+@mixin responsive-grid-columns($columns) {
+  display: grid;
+  gap: $space-4;
+  
+  @each $breakpoint, $count in $columns {
+    @if $breakpoint == 'xs' {
+      grid-template-columns: repeat($count, 1fr);
+    } @else {
+      @include breakpoint($breakpoint) {
+        grid-template-columns: repeat($count, 1fr);
+      }
+    }
+  }
+}

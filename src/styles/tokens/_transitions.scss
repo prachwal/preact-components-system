@@ -1,0 +1,149 @@
+// Design Tokens: Transitions
+// Animation timing, duration, and easing functions
+
+// ============================================================================
+// DURATION SCALE
+// ============================================================================
+// Based on Material Design motion principles
+
+$duration-instant: 0ms;
+$duration-fast: 100ms;
+$duration-normal: 200ms;
+$duration-slow: 300ms;
+$duration-slower: 500ms;
+$duration-slowest: 700ms;
+
+// ============================================================================
+// EASING FUNCTIONS
+// ============================================================================
+
+// Standard easing - Natural motion for most transitions
+$ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// Deceleration - Elements entering screen
+$ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+
+// Acceleration - Elements leaving screen
+$ease-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+$ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+
+// Sharp - Snappy motion for small distances
+$ease-sharp: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+// Bounce - Playful motion
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Linear - Mechanical motion
+$ease-linear: linear;
+
+// ============================================================================
+// PROPERTY-SPECIFIC TRANSITIONS
+// ============================================================================
+
+// Color transitions (text, background, border)
+$transition-colors: color $duration-normal $ease-standard,
+                    background-color $duration-normal $ease-standard,
+                    border-color $duration-normal $ease-standard;
+
+// Opacity (fade in/out)
+$transition-opacity: opacity $duration-normal $ease-standard;
+
+// Transform (position, scale, rotate)
+$transition-transform: transform $duration-normal $ease-standard;
+
+// Box shadow (elevation changes)
+$transition-shadow: box-shadow $duration-normal $ease-standard;
+
+// All properties (use sparingly - performance impact)
+$transition-all: all $duration-normal $ease-standard;
+
+// ============================================================================
+// COMPONENT-SPECIFIC TRANSITIONS
+// ============================================================================
+
+// Buttons
+$button-transition: background-color $duration-fast $ease-standard,
+                    border-color $duration-fast $ease-standard,
+                    box-shadow $duration-fast $ease-standard,
+                    transform $duration-fast $ease-standard;
+
+// Links
+$link-transition: color $duration-fast $ease-standard,
+                  text-decoration-color $duration-fast $ease-standard;
+
+// Input fields
+$input-transition: border-color $duration-normal $ease-standard,
+                   box-shadow $duration-normal $ease-standard,
+                   background-color $duration-normal $ease-standard;
+
+// Cards
+$card-transition: box-shadow $duration-normal $ease-standard,
+                  transform $duration-normal $ease-standard;
+
+// Modals & Overlays
+$modal-backdrop-transition: opacity $duration-slow $ease-decelerate;
+$modal-content-transition: transform $duration-slow $ease-decelerate,
+                           opacity $duration-slow $ease-decelerate;
+
+// Dropdowns & Tooltips
+$dropdown-transition: opacity $duration-normal $ease-decelerate,
+                      transform $duration-normal $ease-decelerate;
+
+// Tabs
+$tab-transition: color $duration-normal $ease-standard,
+                 border-color $duration-normal $ease-standard;
+
+// Sidebar & Navigation
+$sidebar-transition: transform $duration-slow $ease-standard;
+$nav-transition: background-color $duration-fast $ease-standard;
+
+// Focus states
+$focus-transition: box-shadow $duration-fast $ease-standard,
+                   outline $duration-fast $ease-standard;
+
+// ============================================================================
+// MICRO-INTERACTIONS
+// ============================================================================
+
+// Hover effects
+$hover-lift-duration: $duration-normal;
+$hover-lift-transform: translateY(-2px);
+
+// Click/Active effects
+$active-scale: scale(0.98);
+$active-duration: $duration-fast;
+
+// ============================================================================
+// ANIMATION PRESETS
+// ============================================================================
+
+// Fade animations
+$animation-fade-in: fade-in $duration-slow $ease-decelerate;
+$animation-fade-out: fade-out $duration-slow $ease-accelerate;
+
+// Slide animations
+$animation-slide-in-up: slide-in-up $duration-slow $ease-decelerate;
+$animation-slide-in-down: slide-in-down $duration-slow $ease-decelerate;
+$animation-slide-out-up: slide-out-up $duration-slow $ease-accelerate;
+$animation-slide-out-down: slide-out-down $duration-slow $ease-accelerate;
+
+// Scale animations
+$animation-scale-in: scale-in $duration-normal $ease-decelerate;
+$animation-scale-out: scale-out $duration-normal $ease-accelerate;
+
+// Pulse animation (loading states)
+$animation-pulse: pulse $duration-slower $ease-standard infinite;
+
+// Skeleton loading
+$animation-skeleton: skeleton-loading 1.5s $ease-linear infinite;
+
+// ============================================================================
+// TIMING DELAYS (for staggered animations)
+// ============================================================================
+
+$delay-1: 50ms;
+$delay-2: 100ms;
+$delay-3: 150ms;
+$delay-4: 200ms;
+$delay-5: 250ms;

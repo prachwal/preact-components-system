@@ -1,26 +1,143 @@
 // Base Styles
+@use './tokens/typography' as *;
+@use './tokens/transitions' as *;
+@use './mixins/focus' as focus;
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+// ============================================================================
+// HTML & BODY - Fluid Typography Foundation
+// ============================================================================
+
+html {
+  // Better font rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  // Prevent text size adjust on orientation change
+  -webkit-text-size-adjust: 100%;
+  
+  // Smooth scrolling (respects prefers-reduced-motion)
+  scroll-behavior: smooth;
+  
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--pcs-font-family);
-  line-height: 1.5;
+  font-size: $font-size-base; // Fluid 16px-18px
+  line-height: $line-height-normal; // 1.5
   color: var(--pcs-text);
   background-color: var(--pcs-bg);
-  transition: background-color var(--pcs-transition-normal), color var(--pcs-transition-normal);
+  transition: background-color $duration-normal $ease-standard, 
+              color $duration-normal $ease-standard;
+  
+  // Minimum height for sticky footer
+  min-height: 100vh;
+  
+  // Better text rendering
+  text-rendering: optimizeLegibility;
 }
+
+// ============================================================================
+// HEADINGS - Fluid Typography
+// ============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: var(--pcs-text);
+}
+
+h1 {
+  font-size: clamp(2rem, 1.75rem + 1.25vw, 2.5rem); // Max 2.5rem (40px)
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem); // Max 2.25rem (36px)
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem); // Max 1.875rem (30px)
+  line-height: 1.375;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem); // Max 1.5rem (24px)
+  line-height: 1.375;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: $h5-font-size; // Fluid 18px-20px
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+}
+
+h6 {
+  font-size: $h6-font-size; // Fluid 16px-18px
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+}
+
+// ============================================================================
+// TEXT ELEMENTS
+// ============================================================================
+
+p {
+  margin: 0;
+  line-height: $line-height-relaxed; // 1.75 for body text readability
+}
+
+small {
+  font-size: $font-size-sm;
+}
+
+strong, b {
+  font-weight: $font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+code, kbd, pre, samp {
+  font-family: $font-family-mono;
+  font-size: $code-font-size;
+}
+
+// ============================================================================
+// LINKS - Accessible with WCAG 2.4.7 Focus
+// ============================================================================
 
 a {
   color: var(--pcs-accent);
   text-decoration: none;
+  transition: $link-transition;
 
   &:hover {
     color: var(--pcs-accent-hover);
+    text-decoration: underline;
   }
+  
+  @include focus.focus-visible(var(--pcs-primary));
 }
+
+// ============================================================================
+// BUTTONS - Accessible Focus Indicators
+// ============================================================================
 
 button {
   cursor: pointer;
@@ -31,8 +148,76 @@ button {
   font-size: inherit;
   color: inherit;
 
-  &:focus {
-    outline: none;
-    box-shadow: var(--pcs-focus-ring);
+  @include focus.focus-visible(var(--pcs-primary));
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
+}
+
+// ============================================================================
+// FORM ELEMENTS - Consistent Styling
+// ============================================================================
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  
+  @include focus.focus-visible(var(--pcs-primary));
+}
+
+// ============================================================================
+// LISTS
+// ============================================================================
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+// ============================================================================
+// IMAGES & MEDIA
+// ============================================================================
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// ============================================================================
+// SELECTION - Branded highlight color
+// ============================================================================
+
+::selection {
+  background-color: var(--pcs-primary-light);
+  color: var(--pcs-text);
+}
+
+// ============================================================================
+// ACCESSIBILITY - Screen Reader Only Content
+// ============================================================================
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }

@@ -1,0 +1,187 @@
+// Enhanced Mixins: Interactive States
+// Unified interaction patterns for all components
+
+@use 'sass:meta';
+@use '../tokens/standards' as *;
+@use './focus' as *;
+
+// ============================================================================
+// INTERACTIVE ELEMENT MIXIN
+// ============================================================================
+// Complete interaction states for buttons, links, cards, etc.
+//
+// @param {String} $type ['button'] - Type: 'button', 'link', 'card', 'input'
+// @param {Boolean} $elevated [false] - Add hover elevation
+//
+// Example:
+//   @include interactive-element('button', true);
+
+@mixin interactive-element($type: 'button', $elevated: false) {
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition-interactive);
+  
+  // Hover state
+  &:hover:not(:disabled):not([aria-disabled="true"]) {
+    @if $type == 'button' or $type == 'input' {
+      background-color: var(--hover-bg-light);
+      
+      :is([data-theme="dark"], .is-dark) & {
+        background-color: var(--hover-bg-dark);
+      }
+    }
+    
+    @if $elevated {
+      transform: var(--hover-elevation);
+      box-shadow: var(--elevation-hover);
+    }
+  }
+  
+  // Focus state (WCAG 2.4.7)
+  @include focus-visible(var(--focus-outline-color), var(--focus-offset), var(--focus-outline-width));
+  
+  // Active/pressed state
+  &:active:not(:disabled):not([aria-disabled="true"]) {
+    transform: var(--active-scale);
+    opacity: var(--active-opacity);
+  }
+  
+  // Disabled state
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: var(--disabled-opacity);
+    cursor: var(--disabled-cursor);
+    pointer-events: none;
+  }
+  
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    
+    &:hover:not(:disabled):not([aria-disabled="true"]) {
+      transform: none;
+    }
+    
+    &:active:not(:disabled):not([aria-disabled="true"]) {
+      transform: none;
+    }
+  }
+}
+
+// ============================================================================
+// COMPONENT SIZE MIXIN
+// ============================================================================
+// Apply standard sizes to any component
+//
+// @param {String} $size ['medium'] - 'small', 'medium', or 'large'
+// @param {String} $component ['button'] - Component type for specific padding
+//
+// Example:
+//   @include component-size('small', 'button');
+
+@mixin component-size($size: 'medium', $component: 'button') {
+  @if $size == 'small' {
+    height: var(--component-size-small);
+    font-size: var(--pcs-font-size-sm);
+    
+    @if $component == 'button' {
+      padding: var(--button-padding-small);
+    } @else if $component == 'input' {
+      padding: var(--input-padding-small);
+    }
+  } @else if $size == 'medium' {
+    height: var(--component-size-medium);
+    font-size: var(--pcs-font-size-base);
+    
+    @if $component == 'button' {
+      padding: var(--button-padding-medium);
+    } @else if $component == 'input' {
+      padding: var(--input-padding-medium);
+    }
+  } @else if $size == 'large' {
+    height: var(--component-size-large);
+    font-size: var(--pcs-font-size-lg);
+    
+    @if $component == 'button' {
+      padding: var(--button-padding-large);
+    } @else if $component == 'input' {
+      padding: var(--input-padding-large);
+    }
+  }
+}
+
+// ============================================================================
+// ELEVATION MIXIN
+// ============================================================================
+// Add elevation (shadow + hover lift)
+//
+// @param {Boolean} $hover [true] - Add hover elevation
+//
+// Example:
+//   @include elevation(true);
+
+@mixin elevation($hover: true) {
+  box-shadow: var(--elevation-resting);
+  transition: box-shadow var(--transition-normal), 
+              transform var(--transition-normal);
+  
+  @if $hover {
+    &:hover:not(:disabled) {
+      box-shadow: var(--elevation-hover);
+      transform: var(--hover-elevation);
+    }
+    
+    &:active:not(:disabled) {
+      box-shadow: var(--elevation-resting);
+      transform: translateY(0);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+    
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+}
+
+// ============================================================================
+// DARK MODE SELECTOR HELPER
+// ============================================================================
+// Unified dark mode targeting
+//
+// Example:
+//   @include dark-mode {
+//     .my-component { background: black; }
+//   }
+
+@mixin dark-mode {
+  :is([data-theme="dark"], .is-dark) {
+    @content;
+  }
+}
+
+// ============================================================================
+// THEME-AWARE COLOR MIXIN
+// ============================================================================
+// Apply different colors for light/dark themes
+//
+// @param {String} $property - CSS property (color, background, border-color, etc.)
+// @param {Color} $light-value - Value for light theme
+// @param {Color} $dark-value - Value for dark theme
+//
+// Example:
+//   @include theme-color(background-color, white, #1a1a1a);
+
+@mixin theme-color($property, $light-value, $dark-value) {
+  #{$property}: $light-value;
+  
+  @include dark-mode {
+    #{$property}: $dark-value;
+  }
+}

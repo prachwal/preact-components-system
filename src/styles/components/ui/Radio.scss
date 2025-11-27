@@ -1,3 +1,6 @@
+@use '../../mixins/interactive' as interactive;
+@use '../../tokens/standards' as *;
+
 // Colors for different states
 $primary-color: var(--pcs-color-primary);
 $secondary-color: var(--pcs-color-secondary);
@@ -71,8 +74,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-wrapper:hover {
     background-color: $hover-bg-dark;
   }
@@ -132,8 +134,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-icon-outer {
     border-color: $text-secondary-dark;
   }
@@ -172,8 +173,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-primary .radio-wrapper:hover {
     background-color: var(--pcs-primary-opacity-08);
   }
@@ -195,8 +195,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-secondary .radio-wrapper:hover {
     background-color: var(--pcs-secondary-opacity-08);
   }
@@ -218,8 +217,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-error .radio-wrapper:hover {
     background-color: var(--pcs-error-opacity-08);
   }
@@ -241,8 +239,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-warning .radio-wrapper:hover {
     background-color: var(--pcs-warning-opacity-08);
   }
@@ -264,8 +261,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-info .radio-wrapper:hover {
     background-color: var(--pcs-info-opacity-08);
   }
@@ -287,8 +283,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-color-success .radio-wrapper:hover {
     background-color: var(--pcs-success-opacity-08);
   }
@@ -367,8 +362,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .radio-label {
     color: $text-primary-dark;
   }

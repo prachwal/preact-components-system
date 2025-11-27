@@ -29,45 +29,22 @@ export const Main = () => (
       columns={4}
       hasChildrenContainer={true}
     >
-      <ContentSection
-        title="Feature One"
-        hasChildrenContainer={true}
-        className="feature-card"
-        as="article"
-        level={3}
-      >
+      <article className="feature-card">
+        <h3>Feature One</h3>
         <p>Description of feature one.</p>
-      </ContentSection>
-      <ContentSection
-        title="Feature Two"
-        hasChildrenContainer={true}
-        className="feature-card"
-        as="article"
-        level={3}
-      >
+      </article>
+      <article className="feature-card">
+        <h3>Feature Two</h3>
         <p>Description of feature two.</p>
-      </ContentSection>
-      <ContentSection
-        title="Feature Three"
-        hasChildrenContainer={true}
-        className="feature-card"
-        as="article"
-        level={3}
-      >
+      </article>
+      <article className="feature-card">
+        <h3>Feature Three</h3>
         <p>Description of feature three.</p>
-      </ContentSection>
-      <ContentSection
-        title="Feature Four"
-        hasChildrenContainer={true}
-        className="feature-card"
-        as="article"
-        level={3}
-      >
+      </article>
+      <article className="feature-card">
+        <h3>Feature Four</h3>
         <p>Description of feature four.</p>
-      </ContentSection>
+      </article>
     </ContentSection>
-    <footer role="contentinfo" className="app-footer">
-      <p>&copy; 2024 App Name. All rights reserved.</p>
-    </footer>
   </main>
 );

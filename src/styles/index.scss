@@ -1,6 +1,34 @@
+// ============================================================================
+// PREACT COMPONENTS SYSTEM - MAIN STYLESHEET
+// Token-based architecture with WCAG AA compliance and fluid responsive design
+// ============================================================================
+
+// 1. DESIGN TOKENS (imported first - foundational values)
+@use './tokens/colors';
+@use './tokens/typography';
+@use './tokens/spacing';
+@use './tokens/breakpoints';
+@use './tokens/shadows';
+@use './tokens/transitions';
+@use './tokens/standards';
+
+// 2. ENHANCED MIXINS (utilities that use tokens)
+@use './mixins/fluid';
+@use './mixins/focus';
+@use './mixins/media';
+@use './mixins/contrast';
+@use './mixins/interactive';
+
+// 3. THEMES (CSS custom properties from tokens)
 @use './themes';
+
+// 4. BASE STYLES (HTML elements with fluid typography)
 @use './base';
+
+// 5. COMPONENTS (organized by category)
 @use './components';
 @use './components/layout';
 @use './components/ui';
+
+// 6. UTILITIES (helper classes)
 @use './utilities';

@@ -1,0 +1,241 @@
+// Enhanced Mixins: Focus Styles
+// WCAG 2.4.7 compliant focus indicators
+
+@use '../tokens/colors' as *;
+@use '../tokens/transitions' as *;
+
+// ============================================================================
+// FOCUS VISIBLE MIXIN
+// ============================================================================
+// Modern focus-visible styling with WCAG 2.4.7 compliance
+// - 3:1 contrast ratio for focus indicator
+// - 2px minimum thickness
+// - Visible against all backgrounds
+//
+// @param {Color} $color [$primary-500] - Focus ring color
+// @param {Number} $width [2px] - Focus ring thickness
+// @param {Number} $offset [2px] - Distance from element
+// @param {String} $style [solid] - Border style
+//
+// Example:
+//   @include focus-visible();
+//   @include focus-visible($error-500, 3px, 4px);
+
+@mixin focus-visible(
+  $color: $primary-500,
+  $width: 2px,
+  $offset: 2px,
+  $style: solid
+) {
+  &:focus {
+    outline: none; // Remove default outline
+  }
+  
+  &:focus-visible {
+    outline: $width $style $color;
+    outline-offset: $offset;
+    transition: $focus-transition;
+  }
+}
+
+// ============================================================================
+// FOCUS RING MIXIN (Box Shadow Style)
+// ============================================================================
+// Alternative focus style using box-shadow (useful when outline causes layout issues)
+//
+// @param {Color} $color [$primary-500] - Focus ring color
+// @param {Number} $spread [3px] - Focus ring size
+// @param {Number} $opacity [0.3] - Focus ring opacity
+//
+// Example:
+//   @include focus-ring();
+//   @include focus-ring($error-500, 4px, 0.5);
+
+@mixin focus-ring(
+  $color: $primary-500,
+  $spread: 3px,
+  $opacity: 0.3
+) {
+  &:focus {
+    outline: none;
+  }
+  
+  &:focus-visible {
+    box-shadow: 0 0 0 $spread rgba($color, $opacity);
+    transition: $focus-transition;
+  }
+}
+
+// ============================================================================
+// FOCUS WITHIN MIXIN
+// ============================================================================
+// Apply styles when container has focus within
+//
+// @content - Styles to apply when focus is within
+//
+// Example:
+//   @include focus-within {
+//     border-color: $primary-500;
+//   }
+
+@mixin focus-within {
+  &:focus-within {
+    @content;
+  }
+}
+
+// ============================================================================
+// INTERACTIVE FOCUS MIXIN
+// ============================================================================
+// Combined hover and focus styles for interactive elements
+//
+// @param {Color} $focus-color [$primary-500] - Focus indicator color
+// @param {Color} $hover-bg [null] - Hover background color
+// @param {Number} $ring-width [2px] - Focus ring width
+//
+// Example:
+//   @include interactive-focus($primary-500, rgba($primary-500, 0.1));
+
+@mixin interactive-focus(
+  $focus-color: $primary-500,
+  $hover-bg: null,
+  $ring-width: 2px
+) {
+  transition: $button-transition;
+  
+  &:hover:not(:disabled) {
+    @if $hover-bg {
+      background-color: $hover-bg;
+    }
+    cursor: pointer;
+  }
+  
+  @include focus-visible($focus-color, $ring-width);
+  
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// ============================================================================
+// KEYBOARD FOCUS ONLY MIXIN
+// ============================================================================
+// Only show focus for keyboard navigation (not mouse clicks)
+// Uses :focus-visible which has excellent browser support
+//
+// @param {Color} $color [$primary-500] - Focus indicator color
+//
+// Example:
+//   @include keyboard-focus-only();
+
+@mixin keyboard-focus-only($color: $primary-500) {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================================================
+// FOCUS TRAP STYLES
+// ============================================================================
+// Styles for focus trap containers (modals, dialogs)
+//
+// Example:
+//   @include focus-trap-container();
+
+@mixin focus-trap-container {
+  // Ensure container is focusable but doesn't show focus ring
+  &:focus {
+    outline: none;
+  }
+  
+  // First and last focusable elements get visible indicators
+  > :first-child:focus-visible,
+  > :last-child:focus-visible {
+    outline: 2px solid $primary-500;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================================================
+// SKIP LINK STYLES
+// ============================================================================
+// Accessible skip-to-content link (hidden until focused)
+//
+// Example:
+//   @include skip-link();
+
+@mixin skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: $space-2 $space-4;
+  background-color: $primary-500;
+  color: $text-on-primary;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  border-radius: $radius-sm;
+  
+  &:focus {
+    left: $space-4;
+    top: $space-4;
+    outline: 2px solid $neutral-900;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST FOCUS MIXIN
+// ============================================================================
+// Enhanced focus for high contrast mode or accessibility requirements
+//
+// @param {Color} $color [$neutral-900] - High contrast color
+//
+// Example:
+//   @include high-contrast-focus();
+
+@mixin high-contrast-focus($color: $neutral-900) {
+  &:focus-visible {
+    outline: 3px solid $color;
+    outline-offset: 3px;
+    
+    // Forced colors mode support (Windows High Contrast)
+    @media (forced-colors: active) {
+      outline: 3px solid currentColor;
+    }
+  }
+}
+
+// ============================================================================
+// FOCUS INDICATOR WITH ICON
+// ============================================================================
+// Show icon when element is focused (useful for form fields)
+//
+// @param {String} $icon-content - Icon content (e.g., '✓')
+// @param {Color} $icon-color [$success-500] - Icon color
+//
+// Example:
+//   @include focus-indicator-icon('✓', $success-500);
+
+@mixin focus-indicator-icon($icon-content, $icon-color: $success-500) {
+  position: relative;
+  
+  &:focus-visible::after {
+    content: $icon-content;
+    position: absolute;
+    right: $space-3;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $icon-color;
+    font-weight: $font-weight-bold;
+  }
+}

@@ -1,3 +1,6 @@
+@use '../../mixins/interactive' as interactive;
+@use '../../tokens/standards' as *;
+
 // Colors for different states
 $primary-color: var(--pcs-color-primary);
 $secondary-color: var(--pcs-color-secondary);
@@ -96,8 +99,7 @@ $track-checked-opacity: 0.5;
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .switch-track {
     background-color: $track-unchecked-dark;
   }
@@ -131,8 +133,7 @@ $track-checked-opacity: 0.5;
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .switch-thumb {
     background-color: $thumb-bg-dark;
   }
@@ -281,8 +282,7 @@ $track-checked-opacity: 0.5;
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .switch-label {
     color: $text-primary-dark;
   }

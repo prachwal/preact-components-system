@@ -1,0 +1,48 @@
+// ============================================
+// VISUAL DEBUG - Breakpoint Indicator
+// ============================================
+// Uncomment to enable visual breakpoint debugging
+// Shows current breakpoint in bottom-right corner
+
+/*
+body::before {
+  content: 'XS: < 480px';
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  z-index: 9999;
+  font-size: 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 480px) {
+    content: 'SM: 480px+';
+    background: orange;
+  }
+
+  @media (min-width: 768px) {
+    content: 'MD: 768px+';
+    background: yellow;
+    color: black;
+  }
+
+  @media (min-width: 1024px) {
+    content: 'LG: 1024px+';
+    background: green;
+  }
+
+  @media (min-width: 1440px) {
+    content: 'XL: 1440px+';
+    background: blue;
+  }
+
+  @media (min-width: 1920px) {
+    content: '2XL: 1920px+';
+    background: purple;
+  }
+}
+*/

@@ -1,3 +1,6 @@
+@use '../../mixins/interactive' as interactive;
+@use '../../tokens/standards' as *;
+
 // Colors for different states
 $primary-color: var(--pcs-color-primary);
 $secondary-color: var(--pcs-color-secondary);
@@ -71,8 +74,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-wrapper:hover {
     background-color: $hover-bg-dark;
   }
@@ -117,7 +119,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-:is([data-theme="dark"], .is-dark) {
+@include interactive.dark-mode {
   .checkbox-icon {
     color: $text-secondary-dark;
 
@@ -145,8 +147,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-primary .checkbox-wrapper:hover {
     background-color: var(--pcs-primary-opacity-08);
   }
@@ -163,8 +164,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-secondary .checkbox-wrapper:hover {
     background-color: var(--pcs-secondary-opacity-08);
   }
@@ -181,8 +181,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-error .checkbox-wrapper:hover {
     background-color: var(--pcs-error-opacity-08);
   }
@@ -199,8 +198,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-warning .checkbox-wrapper:hover {
     background-color: var(--pcs-warning-opacity-08);
   }
@@ -217,8 +215,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-info .checkbox-wrapper:hover {
     background-color: var(--pcs-info-opacity-08);
   }
@@ -235,8 +232,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
   }
 }
 
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-color-success .checkbox-wrapper:hover {
     background-color: var(--pcs-success-opacity-08);
   }
@@ -305,8 +301,7 @@ $hover-bg-dark: var(--pcs-hover-bg-dark);
 }
 
 // Dark theme overrides
-[data-theme="dark"],
-.is-dark {
+@include interactive.dark-mode {
   .checkbox-label {
     color: $text-primary-dark;
   }

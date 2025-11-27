@@ -53,14 +53,4 @@ describe('Main', () => {
     expect(screen.getByText('Description of feature three.')).toBeInTheDocument();
     expect(screen.getByText('Description of feature four.')).toBeInTheDocument();
   });
-
-  it('renders app footer', () => {
-    const { container } = renderWithTheme(<Main />);
-    expect(container.querySelector('.app-footer')).toBeInTheDocument();
-  });
-
-  it('renders copyright text', () => {
-    renderWithTheme(<Main />);
-    expect(screen.getByText('© 2024 App Name. All rights reserved.')).toBeInTheDocument();
-  });
 });

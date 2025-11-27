@@ -1,0 +1,281 @@
+// Enhanced Mixins: Contrast & Accessibility Utilities
+// WCAG contrast checking and color manipulation
+
+@use 'sass:color';
+@use 'sass:math';
+@use '../tokens/colors' as *;
+
+// ============================================================================
+// HELPER: LINEARIZE CHANNEL
+// ============================================================================
+// Linearize RGB channel value for luminance calculation
+
+@function linearize-channel($channel) {
+  @if $channel <= 0.03928 {
+    @return math.div($channel, 12.92);
+  } @else {
+    @return math.pow(math.div($channel + 0.055, 1.055), 2.4);
+  }
+}
+
+// ============================================================================
+// LUMINANCE CALCULATION
+// ============================================================================
+// Calculate relative luminance of a color per WCAG formula
+//
+// @param {Color} $color - Color to calculate luminance for
+// @returns {Number} - Relative luminance (0-1)
+//
+// Formula: https://www.w3.org/TR/WCAG20-TECHS/G17.html
+
+@function get-luminance($color) {
+  $red: math.div(color.red($color), 255);
+  $green: math.div(color.green($color), 255);
+  $blue: math.div(color.blue($color), 255);
+  
+  $r: linearize-channel($red);
+  $g: linearize-channel($green);
+  $b: linearize-channel($blue);
+  
+  @return $r * 0.2126 + $g * 0.7152 + $b * 0.0722;
+}
+
+// ============================================================================
+// CONTRAST RATIO CALCULATION
+// ============================================================================
+// Calculate contrast ratio between two colors per WCAG
+//
+// @param {Color} $foreground - Foreground color
+// @param {Color} $background - Background color
+// @returns {Number} - Contrast ratio (1-21)
+//
+// WCAG Requirements:
+// - AA Text: 4.5:1
+// - AA Large Text: 3:1
+// - AAA Text: 7:1
+// - AAA Large Text: 4.5:1
+
+@function get-contrast-ratio($foreground, $background) {
+  $lum1: get-luminance($foreground);
+  $lum2: get-luminance($background);
+  
+  $lighter: math.max($lum1, $lum2);
+  $darker: math.min($lum1, $lum2);
+  
+  @return math.div($lighter + 0.05, $darker + 0.05);
+}
+
+// ============================================================================
+// CONTRAST TEXT COLOR FUNCTION
+// ============================================================================
+// Get appropriate text color (dark or light) for given background
+//
+// @param {Color} $background - Background color
+// @param {Color} $dark [$neutral-900] - Dark text color option
+// @param {Color} $light [#fff] - Light text color option
+// @param {Number} $threshold [4.5] - Minimum contrast ratio
+// @returns {Color} - Best contrasting text color
+
+@function get-contrast-text($background, $dark: $neutral-900, $light: #fff, $threshold: 4.5) {
+  $dark-contrast: get-contrast-ratio($dark, $background);
+  $light-contrast: get-contrast-ratio($light, $background);
+  
+  // If both meet threshold, choose the one with higher contrast
+  @if $dark-contrast >= $threshold and $light-contrast >= $threshold {
+    @if $dark-contrast > $light-contrast {
+      @return $dark;
+    } @else {
+      @return $light;
+    }
+  }
+  
+  // If only one meets threshold, use it
+  @if $dark-contrast >= $threshold {
+    @return $dark;
+  }
+  
+  @if $light-contrast >= $threshold {
+    @return $light;
+  }
+  
+  // If neither meets threshold, use the one with higher contrast
+  @if $dark-contrast > $light-contrast {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+
+// ============================================================================
+// ENSURE CONTRAST FUNCTION
+// ============================================================================
+// Adjust color lightness to meet minimum contrast ratio
+//
+// @param {Color} $color - Color to adjust
+// @param {Color} $background - Background color to contrast against
+// @param {Number} $ratio [4.5] - Target contrast ratio
+// @returns {Color} - Adjusted color meeting contrast requirement
+
+@function ensure-contrast($color, $background, $ratio: 4.5) {
+  $current-ratio: get-contrast-ratio($color, $background);
+  
+  @if $current-ratio >= $ratio {
+    @return $color;
+  }
+  
+  // Try darkening or lightening in steps
+  $adjusted: $color;
+  $step: 5%;
+  $attempts: 0;
+  $max-attempts: 20;
+  
+  @while get-contrast-ratio($adjusted, $background) < $ratio and $attempts < $max-attempts {
+    $attempts: $attempts + 1;
+    
+    // Try darkening first if color is lighter than background
+    @if color.lightness($color) > color.lightness($background) {
+      $adjusted: color.adjust($adjusted, $lightness: -$step);
+    } @else {
+      $adjusted: color.adjust($adjusted, $lightness: $step);
+    }
+  }
+  
+  @return $adjusted;
+}
+
+// ============================================================================
+// ACCESSIBLE COLOR MIXIN
+// ============================================================================
+// Apply color with guaranteed contrast
+//
+// @param {String} $property - CSS property (color, background-color, etc.)
+// @param {Color} $color - Desired color
+// @param {Color} $background - Background color
+// @param {Number} $min-contrast [4.5] - Minimum contrast ratio
+//
+// Example:
+//   @include accessible-color(color, $primary-500, #fff, 4.5);
+
+@mixin accessible-color($property, $color, $background, $min-contrast: 4.5) {
+  #{$property}: ensure-contrast($color, $background, $min-contrast);
+}
+
+// ============================================================================
+// CONTRAST WARNING MIXIN
+// ============================================================================
+// Output warning if contrast ratio is insufficient (development helper)
+//
+// @param {Color} $foreground - Foreground color
+// @param {Color} $background - Background color
+// @param {Number} $required-ratio [4.5] - Required contrast ratio
+// @param {String} $context [''] - Context description for warning
+
+@mixin contrast-warning($foreground, $background, $required-ratio: 4.5, $context: '') {
+  $ratio: get-contrast-ratio($foreground, $background);
+  
+  @if $ratio < $required-ratio {
+    @warn "Insufficient contrast ratio: #{$ratio} (required: #{$required-ratio}) #{$context}";
+  }
+}
+
+// ============================================================================
+// ACCESSIBLE LINK MIXIN
+// ============================================================================
+// Create accessible link with proper contrast
+//
+// @param {Color} $color - Link color
+// @param {Color} $background - Background color
+// @param {Color} $hover-color [null] - Hover color (auto-generated if null)
+//
+// Example:
+//   @include accessible-link($primary-500, #fff);
+
+@mixin accessible-link($color, $background, $hover-color: null) {
+  $safe-color: ensure-contrast($color, $background, 4.5);
+  color: $safe-color;
+  
+  @if $hover-color {
+    $safe-hover: ensure-contrast($hover-color, $background, 4.5);
+    
+    &:hover,
+    &:focus {
+      color: $safe-hover;
+    }
+  } @else {
+    // Auto-generate hover color (slightly darker/lighter)
+    &:hover,
+    &:focus {
+      @if color.lightness($safe-color) > 50% {
+        color: color.adjust($safe-color, $lightness: -10%);
+      } @else {
+        color: color.adjust($safe-color, $lightness: 10%);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// ACCESSIBLE BUTTON MIXIN
+// ============================================================================
+// Create button with accessible colors
+//
+// @param {Color} $bg-color - Button background color
+// @param {Color} $text-color [auto] - Text color (auto-calculated if null)
+//
+// Example:
+//   @include accessible-button($primary-500);
+
+@mixin accessible-button($bg-color, $text-color: null) {
+  background-color: $bg-color;
+  
+  @if $text-color {
+    color: ensure-contrast($text-color, $bg-color, 4.5);
+  } @else {
+    color: get-contrast-text($bg-color);
+  }
+  
+  &:hover:not(:disabled) {
+    background-color: color.adjust($bg-color, $lightness: -5%);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+  }
+}
+
+// ============================================================================
+// HIGH CONTRAST TEXT MIXIN
+// ============================================================================
+// Ensure maximum contrast for readability
+//
+// @param {Color} $background - Background color
+//
+// Example:
+//   @include high-contrast-text(#f0f0f0);
+
+@mixin high-contrast-text($background) {
+  color: get-contrast-text($background, $neutral-900, #fff, 7);
+  
+  // Forced colors mode support (Windows High Contrast)
+  @media (forced-colors: active) {
+    color: CanvasText;
+  }
+}
+
+// ============================================================================
+// TRANSPARENT OVERLAY CONTRAST MIXIN
+// ============================================================================
+// Ensure text is readable over transparent overlays
+//
+// @param {Color} $overlay-color - Semi-transparent overlay color
+// @param {Color} $background - Background color behind overlay
+// @param {Number} $overlay-opacity - Overlay opacity (0-1)
+//
+// Example:
+//   @include transparent-overlay-contrast(#000, #fff, 0.5);
+
+@mixin transparent-overlay-contrast($overlay-color, $background, $overlay-opacity) {
+  // Mix overlay with background to get effective color
+  $effective-bg: color.mix($overlay-color, $background, $overlay-opacity * 100%);
+  color: get-contrast-text($effective-bg);
+}

@@ -1,3 +1,6 @@
+@use '../../mixins/interactive' as interactive;
+@use '../../tokens/standards' as *;
+
 // Colors for different states
 $primary-color: var(--pcs-color-primary);
 $primary-light: var(--pcs-primary-opacity-02);
@@ -130,11 +133,15 @@ $background-subtle-dark: var(--pcs-bg-subtle-dark);
   }
   
   &.textfield-size-small .textfield-input {
-    padding: 0.5rem 0.75rem;
+    @include interactive.component-size('small', 'input');
+  }
+  
+  &.textfield-size-medium .textfield-input {
+    @include interactive.component-size('medium', 'input');
   }
   
   &.textfield-size-large .textfield-input {
-    padding: 0.75rem 1rem;
+    @include interactive.component-size('large', 'input');
   }
   
   &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
@@ -209,11 +216,21 @@ $background-subtle-dark: var(--pcs-bg-subtle-dark);
   }
   
   &.textfield-size-small .textfield-input {
-    padding: 1.25rem 0.75rem 0.375rem;
+    @include interactive.component-size('small', 'input');
+    padding-top: 1.25rem;
+    padding-bottom: 0.375rem;
+  }
+  
+  &.textfield-size-medium .textfield-input {
+    @include interactive.component-size('medium', 'input');
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
   }
   
   &.textfield-size-large .textfield-input {
-    padding: 1.75rem 1rem 0.625rem;
+    @include interactive.component-size('large', 'input');
+    padding-top: 1.75rem;
+    padding-bottom: 0.625rem;
   }
   
   &:not(.textfield-disabled):not(.textfield-error):not(.textfield-success):not(.textfield-warning) {
@@ -318,6 +335,10 @@ $background-subtle-dark: var(--pcs-bg-subtle-dark);
     padding-left: 0.75rem;
   }
   
+  .textfield-size-medium & {
+    padding-left: 0.875rem;
+  }
+  
   .textfield-size-large & {
     padding-left: 1rem;
   }
@@ -337,6 +358,10 @@ $background-subtle-dark: var(--pcs-bg-subtle-dark);
   
   .textfield-size-small & {
     padding-right: 0.75rem;
+  }
+  
+  .textfield-size-medium & {
+    padding-right: 0.875rem;
   }
   
   .textfield-size-large & {

@@ -61,6 +61,26 @@
   }
 }
 
+// Container optimization for large screens
+.container {
+  padding-left: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
+  padding-right: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
+  
+  @media (min-width: 1440px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// Card content optimization
+.card-content {
+  padding: clamp(1rem, 0.85rem + 0.75vw, 1.25rem);
+
+  &:last-child {
+    padding-bottom: clamp(1.25rem, 1rem + 1.25vw, 1.75rem);
+  }
+}
+
 // Focus Styles
 :where(:focus-visible) {
   @include mixins.focus-ring;

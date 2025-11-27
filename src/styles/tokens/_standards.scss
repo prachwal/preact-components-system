@@ -1,0 +1,128 @@
+// Design System Standards
+// Unified standards for all components
+
+@use './spacing' as *;
+@use './transitions' as *;
+
+// ============================================================================
+// COMPONENT SIZES - Standard across all components
+// ============================================================================
+
+:root {
+  // Component heights (for buttons, inputs, etc.)
+  --component-size-small: 32px;
+  --component-size-medium: 40px;
+  --component-size-large: 48px;
+  
+  // Icon sizes
+  --icon-size-small: 16px;
+  --icon-size-medium: 20px;
+  --icon-size-large: 24px;
+}
+
+// Size maps for programmatic access
+$component-sizes: (
+  small: 32px,
+  medium: 40px,
+  large: 48px
+);
+
+$icon-sizes: (
+  small: 16px,
+  medium: 20px,
+  large: 24px
+);
+
+// ============================================================================
+// INTERACTION STATES - Standard for all interactive elements
+// ============================================================================
+
+:root {
+  // Hover states
+  --hover-bg-opacity: 0.04;
+  --hover-bg-light: rgba(0, 0, 0, var(--hover-bg-opacity));
+  --hover-bg-dark: rgba(255, 255, 255, 0.08);
+  --hover-transition: background-color 150ms ease;
+  --hover-elevation: translateY(-2px);
+  
+  // Focus states (WCAG 2.4.7 compliant)
+  --focus-outline-width: 2px;
+  --focus-outline-color: var(--pcs-primary);
+  --focus-outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  --focus-offset: 2px;
+  --focus-ring-opacity: 0.2;
+  --focus-ring: 0 0 0 3px rgba(25, 118, 210, var(--focus-ring-opacity));
+  
+  // Active/pressed states
+  --active-scale: scale(0.98);
+  --active-opacity: 0.7;
+  
+  // Disabled states
+  --disabled-opacity: 0.38;
+  --disabled-cursor: not-allowed;
+}
+
+// ============================================================================
+// ELEVATION SYSTEM - Standard shadows and transforms
+// ============================================================================
+
+:root {
+  --elevation-none: none;
+  --elevation-resting: var(--pcs-shadow-sm);
+  --elevation-hover: var(--pcs-shadow-md);
+  --elevation-active: var(--pcs-shadow-lg);
+  --elevation-focus: var(--pcs-shadow-xl);
+}
+
+// ============================================================================
+// BORDER RADIUS - Standard for components
+// ============================================================================
+
+:root {
+  --component-radius-small: var(--pcs-radius-xs);
+  --component-radius-medium: var(--pcs-radius-sm);
+  --component-radius-large: var(--pcs-radius-md);
+}
+
+// ============================================================================
+// SPACING - Component-specific spacing
+// ============================================================================
+
+:root {
+  // Button padding (horizontal)
+  --button-padding-small: #{$space-2} #{$space-3};
+  --button-padding-medium: #{$space-3} #{$space-4};
+  --button-padding-large: #{$space-4} #{$space-6};
+  
+  // Input padding
+  --input-padding-small: #{$space-2} #{$space-3};
+  --input-padding-medium: #{$space-3} #{$space-4};
+  --input-padding-large: #{$space-4} #{$space-5};
+  
+  // Card padding
+  --card-padding-small: #{$space-3};
+  --card-padding-medium: #{$space-4};
+  --card-padding-large: #{$space-6};
+}
+
+// ============================================================================
+// TRANSITIONS - Standard durations and easings
+// ============================================================================
+
+:root {
+  // Common transitions
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+  
+  // Specific properties
+  --transition-color: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+  --transition-transform: transform 200ms ease;
+  --transition-opacity: opacity 150ms ease;
+  --transition-shadow: box-shadow 200ms ease;
+  
+  // Combined
+  --transition-interactive: background-color 150ms ease, 
+                            transform 200ms ease, 
+                            box-shadow 200ms ease;
+}
