@@ -1,6 +1,5 @@
 import type { JSX } from 'preact';
 import clsx from 'clsx';
-import './Progress.scss';
 
 type ProgressVariant = 'determinate' | 'indeterminate';
 type ProgressColor = 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';

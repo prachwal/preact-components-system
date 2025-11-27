@@ -4,7 +4,6 @@ import { useContext, useState, useRef, useEffect } from 'preact/hooks';
 import clsx from 'clsx';
 import { Portal } from '../utils/Portal';
 import { ClickAwayListener } from '../utils/ClickAwayListener';
-import './Menu.scss';
 
 type MenuVariant = 'menu' | 'selectedMenu';
 

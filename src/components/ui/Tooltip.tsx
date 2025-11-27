@@ -2,7 +2,6 @@ import type { ComponentChildren } from 'preact';
 import { useState, useRef, useEffect } from 'preact/hooks';
 import clsx from 'clsx';
 import { Portal } from '../utils/Portal';
-import './Tooltip.scss';
 
 type TooltipPlacement = 
   | 'top' | 'top-start' | 'top-end'

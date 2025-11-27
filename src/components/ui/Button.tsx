@@ -1,6 +1,5 @@
 import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
-import './Button.scss';
 
 type ButtonVariant = 'contained' | 'outlined' | 'text';
 type ButtonColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';

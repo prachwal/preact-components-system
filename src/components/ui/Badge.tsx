@@ -1,6 +1,5 @@
 import type { JSX, ComponentChildren } from 'preact';
 import clsx from 'clsx';
-import './Badge.scss';
 
 type BadgeVariant = 'standard' | 'dot';
 type BadgeColor = 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';

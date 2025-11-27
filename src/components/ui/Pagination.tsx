@@ -1,6 +1,5 @@
 import type { JSX } from 'preact';
 import clsx from 'clsx';
-import './Pagination.scss';
 
 type PaginationVariant = 'text' | 'outlined' | 'contained';
 type PaginationSize = 'small' | 'medium' | 'large';

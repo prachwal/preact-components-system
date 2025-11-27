@@ -1,7 +1,6 @@
 import type { JSX } from 'preact';
 import { useRef, useId, useEffect } from 'preact/hooks';
 import clsx from 'clsx';
-import './Checkbox.scss';
 
 type CheckboxSize = 'small' | 'medium' | 'large';
 type CheckboxColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';

@@ -2,7 +2,6 @@ import type { ComponentChildren, JSX } from 'preact';
 import { createContext } from 'preact';
 import { useContext, useRef, useEffect } from 'preact/hooks';
 import clsx from 'clsx';
-import './Stepper.scss';
 
 type StepperOrientation = 'horizontal' | 'vertical';
 

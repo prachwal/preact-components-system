@@ -2,7 +2,6 @@ import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
 import type { ResponsiveValue } from '../../theme/types';
 import { useResponsive } from '../../hooks/useResponsive';
-import './Grid.scss';
 
 type GridSize = number | 'auto' | boolean;
 type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';

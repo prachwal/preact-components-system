@@ -2,7 +2,6 @@ import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
 import type { ResponsiveValue } from '../../theme/types';
 import { useResponsive } from '../../hooks/useResponsive';
-import './Stack.scss';
 
 type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 type AlignItems = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';

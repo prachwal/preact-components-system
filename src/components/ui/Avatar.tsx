@@ -1,6 +1,5 @@
 import type { JSX } from 'preact';
 import clsx from 'clsx';
-import './Avatar.scss';
 
 type AvatarVariant = 'circular' | 'rounded' | 'square';
 type AvatarSize = 'small' | 'medium' | 'large';

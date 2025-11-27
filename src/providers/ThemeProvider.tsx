@@ -4,6 +4,7 @@ import type { ThemeMode } from '../types/theme';
 import type { Theme, ThemeOptions } from '../theme/types';
 import { createTheme } from '../theme/createTheme';
 import { THEME_STORAGE_KEY } from '../config/constants';
+import '../styles/index.scss'
 
 const isValidTheme = (value: string): value is ThemeMode =>
   ['light', 'dark', 'system'].includes(value);

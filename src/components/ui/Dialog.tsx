@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { Portal } from '../utils/Portal';
 import { FocusTrap } from '../utils/FocusTrap';
 import { Backdrop } from './Backdrop';
-import './Dialog.scss';
 
 type DialogSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fullscreen';
 

@@ -2,7 +2,6 @@ import type { JSX } from 'preact';
 import { useEffect } from 'preact/hooks';
 import clsx from 'clsx';
 import { Portal } from '../utils/Portal';
-import './Backdrop.scss';
 
 export interface BackdropProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onClick'> {
   /**

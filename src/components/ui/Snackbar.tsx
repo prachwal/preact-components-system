@@ -2,7 +2,6 @@ import type { JSX, ComponentChildren } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import clsx from 'clsx';
 import { Portal } from '../utils/Portal';
-import './Snackbar.scss';
 
 type SnackbarPosition = 
   | 'top-left' 

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import './Divider.scss';
 
 type DividerOrientation = 'horizontal' | 'vertical';
 type DividerVariant = 'fullWidth' | 'inset' | 'middle';

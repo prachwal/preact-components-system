@@ -1,6 +1,5 @@
 import type { JSX } from 'preact';
 import clsx from 'clsx';
-import './Skeleton.scss';
 
 type SkeletonVariant = 'text' | 'rectangular' | 'circular';
 type SkeletonAnimation = 'pulse' | 'wave' | false;

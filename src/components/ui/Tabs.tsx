@@ -2,7 +2,6 @@ import type { ComponentChildren, JSX } from 'preact';
 import { createContext } from 'preact';
 import { useContext, useState, useEffect, useRef } from 'preact/hooks';
 import clsx from 'clsx';
-import './Tabs.scss';
 
 type TabsVariant = 'standard' | 'fullWidth' | 'scrollable';
 type TabsOrientation = 'horizontal' | 'vertical';

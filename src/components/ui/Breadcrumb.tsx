@@ -1,6 +1,5 @@
 import type { ComponentChildren, JSX } from 'preact';
 import clsx from 'clsx';
-import './Breadcrumb.scss';
 
 export interface BreadcrumbProps extends JSX.HTMLAttributes<HTMLElement> {
   /**

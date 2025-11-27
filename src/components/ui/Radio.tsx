@@ -1,7 +1,6 @@
 import type { JSX } from 'preact';
 import { useRef, useId } from 'preact/hooks';
 import clsx from 'clsx';
-import './Radio.scss';
 
 type RadioSize = 'small' | 'medium' | 'large';
 type RadioColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';

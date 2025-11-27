@@ -3,7 +3,6 @@ import { useState, useCallback } from 'preact/hooks';
 import { Children, cloneElement, isValidElement } from 'preact/compat';
 import { ChevronRight } from 'lucide-preact';
 import clsx from 'clsx';
-import './Accordion.scss';
 
 type AccordionVariant = 'elevation' | 'outlined' | 'filled';
 type AccordionSize = 'small' | 'medium';

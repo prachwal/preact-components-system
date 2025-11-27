@@ -1,6 +1,5 @@
 import type { JSX, ComponentChildren } from 'preact';
 import clsx from 'clsx';
-import './Chip.scss';
 
 type ChipVariant = 'filled' | 'outlined';
 type ChipColor = 'default' | 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';

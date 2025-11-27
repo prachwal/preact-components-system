@@ -1,6 +1,5 @@
 import { Icon } from '../ui/Icon';
 import { APP_VERSION, STORYBOOK_URL, DOCS_URL, COVERAGE_URL, REPOSITORY_URL } from '../../config/constants';
-import './Footer.scss';
 
 export interface FooterProps {
   className?: string;
