@@ -6,19 +6,19 @@
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--pcs-font-family);
   line-height: 1.5;
-  color: var(--text);
-  background-color: var(--bg);
-  transition: background-color var(--transition-normal), color var(--transition-normal);
+  color: var(--pcs-text);
+  background-color: var(--pcs-bg);
+  transition: background-color var(--pcs-transition-normal), color var(--pcs-transition-normal);
 }
 
 a {
-  color: var(--accent);
+  color: var(--pcs-accent);
   text-decoration: none;
 
   &:hover {
-    color: var(--accent-hover);
+    color: var(--pcs-accent-hover);
   }
 }
 
@@ -33,6 +33,6 @@ button {
 
   &:focus {
     outline: none;
-    box-shadow: var(--focus-ring);
+    box-shadow: var(--pcs-focus-ring);
   }
 }

@@ -37,13 +37,13 @@ export const WithMainContent: Story = {
     (Story) => (
       <div>
         <Story />
-        <header style={{ padding: '1rem', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)' }}>
-          <h1 style={{ color: 'var(--text)', margin: 0 }}>Site Header</h1>
+        <header style={{ padding: '1rem', background: 'var(--pcs-bg-secondary)', borderBottom: '1px solid var(--pcs-border)' }}>
+          <h1 style={{ color: 'var(--pcs-text)', margin: 0 }}>Site Header</h1>
           <nav>
-            <a href="#main" style={{ color: 'var(--accent)' }}>Link 1</a> | <a href="#main" style={{ color: 'var(--accent)' }}>Link 2</a>
+            <a href="#main" style={{ color: 'var(--pcs-accent)' }}>Link 1</a> | <a href="#main" style={{ color: 'var(--pcs-accent)' }}>Link 2</a>
           </nav>
         </header>
-        <main id="main-content" style={{ padding: '2rem', minHeight: '400px', color: 'var(--text)' }}>
+        <main id="main-content" style={{ padding: '2rem', minHeight: '400px', color: 'var(--pcs-text)' }}>
           <h2>Main Content</h2>
           <p>This is the main content area that the skip link targets.</p>
           <p>Use Tab key to focus the skip link at the top of the page.</p>

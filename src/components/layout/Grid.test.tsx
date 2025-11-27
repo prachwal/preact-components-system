@@ -55,10 +55,6 @@ describe('Grid', () => {
     });
   });
 
-  describe('User Interactions', () => {
-    // Grid doesn't have interactive elements
-  });
-
   describe('Accessibility', () => {
     it('renders with generic role by default', () => {
       const { container } = renderWithTheme(<Grid>Content</Grid>);

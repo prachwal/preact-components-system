@@ -83,10 +83,11 @@ describe('Button', () => {
   });
 
   describe('Accessibility', () => {
-    it('has correct role', () => {
-      const { container } = renderWithTheme(<Button>Test</Button>);
-      const button = container.querySelector('button');
-      expect(button).toHaveAttribute('role', 'button');
+    it('is accessible as a button', () => {
+      renderWithTheme(<Button>Test</Button>);
+      const button = screen.getByRole('button', { name: /test/i });
+      expect(button).toBeInTheDocument();
+      expect(button.tagName).toBe('BUTTON');
     });
 
     it('has accessible name when children provided', () => {
@@ -100,9 +101,5 @@ describe('Button', () => {
       const results = await axe(container);
       expect(results.violations).toHaveLength(0);
     });
-  });
-
-  describe('Responsive Design', () => {
-    // Button doesn't have responsive props currently
   });
 });

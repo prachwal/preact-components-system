@@ -16,9 +16,9 @@
   line-height: 1.75;
   letter-spacing: 0.02857em;
   text-transform: uppercase;
-  min-width: 64px;
-  padding: 6px 16px;
-  border-radius: 4px;
+  min-width: var(--pcs-button-min-width);
+  padding: var(--pcs-button-padding-y) var(--pcs-button-padding-x);
+  border-radius: var(--pcs-button-radius);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
               box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
               border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -47,14 +47,14 @@
 
 .button-start-icon {
   display: inherit;
-  margin-right: 8px;
-  margin-left: -4px;
+  margin-inline-end: 8px;
+  margin-inline-start: -4px;
 }
 
 .button-end-icon {
   display: inherit;
-  margin-left: 8px;
-  margin-right: -4px;
+  margin-inline-start: 8px;
+  margin-inline-end: -4px;
 }
 
 .button-loader {
@@ -68,6 +68,7 @@
   width: 20px;
   height: 20px;
   animation: button-spin 1.4s linear infinite;
+  will-change: transform;
 }
 
 .button-spinner-circle {
@@ -142,110 +143,110 @@
 // Variants and Colors
 // Contained variant
 .button-variant-contained {
-  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),
-              0px 2px 2px 0px rgba(0,0,0,0.14),
-              0px 1px 5px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 3px 1px -2px var(--pcs-shadow-black),
+              0px 2px 2px 0px var(--pcs-shadow-black-md),
+              0px 1px 5px 0px var(--pcs-shadow-black-sm);
   
   &:hover {
-    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),
-                0px 4px 5px 0px rgba(0,0,0,0.14),
-                0px 1px 10px 0px rgba(0,0,0,0.12);
+    box-shadow: 0px 2px 4px -1px var(--pcs-shadow-black),
+                0px 4px 5px 0px var(--pcs-shadow-black-md),
+                0px 1px 10px 0px var(--pcs-shadow-black-sm);
   }
   
   &:active {
-    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),
-                0px 8px 10px 1px rgba(0,0,0,0.14),
-                0px 3px 14px 2px rgba(0,0,0,0.12);
+    box-shadow: 0px 5px 5px -3px var(--pcs-shadow-black),
+                0px 8px 10px 1px var(--pcs-shadow-black-md),
+                0px 3px 14px 2px var(--pcs-shadow-black-sm);
   }
 }
 
 .button-variant-contained.button-color-primary {
-  color: #fff;
-  background-color: #1976d2;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-primary);
   
   &:hover {
-    background-color: #1565c0;
+    background-color: var(--pcs-color-primary-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-contained.button-color-secondary {
-  color: #fff;
-  background-color: #9c27b0;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-secondary);
   
   &:hover {
-    background-color: #7b1fa2;
+    background-color: var(--pcs-color-secondary-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-contained.button-color-error {
-  color: #fff;
-  background-color: #d32f2f;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-error);
   
   &:hover {
-    background-color: #c62828;
+    background-color: var(--pcs-color-error-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-contained.button-color-warning {
-  color: #fff;
-  background-color: #ed6c02;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-warning);
   
   &:hover {
-    background-color: #e65100;
+    background-color: var(--pcs-color-warning-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-contained.button-color-info {
-  color: #fff;
-  background-color: #0288d1;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-info);
   
   &:hover {
-    background-color: #01579b;
+    background-color: var(--pcs-color-info-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-contained.button-color-success {
-  color: #fff;
-  background-color: #2e7d32;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-success);
   
   &:hover {
-    background-color: #1b5e20;
+    background-color: var(--pcs-color-success-hover);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
     box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -257,92 +258,92 @@
 }
 
 .button-variant-outlined.button-color-primary {
-  color: #1976d2;
-  border-color: rgba(25, 118, 210, 0.5);
+  color: var(--pcs-color-primary);
+  border-color: var(--pcs-primary-opacity-05);
   
   &:hover {
-    background-color: rgba(25, 118, 210, 0.04);
-    border-color: #1976d2;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-primary);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-outlined.button-color-secondary {
-  color: #9c27b0;
-  border-color: rgba(156, 39, 176, 0.5);
+  color: var(--pcs-color-secondary);
+  border-color: var(--pcs-secondary-opacity-05);
   
   &:hover {
-    background-color: rgba(156, 39, 176, 0.04);
-    border-color: #9c27b0;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-secondary);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-outlined.button-color-error {
-  color: #d32f2f;
-  border-color: rgba(211, 47, 47, 0.5);
+  color: var(--pcs-color-error);
+  border-color: var(--pcs-error-opacity-05);
   
   &:hover {
-    background-color: rgba(211, 47, 47, 0.04);
-    border-color: #d32f2f;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-error);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-outlined.button-color-warning {
-  color: #ed6c02;
-  border-color: rgba(237, 108, 2, 0.5);
+  color: var(--pcs-color-warning);
+  border-color: var(--pcs-warning-opacity-05);
   
   &:hover {
-    background-color: rgba(237, 108, 2, 0.04);
-    border-color: #ed6c02;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-warning);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-outlined.button-color-info {
-  color: #0288d1;
-  border-color: rgba(2, 136, 209, 0.5);
+  color: var(--pcs-color-info);
+  border-color: var(--pcs-info-opacity-05);
   
   &:hover {
-    background-color: rgba(2, 136, 209, 0.04);
-    border-color: #0288d1;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-info);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
 .button-variant-outlined.button-color-success {
-  color: #2e7d32;
-  border-color: rgba(46, 125, 50, 0.5);
+  color: var(--pcs-color-success);
+  border-color: var(--pcs-success-opacity-05);
   
   &:hover {
-    background-color: rgba(46, 125, 50, 0.04);
-    border-color: #2e7d32;
+    background-color: var(--pcs-hover-bg-light);
+    border-color: var(--pcs-color-success);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
-    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--pcs-text-disabled-light);
+    border-color: var(--pcs-bg-default-dark);
   }
 }
 
@@ -353,73 +354,73 @@
 }
 
 .button-variant-text.button-color-primary {
-  color: #1976d2;
+  color: var(--pcs-color-primary);
   
   &:hover {
-    background-color: rgba(25, 118, 210, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }
 
 .button-variant-text.button-color-secondary {
-  color: #9c27b0;
+  color: var(--pcs-color-secondary);
   
   &:hover {
-    background-color: rgba(156, 39, 176, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }
 
 .button-variant-text.button-color-error {
-  color: #d32f2f;
+  color: var(--pcs-color-error);
   
   &:hover {
-    background-color: rgba(211, 47, 47, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }
 
 .button-variant-text.button-color-warning {
-  color: #ed6c02;
+  color: var(--pcs-color-warning);
   
   &:hover {
-    background-color: rgba(237, 108, 2, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }
 
 .button-variant-text.button-color-info {
-  color: #0288d1;
+  color: var(--pcs-color-info);
   
   &:hover {
-    background-color: rgba(2, 136, 209, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }
 
 .button-variant-text.button-color-success {
-  color: #2e7d32;
+  color: var(--pcs-color-success);
   
   &:hover {
-    background-color: rgba(46, 125, 50, 0.04);
+    background-color: var(--pcs-hover-bg-light);
   }
   
   &.button-disabled {
-    color: rgba(0, 0, 0, 0.26);
+    color: var(--pcs-text-disabled-light);
   }
 }

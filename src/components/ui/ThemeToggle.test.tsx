@@ -58,8 +58,4 @@ describe('ThemeToggle', () => {
       expect(button).toHaveAttribute('aria-label');
     });
   });
-
-  describe('Responsive Design', () => {
-    // ThemeToggle doesn't have responsive props
-  });
 });

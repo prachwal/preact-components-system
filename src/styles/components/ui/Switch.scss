@@ -1,26 +1,26 @@
 // Colors for different states
-$primary-color: #1976d2;
-$secondary-color: #9c27b0;
-$error-color: #d32f2f;
-$warning-color: #ed6c02;
-$info-color: #0288d1;
-$success-color: #2e7d32;
+$primary-color: var(--pcs-color-primary);
+$secondary-color: var(--pcs-color-secondary);
+$error-color: var(--pcs-color-error);
+$warning-color: var(--pcs-color-warning);
+$info-color: var(--pcs-color-info);
+$success-color: var(--pcs-color-success);
 
 // Light theme colors (defaults)
-$text-primary-light: rgba(0, 0, 0, 0.87);
-$text-secondary-light: rgba(0, 0, 0, 0.6);
-$text-disabled-light: rgba(0, 0, 0, 0.38);
-$track-unchecked-light: rgba(0, 0, 0, 0.38);
-$thumb-bg-light: #fff;
-$thumb-disabled-light: #bdbdbd;
+$text-primary-light: var(--pcs-text-primary-light);
+$text-secondary-light: var(--pcs-text-secondary-light);
+$text-disabled-light: var(--pcs-text-disabled-light);
+$track-unchecked-light: var(--pcs-text-disabled-light);
+$thumb-bg-light: var(--pcs-color-white);
+$thumb-disabled-light: var(--pcs-thumb-bg-light);
 
 // Dark theme colors
-$text-primary-dark: rgba(255, 255, 255, 0.87);
-$text-secondary-dark: rgba(255, 255, 255, 0.6);
-$text-disabled-dark: rgba(255, 255, 255, 0.38);
-$track-unchecked-dark: rgba(255, 255, 255, 0.38);
-$thumb-bg-dark: #bdbdbd;
-$thumb-disabled-dark: #424242;
+$text-primary-dark: var(--pcs-text-primary-dark);
+$text-secondary-dark: var(--pcs-text-secondary-dark);
+$text-disabled-dark: var(--pcs-text-disabled-dark);
+$track-unchecked-dark: var(--pcs-text-disabled-dark);
+$thumb-bg-dark: var(--pcs-thumb-bg-light);
+$thumb-disabled-dark: var(--pcs-thumb-disabled-dark);
 
 $track-checked-opacity: 0.5;
 
@@ -108,9 +108,9 @@ $track-checked-opacity: 0.5;
   height: 20px;
   border-radius: 50%;
   background-color: $thumb-bg-light;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
-              0px 1px 1px 0px rgba(0,0,0,0.14),
-              0px 1px 3px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 2px 1px -1px var(--pcs-shadow-black),
+              0px 1px 1px 0px var(--pcs-shadow-black-md),
+              0px 1px 3px 0px var(--pcs-shadow-black-sm);
   position: absolute;
   left: 0;
   transform: translateX(0);
@@ -145,7 +145,7 @@ $track-checked-opacity: 0.5;
 .switch-thumb-label {
   font-size: 0.625rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--pcs-color-white);
   user-select: none;
 }
 

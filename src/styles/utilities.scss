@@ -14,8 +14,8 @@
 
   .app-sidebar {
     position: sticky;
-    top: var(--header-height);
-    height: calc(100vh - var(--header-height));
+    top: var(--pcs-header-height);
+    height: calc(100vh - var(--pcs-header-height));
     transform: translateX(0);
   }
 
@@ -80,17 +80,17 @@
 // High Contrast Mode
 @include mixins.prefers-contrast(high) {
   :root {
-    --border: #000000;
-    --text: #000000;
-    --bg: #ffffff;
-    --accent: #0000ff;
+    --pcs-border: var(--pcs-color-black);
+    --pcs-text: var(--pcs-color-black);
+    --pcs-bg: var(--pcs-color-white);
+    --pcs-accent: var(--pcs-color-black);
   }
 
   [data-theme="dark"] {
-    --border: #ffffff;
-    --text: #ffffff;
-    --bg: #000000;
-    --accent: #ffff00;
+    --pcs-border: var(--pcs-color-white);
+    --pcs-text: var(--pcs-color-white);
+    --pcs-bg: var(--pcs-color-black);
+    --pcs-accent: var(--pcs-color-white);
   }
 }
 

@@ -6,102 +6,220 @@
 // CSS Custom Properties (kept as CSS variables for runtime usage)
 :root {
   // Breakpoints
-  --bp-sm: #{variables.$bp-sm};
-  --bp-md: #{variables.$bp-md};
-  --bp-lg: #{variables.$bp-lg};
+  --pcs-bp-sm: #{variables.$bp-sm};
+  --pcs-bp-md: #{variables.$bp-md};
+  --pcs-bp-lg: #{variables.$bp-lg};
 
   // Layout
-  --header-height: #{variables.$header-height};
-  --sidebar-width: #{variables.$sidebar-width};
-  --gap: #{variables.$gap};
-  --gap-sm: #{variables.$gap-sm};
-  --gap-lg: #{variables.$gap-lg};
+  --pcs-header-height: #{variables.$header-height};
+  --pcs-sidebar-width: #{variables.$sidebar-width};
+  --pcs-gap: #{variables.$gap};
+  --pcs-gap-sm: #{variables.$gap-sm};
+  --pcs-gap-lg: #{variables.$gap-lg};
 
   // Borders & Radius
-  --radius: #{variables.$radius};
-  --radius-sm: #{variables.$radius-sm};
-  --radius-lg: #{variables.$radius-lg};
+  --pcs-radius: #{variables.$radius};
+  --pcs-radius-sm: #{variables.$radius-sm};
+  --pcs-radius-lg: #{variables.$radius-lg};
 
   // Shadows
-  --shadow-sm: #{variables.$shadow-sm};
-  --shadow-md: #{variables.$shadow-md};
-  --shadow-lg: #{variables.$shadow-lg};
+  --pcs-shadow-sm: #{variables.$shadow-sm};
+  --pcs-shadow-md: #{variables.$shadow-md};
+  --pcs-shadow-lg: #{variables.$shadow-lg};
 
   // Typography
-  --font-family: #{variables.$font-family};
-  --font-size-base: #{variables.$font-size-base};
-  --font-size-sm: #{variables.$font-size-sm};
-  --font-size-lg: #{variables.$font-size-lg};
-  --font-size-xl: #{variables.$font-size-xl};
-  --font-size-2xl: #{variables.$font-size-2xl};
-  --font-size-3xl: #{variables.$font-size-3xl};
-  --font-weight-normal: #{variables.$font-weight-normal};
-  --font-weight-medium: #{variables.$font-weight-medium};
-  --font-weight-bold: #{variables.$font-weight-bold};
+  --pcs-font-family: #{variables.$font-family};
+  --pcs-font-size-base: #{variables.$font-size-base};
+  --pcs-font-size-sm: #{variables.$font-size-sm};
+  --pcs-font-size-lg: #{variables.$font-size-lg};
+  --pcs-font-size-xl: #{variables.$font-size-xl};
+  --pcs-font-size-2xl: #{variables.$font-size-2xl};
+  --pcs-font-size-3xl: #{variables.$font-size-3xl};
+  --pcs-font-weight-normal: #{variables.$font-weight-normal};
+  --pcs-font-weight-medium: #{variables.$font-weight-medium};
+  --pcs-font-weight-bold: #{variables.$font-weight-bold};
 
   // Transitions
-  --transition-fast: #{variables.$transition-fast};
-  --transition-normal: #{variables.$transition-normal};
-  --transition-slow: #{variables.$transition-slow};
+  --pcs-transition-fast: #{variables.$transition-fast};
+  --pcs-transition-normal: #{variables.$transition-normal};
+  --pcs-transition-slow: #{variables.$transition-slow};
+
+  // Button dimensions
+  --pcs-button-padding-y: 0.375rem;
+  --pcs-button-padding-x: 1rem;
+  --pcs-button-radius: 0.25rem;
+  --pcs-button-min-width: 4rem;
 
   // Logo
-  --logo-bg-opacity: 0.1;
+  --pcs-logo-bg-opacity: 0.1;
+
+  // Material Design Colors
+  --pcs-color-primary: #{colors.$primary-color};
+  --pcs-color-primary-hover: #{colors.$primary-hover};
+  --pcs-color-secondary: #{colors.$secondary-color};
+  --pcs-color-secondary-hover: #{colors.$secondary-hover};
+  --pcs-color-error: #{colors.$error-color};
+  --pcs-color-error-hover: #{colors.$error-hover};
+  --pcs-color-warning: #{colors.$warning-color};
+  --pcs-color-warning-hover: #{colors.$warning-hover};
+  --pcs-color-info: #{colors.$info-color};
+  --pcs-color-info-hover: #{colors.$info-hover};
+  --pcs-color-success: #{colors.$success-color};
+  --pcs-color-success-hover: #{colors.$success-hover};
+
+  // Basic Colors
+  --pcs-color-white: #{colors.$white};
+  --pcs-color-black: #{colors.$black};
+  --pcs-color-blue: #{colors.$blue};
+  --pcs-color-yellow: #{colors.$yellow};
+  --pcs-color-transparent: #{colors.$transparent};
+
+  // Text Colors
+  --pcs-text-primary-light: #{colors.$text-primary-light};
+  --pcs-text-secondary-light: #{colors.$text-secondary-light};
+  --pcs-text-disabled-light: #{colors.$text-disabled-light};
+  --pcs-text-primary-dark: #{colors.$text-primary-dark};
+  --pcs-text-secondary-dark: #{colors.$text-secondary-dark};
+  --pcs-text-disabled-dark: #{colors.$text-disabled-dark};
+
+  // Background Colors
+  --pcs-bg-paper-light: #{colors.$background-paper-light};
+  --pcs-bg-paper-dark: #{colors.$background-paper-dark};
+  --pcs-bg-default-light: #{colors.$background-default-light};
+  --pcs-bg-hover-light: #{colors.$background-hover-light};
+  --pcs-bg-subtle-light: #{colors.$background-subtle-light};
+  --pcs-bg-default-dark: #{colors.$background-default-dark};
+  --pcs-bg-hover-dark: #{colors.$background-hover-dark};
+  --pcs-bg-subtle-dark: #{colors.$background-subtle-dark};
+  --pcs-bg-hover-light-extra: #{colors.$background-hover-light-extra};
+  --pcs-bg-subtle-light-extra: #{colors.$background-subtle-light-extra};
+
+  // Border Colors
+  --pcs-border-color-light: #{colors.$border-color-light};
+  --pcs-border-color-dark: #{colors.$border-color-dark};
+
+  // Hover Backgrounds
+  --pcs-hover-bg-light: #{colors.$hover-bg-light};
+  --pcs-hover-bg-dark: #{colors.$hover-bg-dark};
+
+  // Color Opacity Variations
+  --pcs-primary-opacity-02: #{colors.$primary-opacity-02};
+  --pcs-primary-opacity-04: #{colors.$primary-opacity-04};
+  --pcs-primary-opacity-08: #{colors.$primary-opacity-08};
+  --pcs-primary-opacity-05: rgba(25, 118, 210, 0.5);
+  --pcs-secondary-opacity-05: rgba(156, 39, 176, 0.5);
+  --pcs-error-opacity-05: rgba(211, 47, 47, 0.5);
+  --pcs-warning-opacity-05: rgba(237, 108, 2, 0.5);
+  --pcs-info-opacity-05: rgba(2, 136, 209, 0.5);
+  --pcs-success-opacity-05: rgba(46, 125, 50, 0.5);
+  --pcs-secondary-opacity-02: #{colors.$secondary-opacity-02};
+  --pcs-secondary-opacity-04: #{colors.$secondary-opacity-04};
+  --pcs-secondary-opacity-08: #{colors.$secondary-opacity-08};
+  --pcs-error-opacity-02: #{colors.$error-opacity-02};
+  --pcs-error-opacity-04: #{colors.$error-opacity-04};
+  --pcs-error-opacity-08: #{colors.$error-opacity-08};
+  --pcs-warning-opacity-02: #{colors.$warning-opacity-02};
+  --pcs-warning-opacity-04: #{colors.$warning-opacity-04};
+  --pcs-warning-opacity-08: #{colors.$warning-opacity-08};
+  --pcs-info-opacity-02: #{colors.$info-opacity-02};
+  --pcs-info-opacity-04: #{colors.$info-opacity-04};
+  --pcs-info-opacity-08: #{colors.$info-opacity-08};
+  --pcs-success-opacity-02: #{colors.$success-opacity-02};
+  --pcs-success-opacity-04: #{colors.$success-opacity-04};
+  --pcs-success-opacity-08: #{colors.$success-opacity-08};
+
+  // Switch Colors
+  --pcs-thumb-bg-light: #{colors.$thumb-bg-light};
+  --pcs-thumb-disabled-light: #{colors.$thumb-disabled-light};
+  --pcs-thumb-bg-dark: #{colors.$thumb-bg-dark};
+  --pcs-thumb-disabled-dark: #{colors.$thumb-disabled-dark};
+  --pcs-track-unchecked-light: #{colors.$track-unchecked-light};
+  --pcs-track-unchecked-dark: #{colors.$track-unchecked-dark};
+
+  // Alert Colors (Light Theme)
+  --pcs-alert-error-bg-light: #{colors.$alert-error-bg-light};
+  --pcs-alert-error-text-light: #{colors.$alert-error-text-light};
+  --pcs-alert-error-border-light: #{colors.$alert-error-border-light};
+  --pcs-alert-warning-bg-light: #{colors.$alert-warning-bg-light};
+  --pcs-alert-warning-text-light: #{colors.$alert-warning-text-light};
+  --pcs-alert-warning-border-light: #{colors.$alert-warning-border-light};
+  --pcs-alert-info-bg-light: #{colors.$alert-info-bg-light};
+  --pcs-alert-info-text-light: #{colors.$alert-info-text-light};
+  --pcs-alert-info-border-light: #{colors.$alert-info-border-light};
+  --pcs-alert-success-bg-light: #{colors.$alert-success-bg-light};
+  --pcs-alert-success-text-light: #{colors.$alert-success-text-light};
+  --pcs-alert-success-border-light: #{colors.$alert-success-border-light};
+
+  // Alert Colors (Dark Theme)
+  --pcs-alert-error-bg-dark: #{colors.$alert-error-bg-dark};
+  --pcs-alert-error-text-dark: #{colors.$alert-error-text-dark};
+  --pcs-alert-warning-bg-dark: #{colors.$alert-warning-bg-dark};
+  --pcs-alert-warning-text-dark: #{colors.$alert-warning-text-dark};
+  --pcs-alert-info-bg-dark: #{colors.$alert-info-bg-dark};
+  --pcs-alert-info-text-dark: #{colors.$alert-info-text-dark};
+  --pcs-alert-success-bg-dark: #{colors.$alert-success-bg-dark};
+  --pcs-alert-success-text-dark: #{colors.$alert-success-text-dark};
+
+  // Shadow Colors
+  --pcs-shadow-black: #{colors.$shadow-black};
+  --pcs-shadow-black-md: #{colors.$shadow-black-md};
+  --pcs-shadow-black-sm: #{colors.$shadow-black-sm};
 }
 
 // Light Theme
 :root,
 [data-theme="light"] {
-  --bg: #{map.get(colors.$light-palette, bg)};
-  --bg-secondary: #{map.get(colors.$light-palette, bg-secondary)};
-  --bg-tertiary: #{map.get(colors.$light-palette, bg-tertiary)};
-  --text: #{map.get(colors.$light-palette, text)};
-  --text-secondary: #{map.get(colors.$light-palette, text-secondary)};
-  --text-tertiary: #{map.get(colors.$light-palette, text-tertiary)};
-  --accent: #{map.get(colors.$light-palette, accent)};
-  --accent-hover: #{map.get(colors.$light-palette, accent-hover)};
-  --border: #{map.get(colors.$light-palette, border)};
-  --overlay: #{map.get(colors.$light-palette, overlay)};
-  --focus-ring: #{map.get(colors.$light-palette, focus-ring)};
-  --nav-active-bg: #{map.get(colors.$light-palette, nav-active-bg)};
-  --nav-active-text: #{map.get(colors.$light-palette, nav-active-text)};
+  --pcs-bg: #{map.get(colors.$light-palette, bg)};
+  --pcs-bg-secondary: #{map.get(colors.$light-palette, bg-secondary)};
+  --pcs-bg-tertiary: #{map.get(colors.$light-palette, bg-tertiary)};
+  --pcs-text: #{map.get(colors.$light-palette, text)};
+  --pcs-text-secondary: #{map.get(colors.$light-palette, text-secondary)};
+  --pcs-text-tertiary: #{map.get(colors.$light-palette, text-tertiary)};
+  --pcs-accent: #{map.get(colors.$light-palette, accent)};
+  --pcs-accent-hover: #{map.get(colors.$light-palette, accent-hover)};
+  --pcs-border: #{map.get(colors.$light-palette, border)};
+  --pcs-overlay: #{map.get(colors.$light-palette, overlay)};
+  --pcs-focus-ring: #{map.get(colors.$light-palette, focus-ring)};
+  --pcs-nav-active-bg: #{map.get(colors.$light-palette, nav-active-bg)};
+  --pcs-nav-active-text: #{map.get(colors.$light-palette, nav-active-text)};
 }
 
 // Dark Theme
 [data-theme="dark"],
 .is-dark {
-  --bg: #{map.get(colors.$dark-palette, bg)};
-  --bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
-  --bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
-  --text: #{map.get(colors.$dark-palette, text)};
-  --text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
-  --text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
-  --accent: #{map.get(colors.$dark-palette, accent)};
-  --accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
-  --border: #{map.get(colors.$dark-palette, border)};
-  --overlay: #{map.get(colors.$dark-palette, overlay)};
-  --focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
-  --nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
-  --nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
+  --pcs-bg: #{map.get(colors.$dark-palette, bg)};
+  --pcs-bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
+  --pcs-bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
+  --pcs-text: #{map.get(colors.$dark-palette, text)};
+  --pcs-text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
+  --pcs-text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
+  --pcs-accent: #{map.get(colors.$dark-palette, accent)};
+  --pcs-accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
+  --pcs-border: #{map.get(colors.$dark-palette, border)};
+  --pcs-overlay: #{map.get(colors.$dark-palette, overlay)};
+  --pcs-focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
+  --pcs-nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
+  --pcs-nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
 
   // Logo
-  --logo-bg-opacity: 0.2;
+  --pcs-logo-bg-opacity: 0.2;
 }
 
 // System Theme
 @include mixins.prefers-color-scheme(dark) {
   [data-theme="system"] {
-    --bg: #{map.get(colors.$dark-palette, bg)};
-    --bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
-    --bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
-    --text: #{map.get(colors.$dark-palette, text)};
-    --text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
-    --text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
-    --accent: #{map.get(colors.$dark-palette, accent)};
-    --accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
-    --border: #{map.get(colors.$dark-palette, border)};
-    --overlay: #{map.get(colors.$dark-palette, overlay)};
-    --focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
-    --nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
-    --nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
+    --pcs-bg: #{map.get(colors.$dark-palette, bg)};
+    --pcs-bg-secondary: #{map.get(colors.$dark-palette, bg-secondary)};
+    --pcs-bg-tertiary: #{map.get(colors.$dark-palette, bg-tertiary)};
+    --pcs-text: #{map.get(colors.$dark-palette, text)};
+    --pcs-text-secondary: #{map.get(colors.$dark-palette, text-secondary)};
+    --pcs-text-tertiary: #{map.get(colors.$dark-palette, text-tertiary)};
+    --pcs-accent: #{map.get(colors.$dark-palette, accent)};
+    --pcs-accent-hover: #{map.get(colors.$dark-palette, accent-hover)};
+    --pcs-border: #{map.get(colors.$dark-palette, border)};
+    --pcs-overlay: #{map.get(colors.$dark-palette, overlay)};
+    --pcs-focus-ring: #{map.get(colors.$dark-palette, focus-ring)};
+    --pcs-nav-active-bg: #{map.get(colors.$dark-palette, nav-active-bg)};
+    --pcs-nav-active-text: #{map.get(colors.$dark-palette, nav-active-text)};
   }
 }

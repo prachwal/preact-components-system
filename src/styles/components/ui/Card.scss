@@ -11,9 +11,9 @@
 }
 
 .card-hoverable:hover {
-  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),
-              0px 8px 10px 1px rgba(0,0,0,0.14),
-              0px 3px 14px 2px rgba(0,0,0,0.12);
+  box-shadow: 0px 5px 5px -3px var(--pcs-shadow-black),
+              0px 8px 10px 1px var(--pcs-shadow-black-md),
+              0px 3px 14px 2px var(--pcs-shadow-black-sm);
   transform: translateY(-2px);
 }
 
@@ -47,7 +47,7 @@
   font-weight: 400;
   line-height: 1.57;
   letter-spacing: 0.00714em;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--pcs-text-secondary-light);
   margin-top: 4px;
 }
 

@@ -1,36 +1,36 @@
 // Colors for different states
-$primary-color: #1976d2;
-$primary-light: rgba(25, 118, 210, 0.2);
-$secondary-color: #9c27b0;
-$secondary-light: rgba(156, 39, 176, 0.2);
-$error-color: #d32f2f;
-$error-light: rgba(211, 47, 47, 0.2);
-$warning-color: #ed6c02;
-$warning-light: rgba(237, 108, 2, 0.2);
-$info-color: #0288d1;
-$info-light: rgba(2, 136, 209, 0.2);
-$success-color: #2e7d32;
-$success-light: rgba(46, 125, 50, 0.2);
+$primary-color: var(--pcs-color-primary);
+$primary-light: var(--pcs-primary-opacity-02);
+$secondary-color: var(--pcs-color-secondary);
+$secondary-light: var(--pcs-secondary-opacity-02);
+$error-color: var(--pcs-color-error);
+$error-light: var(--pcs-error-opacity-02);
+$warning-color: var(--pcs-color-warning);
+$warning-light: var(--pcs-warning-opacity-02);
+$info-color: var(--pcs-color-info);
+$info-light: var(--pcs-info-opacity-02);
+$success-color: var(--pcs-color-success);
+$success-light: var(--pcs-success-opacity-02);
 
 // Light theme colors (defaults)
-$text-primary-light: rgba(0, 0, 0, 0.87);
-$text-secondary-light: rgba(0, 0, 0, 0.6);
-$text-disabled-light: rgba(0, 0, 0, 0.38);
-$border-color-light: rgba(0, 0, 0, 0.23);
-$background-paper-light: #fff;
-$background-default-light: rgba(0, 0, 0, 0.04);
-$background-hover-light: rgba(0, 0, 0, 0.08);
-$background-subtle-light: rgba(0, 0, 0, 0.02);
+$text-primary-light: var(--pcs-text-primary-light);
+$text-secondary-light: var(--pcs-text-secondary-light);
+$text-disabled-light: var(--pcs-text-disabled-light);
+$border-color-light: var(--pcs-border-color-light);
+$background-paper-light: var(--pcs-color-white);
+$background-default-light: var(--pcs-hover-bg-light);
+$background-hover-light: var(--pcs-bg-hover-light-extra);
+$background-subtle-light: var(--pcs-bg-subtle-light-extra);
 
 // Dark theme colors
-$text-primary-dark: rgba(255, 255, 255, 0.87);
-$text-secondary-dark: rgba(255, 255, 255, 0.6);
-$text-disabled-dark: rgba(255, 255, 255, 0.38);
-$border-color-dark: rgba(255, 255, 255, 0.23);
-$background-paper-dark: #1a1a1a;
-$background-default-dark: rgba(255, 255, 255, 0.08);
-$background-hover-dark: rgba(255, 255, 255, 0.12);
-$background-subtle-dark: rgba(255, 255, 255, 0.05);
+$text-primary-dark: var(--pcs-text-primary-dark);
+$text-secondary-dark: var(--pcs-text-secondary-dark);
+$text-disabled-dark: var(--pcs-text-disabled-dark);
+$border-color-dark: var(--pcs-border-color-dark);
+$background-paper-dark: var(--pcs-bg-paper-dark);
+$background-default-dark: var(--pcs-hover-bg-dark);
+$background-hover-dark: var(--pcs-bg-hover-dark);
+$background-subtle-dark: var(--pcs-bg-subtle-dark);
 
 .textfield {
   display: inline-flex;
@@ -148,9 +148,11 @@ $background-subtle-dark: rgba(255, 255, 255, 0.05);
     }
   }
   
-  &.textfield-color-secondary .textfield-input-wrapper:focus-within {
-    border-color: $secondary-color;
-    box-shadow: 0 0 0 2px $secondary-light;
+  &.textfield-color-secondary {
+    .textfield-input-wrapper:focus-within {
+      border-color: $secondary-color;
+      box-shadow: 0 0 0 2px $secondary-light;
+    }
   }
   
   &.textfield-error .textfield-input-wrapper {

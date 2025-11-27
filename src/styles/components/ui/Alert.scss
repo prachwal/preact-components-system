@@ -56,44 +56,44 @@
 
 /* Standard variant */
 .alert-variant-standard.alert-severity-error {
-  color: rgb(95, 33, 32);
-  background-color: rgb(253, 237, 237);
+  color: var(--pcs-alert-error-text-light);
+  background-color: var(--pcs-alert-error-bg-light);
 }
 
 .alert-variant-standard.alert-severity-warning {
-  color: rgb(102, 60, 0);
-  background-color: rgb(255, 244, 229);
+  color: var(--pcs-alert-warning-text-light);
+  background-color: var(--pcs-alert-warning-bg-light);
 }
 
 .alert-variant-standard.alert-severity-info {
-  color: rgb(1, 67, 97);
-  background-color: rgb(229, 246, 253);
+  color: var(--pcs-alert-info-text-light);
+  background-color: var(--pcs-alert-info-bg-light);
 }
 
 .alert-variant-standard.alert-severity-success {
-  color: rgb(30, 70, 32);
-  background-color: rgb(237, 247, 237);
+  color: var(--pcs-alert-success-text-light);
+  background-color: var(--pcs-alert-success-bg-light);
 }
 
 /* Filled variant */
 .alert-variant-filled.alert-severity-error {
-  color: #fff;
-  background-color: #d32f2f;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-error);
 }
 
 .alert-variant-filled.alert-severity-warning {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #ed6c02;
+  color: var(--pcs-text-primary-light);
+  background-color: var(--pcs-color-warning);
 }
 
 .alert-variant-filled.alert-severity-info {
-  color: #fff;
-  background-color: #0288d1;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-info);
 }
 
 .alert-variant-filled.alert-severity-success {
-  color: #fff;
-  background-color: #2e7d32;
+  color: var(--pcs-color-white);
+  background-color: var(--pcs-color-success);
 }
 
 /* Outlined variant */
@@ -103,46 +103,46 @@
 }
 
 .alert-variant-outlined.alert-severity-error {
-  color: rgb(95, 33, 32);
-  border-color: rgb(239, 83, 80);
+  color: var(--pcs-alert-error-text-light);
+  border-color: var(--pcs-alert-error-border-light);
 }
 
 .alert-variant-outlined.alert-severity-warning {
-  color: rgb(102, 60, 0);
-  border-color: rgb(255, 152, 0);
+  color: var(--pcs-alert-warning-text-light);
+  border-color: var(--pcs-alert-warning-border-light);
 }
 
 .alert-variant-outlined.alert-severity-info {
-  color: rgb(1, 67, 97);
-  border-color: rgb(3, 169, 244);
+  color: var(--pcs-alert-info-text-light);
+  border-color: var(--pcs-alert-info-border-light);
 }
 
 .alert-variant-outlined.alert-severity-success {
-  color: rgb(30, 70, 32);
-  border-color: rgb(76, 175, 80);
+  color: var(--pcs-alert-success-text-light);
+  border-color: var(--pcs-alert-success-border-light);
 }
 
 /* Dark mode support */
 [data-theme="dark"] .alert-variant-standard.alert-severity-error,
 .is-dark .alert-variant-standard.alert-severity-error {
-  color: rgb(250, 179, 174);
-  background-color: rgb(24, 6, 5);
+  color: var(--pcs-alert-error-text-dark);
+  background-color: var(--pcs-alert-error-bg-dark);
 }
 
 [data-theme="dark"] .alert-variant-standard.alert-severity-warning,
 .is-dark .alert-variant-standard.alert-severity-warning {
-  color: rgb(255, 213, 153);
-  background-color: rgb(25, 15, 0);
+  color: var(--pcs-alert-warning-text-dark);
+  background-color: var(--pcs-alert-warning-bg-dark);
 }
 
 [data-theme="dark"] .alert-variant-standard.alert-severity-info,
 .is-dark .alert-variant-standard.alert-severity-info {
-  color: rgb(166, 213, 250);
-  background-color: rgb(0, 17, 25);
+  color: var(--pcs-alert-info-text-dark);
+  background-color: var(--pcs-alert-info-bg-dark);
 }
 
 [data-theme="dark"] .alert-variant-standard.alert-severity-success,
 .is-dark .alert-variant-standard.alert-severity-success {
-  color: rgb(183, 223, 185);
-  background-color: rgb(7, 19, 8);
+  color: var(--pcs-alert-success-text-dark);
+  background-color: var(--pcs-alert-success-bg-dark);
 }

@@ -20,35 +20,35 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  padding: 0 var(--gap);
-  height: var(--header-height);
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+  padding: 0 var(--pcs-gap);
+  height: var(--pcs-header-height);
+  background-color: var(--pcs-bg-secondary);
+  border-bottom: 1px solid var(--pcs-border);
 }
 
 .brand-info {
-  margin-left: var(--gap);
+  margin-left: var(--pcs-gap);
   display: flex;
   flex-direction: column;
 }
 
 .brand-text {
   font-size: clamp(1rem, 4vw, 1.5rem);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--pcs-font-weight-bold);
   margin: 0;
   line-height: 1.2;
 }
 
 .brand-subtext {
   font-size: clamp(0.75rem, 2vw, 1rem);
-  color: var(--text-secondary);
+  color: var(--pcs-text-secondary);
   margin: 0;
   line-height: 1.2;
 }
 
 .theme-toggle {
   margin-left: auto;
-  font-size: var(--font-size-lg);
+  font-size: var(--pcs-font-size-lg);
   min-width: 44px;
   min-height: 44px;
   display: flex;
@@ -66,13 +66,13 @@
   border: none;
   cursor: pointer;
   padding: 0.25rem;
-  margin-right: var(--gap);
+  margin-right: var(--pcs-gap);
 
   &__line {
     width: 100%;
     height: 2px;
-    background-color: var(--text);
-    @include mixins.transition(all, var(--transition-normal));
+    background-color: var(--pcs-text);
+    @include mixins.transition(all, var(--pcs-transition-normal));
     transform-origin: center;
   }
 
@@ -97,9 +97,9 @@
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--accent);
+  background: var(--pcs-accent);
   color: white;
-  padding: var(--gap-sm);
+  padding: var(--pcs-gap-sm);
   z-index: 1000;
 
   &:focus {
@@ -110,14 +110,14 @@
 // Sidebar Styles
 .sidebar-backdrop {
   position: fixed;
-  top: var(--header-height);
+  top: var(--pcs-header-height);
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--overlay);
+  background-color: var(--pcs-overlay);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  transition: opacity var(--pcs-transition-normal), visibility var(--pcs-transition-normal);
   z-index: 90;
 
   &.is-open {
@@ -128,14 +128,14 @@
 
 .app-sidebar {
   position: fixed;
-  top: var(--header-height);
+  top: var(--pcs-header-height);
   left: 0;
-  width: var(--sidebar-width);
-  height: calc(100vh - var(--header-height));
-  background-color: var(--bg-secondary);
-  border-right: 1px solid var(--border);
+  width: var(--pcs-sidebar-width);
+  height: calc(100vh - var(--pcs-header-height));
+  background-color: var(--pcs-bg-secondary);
+  border-right: 1px solid var(--pcs-border);
   transform: translateX(-100%);
-  @include mixins.transition(transform, var(--transition-normal));
+  @include mixins.transition(transform, var(--pcs-transition-normal));
   z-index: 100;
   overflow-y: auto;
   display: flex;
@@ -152,34 +152,34 @@
   nav {
     ul {
       list-style: none;
-      padding: var(--gap) 0 0 0;
+      padding: var(--pcs-gap) 0 0 0;
     }
 
     li {
-      padding: var(--gap-sm) var(--gap);
+      padding: var(--pcs-gap-sm) var(--pcs-gap);
 
       &:hover {
-        background-color: var(--bg-tertiary);
+        background-color: var(--pcs-bg-tertiary);
       }
 
       &.is-active {
-        background-color: var(--nav-active-bg);
-        color: var(--nav-active-text);
+        background-color: var(--pcs-nav-active-bg);
+        color: var(--pcs-nav-active-text);
 
         a {
-          color: var(--nav-active-text);
+          color: var(--pcs-nav-active-text);
         }
       }
     }
 
     a {
       display: block;
-      padding: var(--gap-sm) 0;
-      color: var(--text);
-      font-size: var(--font-size-lg);
+      padding: var(--pcs-gap-sm) 0;
+      color: var(--pcs-text);
+      font-size: var(--pcs-font-size-lg);
 
       &:hover {
-        color: var(--accent);
+        color: var(--pcs-accent);
       }
     }
   }
@@ -190,13 +190,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: var(--gap);
-  border-top: 1px solid var(--border);
+  padding: var(--pcs-gap);
+  border-top: 1px solid var(--pcs-border);
   margin-top: auto;
 
   p {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    font-size: var(--pcs-font-size-sm);
+    color: var(--pcs-text-secondary);
   }
 }
 
@@ -205,78 +205,78 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: var(--gap);
+  padding: var(--pcs-gap);
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 
   article {
     flex: 1;
-    margin-bottom: var(--gap-lg);
+    margin-bottom: var(--pcs-gap-lg);
   }
 
   h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--gap);
+    font-size: var(--pcs-font-size-2xl);
+    margin-bottom: var(--pcs-gap);
   }
 }
 
 .grid-cols-1 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .grid-cols-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .grid-cols-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .grid-cols-4 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .grid-cols-5 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .grid-cols-6 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--gap);
+  gap: var(--pcs-gap);
 }
 
 .feature-card {
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius);
-  padding: var(--gap);
-  border: 1px solid var(--border);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  background-color: var(--pcs-bg-secondary);
+  border-radius: var(--pcs-radius);
+  padding: var(--pcs-gap);
+  border: 1px solid var(--pcs-border);
+  transition: transform var(--pcs-transition-fast), box-shadow var(--pcs-transition-fast);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--pcs-shadow-md);
   }
 
   h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--gap-sm);
+    font-size: var(--pcs-font-size-lg);
+    margin-bottom: var(--pcs-gap-sm);
   }
 }
 
 .app-footer {
-  padding: var(--gap) 0;
+  padding: var(--pcs-gap) 0;
   text-align: center;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--pcs-border);
 }

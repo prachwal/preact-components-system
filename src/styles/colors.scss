@@ -30,3 +30,125 @@ $dark-palette: (
   nav-active-bg: #047857,
   nav-active-text: white
 );
+
+// Material Design Semantic Colors
+$primary-color: #1976d2;
+$primary-hover: #1565c0;
+$secondary-color: #9c27b0;
+$secondary-hover: #7b1fa2;
+$error-color: #d32f2f;
+$error-hover: #c62828;
+$warning-color: #ed6c02;
+$warning-hover: #e65100;
+$info-color: #0288d1;
+$info-hover: #01579b;
+$success-color: #2e7d32;
+$success-hover: #1b5e20;
+
+// Basic Colors
+$white: #fff;
+$black: #000000;
+$blue: #0000ff;
+
+// Alert Colors (Light Theme)
+$alert-error-bg-light: rgb(253, 237, 237);
+$alert-error-text-light: rgb(95, 33, 32);
+$alert-error-border-light: rgb(239, 83, 80);
+
+$alert-warning-bg-light: rgb(255, 244, 229);
+$alert-warning-text-light: rgb(102, 60, 0);
+$alert-warning-border-light: rgb(255, 152, 0);
+
+$alert-info-bg-light: rgb(229, 246, 253);
+$alert-info-text-light: rgb(1, 67, 97);
+$alert-info-border-light: rgb(3, 169, 244);
+
+$alert-success-bg-light: rgb(237, 247, 237);
+$alert-success-text-light: rgb(30, 70, 32);
+$alert-success-border-light: rgb(76, 175, 80);
+
+// Alert Colors (Dark Theme)
+$alert-error-bg-dark: rgb(24, 6, 5);
+$alert-error-text-dark: rgb(250, 179, 174);
+
+$alert-warning-bg-dark: rgb(25, 15, 0);
+$alert-warning-text-dark: rgb(255, 213, 153);
+
+$alert-info-bg-dark: rgb(0, 17, 25);
+$alert-info-text-dark: rgb(166, 213, 250);
+
+$alert-success-bg-dark: rgb(7, 19, 8);
+$alert-success-text-dark: rgb(183, 223, 185);
+
+// Opacity Variations
+$text-primary-light: rgba(0, 0, 0, 0.87);
+$text-secondary-light: rgba(0, 0, 0, 0.6);
+$text-disabled-light: rgba(0, 0, 0, 0.38);
+
+$text-primary-dark: rgba(255, 255, 255, 0.87);
+$text-secondary-dark: rgba(255, 255, 255, 0.6);
+$text-disabled-dark: rgba(255, 255, 255, 0.38);
+
+// Hover Backgrounds
+$hover-bg-light: rgba(0, 0, 0, 0.04);
+$hover-bg-dark: rgba(255, 255, 255, 0.08);
+
+// Color Opacity Variations
+$primary-opacity-02: rgba(25, 118, 210, 0.2);
+$primary-opacity-04: rgba(25, 118, 210, 0.04);
+$primary-opacity-08: rgba(25, 118, 210, 0.08);
+
+$secondary-opacity-02: rgba(156, 39, 176, 0.2);
+$secondary-opacity-04: rgba(156, 39, 176, 0.04);
+$secondary-opacity-08: rgba(156, 39, 176, 0.08);
+
+$error-opacity-02: rgba(211, 47, 47, 0.2);
+$error-opacity-04: rgba(211, 47, 47, 0.04);
+$error-opacity-08: rgba(211, 47, 47, 0.08);
+
+$warning-opacity-02: rgba(237, 108, 2, 0.2);
+$warning-opacity-04: rgba(237, 108, 2, 0.04);
+$warning-opacity-08: rgba(237, 108, 2, 0.08);
+
+$info-opacity-02: rgba(2, 136, 209, 0.2);
+$info-opacity-04: rgba(2, 136, 209, 0.04);
+$info-opacity-08: rgba(2, 136, 209, 0.08);
+
+$success-opacity-02: rgba(46, 125, 50, 0.2);
+$success-opacity-04: rgba(46, 125, 50, 0.04);
+$success-opacity-08: rgba(46, 125, 50, 0.08);
+
+// Border Colors
+$border-color-light: rgba(0, 0, 0, 0.23);
+$border-color-dark: rgba(255, 255, 255, 0.23);
+
+// Background Colors
+$background-paper-light: #fff;
+$background-paper-dark: #1a1a1a;
+$background-default-light: rgba(0, 0, 0, 0.04);
+$background-hover-light: rgba(0, 0, 0, 0.08);
+$background-subtle-light: rgba(0, 0, 0, 0.02);
+$background-default-dark: rgba(255, 255, 255, 0.08);
+$background-hover-dark: rgba(255, 255, 255, 0.12);
+$background-subtle-dark: rgba(255, 255, 255, 0.05);
+
+// Additional background variations
+$background-hover-light-extra: rgba(0, 0, 0, 0.08);
+$background-subtle-light-extra: rgba(0, 0, 0, 0.02);
+
+// Switch Colors
+$thumb-bg-light: #fff;
+$thumb-disabled-light: #bdbdbd;
+$thumb-bg-dark: #bdbdbd;
+$thumb-disabled-dark: #424242;
+$track-unchecked-light: rgba(0, 0, 0, 0.38);
+$track-unchecked-dark: rgba(255, 255, 255, 0.38);
+
+// Shadow Colors
+$shadow-black: rgba(0, 0, 0, 0.2);
+$shadow-black-md: rgba(0, 0, 0, 0.14);
+$shadow-black-sm: rgba(0, 0, 0, 0.12);
+
+// Utility Colors
+$yellow: #ffff00;
+$transparent: transparent;
