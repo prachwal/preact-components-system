@@ -1,4 +1,5 @@
 import { render } from '@testing-library/preact';
+import { axe } from 'jest-axe';
 import { describe, it, expect } from 'vitest';
 
 import { Container } from './Container';
@@ -56,5 +57,11 @@ describe('Container', () => {
     const div = container.querySelector('div');
     expect(div).toHaveClass('container');
     expect(div).not.toHaveClass('container-max-width-lg');
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Container>Accessible content</Container>);
+    const results = await axe(container);
+    expect(results.violations).toHaveLength(0);
   });
 });

@@ -46,6 +46,19 @@ export interface StackProps {
    * Component to render as
    */
   component?: keyof JSX.IntrinsicElements;
+  /**
+   * ARIA role for the stack
+   * @default 'group'
+   */
+  role?: string;
+  /**
+   * ARIA label for screen readers
+   */
+  'aria-label'?: string;
+  /**
+   * Whether this is a landmark element
+   */
+  landmark?: boolean;
 }
 
 /**
@@ -88,6 +101,9 @@ export const Stack = ({
   style,
   children,
   component: Component = 'div',
+  role = 'group',
+  'aria-label': ariaLabel,
+  landmark = false,
 }: StackProps) => {
   const resolvedSpacing = useResponsive(spacing);
   const resolvedDirection = useResponsive(direction);
@@ -122,8 +138,15 @@ export const Stack = ({
       }, [])
     : validChildren;
 
+  const semanticRole = landmark ? undefined : role;
+
   return (
-    <Component className={classes} style={style}>
+    <Component
+      className={classes}
+      style={style}
+      role={semanticRole as any}
+      aria-label={ariaLabel}
+    >
       {childrenWithDivider}
     </Component>
   );

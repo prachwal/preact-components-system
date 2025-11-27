@@ -1,4 +1,5 @@
 import { render } from '@testing-library/preact';
+import { axe } from 'jest-axe';
 import { describe, it, expect } from 'vitest';
 
 import { ThemeProvider } from '../../providers/ThemeProvider';
@@ -86,5 +87,11 @@ describe('Stack', () => {
     );
     const div = container.querySelector('div');
     expect(div?.children).toHaveLength(2);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderWithTheme(<Stack>Accessible content</Stack>);
+    const results = await axe(container);
+    expect(results.violations).toHaveLength(0);
   });
 });

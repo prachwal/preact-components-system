@@ -119,6 +119,7 @@ export const Switch = ({
         name={name}
         value={value}
         aria-checked={checked}
+        aria-required={required ? 'true' : undefined}
         {...rest}
       />
       <span className="switch-track" aria-hidden="true">

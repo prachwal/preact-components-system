@@ -312,3 +312,19 @@ export const defaultBreakpoints = {
  * Default spacing multiplier
  */
 export const defaultSpacing = 8;
+
+/**
+ * Default accessibility settings
+ */
+export const defaultAccessibility = {
+  focusRing: {
+    width: '2px',
+    style: 'solid',
+    color: '#007acc',
+    offset: '2px',
+  },
+  highContrast: {
+    border: '#000000',
+    background: '#ffffff',
+  },
+};

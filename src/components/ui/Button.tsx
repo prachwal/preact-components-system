@@ -51,6 +51,18 @@ export interface ButtonProps extends Omit<JSX.HTMLAttributes<HTMLButtonElement>,
    * Children elements
    */
   children?: ComponentChildren;
+  /**
+   * ARIA label for screen readers
+   */
+  'aria-label'?: string;
+  /**
+   * ARIA labelledby reference
+   */
+  'aria-labelledby'?: string;
+  /**
+   * ARIA describedby reference
+   */
+  'aria-describedby'?: string;
 }
 
 export const Button = ({
@@ -65,6 +77,9 @@ export const Button = ({
   type = 'button',
   className,
   children,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
   ...rest
 }: ButtonProps) => {
   const classes = clsx(
@@ -85,10 +100,14 @@ export const Button = ({
       className={classes}
       disabled={disabled || loading}
       type={type}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
+      aria-disabled={loading}
       {...rest}
     >
       {loading && (
-        <span className="button-loader">
+        <span className="button-loader" aria-hidden="true">
           <svg className="button-spinner" viewBox="0 0 24 24">
             <circle
               className="button-spinner-circle"

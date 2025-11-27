@@ -147,6 +147,19 @@ export interface Shape {
   borderRadius: number;
 }
 
+export interface Accessibility {
+  focusRing: {
+    width: string;
+    style: string;
+    color: string;
+    offset: string;
+  };
+  highContrast: {
+    border: string;
+    background: string;
+  };
+}
+
 export interface Theme {
   palette: PaletteOptions;
   typography: TypographyOptions;
@@ -161,6 +174,7 @@ export interface Theme {
   transitions: Transitions;
   zIndex: ZIndex;
   shape: Shape;
+  accessibility: Accessibility;
 }
 
 export interface ThemeOptions {
@@ -179,6 +193,7 @@ export interface ThemeOptions {
   transitions?: Partial<Transitions>;
   zIndex?: Partial<ZIndex>;
   shape?: Partial<Shape>;
+  accessibility?: Partial<Accessibility>;
 }
 
 export type ResponsiveValue<T> = T | {

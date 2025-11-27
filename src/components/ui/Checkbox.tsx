@@ -121,6 +121,7 @@ export const Checkbox = ({
         name={name}
         value={value}
         aria-checked={indeterminate ? 'mixed' : checked}
+        aria-required={required ? 'true' : undefined}
         {...rest}
       />
       <span className="checkbox-icon" aria-hidden="true">

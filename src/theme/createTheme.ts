@@ -8,6 +8,7 @@ import {
   defaultZIndex,
   defaultBreakpoints,
   defaultSpacing as defaultSpacingValue,
+  defaultAccessibility,
 } from './defaultTheme';
 import type { Theme, ThemeOptions, Breakpoint, SpacingArgument, PaletteColor, SimplePaletteColor } from './types';
 
@@ -158,6 +159,7 @@ export function createTheme(options: ThemeOptions = {}): Theme {
     transitions: transitionsInput = {},
     zIndex: zIndexInput = {},
     shape: shapeInput = {},
+    accessibility: accessibilityInput = {},
   } = options;
   
   // Determine mode
@@ -213,6 +215,9 @@ export function createTheme(options: ThemeOptions = {}): Theme {
     borderRadius: 4,
     ...shapeInput,
   };
+
+  // Merge accessibility
+  const accessibility = deepMerge(defaultAccessibility, accessibilityInput) as typeof defaultAccessibility;
   
   return {
     palette,
@@ -223,5 +228,6 @@ export function createTheme(options: ThemeOptions = {}): Theme {
     transitions,
     zIndex,
     shape,
+    accessibility,
   };
 }

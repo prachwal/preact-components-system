@@ -1,3 +1,4 @@
+import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
@@ -64,5 +65,11 @@ describe('Button', () => {
     const { container } = render(<Button type="submit">Submit</Button>);
     const button = container.querySelector('button');
     expect(button).toHaveAttribute('type', 'submit');
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Button>Accessible Button</Button>);
+    const results = await axe(container);
+    expect(results.violations).toHaveLength(0);
   });
 });

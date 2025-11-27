@@ -3,14 +3,14 @@
 A modern, lightweight, and highly optimized component library for Preact with TypeScript support, theming, and accessibility features.
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/prachwal/preact-components-system)
-[![Bundle Size](https://img.shields.io/badge/bundle-40kB-success.svg)](https://github.com/prachwal/preact-components-system)
-[![Tests](https://img.shields.io/badge/tests-77%2F77-success.svg)](https://github.com/prachwal/preact-components-system)
+[![Bundle Size](https://img.shields.io/badge/bundle-54kB-success.svg)](https://github.com/prachwal/preact-components-system)
+[![Tests](https://img.shields.io/badge/tests-298%2F298-success.svg)](https://github.com/prachwal/preact-components-system)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://github.com/prachwal/preact-components-system)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
 
-- 🎯 **Lightweight**: Only 40 kB bundle size (96% reduction from initial 1,023 kB)
+- 🎯 **Lightweight**: Only 54 kB bundle size (optimized with tree-shaking)
 - 🎨 **Theming**: Complete theme system with light/dark/system modes
 - ♿ **Accessible**: WCAG AA compliant with focus management and ARIA support
 - 📱 **Responsive**: Mobile-first design with responsive breakpoints

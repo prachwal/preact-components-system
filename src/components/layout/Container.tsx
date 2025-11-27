@@ -33,6 +33,18 @@ export interface ContainerProps {
    * Component to render as
    */
   component?: keyof JSX.IntrinsicElements;
+  /**
+   * Semantic role for the container
+   */
+  role?: 'main' | 'section' | 'article' | 'aside' | 'header' | 'footer' | 'nav';
+  /**
+   * ARIA label for screen readers
+   */
+  'aria-label'?: string;
+  /**
+   * ARIA labelledby reference
+   */
+  'aria-labelledby'?: string;
 }
 
 /**
@@ -61,6 +73,9 @@ export const Container = ({
   style,
   children,
   component: Component = 'div',
+  role,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
 }: ContainerProps) => {
   const classes = clsx(
     'container',
@@ -73,7 +88,13 @@ export const Container = ({
   );
 
   return (
-    <Component className={classes} style={style}>
+    <Component
+      className={classes}
+      style={style}
+      role={role as any}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+    >
       {children}
     </Component>
   );

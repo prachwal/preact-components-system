@@ -179,6 +179,7 @@ export const TextField = ({
     placeholder,
     'aria-describedby': helperTextId,
     'aria-invalid': error ? 'true' : undefined,
+    'aria-required': required ? 'true' : undefined,
     ...rest,
   };
 
