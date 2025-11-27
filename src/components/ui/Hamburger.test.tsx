@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/preact';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+import { render, fireEvent } from '../../test/test-utils';
 
 import { Hamburger } from './Hamburger';
 

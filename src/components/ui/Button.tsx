@@ -100,6 +100,7 @@ export const Button = ({
       className={classes}
       disabled={disabled || loading}
       type={type}
+      role="button"
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}

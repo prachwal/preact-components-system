@@ -1,14 +1,8 @@
-import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import { ThemeProvider } from '../../providers/ThemeProvider';
+import { renderWithTheme, screen } from '../../test/test-utils';
 
 import { Card, CardHeader, CardContent, CardActions } from './Card';
-
-
-const renderWithTheme = (component: preact.ComponentChildren) => {
-  return render(<ThemeProvider>{component}</ThemeProvider>);
-};
 
 describe('Card', () => {
   it('renders children correctly', () => {

@@ -1,5 +1,6 @@
-import { render } from '@testing-library/preact';
 import { describe, it, expect, vi } from 'vitest';
+
+import { render } from '../../test/test-utils';
 
 import { ThemeProvider } from '../../providers/ThemeProvider';
 

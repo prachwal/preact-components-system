@@ -1,13 +1,8 @@
-import { render, screen } from '@testing-library/preact';
 import { describe, expect, it } from 'vitest';
 
-import { ThemeProvider } from '../../providers/ThemeProvider';
+import { renderWithTheme, screen } from '../../test/test-utils';
 
 import { AppShell } from './AppShell';
-
-const renderWithTheme = (component: preact.ComponentChildren) => {
-  return render(<ThemeProvider>{component}</ThemeProvider>);
-};
 
 describe('AppShell', () => {
   it('renders all main components', () => {

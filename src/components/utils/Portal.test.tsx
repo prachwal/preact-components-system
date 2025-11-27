@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/preact';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+
+import { render, screen } from '../../test/test-utils';
 
 import { Portal } from './Portal';
 

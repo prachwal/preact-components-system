@@ -1,13 +1,8 @@
-import { render, screen } from '@testing-library/preact';
 import { describe, it, expect } from 'vitest';
 
-import { ThemeProvider } from '../../providers/ThemeProvider';
+import { renderWithTheme, screen } from '../../test/test-utils';
 
 import { Main } from './Main';
-
-const renderWithTheme = (component: preact.ComponentChildren) => {
-  return render(<ThemeProvider>{component}</ThemeProvider>);
-};
 
 describe('Main', () => {
   it('renders main element', () => {

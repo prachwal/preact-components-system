@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/preact';
 import { describe, expect, it } from 'vitest';
+
+import { render, screen } from '../../test/test-utils';
 
 import { FocusTrap } from './FocusTrap';
 

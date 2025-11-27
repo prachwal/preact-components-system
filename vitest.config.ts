@@ -5,7 +5,7 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [preact()],
   test: {
-    globals: true,
+    globals: false,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: true,

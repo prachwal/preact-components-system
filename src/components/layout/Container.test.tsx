@@ -1,6 +1,7 @@
-import { render } from '@testing-library/preact';
 import { axe } from 'jest-axe';
 import { describe, it, expect } from 'vitest';
+
+import { render } from '../../test/test-utils';
 
 import { Container } from './Container';
 

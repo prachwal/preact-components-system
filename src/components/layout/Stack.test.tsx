@@ -1,14 +1,9 @@
-import { render } from '@testing-library/preact';
 import { axe } from 'jest-axe';
 import { describe, it, expect } from 'vitest';
 
-import { ThemeProvider } from '../../providers/ThemeProvider';
+import { renderWithTheme } from '../../test/test-utils';
 
 import { Stack } from './Stack';
-
-const renderWithTheme = (component: preact.ComponentChildren) => {
-  return render(<ThemeProvider>{component}</ThemeProvider>);
-};
 
 describe('Stack', () => {
   it('renders children correctly', () => {
