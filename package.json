@@ -118,7 +118,7 @@
     "prettier": "^3.7.1",
     "rimraf": "^6.0.1",
     "rollup-plugin-visualizer": "^6.0.5",
-    "sass": "^1.93.3",
+    "sass": "^1.94.2",
     "storybook": "^10.0.2",
     "typedoc": "^0.28.14",
     "typescript": "~5.9.3",
