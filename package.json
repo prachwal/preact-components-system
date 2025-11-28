@@ -114,7 +114,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "jest-axe": "^10.0.0",
-    "jsdom": "^27.1.0",
+    "jsdom": "^27.2.0",
     "prettier": "^3.7.1",
     "rimraf": "^6.0.1",
     "rollup-plugin-visualizer": "^6.0.5",
