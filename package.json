@@ -93,7 +93,7 @@
     "preact": "^10.27.2"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.2",
+    "@chromatic-com/storybook": "^4.1.3",
     "@microsoft/tsdoc-config": "^0.17.1",
     "@preact/preset-vite": "^2.10.2",
     "@storybook/addon-docs": "^10.0.2",
